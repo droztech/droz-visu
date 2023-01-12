@@ -7,11 +7,11 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [
     react(),
-    dts({ entryRoot: "./library", insertTypesEntry: true }),
+    dts({ entryRoot: "./src/library", insertTypesEntry: true }),
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "library/index.ts"),
+      entry: resolve(__dirname, "src/library/index.ts"),
       name: "compoaktion",
       formats: ["es", "umd"],
       fileName: (format) => `compoaktion.${format}.js`,
