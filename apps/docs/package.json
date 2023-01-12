@@ -11,9 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.0.1",
+    "@radix-ui/react-icons": "^1.1.1",
+    "@stitches/react": "^1.2.8",
+    "compoaktion": "*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lib": "*"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
