@@ -1,5 +1,2 @@
-export { Button } from "./Button";
-export type { ButtonProps } from "./Button";
-
-export { default as Checkbox } from "./Checkbox";
-export type { CheckboxRootProps, CheckboxIndicatorProps } from "./Checkbox";
+export { default as Button } from "./Button";
+export type { ButtonIconProps, ButtonRootProps } from "./Button";
