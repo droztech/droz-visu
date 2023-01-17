@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Button } from "compoaktion";
+import { Button } from "@coaktion/visu";
 
 export default {
   title: "Components/Button",

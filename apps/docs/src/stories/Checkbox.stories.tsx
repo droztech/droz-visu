@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import { Checkbox } from "compoaktion";
+import { Checkbox } from "@coaktion/visu";
 
 export default {
   title: "Components/Checkbox",
