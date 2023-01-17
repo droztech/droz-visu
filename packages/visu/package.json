@@ -1,18 +1,21 @@
 {
   "name": "@coaktion/visu",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.4-Alpha",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "description": "A library to use for coaktion projects!",
   "type": "module",
-  "homepage": "https://compoaktion-docs.netlify.app/",
+  "homepage": "https://visu-docs.netlify.app/",
   "author": "Leandro Pedroso <leandroppf@gmail.com>",
   "bugs": {
-    "url": "https://github.com/leandroppf/compoaktion/issues"
+    "url": "https://github.com/Coaktion/Droz-Visu/issues"
   },
   "repository": {
     "type": "github",
-    "url": "git+https://github.com/leandroppf/compoaktion.git",
-    "directory": "packages/compoaktion"
+    "url": "git+https://github.com/Coaktion/Droz-Visu.git",
+    "directory": "packages/visu"
   },
   "keywords": [
     "coaktion",
@@ -41,14 +44,13 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-icons": "^1.1.1",
     "@stitches/react": "^1.2.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
