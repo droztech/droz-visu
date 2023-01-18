@@ -28,16 +28,18 @@ export default {
   },
 } as Meta<ButtonRootProps>;
 
-const play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
-  const canvas = within(canvasElement);
-  userEvent.click(canvas.getByRole("button"));
-};
-
 export const Default: StoryObj<ButtonRootProps> = {
   args: {
     children: <>Clique aqui</>,
   },
-  play,
+  play: ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const screen = within(canvasElement);
+
+    expect(screen.getByRole("button")).toBeVisible;
+    expect(screen.getByRole("button")).toHaveTextContent("Clique aqui");
+
+    userEvent.click(screen.getByRole("button"));
+  },
 };
 
 export const WithIcon: StoryObj<ButtonRootProps> = {
@@ -51,5 +53,13 @@ export const WithIcon: StoryObj<ButtonRootProps> = {
       </>
     ),
   },
-  play,
+  play: ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const screen = within(canvasElement);
+
+    expect(screen.getByRole("button")).toBeVisible;
+    expect(screen.getByRole("button")).toHaveTextContent("Clique aqui");
+    expect(screen.getByRole("button")).toContainHTML("svg");
+
+    userEvent.click(screen.getByRole("button"));
+  },
 };
