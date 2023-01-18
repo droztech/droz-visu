@@ -5,7 +5,7 @@ export const Main = styled("div", {
   justifyContent: "center",
   alignItems: "center",
   minHeight: "100vh",
-  backgroundColor: "$gray900",
+  backgroundColor: "$background",
   color: "$gray50",
 });
 
