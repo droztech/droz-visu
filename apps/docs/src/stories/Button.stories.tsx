@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonRootProps } from "@coaktion/visu";
 import { CheckCircle } from "phosphor-react";
+import { within, userEvent } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 export default {
   title: "Components/Button",
@@ -26,10 +28,16 @@ export default {
   },
 } as Meta<ButtonRootProps>;
 
+const play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  const canvas = within(canvasElement);
+  userEvent.click(canvas.getByRole("button"));
+};
+
 export const Default: StoryObj<ButtonRootProps> = {
   args: {
     children: <>Clique aqui</>,
   },
+  play,
 };
 
 export const WithIcon: StoryObj<ButtonRootProps> = {
@@ -43,4 +51,5 @@ export const WithIcon: StoryObj<ButtonRootProps> = {
       </>
     ),
   },
+  play,
 };
