@@ -1,16 +1,46 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-
-import { Button } from "@coaktion/visu";
+import { Meta, StoryObj } from "@storybook/react";
+import { Button, ButtonRootProps } from "@coaktion/visu";
+import { CheckCircle } from "phosphor-react";
 
 export default {
   title: "Components/Button",
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  component: Button.Root,
+  argTypes: {
+    size: {
+      options: ["sm", "md", "lg"],
+      control: {
+        type: "inline-radio",
+      },
+      defaultValue: "md",
+    },
+    ghost: {
+      control: {
+        type: "boolean",
+      },
+    },
+    disabled: {
+      control: {
+        type: "boolean",
+      },
+    },
+  },
+} as Meta<ButtonRootProps>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <div>
-    <Button {...args}>Sou um botão</Button>
-  </div>
-);
+export const Default: StoryObj<ButtonRootProps> = {
+  args: {
+    children: <>Clique aqui</>,
+  },
+};
 
-export const Default = Template.bind({});
+export const WithIcon: StoryObj<ButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        <Button.Icon>
+          <CheckCircle />
+        </Button.Icon>
+        Clique aqui
+      </>
+    ),
+  },
+};
