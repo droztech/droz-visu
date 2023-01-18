@@ -1,10 +1,11 @@
-import { ButtonHTMLAttributes, HTMLAttributes } from "react";
+import { ButtonHTMLAttributes, HTMLAttributes, ComponentProps } from "react";
 import * as Component from "./style";
 
 // ========================= ROOT =========================
 
 export interface ButtonRootProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    ComponentProps<typeof Component.Root> {}
 
 const ButtonRoot = ({ children, ...rest }: ButtonRootProps): JSX.Element => {
   return <Component.Root {...rest}>{children}</Component.Root>;
