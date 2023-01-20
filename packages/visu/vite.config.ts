@@ -2,8 +2,8 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import dts from "vite-plugin-dts";
+import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
@@ -12,9 +12,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/library/index.ts"),
-      name: "compoaktion",
+      name: "visu",
       formats: ["es", "umd"],
-      fileName: (format) => `compoaktion.${format}.js`,
+      fileName: (format) => `visu.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -25,5 +25,15 @@ export default defineConfig({
         },
       },
     },
+  },
+  resolve: {
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "") },
+      {
+        find: "@library",
+        replacement: path.resolve(__dirname, "./src/library"),
+      },
+      { find: "@styles", replacement: path.resolve(__dirname, "./src/styles") },
+    ],
   },
 });

@@ -14,12 +14,12 @@
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "phosphor-react": "latest",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "npm@8.19.2"
 }
