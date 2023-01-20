@@ -11,4 +11,17 @@ export const parameters = {
   docs: {
     theme: themes.dark,
   },
+  backgrounds: {
+    default: "Light",
+    values: [
+      {
+        name: "Light",
+        value: "#f2f2f2",
+      },
+      {
+        name: "Dark",
+        value: "#111827",
+      },
+    ],
+  },
 };
