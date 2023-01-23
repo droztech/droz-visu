@@ -1,17 +1,17 @@
 import * as Component from "@styles/index";
-import { Button } from "@library";
-import { CheckCircle } from "phosphor-react";
+import { Text } from "./library";
 
 function App() {
   return (
     <Component.Main>
       <Component.Container>
-        <Button.Root>
-          <Button.Icon>
-            <CheckCircle />
-          </Button.Icon>
-          Clique aqui
-        </Button.Root>
+        {/* ========================= TEST AREA ========================= */}
+
+        <Text size="lg" color="primary400" link="primary" underline>
+          Hello World
+        </Text>
+
+        {/* ========================= TEST AREA ========================= */}
       </Component.Container>
     </Component.Main>
   );
