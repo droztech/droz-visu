@@ -1,6 +1,8 @@
 import { styled } from "@/stitches.config";
 
 export const Root = styled("span", {
+  transition: "$normal all",
+
   variants: {
     underline: {
       true: {
@@ -19,7 +21,7 @@ export const Root = styled("span", {
         fontSize: "$md",
       },
       lg: {
-        fontSize: "lg",
+        fontSize: "$lg",
       },
       xl: {
         fontSize: "$xl",
@@ -31,7 +33,7 @@ export const Root = styled("span", {
         fontSize: "$3xl",
       },
     },
-    colored: {
+    color: {
       gray100: { color: "$gray100" },
       gray400: { color: "$gray400" },
       gray900: { color: "$gray900" },
@@ -41,9 +43,36 @@ export const Root = styled("span", {
       error400: { color: "$error400" },
       alert400: { color: "$alert400" },
     },
+    link: {
+      primary: {
+        cursor: "pointer",
+        "&:hover": { color: "$primary500" },
+        "&:active": { color: "$primary600" },
+      },
+      secondary: {
+        cursor: "pointer",
+        "&:hover": { color: "$secondary500" },
+        "&:active": { color: "$secondary600" },
+      },
+      success: {
+        cursor: "pointer",
+        "&:hover": { color: "$success500" },
+        "&:active": { color: "$success600" },
+      },
+      error: {
+        cursor: "pointer",
+        "&:hover": { color: "$error500" },
+        "&:active": { color: "$error600" },
+      },
+      alert: {
+        cursor: "pointer",
+        "&:hover": { color: "$alert500" },
+        "&:active": { color: "$alert600" },
+      },
+    },
   },
   defaultVariants: {
     size: "md",
-    colored: "gray900",
+    color: "gray900",
   },
 });

@@ -38,7 +38,7 @@ export default {
     link: {
       options: ["primary", "secondary", "success", "error", "alert"],
       control: {
-        type: "inline-radio",
+        type: "select",
       },
     },
     underline: {

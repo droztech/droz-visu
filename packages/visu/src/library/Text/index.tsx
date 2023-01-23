@@ -4,8 +4,8 @@ import * as Component from "./style";
 // ========================= ROOT =========================
 
 export interface TextRootProps
-  extends HTMLAttributes<HTMLSpanElement>,
-    ComponentProps<typeof Component.Root> {
+  extends ComponentProps<typeof Component.Root>,
+    Omit<HTMLAttributes<HTMLSpanElement>, "color"> {
   as?: keyof JSX.IntrinsicElements;
 }
 

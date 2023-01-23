@@ -7,7 +7,7 @@ function App() {
       <Component.Container>
         {/* ========================= TEST AREA ========================= */}
 
-        <Text size="2xl" colored="primary400" underline>
+        <Text size="lg" color="primary400" link="primary" underline>
           Hello World
         </Text>
 
