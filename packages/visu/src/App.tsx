@@ -9,7 +9,7 @@ function App() {
         {/* ========================= TEST AREA ========================= */}
 
         <Input.Root>
-          <Input.Icon>
+          <Input.Icon position="right">
             <Envelope />
           </Input.Icon>
           <Input.Input type="email" placeholder="Escreva seu email aqui" />
