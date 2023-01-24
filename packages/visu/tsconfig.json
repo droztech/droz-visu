@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"],
+      "@library": ["src/library"],
+      "@styles/*": ["src/styles/*"]
+    }
+  },
   "extends": "tsconfig/library.json",
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
