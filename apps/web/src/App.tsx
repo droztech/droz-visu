@@ -6,7 +6,7 @@ function App() {
     <C.Main>
       <C.Container>
         {/* ========================= TEST AREA ========================= */}
-        <Button.Root>Clique aqui</Button.Root>
+
         {/* ========================= TEST AREA ========================= */}
       </C.Container>
     </C.Main>

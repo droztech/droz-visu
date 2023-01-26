@@ -35,7 +35,7 @@ export const Root = styled("span", {
     },
     color: {
       gray100: { color: "$gray100" },
-      gray400: { color: "$gray400" },
+      gray500: { color: "$gray500" },
       gray900: { color: "$gray900" },
       primary400: { color: "$primary400" },
       secondary400: { color: "$secondary400" },
