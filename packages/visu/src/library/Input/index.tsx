@@ -27,7 +27,11 @@ InputInput.displayName = "Input.Input";
 
 // ========================= ICON =========================
 
-export interface InputIconProps extends HTMLAttributes<HTMLDivElement> {}
+export interface InputIconProps
+  extends HTMLAttributes<HTMLDivElement>,
+    ComponentProps<typeof Component.Icon> {
+  position: "left" | "right";
+}
 
 const InputIcon = ({ children, ...rest }: InputIconProps): JSX.Element => {
   return <Component.Icon {...rest}>{children}</Component.Icon>;

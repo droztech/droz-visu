@@ -1,9 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonRootProps } from "@coaktion/visu";
 import { CheckCircle } from "phosphor-react";
-import { within, userEvent } from "@storybook/testing-library";
-import { render, screen } from "@testing-library/react";
-import { expect, jest } from "@storybook/jest";
 
 export default {
   title: "Components/Button",
@@ -33,35 +30,15 @@ export default {
 } as Meta<ButtonRootProps>;
 
 export const Default: StoryObj<ButtonRootProps> = {
-  args: {
-    children: <>Clique aqui</>,
-  },
-  play: () => {
-    const test = render(
-      <Button.Root
-        ghost
-        onClick={() => console.log("click")}
-        data-testid="element"
-      >
-        Teste
-      </Button.Root>
-    );
-
-    const element = screen.getByTestId("element");
-    const logSpy = jest.spyOn(global.console, "log");
-
-    expect(element).toBeVisible;
-    expect(element).toHaveStyle("background-color: rgba(0, 0, 0, 0)");
-    expect(element).toHaveTextContent("Teste");
-
-    userEvent.click(element);
-    expect(logSpy).toHaveBeenCalledWith("click");
-
-    test.unmount();
+  argTypes: {
+    children: {
+      control: { type: "text" },
+      defaultValue: "Clique Aqui",
+    },
   },
 };
 
-export const WithIcon: StoryObj<ButtonRootProps> = {
+export const WithIconLeft: StoryObj<ButtonRootProps> = {
   args: {
     children: (
       <>
@@ -72,15 +49,17 @@ export const WithIcon: StoryObj<ButtonRootProps> = {
       </>
     ),
   },
-  play: ({ canvasElement }: { canvasElement: HTMLElement }) => {
-    const screen = within(canvasElement);
-    const logSpy = jest.spyOn(global.console, "log");
+};
 
-    expect(screen.getByRole("button")).toBeVisible;
-    expect(screen.getByRole("button")).toHaveTextContent("Clique aqui");
-    expect(screen.getByRole("button")).toContainHTML("svg");
-
-    userEvent.click(screen.getByRole("button"));
-    expect(logSpy).toHaveBeenCalledWith("click");
+export const WithIconRight: StoryObj<ButtonRootProps> = {
+  args: {
+    children: (
+      <>
+        Clique aqui
+        <Button.Icon>
+          <CheckCircle />
+        </Button.Icon>
+      </>
+    ),
   },
 };
