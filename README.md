@@ -1,73 +1,72 @@
-# Turborepo starter
+# Visu
 
-This is an official npm starter turborepo.
+Um projeto para a criação, testes e documentação de componentes para os produtos Coaktion.
 
-## What's inside?
+## Como o projeto funciona?
 
-This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It includes the following packages/apps:
+O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.build/repo), para saber mais acesse o [Monorepo Handbook](https://turbo.build/repo/docs/handbook). O projeto conta com dois workspaces `apps` e `packages`:
 
-### Apps and Packages
+### Apps
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `docs`: Um projeto para a documentação e testes dos componentes criados na biblioteca Visu. Tanto a documentação quanto os testes são realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- `web`: Projeto para validação dos componentes criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca e dos componentes em um projeto externo.
 
-### Utilities
+### Packages
 
-This turborepo has some additional tools already setup for you:
+- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`).
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo.
+
+- `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev/) e realiza um [build com o modo lib](https://storybook.js.org/) da pasta `src/library` para a publicação da biblioteca.
 
 ### Build
 
-To build all apps and packages, run the following command:
+Para executar o build em todos os `apps` e `packages` utilize o comando abaixo na raiz do projeto:
 
 ```
-cd my-turborepo
 npm run build
 ```
 
-### Develop
+### Desenvolvimento
 
-To develop all apps and packages, run the following command:
+Para executar em paralelo e no modo de desenvolvimento todos os `apps` e `packages` utilize o comando abaixo na raiz do projeto:
 
 ```
-cd my-turborepo
 npm run dev
 ```
 
-### Remote Caching
+## Biblioteca
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir da pasta `src/library`. Para realizar a publicação precisamos gerar um build da biblioteca que irá criar a pasta `dist` com essa pasta criada podemos então executar o comando `npm publish`. Já está tudo configurado no package.json para a publicação da biblioteca, caso tenha permissão para realizar a publicação o comando deverá funcionar. <b>Nesse primeiro momento a biblioteca está sendo publicada apenas no Github Packages.</b>
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+### Github Packages
 
-```
-cd my-turborepo
-npx turbo login
-```
+Para realizar a publicação no Github Packages, foi configurado o registry no `package.json` da bilbioteca apontando para `https://npm.pkg.github.com`. Nesse caso estamos modificando o registry padrão que tentaria publicar no NPM. É necessário estar com um token de acesso dando permissão para a publicação da bilbioteca em um arquivo `.npmrc` na raiz do usuário no Linux.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Links úteis:
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+Aprenda mais sobre criação de bibliotecas:
 
-```
-npx turbo link
-```
+- [npm publish](https://docs.npmjs.com/cli/v9/commands/npm-publish)
+- [Vite build Library mode](https://docs.npmjs.com/cli/v9/commands/npm-publish)
+- [package.json configs](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
+- [Github packages](https://docs.github.com/en/packages/quickstart)
 
-## Useful Links
+Aprenda mais sobre `Turborepo`:
 
-Learn more about the power of Turborepo:
-
+- [Package Installation](https://turbo.build/repo/docs/handbook/package-installation)
 - [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
 - [Caching](https://turbo.build/repo/docs/core-concepts/caching)
 - [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+Aprenda mais sobre `Storybook`:
+
+- [Story](https://storybook.js.org/docs/react/get-started/whats-a-story)
+- [Setup](https://storybook.js.org/docs/react/get-started/setup)
+- [Addons](https://storybook.js.org/docs/react/addons/introduction)
+- [Testing](https://storybook.js.org/docs/react/writing-tests/introduction)
+- [Builders](https://storybook.js.org/docs/react/builders/overview)
