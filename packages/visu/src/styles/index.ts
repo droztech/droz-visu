@@ -13,8 +13,15 @@ export const Container = styled("div", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  flexDirection: "column",
   gap: "1rem",
   maxWidth: "768px",
   width: "95vw",
+
+  variants: {
+    col: {
+      true: {
+        flexDirection: "column",
+      },
+    },
+  },
 });
