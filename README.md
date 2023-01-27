@@ -8,9 +8,9 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 ### Apps
 
-- `docs`: Um projeto para a documentação e testes dos componentes criados na biblioteca Visu. Tanto a documentação quanto os testes são realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
+- `docs`: Um projeto para a documentação dos componentes criados na biblioteca Visu realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
 
-- `web`: Projeto para validação dos componentes criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca e dos componentes em um projeto externo.
+- `web`: Projeto para validação e testes dos componentes criados na biblioteca Visu utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro). Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca e dos componentes em um projeto externo.
 
 ### Packages
 
@@ -18,7 +18,7 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo.
 
-- `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev/) e realiza um [build com o modo lib](https://storybook.js.org/) da pasta `src/library` para a publicação da biblioteca.
+- `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [Stitches](https://stitches.dev/docs/introduction) e realiza o build em [Modo Lib](https://storybook.js.org) da pasta `src/library` para a publicação da biblioteca.
 
 ### Build
 
@@ -36,6 +36,20 @@ Para executar em paralelo e no modo de desenvolvimento todos os `apps` e `packag
 npm run dev
 ```
 
+### Teste
+
+Para executar o teste no projeto `apps/web` utilize o comando abaixo na raiz do projeto:
+
+```
+npm run test
+```
+
+Para executar o teste em apenas um arquivo do projeto `apps/web` utilize o comando abaixo na raiz do projeto:
+
+```
+npm run test -- [nome].test.tsx
+```
+
 ## Biblioteca
 
 Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir da pasta `src/library`. Para realizar a publicação precisamos gerar um build da biblioteca que irá criar a pasta `dist` com essa pasta criada podemos então executar o comando `npm publish`. Já está tudo configurado no package.json para a publicação da biblioteca, caso tenha permissão para realizar a publicação o comando deverá funcionar. <b>Nesse primeiro momento a biblioteca está sendo publicada apenas no Github Packages.</b>
@@ -46,12 +60,12 @@ Para realizar a publicação no Github Packages, foi configurado o registry no `
 
 ## Links úteis:
 
-Aprenda mais sobre criação de bibliotecas:
+Aprenda mais sobre `Packages`:
 
-- [npm publish](https://docs.npmjs.com/cli/v9/commands/npm-publish)
-- [Vite build Library mode](https://docs.npmjs.com/cli/v9/commands/npm-publish)
-- [package.json configs](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
-- [Github packages](https://docs.github.com/en/packages/quickstart)
+- [NPM Publish](https://docs.npmjs.com/cli/v9/commands/npm-publish)
+- [Vite Build Library Mode](https://docs.npmjs.com/cli/v9/commands/npm-publish)
+- [package.json Configs](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
+- [Github Packages](https://docs.github.com/en/packages/quickstart)
 
 Aprenda mais sobre `Turborepo`:
 
@@ -70,3 +84,11 @@ Aprenda mais sobre `Storybook`:
 - [Addons](https://storybook.js.org/docs/react/addons/introduction)
 - [Testing](https://storybook.js.org/docs/react/writing-tests/introduction)
 - [Builders](https://storybook.js.org/docs/react/builders/overview)
+- [Controls](https://storybook.js.org/docs/react/essentials/controls)
+
+Aprenda mais sobre `Testes`:
+
+- [Exemplos](https://testing-library.com/docs/react-testing-library/example-intro)
+- [API](https://testing-library.com/docs/react-testing-library/api)
+- [Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
+- [Expect](https://jestjs.io/pt-BR/docs/expect)
