@@ -39,8 +39,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
         
-      - name: Build Visu
-        working-directory: packages/visu
+      - name: Build
         run: npm run build
         
       - name: Install Docs Dependencies
