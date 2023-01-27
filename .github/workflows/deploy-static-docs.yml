@@ -36,14 +36,24 @@ jobs:
         with:
           node-version: 16.x
           
-      - name: Install Dependencies
+      - name: Install Visu Dependencies
+        working-directory: packages/visu
         run: npm ci
+        
+      - name: Build Visu
+        working-directory: packages/visu
+        run: npm run build
+        
+      - name: Install Docs Dependencies
+        working-directory: apps/docs
+        run: npm ci
+        
+      - name: Build Docs
+        working-directory: apps/docs
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
-        
-      - name: Build
-        run: npm run build
   
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
