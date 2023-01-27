@@ -1,4 +1,9 @@
-import { HTMLAttributes, ComponentProps, InputHTMLAttributes } from "react";
+import {
+  HTMLAttributes,
+  ComponentProps,
+  InputHTMLAttributes,
+  useMemo,
+} from "react";
 import * as Component from "./style";
 
 // ========================= ROOT =========================
@@ -29,12 +34,20 @@ InputInput.displayName = "Input.Input";
 
 export interface InputIconProps
   extends HTMLAttributes<HTMLDivElement>,
-    ComponentProps<typeof Component.Icon> {
+    Omit<ComponentProps<typeof Component.Icon>, "clickable"> {
   position: "left" | "right";
 }
 
 const InputIcon = ({ children, ...rest }: InputIconProps): JSX.Element => {
-  return <Component.Icon {...rest}>{children}</Component.Icon>;
+  const hasClick = useMemo(() => {
+    return rest.onClick ? true : false;
+  }, [rest.onClick]);
+
+  return (
+    <Component.Icon clickable={hasClick} {...rest}>
+      {children}
+    </Component.Icon>
+  );
 };
 
 InputRoot.displayName = "Input.Icon";
