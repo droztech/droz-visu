@@ -4,9 +4,8 @@ export const Input = styled("input", {
   border: "none",
   outline: "none !important",
   backgroundColor: "transparent",
-  padding: "0 $4",
   height: "$10",
-  zIndex: 1,
+  padding: "$2half $4",
 
   "&:placeholder": {
     color: "$gray400",
@@ -16,7 +15,12 @@ export const Input = styled("input", {
 export const Icon = styled("div", {
   height: "$6",
   width: "$6",
-  margin: "0 $2",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "0 $4",
+  transition: "all $normal",
+  position: "absolute",
 
   "svg, img": {
     height: "100%",
@@ -26,19 +30,28 @@ export const Icon = styled("div", {
   variants: {
     position: {
       left: {
-        position: "absolute",
         left: 0,
 
         [`& ~ ${Input}`]: {
-          paddingLeft: "$10",
+          // Left($4) + Icon($6) + Right($4) = $14
+          paddingLeft: "$14",
         },
       },
       right: {
-        position: "absolute",
         right: 0,
 
         [`& ~ ${Input}`]: {
-          paddingRight: "$10",
+          // Left($4) + Icon($6) + Right($4) = $14
+          paddingRight: "$14",
+        },
+      },
+    },
+
+    clickable: {
+      true: {
+        "&:hover": {
+          color: "$primary",
+          cursor: "pointer",
         },
       },
     },

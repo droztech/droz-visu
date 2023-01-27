@@ -2,7 +2,7 @@ import {
   HTMLAttributes,
   ComponentProps,
   InputHTMLAttributes,
-  useRef,
+  useMemo,
 } from "react";
 import * as Component from "./style";
 
@@ -34,20 +34,17 @@ InputInput.displayName = "Input.Input";
 
 export interface InputIconProps
   extends HTMLAttributes<HTMLDivElement>,
-    ComponentProps<typeof Component.Icon> {
-  // position: "left" | "right";
+    Omit<ComponentProps<typeof Component.Icon>, "clickable"> {
+  position: "left" | "right";
 }
 
 const InputIcon = ({ children, ...rest }: InputIconProps): JSX.Element => {
-  const ref = useRef(null);
-
-  const abc = () => {
-    const el = ref.current;
-    console.log(el);
-  };
+  const hasClick = useMemo(() => {
+    return rest.onClick ? true : false;
+  }, [rest.onClick]);
 
   return (
-    <Component.Icon ref={ref} onClick={abc} {...rest}>
+    <Component.Icon clickable={hasClick} {...rest}>
       {children}
     </Component.Icon>
   );
