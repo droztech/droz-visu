@@ -26,6 +26,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
