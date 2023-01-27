@@ -1,4 +1,9 @@
-import { HTMLAttributes, ComponentProps, InputHTMLAttributes } from "react";
+import {
+  HTMLAttributes,
+  ComponentProps,
+  InputHTMLAttributes,
+  useRef,
+} from "react";
 import * as Component from "./style";
 
 // ========================= ROOT =========================
@@ -30,11 +35,22 @@ InputInput.displayName = "Input.Input";
 export interface InputIconProps
   extends HTMLAttributes<HTMLDivElement>,
     ComponentProps<typeof Component.Icon> {
-  position: "left" | "right";
+  // position: "left" | "right";
 }
 
 const InputIcon = ({ children, ...rest }: InputIconProps): JSX.Element => {
-  return <Component.Icon {...rest}>{children}</Component.Icon>;
+  const ref = useRef(null);
+
+  const abc = () => {
+    const el = ref.current;
+    console.log(el);
+  };
+
+  return (
+    <Component.Icon ref={ref} onClick={abc} {...rest}>
+      {children}
+    </Component.Icon>
+  );
 };
 
 InputRoot.displayName = "Input.Icon";

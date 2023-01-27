@@ -1,5 +1,5 @@
 import * as Component from "@styles/index";
-import { Input } from "@library";
+import { Input, Text } from "@library";
 import { Envelope } from "phosphor-react";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         {/* ========================= TEST AREA ========================= */}
 
         <Input.Root>
-          <Input.Icon position="right">
+          <Input.Icon>
             <Envelope />
           </Input.Icon>
           <Input.Input type="email" placeholder="Escreva seu email aqui" />

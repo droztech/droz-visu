@@ -1,5 +1,5 @@
 import { Button } from "@coaktion/visu";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { CheckCircle } from "phosphor-react";
 
 describe("Button tests", () => {
@@ -7,70 +7,82 @@ describe("Button tests", () => {
   const buttonClick = jest.fn();
 
   it("Should render a button", () => {
-    const { container } = render(<Button.Root>{buttonText}</Button.Root>);
-    const element = container.firstChild as Element;
+    render(<Button.Root data-testid="element">{buttonText}</Button.Root>);
+    const element = screen.getByTestId("element");
 
     expect(element).toBeDefined();
   });
 
   it("Should render a button with correct text", () => {
-    const { container } = render(<Button.Root>{buttonText}</Button.Root>);
-    const element = container.firstChild as Element;
+    render(<Button.Root data-testid="element">{buttonText}</Button.Root>);
+    const element = screen.getByTestId("element");
 
     expect(element).toHaveTextContent(buttonText);
   });
 
   it("Should render a button with JSX element", () => {
-    const { container } = render(
-      <Button.Root>
+    render(
+      <Button.Root data-testid="element">
         <span>{buttonText}</span>
       </Button.Root>
     );
-    const element = container.firstChild as Element;
+    const element = screen.getByTestId("element");
 
     expect(element.firstElementChild?.tagName).toBe("SPAN");
     expect(element.firstElementChild).toHaveTextContent(buttonText);
   });
 
   it("Should render a button with icon and text", () => {
-    const { container } = render(
-      <Button.Root>
+    render(
+      <Button.Root data-testid="element">
         <Button.Icon>
           <CheckCircle />
         </Button.Icon>
         {buttonText}
       </Button.Root>
     );
-    const element = container.firstChild as Element;
+    const element = screen.getByTestId("element");
 
     expect(element.firstElementChild?.firstElementChild?.tagName).toBe("svg");
   });
 
   it("Should render a button with size styles", () => {
-    const { container } = render(<Button.Root ghost>{buttonText}</Button.Root>);
-    const element = container.firstChild as Element;
+    render(
+      <Button.Root data-testid="element" ghost>
+        {buttonText}
+      </Button.Root>
+    );
+    const element = screen.getByTestId("element");
   });
 
   it("Should render a button with ghost style", () => {
-    const { container } = render(<Button.Root ghost>{buttonText}</Button.Root>);
-    const element = container.firstChild as Element;
+    render(
+      <Button.Root data-testid="element" ghost>
+        {buttonText}
+      </Button.Root>
+    );
+    const element = screen.getByTestId("element");
   });
 
   it("Should render a button with disabled style and unable to click", () => {
-    const { container } = render(
-      <Button.Root disabled>{buttonText}</Button.Root>
+    render(
+      <Button.Root data-testid="element" disabled>
+        {buttonText}
+      </Button.Root>
     );
-    const element = container.firstChild as Element;
+    const element = screen.getByTestId("element");
 
     fireEvent.click(element);
     expect(buttonClick).toHaveBeenCalledTimes(0);
   });
 
   it("Should render a button with onClick", () => {
-    const { container } = render(
-      <Button.Root onClick={buttonClick}>{buttonText}</Button.Root>
+    render(
+      <Button.Root data-testid="element" onClick={buttonClick}>
+        {buttonText}
+      </Button.Root>
     );
-    const element = container.firstChild as Element;
+    const element = screen.getByTestId("element");
 
     fireEvent.click(element);
     expect(buttonClick).toHaveBeenCalledTimes(1);

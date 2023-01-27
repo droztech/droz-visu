@@ -1,5 +1,6 @@
 const config = {
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
+  verbose: true,
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },

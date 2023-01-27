@@ -16,7 +16,6 @@ export const Input = styled("input", {
 export const Icon = styled("div", {
   height: "$6",
   width: "$6",
-  position: "absolute",
   margin: "0 $2",
 
   "svg, img": {
@@ -27,6 +26,7 @@ export const Icon = styled("div", {
   variants: {
     position: {
       left: {
+        position: "absolute",
         left: 0,
 
         [`& ~ ${Input}`]: {
@@ -34,6 +34,7 @@ export const Icon = styled("div", {
         },
       },
       right: {
+        position: "absolute",
         right: 0,
 
         [`& ~ ${Input}`]: {
