@@ -36,8 +36,7 @@ jobs:
         with:
           node-version: 16.x
           
-      - name: Install Visu Dependencies
-        working-directory: packages/visu
+      - name: Install Dependencies
         run: npm ci
         
       - name: Build Visu
