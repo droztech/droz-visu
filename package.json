@@ -1,6 +1,6 @@
 {
   "name": "visu",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "eslint-config-custom": "*",
+    "glob": "^7.2.3",
     "phosphor-react": "latest",
     "prettier": "latest",
     "turbo": "latest"

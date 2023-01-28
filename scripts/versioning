@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -eu
+
+# --patch
+# --minor
+# --major
+# --new-version 0.0.x
+declare version="$@"
+[[ -z "$version" ]] && version="--patch"
+
+echo "Setting new version to '$version'"
+
+# update root version
+npm version $version --no-git-tag-version
+# propagate changes to monorepo packages
+node scripts/versioning.js
