@@ -1,4 +1,12 @@
-# Visu
+<p align="center">
+  <h1 align="center">Visu</h1>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Coaktion/Droz-Visu/actions/workflows/build.js.yml">
+    <img src="https://github.com/Coaktion/Droz-Visu/actions/workflows/build.js.yml/badge.svg" alt="CI/CD visu">
+  </a>
+</p>
 
 Um projeto para a criação, testes e documentação de componentes para os produtos Coaktion.
 
