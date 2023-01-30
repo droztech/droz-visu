@@ -1,57 +1,58 @@
-import { Text } from "@coaktion/visu";
-import { fireEvent, render, screen } from "@testing-library/react";
-import { Info } from "phosphor-react";
+import { fireEvent, render, screen } from '@testing-library/react'
+import { Info } from 'phosphor-react'
 
-describe("Text tests", () => {
-  const textText = "Hello World";
-  const textClick = jest.fn();
+import { Text } from '@coaktion/visu'
 
-  it("Should render a text", () => {
-    render(<Text data-testid="element">{textText}</Text>);
-    const element = screen.getByTestId("element");
+describe('Text tests', () => {
+  const textText = 'Hello World'
+  const textClick = jest.fn()
 
-    expect(element).toBeDefined();
-  });
+  it('Should render a text', () => {
+    render(<Text data-testid="element">{textText}</Text>)
+    const element = screen.getByTestId('element')
 
-  it("Should render a correct text", () => {
-    render(<Text data-testid="element">{textText}</Text>);
-    const element = screen.getByTestId("element");
+    expect(element).toBeDefined()
+  })
 
-    expect(element).toHaveTextContent(textText);
-  });
+  it('Should render a correct text', () => {
+    render(<Text data-testid="element">{textText}</Text>)
+    const element = screen.getByTestId('element')
 
-  it("Should render a different tag text", () => {
+    expect(element).toHaveTextContent(textText)
+  })
+
+  it('Should render a different tag text', () => {
     render(
       <Text data-testid="element" as="h1">
         {textText}
       </Text>
-    );
-    const element = screen.getByTestId("element");
+    )
+    const element = screen.getByTestId('element')
 
-    expect(element.tagName).toBe("H1");
-  });
+    expect(element.tagName).toBe('H1')
+  })
 
-  it("Should render a text with onClick", () => {
+  it('Should render a text with onClick', () => {
     render(
       <Text data-testid="element" link="primary" onClick={textClick}>
         {textText}
       </Text>
-    );
-    const element = screen.getByTestId("element");
+    )
+    const element = screen.getByTestId('element')
 
-    fireEvent.click(element);
-    expect(textClick).toHaveBeenCalledTimes(1);
-  });
+    fireEvent.click(element)
+    expect(textClick).toHaveBeenCalledTimes(1)
+  })
 
-  it("Should render a text with image", () => {
+  it('Should render a text with image', () => {
     render(
       <Text data-testid="element" color="alert400">
         <Info />
         {textText}
       </Text>
-    );
-    const element = screen.getByTestId("element");
+    )
+    const element = screen.getByTestId('element')
 
-    expect(element.firstElementChild?.tagName).toBe("svg");
-  });
-});
+    expect(element.firstElementChild?.tagName).toBe('svg')
+  })
+})

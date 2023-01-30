@@ -1,11 +1,12 @@
-import { componentsStyle } from "@styles/global";
-componentsStyle();
+import { componentsStyle } from '@styles/global'
 
-export { default as Button } from "./Button";
-export type { ButtonIconProps, ButtonRootProps } from "./Button";
+componentsStyle()
 
-export { default as Text } from "./Text";
-export type { TextRootProps } from "./Text";
+export { default as Button } from './Button'
+export type { ButtonIconProps, ButtonRootProps } from './Button'
 
-export { default as Input } from "./Input";
-export type { InputRootProps, InputIconProps, InputInputProps } from "./Input";
+export { default as Text } from './Text'
+export type { TextRootProps } from './Text'
+
+export { default as Input } from './Input'
+export type { InputRootProps, InputIconProps, InputInputProps } from './Input'

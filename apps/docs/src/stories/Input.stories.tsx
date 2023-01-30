@@ -1,25 +1,26 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Input, InputRootProps } from "@coaktion/visu";
-import { Envelope } from "phosphor-react";
+import { Meta, StoryObj } from '@storybook/react'
+import { Envelope } from 'phosphor-react'
+
+import { Input, InputRootProps } from '@coaktion/visu'
 
 export default {
-  title: "Components/Input",
+  title: 'Components/Input',
   component: Input.Root,
   argTypes: {
     border: {
-      options: ["error", "success"],
+      options: ['error', 'success'],
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
       },
     },
   },
-} as Meta<InputRootProps>;
+} as Meta<InputRootProps>
 
 export const Default: StoryObj<InputRootProps> = {
   args: {
     children: <Input.Input type="text" placeholder="Escreva seu nome aqui" />,
   },
-};
+}
 
 export const WithIconLeft: StoryObj<InputRootProps> = {
   args: {
@@ -32,7 +33,7 @@ export const WithIconLeft: StoryObj<InputRootProps> = {
       </>
     ),
   },
-};
+}
 
 export const WithIconRight: StoryObj<InputRootProps> = {
   args: {
@@ -45,4 +46,4 @@ export const WithIconRight: StoryObj<InputRootProps> = {
       </>
     ),
   },
-};
+}

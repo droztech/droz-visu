@@ -1,13 +1,13 @@
 const config = {
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   verbose: true,
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    '^.+\\.tsx?$': 'ts-jest',
   },
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-};
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+}
 
-export default config;
+export default config

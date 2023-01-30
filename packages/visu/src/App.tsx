@@ -1,10 +1,11 @@
-import * as Component from "@styles/index";
-import { Input } from "@library";
-import { Eye, EyeSlash, Info } from "phosphor-react";
-import { useState } from "react";
+import { Input } from '@library'
+import { Eye, EyeSlash, Info } from 'phosphor-react'
+import { useState } from 'react'
+
+import * as Component from '@styles/index'
 
 function App() {
-  const [isShowingPassword, setIsShowingPassword] = useState(false);
+  const [isShowingPassword, setIsShowingPassword] = useState(false)
 
   return (
     <Component.Main>
@@ -22,7 +23,7 @@ function App() {
             <Info />
           </Input.Icon>
           <Input.Input
-            type={isShowingPassword ? "text" : "password"}
+            type={isShowingPassword ? 'text' : 'password'}
             placeholder="Digite sua senha aqui"
           />
         </Input.Root>
@@ -30,7 +31,7 @@ function App() {
         {/* ========================= TEST AREA ========================= */}
       </Component.Container>
     </Component.Main>
-  );
+  )
 }
 
-export default App;
+export default App

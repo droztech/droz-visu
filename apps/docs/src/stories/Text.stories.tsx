@@ -1,52 +1,53 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Text, TextRootProps } from "@coaktion/visu";
+import { Meta, StoryObj } from '@storybook/react'
+
+import { Text, TextRootProps } from '@coaktion/visu'
 
 export default {
-  title: "Components/Text",
+  title: 'Components/Text',
   component: Text,
   argTypes: {
     children: {
-      control: { type: "text" },
-      defaultValue: "Hello World",
+      control: { type: 'text' },
+      defaultValue: 'Hello World',
     },
     size: {
-      options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"],
+      options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
       },
-      defaultValue: "md",
+      defaultValue: 'md',
     },
     as: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
     color: {
       options: [
-        "gray100",
-        "gray400",
-        "gray900",
-        "primary400",
-        "secondary400",
-        "success400",
-        "error400",
-        "alert400",
+        'gray100',
+        'gray400',
+        'gray900',
+        'primary400',
+        'secondary400',
+        'success400',
+        'error400',
+        'alert400',
       ],
       control: {
-        type: "select",
+        type: 'select',
       },
-      defaultValue: "gray900",
+      defaultValue: 'gray900',
     },
     link: {
-      options: ["primary", "secondary", "success", "error", "alert"],
+      options: ['primary', 'secondary', 'success', 'error', 'alert'],
       control: {
-        type: "select",
+        type: 'select',
       },
     },
     underline: {
       control: {
-        type: "boolean",
+        type: 'boolean',
       },
     },
   },
-} as Meta<TextRootProps>;
+} as Meta<TextRootProps>
 
-export const Default: StoryObj<TextRootProps> = {};
+export const Default: StoryObj<TextRootProps> = {}
