@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Coaktion/Droz-Visu/actions/workflows/build.js.yml">
-    <img src="https://github.com/Coaktion/Droz-Visu/actions/workflows/build.js.yml/badge.svg" alt="CI/CD visu">
+  <a href="https://github.com/Coaktion/Droz-Visu/actions/workflows/build-and-test.js.yml">
+    <img src="https://github.com/Coaktion/Droz-Visu/actions/workflows/build-and-test.js.yml/badge.svg" alt="CI/CD visu">
   </a>
 </p>
 
