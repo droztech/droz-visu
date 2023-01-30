@@ -5,11 +5,5 @@
   "files": [
     "base.json",
     "library.json"
-  ],
-  "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.1",
-    "@radix-ui/react-icons": "^1.1.1",
-    "@stitches/react": "^1.2.8",
-    "lib": "^4.3.3"
-  }
+  ]
 }

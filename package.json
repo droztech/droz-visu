@@ -10,17 +10,31 @@
     "build": "turbo run build --no-cache",
     "dev": "turbo run dev --parallel --no-cache",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "glob": "^7.2.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "phosphor-react": "latest",
-    "prettier": "latest",
-    "turbo": "latest"
+    "prettier": "2.8.3",
+    "turbo": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.19.2"
+  "packageManager": "npm@8.19.2",
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
+  }
 }
