@@ -26,7 +26,9 @@
     "lint-staged": "^13.1.0",
     "phosphor-react": "latest",
     "prettier": "2.8.3",
-    "turbo": "latest"
+    "turbo": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "engines": {
     "node": ">=14.0.0"
