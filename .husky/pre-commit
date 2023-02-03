@@ -2,3 +2,32 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx lint-staged
+
+# Protect main from accidental commits.
+echo "===\n>> Pre-commit Hook:: Checking branch name..."
+branchName=$(git branch | grep '*' | sed 's/* //')
+
+if [ $branchName == 'main' ]
+then
+  echo "\n🚫 Commit directly to main branch is not allowed!\n" && exit 1
+else
+  echo "\n✅ Branch name is $branchName not main.\n"
+fi
+
+if [[ $branchName = *[![:ascii:]]* ]]
+then
+  echo "\n🚫 Branch name should not have any ascii and upper case letters, please rename your branch name.\n" && exit 1
+else
+  echo "\n✅ Branch name is $branchName does not contain ascii.\n"
+fi
+
+if [[ $branchName =~ [A-Z] ]]
+then
+  echo "\n🚫 Branch name should not have any ascii and upper case letters, please rename your branch name.\n" && exit 1
+else
+  echo "\n✅ Branch name is $branchName does not contain upper case letters.\n"
+fi
+
+echo ">> Finish checking branch name.\n==="
+
+exit 0
