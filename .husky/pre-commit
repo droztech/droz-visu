@@ -7,7 +7,7 @@ npx lint-staged
 echo "===\n>> Pre-commit Hook:: Checking branch name..."
 branchName=$(git branch | grep '*' | sed 's/* //')
 
-if [ '$branchName' == 'main' ]
+if [ '$branchName' = 'main' ]
 then
   echo "\n🚫 Commit directly to main branch is not allowed!\n" && exit 1
 else
@@ -21,7 +21,7 @@ else
   echo "\n✅ Branch name is $branchName does not contain ascii.\n"
 fi
 
-if [ '$branchName' =~ [A-Z] ]
+if [ '$branchName' = [A-Z] ]
 then
   echo "\n🚫 Branch name should not have any ascii and upper case letters, please rename your branch name.\n" && exit 1
 else
