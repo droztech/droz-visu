@@ -22,8 +22,6 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 ### Packages
 
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`).
-
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo.
 
 - `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [Stitches](https://stitches.dev/docs/introduction) e realiza o build em [Modo Lib](https://storybook.js.org) da pasta `src/library` para a publicação da biblioteca.
@@ -100,3 +98,7 @@ Aprenda mais sobre `Testes`:
 - [API](https://testing-library.com/docs/react-testing-library/api)
 - [Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
 - [Expect](https://jestjs.io/pt-BR/docs/expect)
+
+## License
+
+[Copyright](./LICENSE)
