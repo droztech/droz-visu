@@ -1,32 +1,38 @@
-#!/bin/sh
+#!/bin/bash
 . "$(dirname "$0")/_/husky.sh"
 
 npx lint-staged
 
 # Protect main from accidental commits.
 echo "===\n>> Pre-commit Hook:: Checking branch name..."
+
+valid_branch_type_regex="feature\|feat\|fix\|bugfix\|chore\|release"
+valid_branch_case_regex="[A-Z]"
 branchName=$(git branch | grep '*' | sed 's/* //')
 
-if [ $branchName = 'main' ]
+if [ "$branchName" = "main" ]
 then
-  echo "\n🚫 Commit directly to main branch is not allowed!\n" && exit 1
+  echo "\n🚫 Commits na branch main não são permitidos!\n" && exit 1
 else
-  echo "\n✅ Branch name is $branchName not main.\n"
+  echo "\n✅ O commit não é na branch main.\n"
 fi
 
-if [ $branchName = *[![:ascii:]]* ]
+if ! echo "$branchName" | grep -q -w -i "$valid_branch_type_regex"
 then
-  echo "\n🚫 Branch name should not have any ascii and upper case letters, please rename your branch name.\n" && exit 1
+  echo "\n🚫 O nome da branch deve iniciar com feature, feat, fix, bugfix, chore ou release.\n"
+  exit 1
 else
-  echo "\n✅ Branch name is $branchName does not contain ascii.\n"
+  echo "\n✅ Conseguimos identificar se é feature, feat, fix, bugfix, chore ou release. \n"
 fi
 
-if [ $branchName = [A-Z] ]
+if echo "$branchName" | grep -q "$valid_branch_case_regex"
 then
-  echo "\n🚫 Branch name should not have any ascii and upper case letters, please rename your branch name.\n" && exit 1
+  echo "\n🚫 O nome da branch deve conter apenas letras minúsculas.\n"
+  exit 1
 else
-  echo "\n✅ Branch name is $branchName does not contain upper case letters.\n"
+  echo "\n✅ O nome da branch contém apenas letras minúsculas. \n"
 fi
+
 
 echo ">> Finish checking branch name.\n==="
 
