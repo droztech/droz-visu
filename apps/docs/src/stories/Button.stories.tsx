@@ -8,59 +8,83 @@ export default {
   component: Button.Root,
   argTypes: {
     size: {
+      control: { type: 'inline-radio' },
+      description: 'Define o tamanho do botão',
       options: ['sm', 'md', 'lg'],
-      control: {
-        type: 'inline-radio',
+      table: {
+        type: {
+          summary: ['sm', 'md', 'lg'].join('|'),
+        },
+        defaultValue: { summary: 'md' },
       },
-      defaultValue: 'md',
+      type: { name: 'string', required: false },
     },
     ghost: {
-      control: {
-        type: 'boolean',
+      control: 'boolean',
+      description: 'Aplica o estilo ghost',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
+      type: { name: 'boolean', required: false },
     },
     disabled: {
-      control: {
-        type: 'boolean',
+      control: { type: 'boolean' },
+      description: 'Desabilita o botão',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
+      type: { name: 'boolean', required: false },
+    },
+    onClick: {
+      action: 'clicked',
+      description: 'Define o evento de click',
+      table: { type: { summary: 'function' } },
     },
   },
   args: {
-    onClick: () => console.log('click'),
+    children: '',
+    size: 'md',
+    ghost: false,
+    disabled: false,
   },
 } as Meta<ButtonRootProps>
 
 export const Default: StoryObj<ButtonRootProps> = {
-  argTypes: {
-    children: {
-      control: { type: 'text' },
-      defaultValue: 'Clique Aqui',
-    },
+  args: {
+    children: 'Clique aqui',
   },
 }
 
 export const WithIconLeft: StoryObj<ButtonRootProps> = {
+  argTypes: {
+    children: {
+      control: 'none',
+    },
+  },
   args: {
-    children: (
-      <>
-        <Button.Icon>
-          <CheckCircle />
-        </Button.Icon>
-        Clique aqui
-      </>
-    ),
+    children: [
+      <Button.Icon key="icon">
+        <CheckCircle />
+      </Button.Icon>,
+      'Clique aqui',
+    ],
   },
 }
 
 export const WithIconRight: StoryObj<ButtonRootProps> = {
+  argTypes: {
+    children: {
+      control: 'none',
+    },
+  },
   args: {
-    children: (
-      <>
-        Clique aqui
-        <Button.Icon>
-          <CheckCircle />
-        </Button.Icon>
-      </>
-    ),
+    children: [
+      'Clique aqui',
+      <Button.Icon key="icon">
+        <CheckCircle />
+      </Button.Icon>,
+    ],
   },
 }
