@@ -4,9 +4,16 @@ import { CheckCircle } from 'phosphor-react'
 import { Button, ButtonRootProps } from '@coaktion/visu'
 
 export default {
-  title: 'Components/Button',
+  title: 'Button/Root',
   component: Button.Root,
   argTypes: {
+    children: {
+      table: {
+        type: {
+          summary: 'React.ReactNode',
+        },
+      },
+    },
     size: {
       control: { type: 'inline-radio' },
       description: 'Define o tamanho do botão',
