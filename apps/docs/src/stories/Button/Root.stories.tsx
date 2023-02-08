@@ -58,13 +58,13 @@ export default {
   },
 } as Meta<ButtonRootProps>
 
-export const Default: StoryObj<ButtonRootProps> = {
+export const Comum: StoryObj<ButtonRootProps> = {
   args: {
     children: 'Clique aqui',
   },
 }
 
-export const WithIconLeft: StoryObj<ButtonRootProps> = {
+export const ComIcone: StoryObj<ButtonRootProps> = {
   argTypes: {
     children: {
       control: 'none',
@@ -72,15 +72,15 @@ export const WithIconLeft: StoryObj<ButtonRootProps> = {
   },
   args: {
     children: [
+      'Clique aqui',
       <Button.Icon key="icon">
         <CheckCircle />
       </Button.Icon>,
-      'Clique aqui',
     ],
   },
 }
 
-export const WithIconRight: StoryObj<ButtonRootProps> = {
+export const ComIconeNaEsquerda: StoryObj<ButtonRootProps> = {
   argTypes: {
     children: {
       control: 'none',
@@ -88,10 +88,10 @@ export const WithIconRight: StoryObj<ButtonRootProps> = {
   },
   args: {
     children: [
-      'Clique aqui',
       <Button.Icon key="icon">
         <CheckCircle />
       </Button.Icon>,
+      'Clique aqui',
     ],
   },
 }
