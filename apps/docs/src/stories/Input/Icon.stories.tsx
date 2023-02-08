@@ -24,11 +24,9 @@ export default {
 
 const Template: ComponentStory<typeof Input.Icon> = (args) => {
   return (
-    <>
-      <Input.Icon {...args}>
-        <Envelope />
-      </Input.Icon>
-    </>
+    <Input.Icon {...args}>
+      <Envelope />
+    </Input.Icon>
   )
 }
 
