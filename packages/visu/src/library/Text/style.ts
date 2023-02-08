@@ -33,16 +33,6 @@ export const Root = styled('span', {
         fontSize: '$3xl',
       },
     },
-    color: {
-      gray100: { color: '$gray100' },
-      gray500: { color: '$gray500' },
-      gray900: { color: '$gray900' },
-      primary400: { color: '$primary400' },
-      secondary400: { color: '$secondary400' },
-      success400: { color: '$success400' },
-      error400: { color: '$error400' },
-      alert400: { color: '$alert400' },
-    },
     link: {
       primary: {
         cursor: 'pointer',
@@ -73,6 +63,5 @@ export const Root = styled('span', {
   },
   defaultVariants: {
     size: 'md',
-    color: 'gray900',
   },
 })
