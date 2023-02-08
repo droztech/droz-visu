@@ -36,6 +36,8 @@ const Text = ({
   )
 }
 
+Text.displayName = 'Text'
+
 // ========================= EXPORTS =========================
 
 export default Text
