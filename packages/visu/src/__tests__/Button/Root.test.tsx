@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
-import { Button } from '@coaktion/visu'
+import { Button } from '@library'
 
 describe('Button Root tests', () => {
   const buttonText = 'Clique aqui'

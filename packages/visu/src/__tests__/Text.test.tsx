@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { Info } from 'phosphor-react'
 
-import { Text } from '@coaktion/visu'
+import { Text } from '@library'
 
 describe('Text tests', () => {
   const textText = 'Hello World'

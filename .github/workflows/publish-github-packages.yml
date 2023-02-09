@@ -28,14 +28,14 @@ jobs:
 
     - name: Install Dependencies
       run: npm ci
-      
+
     - name: Build Project
       run: npm run build
 
     - name: Tests
-      working-directory: apps/web
+      working-directory: packages/visu
       run: npm run test
-      
+
     - name: Publish
       working-directory: packages/visu
       run: npm publish

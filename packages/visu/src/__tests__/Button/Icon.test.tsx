@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { CheckCircle } from 'phosphor-react'
 
-import { Button } from '@coaktion/visu'
+import { Button } from '@library'
 
 describe('Button Icon tests', () => {
 

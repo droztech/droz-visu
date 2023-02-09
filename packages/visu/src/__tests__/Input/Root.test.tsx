@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
-import { Input } from '@coaktion/visu'
+import { Input } from '@library'
 import { Envelope } from 'phosphor-react'
 
 describe('Input Root tests', () => {

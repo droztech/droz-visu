@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import UserEvent from '@testing-library/user-event'
 
-import { Input } from '@coaktion/visu'
+import { Input } from '@library'
 
 describe('Input Input tests', () => {
   const inputEmail = 'email@email.com'
