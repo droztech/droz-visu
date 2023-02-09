@@ -83,6 +83,11 @@ export default {
 export const Comum: StoryObj<TextProps> = {}
 
 export const ComoTagAnchor: StoryObj<TextProps> = {
+  argTypes: {
+    children: {
+      control: 'none',
+    },
+  },
   args: {
     asChild: true,
     underline: true,
