@@ -35,6 +35,15 @@ export default {
       },
       type: { name: 'boolean', required: false },
     },
+    light: {
+      control: 'boolean',
+      description: 'Aplica o estilo light',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
     disabled: {
       control: { type: 'boolean' },
       description: 'Desabilita o botão',
@@ -54,6 +63,7 @@ export default {
     children: '',
     size: 'md',
     ghost: false,
+    light: false,
     disabled: false,
   },
 } as Meta<ButtonRootProps>

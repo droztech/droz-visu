@@ -81,6 +81,29 @@ export const Root = styled('button', {
         },
       },
     },
+    light: {
+      true: {
+        border: 'none',
+        color: '$primary',
+        backgroundColor: 'transparent',
+        padding: '$3',
+
+        '&:hover': {
+          color: '$primary500',
+          backgroundColor: 'transparent',
+        },
+
+        '&:active': {
+          color: '$primary600',
+          backgroundColor: 'transparent',
+        },
+
+        '&:disabled': {
+          color: '$gray',
+          backgroundColor: 'transparent',
+        },
+      },
+    },
   },
   defaultVariants: {
     size: 'md',
