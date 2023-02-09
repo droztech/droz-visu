@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">Visu - Tests</h1>
+  <h1 align="center">Visu - Manual Tests</h1>
 </p>
 
 <p align="center">
@@ -8,30 +8,42 @@
   </a>
 </p>
 
-Este projeto foi criado para os Testes da Biblioteca de Componentes Visu
+Este projeto foi criado para testar a Biblioteca de Componentes Visu de forma manual. O objetivo é conseguir testar o comportamento e estilização dos componentes quando instalados em um projeto.
 
-## Visu Tests
+## Visu Manual Tests
 
-O projeto utiliza o [Jest](https://jestjs.io/pt-BR/) junto com o [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) para realizar os testes dos componentes da Biblioteca.
+O projeto utiliza o [Vite](https://vitejs.dev/) junto com o [React](https://pt-br.reactjs.org/) para criar o ambiente em que os testes manuais possam ser executados.
 
-A Biblioteca Visu é uma dependência desse projeto, e esse projeto utiliza o Jest com React Testing Library para testar os componentes da componentes da Visu. Os testes se encontram em `__tests__` e cada arquivo representa um componente da Biblioteca.
+A Biblioteca Visu é uma dependência desse projeto, e para testar um componente basta importar o componente no `src/App.tsx` e utilizar ele para verificar se está tudo ok.
+## Testar um componente
 
-## Desenvolvimento
-
-Para desenvolver um teste certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
-O script `test` está configurado nesse projeto para executar os testes. Para executar o comando certifique-se de que está no diretório do projeto `web` e execute:
-
-```bash
-npm run test
-```
-
-### Test watch
-
-O script `test:watch` está configurado nesse projeto para executar os testes em modo watch. Para executar o comando certifique-se de que está no diretório do projeto `web` e execute:
+Para testar um componente certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
+Execute o projeto com o script `dev`, utilizando o comando:
 
 ```bash
-npm run test:watch
+npm run dev
 ```
+
+Entre no arquivo `src/App.tsx` e insira o componente na área de testes
+
+
+```typescript
+function App() {
+  return (
+    <C.Main>
+      <C.Container>
+        {/* ==================== TEST AREA ==================== */}
+
+
+
+        {/* ==================== TEST AREA ==================== */}
+      </C.Container>
+    </C.Main>
+  )
+}
+```
+
+
 
 ## License
 

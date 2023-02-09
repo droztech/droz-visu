@@ -40,6 +40,29 @@ function App() {
 export default App
 ```
 
+# Testes
+
+O projeto utiliza o [Jest](https://jestjs.io/pt-BR/) junto com o [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) para realizar os testes dos componentes da Biblioteca.
+
+Os testes se encontram em `__tests__` e cada arquivo ou pasta representa um componente da Biblioteca.
+
+## Desenvolvimento
+
+Para desenvolver um teste certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
+O script `test` está configurado nesse projeto para executar os testes. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
+
+```bash
+npm run test
+```
+
+### Test watch
+
+O script `test:watch` está configurado nesse projeto para executar os testes em modo watch. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
+
+```bash
+npm run test:watch
+```
+
 ## License
 
 [Copyright](../../LICENSE)

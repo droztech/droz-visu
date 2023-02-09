@@ -18,13 +18,13 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 - `docs`: Um projeto para a documentação dos componentes criados na biblioteca Visu realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
 
-- `web`: Projeto para validação e testes dos componentes criados na biblioteca Visu utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro). Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca e dos componentes em um projeto externo.
+- `web`: Projeto para validação manual dos componentes criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca e dos componentes em um projeto externo.
 
 ### Packages
 
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo.
 
-- `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [Stitches](https://stitches.dev/docs/introduction) e realiza o build em [Modo Lib](https://storybook.js.org) da pasta `src/library` para a publicação da biblioteca.
+- `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [Stitches](https://stitches.dev/docs/introduction) e realiza o build em [Modo Lib](https://storybook.js.org) da pasta `src/library` para a publicação da biblioteca. O projeto testa os componentes utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
 
 ### Build
 
@@ -44,13 +44,13 @@ npm run dev
 
 ### Teste
 
-Para executar o teste no projeto `apps/web` utilize o comando abaixo na raiz do projeto:
+Para executar os testes da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
 
 ```
 npm run test
 ```
 
-Para executar o teste em apenas um arquivo do projeto `apps/web` utilize o comando abaixo na raiz do projeto:
+Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
 
 ```
 npm run test -- [nome].test.tsx
