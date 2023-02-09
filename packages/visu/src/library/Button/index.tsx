@@ -1,4 +1,7 @@
-import { ButtonHTMLAttributes, ComponentProps, HTMLAttributes } from 'react'
+import { CSS } from '@/stitches.config'
+import { Slot } from '@radix-ui/react-slot'
+import { VariantProps } from '@stitches/react'
+import { ButtonHTMLAttributes, HTMLAttributes } from 'react'
 
 import * as Component from './style'
 
@@ -6,12 +9,36 @@ import * as Component from './style'
 
 export interface ButtonRootProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-    ComponentProps<typeof Component.Root> {
+    VariantProps<typeof Component.RootStyle> {
+  asChild?: boolean
   children: React.ReactNode
+  css?: CSS
 }
 
-const ButtonRoot = ({ children, ...rest }: ButtonRootProps): JSX.Element => {
-  return <Component.Root {...rest}>{children}</Component.Root>
+const ButtonRoot = ({
+  children,
+  asChild = false,
+  css,
+  ghost = false,
+  light = false,
+  size = 'md',
+  ...rest
+}: ButtonRootProps): JSX.Element => {
+  const ComponentRoot = asChild ? Slot : 'button'
+
+  return (
+    <ComponentRoot
+      className={Component.RootStyle({
+        css,
+        ghost,
+        light,
+        size,
+      })}
+      {...rest}
+    >
+      {children}
+    </ComponentRoot>
+  )
 }
 
 ButtonRoot.displayName = 'Button.Root'

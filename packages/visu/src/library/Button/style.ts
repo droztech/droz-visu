@@ -1,4 +1,4 @@
-import { styled } from '@/stitches.config'
+import { css, styled } from '@/stitches.config'
 
 export const Icon = styled('div', {
   height: '$6',
@@ -10,7 +10,7 @@ export const Icon = styled('div', {
   },
 })
 
-export const Root = styled('button', {
+export const RootStyle = css({
   display: 'flex',
   gap: '$2half',
   alignItems: 'center',

@@ -53,6 +53,16 @@ export default {
       },
       type: { name: 'boolean', required: false },
     },
+    asChild: {
+      control: { type: 'boolean' },
+      description:
+        'Ao passar essa propriedade com o valor true, o componente irá se transformar no componente filho. É obrigatório passar um children ao utilizar essa propriedade. <b>Verifique a tag ao inspecionar o componente na DOM</b>',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
     onClick: {
       action: 'clicked',
       description: 'Define o evento de click',
@@ -65,10 +75,16 @@ export default {
     ghost: false,
     light: false,
     disabled: false,
+    asChild: false,
   },
 } as Meta<ButtonRootProps>
 
 export const Comum: StoryObj<ButtonRootProps> = {
+  argTypes: {
+    asChild: {
+      control: 'none',
+    },
+  },
   args: {
     children: 'Clique aqui',
   },
@@ -77,6 +93,9 @@ export const Comum: StoryObj<ButtonRootProps> = {
 export const ComIcone: StoryObj<ButtonRootProps> = {
   argTypes: {
     children: {
+      control: 'none',
+    },
+    asChild: {
       control: 'none',
     },
   },
@@ -95,6 +114,9 @@ export const ComIconeNaEsquerda: StoryObj<ButtonRootProps> = {
     children: {
       control: 'none',
     },
+    asChild: {
+      control: 'none',
+    },
   },
   args: {
     children: [
@@ -103,5 +125,17 @@ export const ComIconeNaEsquerda: StoryObj<ButtonRootProps> = {
       </Button.Icon>,
       'Clique aqui',
     ],
+  },
+}
+
+export const ComoTagAnchor: StoryObj<ButtonRootProps> = {
+  argTypes: {
+    children: {
+      control: 'none',
+    },
+  },
+  args: {
+    asChild: true,
+    children: <a href="/">Link</a>,
   },
 }
