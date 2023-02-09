@@ -1,7 +1,6 @@
+import { Text } from '@library'
 import { render, screen } from '@testing-library/react'
 import { Info } from 'phosphor-react'
-
-import { Text } from '@library'
 
 describe('Text tests', () => {
   const textText = 'Hello World'
@@ -21,16 +20,20 @@ describe('Text tests', () => {
   })
 
   it('Should render a text element with a child JSX element', () => {
-    render(<Text data-testid="element"><Info /></Text>)
+    render(
+      <Text data-testid="element">
+        <Info />
+      </Text>
+    )
     const element = screen.getByTestId('element')
 
     expect(element.firstElementChild?.tagName).toBe('svg')
   })
 
-  it('Should render a different element using the "as" property', () => {
+  it('Should render a different element using the "asChild" property', () => {
     render(
-      <Text data-testid="element" as="h1">
-        {textText}
+      <Text data-testid="element" asChild>
+        <h1>{textText}</h1>
       </Text>
     )
     const element = screen.getByTestId('element')

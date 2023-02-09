@@ -60,16 +60,15 @@ export default {
       },
       type: { name: 'string', required: false },
     },
-    as: {
-      control: { type: 'text' },
+    asChild: {
+      control: { type: 'boolean' },
       description:
-        'Nome de uma tag na qual o componente irá se transformar. Verifique a tag ao inspecionar o componente na DOM',
+        'Ao passar essa propriedade com o valor true, o componente irá se transformar no componente filho. É obrigatório passar um children ao utilizar essa propriedade. <b>Verifique a tag ao inspecionar o componente na DOM</b>',
       table: {
-        type: {
-          summary: 'string',
-        },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
-      type: { name: 'string', required: false },
+      type: { name: 'boolean', required: false },
     },
   },
   args: {
@@ -77,6 +76,7 @@ export default {
     size: 'md',
     color: '$gray900',
     underline: false,
+    asChild: false,
   },
 } as Meta<TextProps>
 
@@ -84,9 +84,10 @@ export const Comum: StoryObj<TextProps> = {}
 
 export const ComoTagAnchor: StoryObj<TextProps> = {
   args: {
-    as: 'a',
+    asChild: true,
     underline: true,
     link: 'primary',
     color: 'primary',
+    children: <a href="/">Link</a>,
   },
 }
