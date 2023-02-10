@@ -1,6 +1,6 @@
-import { styled } from '@/stitches.config'
+import { css } from '@/stitches.config'
 
-export const Root = styled('span', {
+export const Root = css({
   transition: '$normal all',
 
   variants: {

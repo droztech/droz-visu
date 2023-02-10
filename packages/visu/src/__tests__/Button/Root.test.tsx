@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-
 import { Button } from '@library'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 describe('Button Root tests', () => {
   const buttonText = 'Clique aqui'
@@ -54,5 +53,16 @@ describe('Button Root tests', () => {
 
     fireEvent.click(element)
     expect(buttonClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('Should render a different element using the "asChild" property', () => {
+    render(
+      <Button.Root data-testid="element" asChild>
+        <h1>Hello World</h1>
+      </Button.Root>
+    )
+    const element = screen.getByTestId('element')
+
+    expect(element.tagName).toBe('H1')
   })
 })

@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react'
+import { CSS as StitchesCSS, createStitches } from '@stitches/react'
 
 const metrics = {
   0.5: '0.125rem', // 2px
@@ -90,7 +90,7 @@ const alertColors = {
   alert700: '#663C00',
 }
 
-export const { styled, css } = createStitches({
+export const { styled, css, config } = createStitches({
   theme: {
     colors: {
       background: backgroundColor,
@@ -137,3 +137,5 @@ export const { styled, css } = createStitches({
     },
   },
 })
+
+export type CSS = StitchesCSS<typeof config>
