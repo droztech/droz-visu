@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Text, TextProps, normalColors } from '@coaktion/visu'
+import { Text, TextProps } from '@coaktion/visu'
 
 export default {
   title: 'Text/Text',
@@ -27,11 +27,10 @@ export default {
     },
     color: {
       control: { type: 'text' },
-      description:
-        'Define a cor do texto, podendo ser uma das <b>NormalColors</b> ou uma string com uma cor qualquer',
+      description: 'Define a cor do texto, uma string com uma cor qualquer',
       table: {
         type: {
-          summary: [...Object.keys(normalColors), 'string'].join(' | '),
+          summary: ['string'].join(' | '),
         },
         defaultValue: { summary: '$gray900' },
       },
