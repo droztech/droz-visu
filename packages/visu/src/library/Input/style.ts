@@ -2,6 +2,7 @@ import { styled } from '@/stitches.config'
 
 export const Input = styled('input', {
   backgroundColor: 'transparent',
+  color: '$gray900',
   outline: 'none !important',
 
   height: '$10',
