@@ -40,16 +40,16 @@ export const RootStyle = css({
       sm: {
         padding: '$2half $6',
         fontSize: '$sm',
-        height: '$10',
+        minHeight: '$10',
       },
       md: {
         padding: '$3 $10',
-        height: '$12',
+        minHeight: '$12',
       },
       lg: {
         padding: '$9 $12',
         fontSize: 'lg',
-        height: '$28',
+        minHeight: '$28',
 
         [`& ${Icon}`]: {
           height: '$10',
