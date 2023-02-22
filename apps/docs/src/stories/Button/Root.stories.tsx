@@ -63,6 +63,15 @@ export default {
       },
       type: { name: 'boolean', required: false },
     },
+    full: {
+      control: { type: 'boolean' },
+      description: 'Faz com que o input preencha todo o espaço disponível',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
     onClick: {
       action: 'clicked',
       description: 'Define o evento de click',
@@ -76,6 +85,7 @@ export default {
     light: false,
     disabled: false,
     asChild: false,
+    full: false,
   },
 } as Meta<ButtonRootProps>
 
