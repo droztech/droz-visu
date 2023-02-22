@@ -10,12 +10,14 @@ export const Main = styled('div', {
 
 export const Container = styled('div', {
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   color: '$gray50',
   gap: '1rem',
   maxWidth: '95vw',
-  padding: '$36 $48',
+  minWidth: '60vw',
+  minHeight: '40vh',
   borderRadius: '$md',
   border: '3px solid $gray500',
   backgroundColor: '$background',
