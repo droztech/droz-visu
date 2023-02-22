@@ -65,7 +65,7 @@ export default {
     },
     full: {
       control: { type: 'boolean' },
-      description: 'Faz com que o input preencha todo o espaço disponível',
+      description: 'Faz com que o botão preencha todo o espaço disponível',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
