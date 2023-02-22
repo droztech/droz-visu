@@ -6,6 +6,7 @@ export const Input = styled('input', {
   outline: 'none !important',
 
   height: '$10',
+  width: '100%',
 
   border: 'none',
 
@@ -29,6 +30,7 @@ export const Icon = styled('button', {
   backgroundColor: 'transparent',
   color: '$gray500',
   outline: 'none !important',
+  cursor: 'text',
 
   padding: '0',
   height: '$6',
@@ -72,6 +74,8 @@ export const Root = styled('div', {
   border: '1px solid $gray500',
   borderRadius: '$md',
 
+  cursor: 'text',
+
   '&:focus-within': {
     border: '1px solid $primary',
   },
@@ -99,6 +103,11 @@ export const Root = styled('div', {
         background: '$gray200',
         cursor: 'not-allowed',
         border: '1px solid $gray400',
+      },
+    },
+    full: {
+      true: {
+        width: '100%',
       },
     },
   },
