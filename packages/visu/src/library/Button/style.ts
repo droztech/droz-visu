@@ -14,6 +14,7 @@ export const RootStyle = css({
   display: 'flex',
   gap: '$2half',
   alignItems: 'center',
+  justifyContent: 'center',
   borderRadius: '$md',
   border: 'none',
   cursor: 'pointer',
@@ -102,6 +103,11 @@ export const RootStyle = css({
           color: '$gray',
           backgroundColor: 'transparent',
         },
+      },
+    },
+    full: {
+      true: {
+        width: '100%',
       },
     },
   },

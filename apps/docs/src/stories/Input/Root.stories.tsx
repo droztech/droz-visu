@@ -35,11 +35,21 @@ export default {
       },
       type: { name: 'boolean', required: false },
     },
+    full: {
+      control: { type: 'boolean' },
+      description: 'Faz com que o input preencha todo o espaço disponível',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
   },
   args: {
     children: '',
     status: undefined,
     disabled: false,
+    full: false,
   },
 } as Meta<InputRootProps>
 

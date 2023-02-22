@@ -21,6 +21,7 @@ const ButtonRoot = ({
   css,
   ghost = false,
   light = false,
+  full = false,
   size = 'md',
   ...rest
 }: ButtonRootProps): JSX.Element => {
@@ -32,6 +33,7 @@ const ButtonRoot = ({
         css,
         ghost,
         light,
+        full,
         size,
       })}
       {...rest}

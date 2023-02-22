@@ -14,4 +14,16 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true,
   },
+  previewHead: (head) => `
+    ${head}
+    <style>
+      #root {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  `,
 }
