@@ -18,7 +18,7 @@ export interface TextProps
 const Text = ({
   children,
   asChild = false,
-  color = '$gray900',
+  color = 'inherit',
   css,
   link,
   size = 'md',

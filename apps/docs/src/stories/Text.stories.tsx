@@ -32,7 +32,7 @@ export default {
         type: {
           summary: ['string'].join(' | '),
         },
-        defaultValue: { summary: '$gray900' },
+        defaultValue: { summary: 'inherit' },
       },
       type: { name: 'string', required: false },
     },
@@ -73,7 +73,7 @@ export default {
   args: {
     children: 'Hello World',
     size: 'md',
-    color: '$gray900',
+    color: 'inherit',
     underline: false,
     asChild: false,
   },
