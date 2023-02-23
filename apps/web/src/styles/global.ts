@@ -1,4 +1,4 @@
-import { globalCss } from '../../stitches.config'
+import { globalCss } from '@coaktion/visu'
 
 export const appStyle = globalCss({
   '@import':

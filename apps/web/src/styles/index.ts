@@ -1,4 +1,4 @@
-import { styled } from '../../stitches.config'
+import { styled } from '@coaktion/visu'
 
 export const Main = styled('div', {
   display: 'flex',

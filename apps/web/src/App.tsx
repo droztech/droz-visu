@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react'
 
 import { Button } from '@coaktion/visu'
 
-import { darkTheme } from '../stitches.config'
+import { darkTheme } from '../visu.config'
 import * as C from './styles/index'
 
 function App() {
