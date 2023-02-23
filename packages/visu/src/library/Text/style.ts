@@ -36,26 +36,31 @@ export const Root = css({
     link: {
       primary: {
         cursor: 'pointer',
+        borderRadius: '$md',
         '&:hover': { color: '$primary500' },
         '&:active': { color: '$primary600' },
       },
       secondary: {
         cursor: 'pointer',
+        borderRadius: '$md',
         '&:hover': { color: '$secondary500' },
         '&:active': { color: '$secondary600' },
       },
       success: {
         cursor: 'pointer',
+        borderRadius: '$md',
         '&:hover': { color: '$success500' },
         '&:active': { color: '$success600' },
       },
       error: {
         cursor: 'pointer',
+        borderRadius: '$md',
         '&:hover': { color: '$error500' },
         '&:active': { color: '$error600' },
       },
       alert: {
         cursor: 'pointer',
+        borderRadius: '$md',
         '&:hover': { color: '$alert500' },
         '&:active': { color: '$alert600' },
       },
