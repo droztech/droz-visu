@@ -1,4 +1,4 @@
-import { globalCss } from '@stitches/react'
+import { globalCss } from '../../stitches.config'
 
 export const appStyle = globalCss({
   '@import':
