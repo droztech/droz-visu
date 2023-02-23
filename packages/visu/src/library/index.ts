@@ -1,4 +1,6 @@
-import { componentsStyle } from '@styles/global'
+import { componentsStyle } from './stitches.config'
+
+export * from './stitches.config'
 
 componentsStyle()
 

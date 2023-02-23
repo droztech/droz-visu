@@ -1,4 +1,4 @@
-import { styled } from '@/stitches.config'
+import { styled } from '@library'
 
 export const Input = styled('input', {
   backgroundColor: 'transparent',

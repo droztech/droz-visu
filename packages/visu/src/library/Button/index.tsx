@@ -1,4 +1,4 @@
-import { CSS } from '@/stitches.config'
+import { CSS } from '@library'
 import { Slot } from '@radix-ui/react-slot'
 import { VariantProps } from '@stitches/react'
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react'

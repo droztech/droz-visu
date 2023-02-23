@@ -1,4 +1,4 @@
-import { css } from '@/stitches.config'
+import { css } from '@library'
 
 export const Root = css({
   transition: '$normal all',

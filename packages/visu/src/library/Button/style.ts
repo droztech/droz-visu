@@ -1,4 +1,4 @@
-import { css, styled } from '@/stitches.config'
+import { css, styled } from '@library'
 
 export const Icon = styled('div', {
   height: '$6',
