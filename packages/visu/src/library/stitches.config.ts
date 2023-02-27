@@ -1,4 +1,4 @@
-import { createStitches } from '@stitches/react'
+import { CSS as StitchesCSS, createStitches } from '@stitches/react'
 
 import {
   alertColors,
@@ -8,10 +8,19 @@ import {
   primaryColors,
   secondaryColors,
   successColors,
-} from './src/styles/config/colors'
-import { metrics } from './src/styles/config/metrics'
+} from '@styles/config/colors'
+import { metrics } from '@styles/config/metrics'
 
-export const { createTheme, styled, css, globalCss } = createStitches({
+export const {
+  config,
+  createTheme,
+  css,
+  getCssText,
+  globalCss,
+  styled,
+  theme,
+} = createStitches({
+  prefix: 'visu',
   theme: {
     colors: {
       background: backgroundColor,
@@ -57,25 +66,17 @@ export const { createTheme, styled, css, globalCss } = createStitches({
       lg: '0px 0.375rem 2rem 0px #000000',
     },
   },
-  utils: {
-    size: (value: string | number) => ({
-      width: value,
-      height: value,
-    }),
+})
+
+export const componentsStyle = globalCss({
+  '*': {
+    fontSize: '1rem',
+    boxSizing: 'border-box',
   },
-  media: {
-    sm: '(max-width: 425px)',
-    md: '(max-width: 768px)',
-    lg: '(max-width: 1024px)',
-    xl: '(max-width: 1440px)',
+  '*:focus:not(:active)': {
+    outline: '0.2rem solid $gray900',
+    outlineOffset: '0.2rem',
   },
 })
 
-export const darkTheme = createTheme({
-  colors: {
-    background: '#303030',
-    gray900: '#FFFFFF',
-    primary: '#AC85FF',
-    secondary: '#FDA562',
-  },
-})
+export type CSS = StitchesCSS<typeof config>
