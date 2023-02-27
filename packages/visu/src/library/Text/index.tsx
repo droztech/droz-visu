@@ -22,6 +22,7 @@ const Text = ({
   css,
   link,
   size = 'md',
+  weight = 'normal',
   underline = false,
   ...rest
 }: TextProps): JSX.Element => {
@@ -37,6 +38,7 @@ const Text = ({
         },
         link,
         size,
+        weight,
         underline,
       })}
     >

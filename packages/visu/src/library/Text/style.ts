@@ -33,6 +33,20 @@ export const Root = css({
         fontSize: '$3xl',
       },
     },
+    weight: {
+      light: {
+        fontWeight: '300',
+      },
+      normal: {
+        fontWeight: 'normal',
+      },
+      semibold: {
+        fontWeight: '600',
+      },
+      bold: {
+        fontWeight: 'bold',
+      },
+    },
     link: {
       primary: {
         cursor: 'pointer',
@@ -68,5 +82,6 @@ export const Root = css({
   },
   defaultVariants: {
     size: 'md',
+    weight: 'normal',
   },
 })

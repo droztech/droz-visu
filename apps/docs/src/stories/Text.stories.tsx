@@ -25,6 +25,18 @@ export default {
       },
       type: { name: 'string', required: false },
     },
+    weight: {
+      control: { type: 'inline-radio' },
+      description: 'Define a grossura da fonte',
+      options: ['light', 'normal', 'semibold', 'bold'],
+      table: {
+        type: {
+          summary: ['light', 'normal', 'semibold', 'bold'].join('|'),
+        },
+        defaultValue: { summary: 'normal' },
+      },
+      type: { name: 'string', required: false },
+    },
     color: {
       control: { type: 'text' },
       description: 'Define a cor do texto, uma string com uma cor qualquer',
@@ -73,6 +85,7 @@ export default {
   args: {
     children: 'Hello World',
     size: 'md',
+    weight: 'normal',
     color: 'inherit',
     underline: false,
     asChild: false,
