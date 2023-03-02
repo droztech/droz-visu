@@ -8,8 +8,8 @@ import {
   primaryColors,
   secondaryColors,
   successColors,
-} from '@styles/config/colors'
-import { metrics } from '@styles/config/metrics'
+} from './styles/config/colors'
+import { metrics } from './styles/config/metrics'
 
 export const {
   config,
