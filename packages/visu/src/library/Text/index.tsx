@@ -19,6 +19,7 @@ const Text = ({
   children,
   asChild = false,
   color = 'inherit',
+  className,
   css,
   link,
   size = 'md',
@@ -31,6 +32,7 @@ const Text = ({
   return (
     <Component
       className={Styles.Root({
+        className,
         css: {
           ...css,
           color,
