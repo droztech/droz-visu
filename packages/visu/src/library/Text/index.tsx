@@ -30,7 +30,6 @@ const Text = ({
 
   return (
     <Component
-      {...rest}
       className={Styles.Root({
         css: {
           ...css,
@@ -41,6 +40,7 @@ const Text = ({
         weight,
         underline,
       })}
+      {...rest}
     >
       {children}
     </Component>

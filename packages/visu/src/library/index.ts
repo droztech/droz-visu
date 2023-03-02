@@ -12,3 +12,6 @@ export type { TextProps } from './Text'
 
 export { default as Input } from './Input'
 export type { InputRootProps, InputIconProps, InputInputProps } from './Input'
+
+export { default as Flex } from './Flex'
+export type { FlexProps } from './Flex'
