@@ -18,6 +18,7 @@ export interface ButtonRootProps
 const ButtonRoot = ({
   children,
   asChild = false,
+  className,
   css,
   ghost = false,
   light = false,
@@ -30,6 +31,7 @@ const ButtonRoot = ({
   return (
     <ComponentRoot
       className={Component.RootStyle({
+        className,
         css,
         ghost,
         light,
