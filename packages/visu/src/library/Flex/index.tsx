@@ -13,21 +13,25 @@ export interface FlexProps
   asChild?: boolean
   children: React.ReactNode
   css?: CSS
-  gap: string
-  flex: number
+  className?: string
+  gap?: string
+  flex?: number
 }
 
 const Flex = ({
   children,
   asChild = false,
   css,
+  className,
   gap = '$2',
+  flex,
   center,
   items,
   justify,
-  align,
-  emphasis,
-  flow,
+  text,
+  red,
+  direction,
+  full,
   ...rest
 }: FlexProps): JSX.Element => {
   const ComponentRoot = asChild ? Slot : 'div'
@@ -36,15 +40,18 @@ const Flex = ({
     <ComponentRoot
       className={Component.Flex({
         css: {
-          ...css,
           gap,
-          center,
-          items,
-          justify,
-          align,
-          emphasis,
-          flow,
+          flex,
+          ...css,
         },
+        className,
+        center,
+        items,
+        justify,
+        text,
+        red,
+        direction,
+        full,
       })}
       {...rest}
     >
@@ -57,4 +64,17 @@ Flex.displayName = 'Flex'
 
 // ========================= EXPORTS =========================
 
-export default Flex
+const FlexContainer = {
+  Row: ({ children, ...rest }: Omit<FlexProps, 'direction'>) => (
+    <Flex direction="row" {...rest}>
+      {children}
+    </Flex>
+  ),
+  Col: ({ children, ...rest }: Omit<FlexProps, 'direction'>) => (
+    <Flex direction="col" {...rest}>
+      {children}
+    </Flex>
+  ),
+}
+
+export default FlexContainer

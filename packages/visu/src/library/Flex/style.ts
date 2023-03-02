@@ -2,9 +2,10 @@ import { css } from '@library'
 
 export const Flex = css({
   display: 'flex',
+  flexWrap: 'wrap',
 
   variants: {
-    flow: {
+    direction: {
       row: {
         flexDirection: 'row',
       },
@@ -45,30 +46,14 @@ export const Flex = css({
       between: {
         justifyContent: 'space-between',
       },
+      evenly: {
+        justifyContent: 'space-evenly',
+      },
       stretch: {
         justifyContent: 'stretch',
       },
     },
-    // flex: {
-    //   1: { flex: 1 },
-    //   2: { flex: 2 },
-    //   3: { flex: 3 },
-    // },
-    // gap: {
-    //   xs: {
-    //     gap: '$2',
-    //   },
-    //   sm: {
-    //     gap: '$4',
-    //   },
-    //   md: {
-    //     gap: '$14',
-    //   },
-    //   lg: {
-    //     gap: '$24',
-    //   },
-    // },
-    align: {
+    text: {
       left: {
         textAlign: 'left',
       },
@@ -79,7 +64,12 @@ export const Flex = css({
         textAlign: 'right',
       },
     },
-    emphasis: {
+    full: {
+      true: {
+        width: '100%',
+      },
+    },
+    red: {
       true: {
         backgroundColor: '#f00',
       },
