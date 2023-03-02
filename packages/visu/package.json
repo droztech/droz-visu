@@ -7,7 +7,7 @@
   },
   "description": "A library to use for coaktion projects!",
   "type": "module",
-  "homepage": "https://visu-docs.netlify.app/",
+  "homepage": "https://main.d1rc90yigjmmrr.amplifyapp.com/",
   "author": "Leandro Pedroso <leandroppf@gmail.com>",
   "bugs": {
     "url": "https://github.com/Coaktion/Droz-Visu/issues"
@@ -47,10 +47,12 @@
     "test:watch": "jest --watch --detectOpenHandles",
     "ci": "jest --ci"
   },
+  "dependencies": {
+    "@stitches/react": "^1.2.8"
+  },
   "devDependencies": {
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-icons": "^1.1.1",
-    "@stitches/react": "^1.2.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
