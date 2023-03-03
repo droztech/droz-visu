@@ -47,6 +47,25 @@ export const Root = css({
         fontWeight: 'bold',
       },
     },
+    align: {
+      left: {
+        textAlign: 'left',
+      },
+      center: {
+        textAlign: 'center',
+      },
+      right: {
+        textAlign: 'right',
+      },
+    },
+    ellipsis: {
+      true: {
+        maxWidth: '100%',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      },
+    },
     link: {
       primary: {
         cursor: 'pointer',
@@ -79,8 +98,5 @@ export const Root = css({
         '&:active': { color: '$alert600' },
       },
     },
-  },
-  defaultVariants: {
-    size: 'md',
   },
 })
