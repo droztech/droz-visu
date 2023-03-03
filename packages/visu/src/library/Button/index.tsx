@@ -20,6 +20,7 @@ const ButtonRoot = ({
   asChild = false,
   className,
   css,
+  variant,
   ghost = false,
   light = false,
   full = false,
@@ -33,6 +34,7 @@ const ButtonRoot = ({
       className={Component.RootStyle({
         className,
         css,
+        variant,
         ghost,
         light,
         full,
