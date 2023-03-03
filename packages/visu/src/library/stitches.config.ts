@@ -61,9 +61,9 @@ export const {
       slow: '300ms',
     },
     shadows: {
-      sm: '0px 0.125rem 1rem 0px #000000',
-      md: '0px 0.25rem 1.5rem 0px #000000',
-      lg: '0px 0.375rem 2rem 0px #000000',
+      sm: '0px 0.125rem 1rem 0px #00000030',
+      md: '0px 0.25rem 1.5rem 0px #00000030',
+      lg: '0px 0.375rem 2rem 0px #00000030',
     },
   },
 })

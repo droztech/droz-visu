@@ -17,14 +17,16 @@ export interface TextProps
 
 const Text = ({
   children,
-  asChild = false,
-  color = 'inherit',
+  asChild,
+  color,
   className,
   css,
   link,
-  size = 'md',
-  weight = 'normal',
-  underline = false,
+  align,
+  ellipsis,
+  size,
+  weight,
+  underline,
   ...rest
 }: TextProps): JSX.Element => {
   const Component = asChild ? Slot : 'span'
@@ -38,6 +40,8 @@ const Text = ({
           color,
         },
         link,
+        align,
+        ellipsis,
         size,
         weight,
         underline,

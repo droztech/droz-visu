@@ -14,6 +14,18 @@ export default {
         },
       },
     },
+    variant: {
+      control: { type: 'inline-radio' },
+      description: 'Define a variant de cor do botão',
+      options: ['primary', 'secondary', 'neutral'],
+      table: {
+        type: {
+          summary: ['primary', 'secondary', 'neutral'].join('|'),
+        },
+        defaultValue: { summary: 'primary' },
+      },
+      type: { name: 'string', required: false },
+    },
     size: {
       control: { type: 'inline-radio' },
       description: 'Define o tamanho do botão',

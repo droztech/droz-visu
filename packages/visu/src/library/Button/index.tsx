@@ -17,13 +17,14 @@ export interface ButtonRootProps
 
 const ButtonRoot = ({
   children,
-  asChild = false,
+  asChild,
   className,
   css,
-  ghost = false,
-  light = false,
-  full = false,
-  size = 'md',
+  variant,
+  ghost,
+  light,
+  full,
+  size,
   ...rest
 }: ButtonRootProps): JSX.Element => {
   const ComponentRoot = asChild ? Slot : 'button'
@@ -33,6 +34,7 @@ const ButtonRoot = ({
       className={Component.RootStyle({
         className,
         css,
+        variant,
         ghost,
         light,
         full,
