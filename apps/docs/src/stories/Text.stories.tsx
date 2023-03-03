@@ -21,9 +21,28 @@ export default {
         type: {
           summary: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].join('|'),
         },
-        defaultValue: { summary: 'md' },
       },
       type: { name: 'string', required: false },
+    },
+    align: {
+      control: { type: 'inline-radio' },
+      description: 'Define o alinhamento da fonte',
+      options: ['left', 'center', 'right'],
+      table: {
+        type: {
+          summary: ['left', 'center', 'right'].join('|'),
+        },
+      },
+      type: { name: 'string', required: false },
+    },
+    ellipsis: {
+      control: { type: 'boolean' },
+      description:
+        'Adiciona reticências ao texto caso ele precise de uma quebra de linha',
+      table: {
+        type: { summary: 'boolean' },
+      },
+      type: { name: 'boolean', required: false },
     },
     weight: {
       control: { type: 'inline-radio' },
@@ -33,7 +52,6 @@ export default {
         type: {
           summary: ['light', 'normal', 'semibold', 'bold'].join('|'),
         },
-        defaultValue: { summary: 'normal' },
       },
       type: { name: 'string', required: false },
     },
@@ -44,7 +62,6 @@ export default {
         type: {
           summary: ['string'].join(' | '),
         },
-        defaultValue: { summary: 'inherit' },
       },
       type: { name: 'string', required: false },
     },
@@ -53,7 +70,6 @@ export default {
       description: 'Adiciona underline ao texto',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false },
       },
       type: { name: 'boolean', required: false },
     },
@@ -77,7 +93,6 @@ export default {
         'Ao passar essa propriedade com o valor true, o componente irá se transformar no componente filho. É obrigatório passar um children ao utilizar essa propriedade. <b>Verifique a tag ao inspecionar o componente na DOM</b>',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false },
       },
       type: { name: 'boolean', required: false },
     },
