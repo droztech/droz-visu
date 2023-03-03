@@ -13,6 +13,8 @@ export const grayColors = {
 }
 
 export const primaryColors = {
+  primary100: '#F9F8FC',
+  primary200: '#E4DBFF',
   primary300: '#AC85FF',
   primary400: '#7900F2',
   primary500: '#5300A7',
@@ -21,6 +23,8 @@ export const primaryColors = {
 }
 
 export const secondaryColors = {
+  secondary100: '#FFF8F2',
+  secondary200: '#FFDDC3',
   secondary300: '#FDA562',
   secondary400: '#FD6D01',
   secondary500: '#E36100',
