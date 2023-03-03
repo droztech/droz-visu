@@ -20,7 +20,7 @@ export interface FlexProps
 
 const Flex = ({
   children,
-  asChild = false,
+  asChild,
   css,
   className,
   gap = '$2',

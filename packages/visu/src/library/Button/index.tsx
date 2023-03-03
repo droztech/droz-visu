@@ -17,14 +17,14 @@ export interface ButtonRootProps
 
 const ButtonRoot = ({
   children,
-  asChild = false,
+  asChild,
   className,
   css,
   variant,
-  ghost = false,
-  light = false,
-  full = false,
-  size = 'md',
+  ghost,
+  light,
+  full,
+  size,
   ...rest
 }: ButtonRootProps): JSX.Element => {
   const ComponentRoot = asChild ? Slot : 'button'

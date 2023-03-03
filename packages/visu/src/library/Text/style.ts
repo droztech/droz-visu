@@ -82,6 +82,5 @@ export const Root = css({
   },
   defaultVariants: {
     size: 'md',
-    weight: 'normal',
   },
 })
