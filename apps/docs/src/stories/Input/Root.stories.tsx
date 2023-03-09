@@ -18,10 +18,10 @@ export default {
     status: {
       control: { type: 'select' },
       description: 'Define o status do input',
-      options: [undefined, 'error', 'success'],
+      options: ['default', 'error', 'success'],
       table: {
         type: {
-          summary: ['error', 'success'].join('|'),
+          summary: ['default', 'error', 'success'].join('|'),
         },
       },
       type: { name: 'string', required: false },

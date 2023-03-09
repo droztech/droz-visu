@@ -2,6 +2,12 @@ import { css } from '@library'
 
 export const Root = css({
   transition: '$normal all',
+  fontSize: 'inherit',
+
+  '& *': {
+    fontSize: 'inherit',
+    verticalAlign: 'middle',
+  },
 
   variants: {
     underline: {
@@ -31,6 +37,14 @@ export const Root = css({
       },
       '3xl': {
         fontSize: '$3xl',
+      },
+    },
+    inline: {
+      true: {
+        display: 'inline-flex',
+        gap: '$1',
+        flexWrap: 'wrap',
+        alignItems: 'center',
       },
     },
     weight: {
