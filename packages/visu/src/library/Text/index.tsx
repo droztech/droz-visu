@@ -27,6 +27,7 @@ const Text = ({
   size,
   weight,
   underline,
+  inline,
   ...rest
 }: TextProps): JSX.Element => {
   const Component = asChild ? Slot : 'span'
@@ -45,6 +46,7 @@ const Text = ({
         size,
         weight,
         underline,
+        inline,
       })}
       {...rest}
     >
