@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { User } from 'phosphor-react'
 
 import { Text, TextProps } from '@coaktion/visu'
 
@@ -73,6 +74,14 @@ export default {
       },
       type: { name: 'boolean', required: false },
     },
+    inline: {
+      control: { type: 'boolean' },
+      description: 'Adiciona flex inline ao texto',
+      table: {
+        type: { summary: 'boolean' },
+      },
+      type: { name: 'boolean', required: false },
+    },
     link: {
       control: { type: 'select' },
       description:
@@ -108,6 +117,21 @@ export default {
 } as Meta<TextProps>
 
 export const Comum: StoryObj<TextProps> = {}
+
+export const ComIcone: StoryObj<TextProps> = {
+  argTypes: {
+    children: {
+      control: 'none',
+    },
+  },
+  args: {
+    children: (
+      <>
+        <User /> Username
+      </>
+    ),
+  },
+}
 
 export const ComoTagAnchor: StoryObj<TextProps> = {
   argTypes: {
