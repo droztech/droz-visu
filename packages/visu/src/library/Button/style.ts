@@ -117,6 +117,9 @@ export const RootStyle = css({
       true: {
         width: '100%',
       },
+      false: {
+        width: 'fit-content',
+      },
     },
   },
   compoundVariants: [
@@ -178,5 +181,6 @@ export const RootStyle = css({
   defaultVariants: {
     size: 'md',
     variant: 'primary',
+    full: false,
   },
 })
