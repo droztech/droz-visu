@@ -68,12 +68,8 @@ export const Root = styled('div', {
   gap: '$3',
   width: 'fit-content',
   padding: '0 $4',
-
   color: '$gray500',
-
-  border: '1px solid $gray500',
   borderRadius: '$md',
-
   cursor: 'text',
 
   '&:focus-within': {
@@ -97,6 +93,9 @@ export const Root = styled('div', {
       success: {
         border: '1px solid $success',
       },
+      default: {
+        border: '1px solid $gray500',
+      },
     },
     disabled: {
       true: {
@@ -110,5 +109,8 @@ export const Root = styled('div', {
         width: '100%',
       },
     },
+  },
+  defaultVariants: {
+    status: 'default',
   },
 })

@@ -105,6 +105,7 @@ const InputIcon = ({
       ref={IconComponent}
       clickable={!!onClick}
       onClick={handleClick}
+      type="button"
       {...rest}
     >
       {children}
