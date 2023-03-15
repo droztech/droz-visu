@@ -1,4 +1,5 @@
 import { componentsStyle } from './stitches.config'
+import './styles/index.css'
 
 export * from './stitches.config'
 

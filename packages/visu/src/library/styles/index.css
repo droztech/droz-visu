@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border text-base focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-gray-900;
+  }
+}
