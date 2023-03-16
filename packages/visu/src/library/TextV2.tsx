@@ -54,7 +54,7 @@ const TextV2 = ({
 
   const linkClass = useMemo(() => {
     return link
-      ? clsx(['cursor-pointer', 'rounded-lg'], {
+      ? clsx('cursor-pointer rounded-lg', {
           'hover:text-primary-500 active:text-primary-600': link === 'primary',
           'hover:text-secondary-500 active:text-secondary-600':
             link === 'secondary',
@@ -67,19 +67,12 @@ const TextV2 = ({
 
   const ellipsisClass = useMemo(() => {
     return ellipsis
-      ? [
-          'text-ellipsis',
-          'overflow-hidden',
-          'whitespace-nowrap',
-          'max-w-full',
-        ].join(' ')
+      ? 'text-ellipsis overflow-hidden whitespace-nowrap max-w-full'
       : ''
   }, [ellipsis])
 
   const inlineClass = useMemo(() => {
-    return inline
-      ? ['inline-flex', 'gap-px', 'flex-wrap', 'items-center'].join(' ')
-      : ''
+    return inline ? 'inline-flex gap-px flex-wrap items-center' : ''
   }, [inline])
 
   const sizeClass = useMemo(() => {
@@ -97,7 +90,7 @@ const TextV2 = ({
   }, [size])
 
   const underlineClass = useMemo(() => {
-    return underline ? ['underline', 'underline-offset-2'].join(' ') : ''
+    return underline ? 'underline underline-offset-2' : ''
   }, [underline])
 
   const weightClass = useMemo(() => {
