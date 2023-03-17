@@ -1,4 +1,5 @@
 /* eslint-disable */
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -20,6 +21,7 @@ module.exports = {
 
     colors: {
       backgroundColor: '#FFFFFF',
+      transparent: 'transparent',
 
       primary: {
         DEFAULT: '#7900F2',
@@ -84,8 +86,11 @@ module.exports = {
     },
   },
   plugins: [
-    function ({ addVariant }) {
+    plugin(function ({ addVariant, matchVariant }) {
       addVariant('children', '& > *')
-    },
+      matchVariant('has', (value) => {
+        return `&:has(> ${value})`
+      })
+    }),
   ],
 }
