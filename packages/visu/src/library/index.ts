@@ -21,3 +21,10 @@ export type { FlexProps } from './Flex'
 
 export { default as Textv2 } from './TextV2'
 export type { TextProps as TextV2Props } from './TextV2'
+
+export { default as InputV2 } from './InputV2'
+export type {
+  InputIconV2Props,
+  InputInputV2Props,
+  InputRootV2Props,
+} from './InputV2'
