@@ -28,3 +28,6 @@ export type {
   InputInputV2Props,
   InputRootV2Props,
 } from './InputV2'
+
+export { default as ButtonV2 } from './ButtonV2'
+export type { ButtonIconV2Props, ButtonRootV2Props } from './ButtonV2'
