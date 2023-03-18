@@ -5,18 +5,15 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: ['./src/library/**/*.{ts,tsx}', './src/App.tsx', './src/main.tsx'],
   theme: {
-    extend: {},
-
-    fontSize: {
-      xs: ['0.75rem', '1rem'],
-      sm: ['0.875rem', '1.25rem'],
-      md: ['1rem', '1.5rem'],
-      base: ['1rem', '1.5rem'],
-      lg: ['1.5rem', '2rem'],
-      xl: ['2rem', '2.5rem'],
-      '2xl': ['3rem', '3.5rem'],
-      '3xl': ['4rem', '4.5rem'],
-      'inherit-size': 'inherit',
+    extend: {
+      boxShadow: {
+        neutral: '0px 0.125rem 1rem rgba(0, 0, 0, 0.16)',
+      },
+      minHeight: {
+        10: '2.5rem',
+        12: '3rem',
+        28: '7rem',
+      },
     },
 
     colors: {
@@ -46,6 +43,7 @@ module.exports = {
       },
 
       gray: {
+        DEFAULT: '#C8C8C8',
         100: '#FFFFFF',
         200: '#F8F8F8',
         300: '#ECECEC',
@@ -83,6 +81,18 @@ module.exports = {
         600: '#B56A00',
         700: '#663C00',
       },
+    },
+
+    fontSize: {
+      xs: ['0.75rem', '1rem'],
+      sm: ['0.875rem', '1.25rem'],
+      md: ['1rem', '1.5rem'],
+      base: ['1rem', '1.5rem'],
+      lg: ['1.5rem', '2rem'],
+      xl: ['2rem', '2.5rem'],
+      '2xl': ['3rem', '3.5rem'],
+      '3xl': ['4rem', '4.5rem'],
+      'inherit-size': 'inherit',
     },
   },
   plugins: [
