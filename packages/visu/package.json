@@ -47,9 +47,6 @@
     "test:watch": "jest --watch --detectOpenHandles",
     "ci": "jest --ci"
   },
-  "dependencies": {
-    "@stitches/react": "^1.2.8"
-  },
   "devDependencies": {
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-icons": "^1.1.1",

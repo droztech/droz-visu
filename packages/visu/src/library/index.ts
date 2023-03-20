@@ -1,9 +1,4 @@
-import { componentsStyle } from './stitches.config'
 import './styles/index.css'
-
-export * from './stitches.config'
-
-componentsStyle()
 
 export { default as Button } from './Button'
 export type { ButtonIconProps, ButtonRootProps } from './Button'
