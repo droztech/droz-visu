@@ -1,19 +1,19 @@
 import clsx from 'clsx'
 import { HTMLAttributes, useCallback, useEffect, useMemo, useRef } from 'react'
 
-export interface InputRootV2Props extends HTMLAttributes<HTMLDivElement> {
+export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
   full?: boolean
   status?: 'success' | 'error'
 }
 
-const InputRootV2 = ({
+const InputRoot = ({
   children,
   disabled,
   full,
   status,
   ...rest
-}: InputRootV2Props) => {
+}: InputRootProps) => {
   const RootComponent = useRef<HTMLDivElement | null>(null)
 
   const disabledClass = useMemo(() => {
@@ -82,6 +82,6 @@ const InputRootV2 = ({
   )
 }
 
-InputRootV2.displayName = 'Input.Root'
+InputRoot.displayName = 'Input.Root'
 
-export default InputRootV2
+export default InputRoot

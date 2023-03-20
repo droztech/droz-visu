@@ -2,7 +2,7 @@ import { Slot } from '@radix-ui/react-slot'
 import clsx from 'clsx'
 import { HTMLAttributes, useMemo } from 'react'
 
-export interface FlexRootV2Props extends HTMLAttributes<HTMLDivElement> {
+export interface FlexRootProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
   center?: boolean
   direction?: 'col' | 'col-reverse' | 'row' | 'row-reverse'
@@ -15,7 +15,7 @@ export interface FlexRootV2Props extends HTMLAttributes<HTMLDivElement> {
   wrap?: 'nowrap' | 'reverse' | 'wrap'
 }
 
-const FlexRootV2 = ({
+const FlexRoot = ({
   asChild,
   center,
   children,
@@ -29,7 +29,7 @@ const FlexRootV2 = ({
   text,
   wrap = 'wrap',
   ...rest
-}: FlexRootV2Props) => {
+}: FlexRootProps) => {
   const RootComponent = asChild ? Slot : 'div'
 
   const centerClass = useMemo(() => {
@@ -131,6 +131,6 @@ const FlexRootV2 = ({
   )
 }
 
-FlexRootV2.displayName = 'Flex'
+FlexRoot.displayName = 'Flex'
 
-export default FlexRootV2
+export default FlexRoot

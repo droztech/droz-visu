@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 import { InputHTMLAttributes } from 'react'
 
-export interface InputInputV2Props
+export interface InputInputProps
   extends InputHTMLAttributes<HTMLInputElement> {}
 
-const InputInputV2 = ({ ...rest }: InputInputV2Props) => {
+const InputInput = ({ ...rest }: InputInputProps) => {
   return (
     <input
       className={clsx([
@@ -24,6 +24,6 @@ const InputInputV2 = ({ ...rest }: InputInputV2Props) => {
   )
 }
 
-InputInputV2.displayName = 'Input.Input'
+InputInput.displayName = 'Input.Input'
 
-export default InputInputV2
+export default InputInput

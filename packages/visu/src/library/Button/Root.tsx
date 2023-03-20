@@ -2,7 +2,7 @@ import { Slot } from '@radix-ui/react-slot'
 import clsx from 'clsx'
 import { ButtonHTMLAttributes, useMemo } from 'react'
 
-export interface ButtonRootV2Props
+export interface ButtonRootProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
   full?: boolean
@@ -12,7 +12,7 @@ export interface ButtonRootV2Props
   variant?: 'neutral' | 'primary' | 'secondary'
 }
 
-const ButtonRootV2 = ({
+const ButtonRoot = ({
   asChild,
   children,
   disabled,
@@ -22,7 +22,7 @@ const ButtonRootV2 = ({
   size = 'md',
   variant = 'primary',
   ...rest
-}: ButtonRootV2Props) => {
+}: ButtonRootProps) => {
   const RootComponent = asChild ? Slot : 'button'
 
   // Variants
@@ -116,6 +116,6 @@ const ButtonRootV2 = ({
   )
 }
 
-ButtonRootV2.displayName = 'Button.Root'
+ButtonRoot.displayName = 'Button.Root'
 
-export default ButtonRootV2
+export default ButtonRoot

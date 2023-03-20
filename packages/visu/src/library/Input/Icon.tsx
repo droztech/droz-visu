@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 import { ButtonHTMLAttributes, useCallback, useMemo, useRef } from 'react'
 
-export interface InputIconV2Props
+export interface InputIconProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const InputIconV2 = ({ children, onClick, ...rest }: InputIconV2Props) => {
+const InputIcon = ({ children, onClick, ...rest }: InputIconProps) => {
   const IconComponent = useRef<HTMLButtonElement | null>(null)
 
   const focusInput = useCallback(() => {
@@ -57,6 +57,6 @@ const InputIconV2 = ({ children, onClick, ...rest }: InputIconV2Props) => {
   )
 }
 
-InputIconV2.displayName = 'Input.Icon'
+InputIcon.displayName = 'Input.Icon'
 
-export default InputIconV2
+export default InputIcon

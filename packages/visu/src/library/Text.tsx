@@ -14,7 +14,7 @@ export interface TextProps extends HTMLAttributes<HTMLSpanElement> {
   weight?: 'light' | 'normal' | 'semibold' | 'bold'
 }
 
-const TextV2 = ({
+const Text = ({
   align,
   asChild,
   children,
@@ -128,6 +128,6 @@ const TextV2 = ({
   )
 }
 
-TextV2.displayName = 'Text'
+Text.displayName = 'Text'
 
-export default TextV2
+export default Text

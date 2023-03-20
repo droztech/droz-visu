@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { HTMLAttributes } from 'react'
 
-export interface ButtonIconV2Props extends HTMLAttributes<HTMLDivElement> {}
+export interface ButtonIconProps extends HTMLAttributes<HTMLDivElement> {}
 
-const ButtonIconV2 = ({ children, ...rest }: ButtonIconV2Props) => {
+const ButtonIcon = ({ children, ...rest }: ButtonIconProps) => {
   return (
     <div
       className={clsx(['w-6', 'h-6', '[&_svg]:h-full', '[&_svg]:w-full'])}
@@ -14,6 +14,6 @@ const ButtonIconV2 = ({ children, ...rest }: ButtonIconV2Props) => {
   )
 }
 
-ButtonIconV2.displayName = 'Button.Icon'
+ButtonIcon.displayName = 'Button.Icon'
 
-export default ButtonIconV2
+export default ButtonIcon
