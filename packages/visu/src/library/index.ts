@@ -31,3 +31,6 @@ export type {
 
 export { default as ButtonV2 } from './ButtonV2'
 export type { ButtonIconV2Props, ButtonRootV2Props } from './ButtonV2'
+
+export { default as FlexV2 } from './FlexV2'
+export type { FlexColProps, FlexRootV2Props, FlexRowProps } from './FlexV2'
