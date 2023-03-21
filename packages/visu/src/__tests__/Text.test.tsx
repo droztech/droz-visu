@@ -1,6 +1,13 @@
 import { Text } from '@library'
 import { render, screen } from '@testing-library/react'
+import clsx from 'clsx'
 import { Info } from 'phosphor-react'
+
+jest.mock('clsx', () => {
+  return {
+    clsx: jest.fn().mockImplementation(() => clsx),
+  }
+})
 
 describe('Text tests', () => {
   const textText = 'Hello World'

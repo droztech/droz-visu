@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, useCallback, useMemo, useRef } from 'react'
 
 export interface InputIconProps

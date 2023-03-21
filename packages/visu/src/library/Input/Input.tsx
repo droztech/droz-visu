@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { InputHTMLAttributes } from 'react'
 
 export interface InputInputProps

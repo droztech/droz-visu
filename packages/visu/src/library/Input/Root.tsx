@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { HTMLAttributes, useCallback, useEffect, useMemo, useRef } from 'react'
 
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {

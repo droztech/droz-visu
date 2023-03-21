@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { HTMLAttributes } from 'react'
 
 export interface ButtonIconProps extends HTMLAttributes<HTMLDivElement> {}

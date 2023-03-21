@@ -1,5 +1,5 @@
 import { Flex } from '@library'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 function App() {
   return (

@@ -1,15 +1,19 @@
+import { Input } from '@library'
 import { render, screen } from '@testing-library/react'
 import UserEvent from '@testing-library/user-event'
+import clsx from 'clsx'
 
-import { Input } from '@library'
+jest.mock('clsx', () => {
+  return {
+    clsx: jest.fn().mockImplementation(() => clsx),
+  }
+})
 
 describe('Input Input tests', () => {
   const inputEmail = 'email@email.com'
 
   it('Should render a input element', () => {
-    render(
-      <Input.Input data-testid="element" />
-    )
+    render(<Input.Input data-testid="element" />)
     const element = screen.getByTestId('element')
 
     expect(element).toBeDefined()
@@ -25,7 +29,7 @@ describe('Input Input tests', () => {
   })
 
   it('Should not be able to write when input element is disabled', async () => {
-    render(<Input.Input data-testid="element" disabled/>)
+    render(<Input.Input data-testid="element" disabled />)
     const element = screen.getByTestId('element')
 
     await UserEvent.type(element, inputEmail)

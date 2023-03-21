@@ -1,4 +1,6 @@
-const config = {
+import type { JestConfigWithTsJest } from 'ts-jest'
+
+const config: JestConfigWithTsJest = {
   testEnvironment: 'jsdom',
   verbose: true,
   transform: {
