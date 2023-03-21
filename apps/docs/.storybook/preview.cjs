@@ -1,5 +1,7 @@
 import { themes } from '@storybook/theming'
 
+import '@coaktion/visu/styles'
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   layout: 'centered',
