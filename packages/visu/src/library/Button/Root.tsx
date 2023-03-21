@@ -15,6 +15,7 @@ export interface ButtonRootProps
 const ButtonRoot = ({
   asChild,
   children,
+  className,
   disabled,
   full,
   ghost,
@@ -92,6 +93,7 @@ const ButtonRoot = ({
   return (
     <RootComponent
       className={clsx([
+        className,
         'flex',
         'gap-2.5',
         'items-center',

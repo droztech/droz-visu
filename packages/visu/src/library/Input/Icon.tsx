@@ -4,7 +4,12 @@ import { ButtonHTMLAttributes, useCallback, useMemo, useRef } from 'react'
 export interface InputIconProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const InputIcon = ({ children, onClick, ...rest }: InputIconProps) => {
+const InputIcon = ({
+  children,
+  className,
+  onClick,
+  ...rest
+}: InputIconProps) => {
   const IconComponent = useRef<HTMLButtonElement | null>(null)
 
   const focusInput = useCallback(() => {
@@ -29,6 +34,7 @@ const InputIcon = ({ children, onClick, ...rest }: InputIconProps) => {
     <button
       ref={IconComponent}
       className={clsx([
+        className,
         'flex',
         'justify-center',
         'items-center',

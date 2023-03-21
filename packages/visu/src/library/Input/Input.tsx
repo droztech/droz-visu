@@ -4,10 +4,11 @@ import { InputHTMLAttributes } from 'react'
 export interface InputInputProps
   extends InputHTMLAttributes<HTMLInputElement> {}
 
-const InputInput = ({ ...rest }: InputInputProps) => {
+const InputInput = ({ className, ...rest }: InputInputProps) => {
   return (
     <input
       className={clsx([
+        className,
         'bg-transparent',
         'text-gray-900',
         'outline-none',

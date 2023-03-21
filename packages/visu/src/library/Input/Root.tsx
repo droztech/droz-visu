@@ -9,6 +9,7 @@ export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
 
 const InputRoot = ({
   children,
+  className,
   disabled,
   full,
   status,
@@ -54,6 +55,7 @@ const InputRoot = ({
     <div
       ref={RootComponent}
       className={clsx([
+        className,
         'flex',
         'items-center',
         'gap-3',
