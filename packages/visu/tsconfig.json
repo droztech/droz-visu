@@ -3,8 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["*"],
-      "@library": ["src/library"],
-      "@styles/*": ["src/styles/*"]
+      "@library": ["src/library"]
     }
   },
   "extends": "tsconfig/library.json",

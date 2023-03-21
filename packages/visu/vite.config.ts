@@ -33,7 +33,6 @@ export default defineConfig({
         find: '@library',
         replacement: path.resolve(__dirname, './src/library'),
       },
-      { find: '@styles', replacement: path.resolve(__dirname, './src/styles') },
     ],
   },
 })
