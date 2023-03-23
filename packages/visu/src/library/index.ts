@@ -11,3 +11,6 @@ export type { InputIconProps, InputInputProps, InputRootProps } from './Input'
 
 export { default as Text } from './Text'
 export type { TextProps } from './Text'
+
+export { default as Sidebar } from './Sidebar'
+export type { SidebarRootProps } from './Sidebar'

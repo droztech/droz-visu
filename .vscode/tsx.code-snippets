@@ -1,0 +1,24 @@
+{
+  "Create ReactJS Component": {
+    "scope": "typescriptreact",
+    "prefix": "reactcomp",
+    "body": [
+      "import { FC, HTMLAttributes } from 'react'",
+      "",
+      "export interface ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME_BASE/(^.+\\/(.*)$)/${2:/pascalcase}/}Props extends HTMLAttributes<HTMLDivElement> {}",
+      "",
+      "const ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME_BASE/(^.+\\/(.*)$)/${2:/pascalcase}/}: FC<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME_BASE/(^.+\\/(.*)$)/${2:/pascalcase}/}Props> = ({ children, ...rest }) => {",
+      "  return (",
+      "    <div {...rest}>",
+      "      {children}",
+      "      ${1}",
+      "    </div>",
+      "  )",
+      "}",
+      "",
+      "export default ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME_BASE/(^.+\\/(.*)$)/${2:/pascalcase}/}",
+      ""
+    ],
+    "description": "Create ReactJS component with all is necessary"
+  }
+}
