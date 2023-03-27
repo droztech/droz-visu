@@ -1,0 +1,93 @@
+// https://code.visualstudio.com/docs/editor/userdefinedsnippets
+// DiretórioArquivo: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}
+// Diretório: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}
+// Arquivo: ${TM_FILENAME/[.].*/${2:/pascalcase}/}
+// Variáveis: ${1}, ${1:default}, ${1|one,two,three|}...
+
+{
+  "Create ReactJS Component": {
+    "scope": "typescriptreact",
+    "prefix": "reactcomp",
+    "body": [
+      "import { clsx } from 'clsx'",
+      "import { FC, HTMLAttributes } from 'react'",
+      "",
+      "export interface ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props extends HTMLAttributes<HTMLDivElement> {}",
+      "",
+      "const ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}: FC<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props> = ({ children, className, ...rest }) => {",
+      "  return (",
+      "    <div className={clsx('${1}', className)} {...rest}>",
+      "      {children}",
+      "      ${2}",
+      "    </div>",
+      "  )",
+      "}",
+      "",
+      "export default ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}",
+      ""
+    ],
+    "description": "Create ReactJS component with all is necessary"
+  },
+  "Create Storybook Story": {
+    "scope": "typescriptreact",
+    "prefix": "storybookstory",
+    "body": [
+      "import { ComponentStory, Meta } from '@storybook/react'",
+      "",
+      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}, ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props } from '@coaktion/visu'",
+      "",
+      "export default {",
+      "  title: '${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}/${TM_FILENAME/[.].*/${2:/pascalcase}/}',",
+      "  component: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/},",
+      "  argTypes: {",
+      "    children: {",
+      "      table: {",
+      "        type: {",
+      "          summary: 'React.ReactNode',",
+      "        },",
+      "      },",
+      "    },",
+      "  },",
+      "  args: {",
+      "    children: '',",
+      "  },",
+      "} as Meta<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props>",
+      "",
+      "export const Comum: ComponentStory<typeof ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/}> = (args) => {",
+      "  return <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/} {...args}></${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/}>",
+      "}",
+      ""
+    ],
+    "description": "Create Storybook story with all is necessary"
+  },
+  "Create Jest Test": {
+    "scope": "typescriptreact",
+    "prefix": "jesttest",
+    "body": [
+      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/} } from '@library'",
+      "import { render, screen } from '@testing-library/react'",
+      "import clsx from 'clsx'",
+      "",
+      "jest.mock('clsx', () => {",
+      "  return {",
+      "    clsx: jest.fn().mockImplementation(() => clsx),",
+      "  }",
+      "})",
+      "",
+      "describe('${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/} tests', () => {",
+      "  it('Should render a ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/} element', () => {",
+      "    render(",
+      "      <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/} data-testid=\"element\">",
+      "        ${1}",
+      "      </${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/}>",
+      "    )",
+      "    const element = screen.getByTestId('element')",
+      "",
+      "    expect(element).toBeDefined()",
+      "  })",
+      "})",
+      ""
+    ],
+    "description": "Create Jest and Testing Library test with all is necessary"
+  }
+}
