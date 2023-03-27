@@ -1,54 +1,28 @@
-import { Sidebar } from '@library'
+import { Flex } from '@library'
 import { clsx } from 'clsx'
-import { Gear, House, LineSegments, Question } from 'phosphor-react'
-import { useState } from 'react'
-
-const Test = ({ className }: { className: string }) => {
-  const style = clsx('h-96 flex items-center justify-between p-4', className)
-  return (
-    <div className={style}>
-      <span>Hello World</span>
-      <span>Hello World</span>
-      <span>Hello World</span>
-    </div>
-  )
-}
-
-const Page = () => {
-  return (
-    <div className="flex-1">
-      <Test className="bg-success-300" />
-      <Test className="bg-error-300" />
-      <Test className="bg-alert-300" />
-      <Test className="bg-success-300" />
-      <Test className="bg-error-300" />
-      <Test className="bg-alert-300" />
-    </div>
-  )
-}
 
 function App() {
-  const [expanded, setExpanded] = useState(true)
-
   return (
-    <div className="flex flex-row">
-      <Sidebar.Root
-        expanded={expanded}
-        setExpanded={() => setExpanded(!expanded)}
+    <Flex.Root center className="min-h-screen bg-gray-800">
+      <Flex.Col
+        center
+        className={clsx([
+          'max-w-[95vw]',
+          'min-w-[60vw]',
+          'min-h-[40vh]',
+          'rounded-lg',
+          'border-2',
+          'border-solid',
+          'border-gray-500',
+          'bg-backgroundColor',
+          'p-16',
+        ])}
       >
-        <Sidebar.Group>
-          <h1>Projeto X</h1>
-          <Sidebar.Divider />
-          <Sidebar.Button icon={<House />} text="Home" />
-          <Sidebar.Button icon={<LineSegments />} text="Minhas conexões" />
-        </Sidebar.Group>
-        <Sidebar.Group>
-          <Sidebar.Button icon={<Gear />} text="Configurações" />
-          <Sidebar.Button icon={<Question />} text="Ajuda" />
-        </Sidebar.Group>
-      </Sidebar.Root>
-      <Page />
-    </div>
+        {/* ========================= TEST AREA ========================= */}
+
+        {/* ========================= TEST AREA ========================= */}
+      </Flex.Col>
+    </Flex.Root>
   )
 }
 
