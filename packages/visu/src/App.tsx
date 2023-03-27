@@ -3,16 +3,10 @@ import { clsx } from 'clsx'
 import { Gear, House, LineSegments, Question } from 'phosphor-react'
 import { useState } from 'react'
 
-const Test = (data: { color: 'success' | 'error' | 'alert' }) => {
+const Test = ({ className }: { className: string }) => {
+  const style = clsx('h-96 flex items-center justify-between p-4', className)
   return (
-    <div
-      className={clsx(
-        'h-96 flex items-center justify-between p-4',
-        data.color === 'success' && 'bg-success-300',
-        data.color === 'error' && 'bg-error-300',
-        data.color === 'alert' && 'bg-alert-300'
-      )}
-    >
+    <div className={style}>
       <span>Hello World</span>
       <span>Hello World</span>
       <span>Hello World</span>
@@ -20,15 +14,15 @@ const Test = (data: { color: 'success' | 'error' | 'alert' }) => {
   )
 }
 
-const Layout = () => {
+const Page = () => {
   return (
     <div className="flex-1">
-      <Test color="success" />
-      <Test color="error" />
-      <Test color="alert" />
-      <Test color="success" />
-      <Test color="error" />
-      <Test color="alert" />
+      <Test className="bg-success-300" />
+      <Test className="bg-error-300" />
+      <Test className="bg-alert-300" />
+      <Test className="bg-success-300" />
+      <Test className="bg-error-300" />
+      <Test className="bg-alert-300" />
     </div>
   )
 }
@@ -45,17 +39,15 @@ function App() {
         <Sidebar.Group>
           <h1>Projeto X</h1>
           <Sidebar.Divider />
-          <Sidebar.Button icon={<House />}>Home</Sidebar.Button>
-          <Sidebar.Button icon={<LineSegments />}>
-            Minhas conexões
-          </Sidebar.Button>
+          <Sidebar.Button icon={<House />} text="Home" />
+          <Sidebar.Button icon={<LineSegments />} text="Minhas conexões" />
         </Sidebar.Group>
         <Sidebar.Group>
-          <Sidebar.Button icon={<Gear />}>Configurações</Sidebar.Button>
-          <Sidebar.Button icon={<Question />}>Ajuda</Sidebar.Button>
+          <Sidebar.Button icon={<Gear />} text="Configurações" />
+          <Sidebar.Button icon={<Question />} text="Ajuda" />
         </Sidebar.Group>
       </Sidebar.Root>
-      <Layout />
+      <Page />
     </div>
   )
 }

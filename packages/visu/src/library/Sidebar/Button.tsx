@@ -3,10 +3,12 @@ import { FC, HTMLAttributes } from 'react'
 
 export interface SidebarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon: JSX.Element
+  text: string
 }
 
 const SidebarButton: FC<SidebarButtonProps> = ({
   icon,
+  text,
   children,
   className,
   ...rest
@@ -20,7 +22,7 @@ const SidebarButton: FC<SidebarButtonProps> = ({
       {...rest}
     >
       <div className="[&>svg]:w-6 [&>svg]:h-6 mx-auto">{icon}</div>
-      <span className="text-sm flex-1 text-left">{children}</span>
+      <span className="text-sm flex-1 text-left">{text}</span>
     </button>
   )
 }

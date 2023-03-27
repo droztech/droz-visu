@@ -13,4 +13,8 @@ export { default as Text } from './Text'
 export type { TextProps } from './Text'
 
 export { default as Sidebar } from './Sidebar'
+export type { SidebarLayoutProps } from './Sidebar'
 export type { SidebarRootProps } from './Sidebar'
+export type { SidebarButtonProps } from './Sidebar'
+export type { SidebarDividerProps } from './Sidebar'
+export type { SidebarGroupProps } from './Sidebar'
