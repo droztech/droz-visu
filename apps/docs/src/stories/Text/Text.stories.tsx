@@ -110,7 +110,7 @@ export default {
     children: 'Hello World',
     size: 'md',
     weight: 'normal',
-    color: 'inherit',
+    color: 'primary',
     underline: false,
     asChild: false,
   },

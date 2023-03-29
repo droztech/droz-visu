@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes, useMemo } from 'react'
 
-export interface LoadingDotsProps extends HTMLAttributes<HTMLDivElement> {
+export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'md' | 'lg'
   color?:
     | 'primary'
@@ -14,7 +14,7 @@ export interface LoadingDotsProps extends HTMLAttributes<HTMLDivElement> {
     | 'current'
 }
 
-const LoadingDots: FC<LoadingDotsProps> = ({
+const LoadingDots: FC<LoadingProps> = ({
   size = 'md',
   color = 'current',
   className,

@@ -13,6 +13,13 @@ export { default as Text } from './Text'
 export type { TextProps } from './Text'
 
 export { default as Sidebar } from './Sidebar'
-export type { SidebarRootProps, SidebarButtonProps } from './Sidebar'
+export type {
+  SidebarRootProps,
+  SidebarButtonProps,
+  SidebarDividerProps,
+  SidebarGroupProps,
+  SidebarLayoutProps,
+} from './Sidebar'
 
 export { default as Loading } from './Loading'
+export type { LoadingProps } from './Loading'
