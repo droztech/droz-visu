@@ -1,9 +1,7 @@
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
-export interface SidebarDividerProps extends HTMLAttributes<HTMLDivElement> {}
-
-const SidebarDivider: FC<SidebarDividerProps> = ({
+const SidebarDivider: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
   children,
   ...rest

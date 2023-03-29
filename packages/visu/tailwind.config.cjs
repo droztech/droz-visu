@@ -14,11 +14,22 @@ module.exports = {
         12: '3rem',
         28: '7rem',
       },
+      keyframes: {
+        flash: {
+          from: { opacity: '1' },
+          to: { opacity: '0.2' },
+        },
+      },
+      animation: {
+        flash: 'flash 1000ms infinite alternate',
+      },
     },
 
     colors: {
-      backgroundColor: '#FFFFFF',
+      background: '#FFFFFF',
       transparent: 'transparent',
+      inherit: 'inherit',
+      current: 'currentColor',
 
       primary: {
         DEFAULT: '#7900F2',

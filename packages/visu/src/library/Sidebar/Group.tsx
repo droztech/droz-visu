@@ -1,9 +1,7 @@
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
-export interface SidebarGroupProps extends HTMLAttributes<HTMLDivElement> {}
-
-const SidebarGroup: FC<SidebarGroupProps> = ({
+const SidebarGroup: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
   ...rest

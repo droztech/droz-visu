@@ -1,9 +1,7 @@
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
-export interface SidebarLayoutProps extends HTMLAttributes<HTMLDivElement> {}
-
-const SidebarLayout: FC<SidebarLayoutProps> = ({
+const SidebarLayout: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
   ...rest
