@@ -1,8 +1,6 @@
-import { Flex } from '@library'
+import { Flex, Tooltip } from '@library'
 import { clsx } from 'clsx'
 import { Info } from 'phosphor-react'
-
-import Tooltip from './library/Tooltip'
 
 function App() {
   return (
@@ -22,7 +20,7 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        {/* <Tooltip.Step
+        <Tooltip.Step
           text={[
             'Este é um exemplo de explicação para Tooltip.',
             'dawdfawf waffawf awfawf',
@@ -30,16 +28,7 @@ function App() {
           ]}
         >
           <Info size={36} />
-        </Tooltip.Step> */}
-        <div className="bg-background shadow-sm rounded-md p-6 max-w-xs flex gap-2 items-center">
-          <span className="text-sm flex-1">
-            Este é um exemplo de explicação para Tooltip.
-          </span>
-          <button className="bg-gray-300 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100 transition-all">
-            Próximo
-            <X size={12} />
-          </button>
-        </div>
+        </Tooltip.Step>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
