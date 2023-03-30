@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        neutral: '0px 0.125rem 1rem rgba(0, 0, 0, 0.16)',
+        sm: '0px 2px 16px 0px #00000029',
+        md: '0px 4px 24px 0px #0000003D',
+        lg: '0px 6px 24px 0px #261D2F52',
       },
       minHeight: {
         10: '2.5rem',

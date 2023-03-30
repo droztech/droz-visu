@@ -23,3 +23,6 @@ export type {
 
 export { default as Loading } from './Loading'
 export type { LoadingProps } from './Loading'
+
+export { default as Tooltip } from './Tooltip'
+export type { TooltipTriggerProps } from './Tooltip'

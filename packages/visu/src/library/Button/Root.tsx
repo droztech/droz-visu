@@ -61,7 +61,7 @@ const ButtonRoot = ({
 
   const variantClass = useMemo(() => {
     return clsx({
-      'bg-gray-100 text-gray-900 shadow-neutral hover:bg-gray-200 active:bg-gray-300':
+      'bg-gray-100 text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-300':
         variant === 'neutral',
       'bg-primary text-gray-100 hover:bg-primary-500 active:bg-primary-600':
         variant === 'primary',

@@ -1,5 +1,8 @@
 import { Flex } from '@library'
 import { clsx } from 'clsx'
+import { Info } from 'phosphor-react'
+
+import Tooltip from './library/Tooltip'
 
 function App() {
   return (
@@ -14,12 +17,20 @@ function App() {
           'border-2',
           'border-solid',
           'border-gray-500',
-          'bg-backgroundColor',
+          'bg-background',
           'p-16',
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-
+        <Tooltip.Root
+          text={[
+            'Este é um exemplo de explicação para Tooltip.',
+            'Este é um exemplo de explicação para ABC.',
+          ]}
+          // text="Este é um exemplo de explicação para Tooltip."
+        >
+          <Info size={36} />
+        </Tooltip.Root>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
