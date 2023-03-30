@@ -22,15 +22,24 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <Tooltip.Root
+        {/* <Tooltip.Step
           text={[
             'Este é um exemplo de explicação para Tooltip.',
-            'Este é um exemplo de explicação para ABC.',
+            'dawdfawf waffawf awfawf',
+            'fuaowhflk awfukgha fawfawf',
           ]}
-          // text="Este é um exemplo de explicação para Tooltip."
         >
           <Info size={36} />
-        </Tooltip.Root>
+        </Tooltip.Step> */}
+        <div className="bg-background shadow-sm rounded-md p-6 max-w-xs flex gap-2 items-center">
+          <span className="text-sm flex-1">
+            Este é um exemplo de explicação para Tooltip.
+          </span>
+          <button className="bg-gray-300 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100 transition-all">
+            Próximo
+            <X size={12} />
+          </button>
+        </div>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
