@@ -1,11 +1,11 @@
 import { ComponentStory, Meta } from '@storybook/react'
 import { Question } from 'phosphor-react'
 
-import { Tooltip, TooltipTextProps } from '@coaktion/visu'
+import { Tooltip, TooltipHoverProps } from '@coaktion/visu'
 
 export default {
-  title: 'Tooltip/Text',
-  component: Tooltip.Text,
+  title: 'Tooltip/Hover',
+  component: Tooltip.Hover,
   argTypes: {
     children: {
       table: {
@@ -28,12 +28,12 @@ export default {
   args: {
     children: '',
   },
-} as Meta<TooltipTextProps>
+} as Meta<TooltipHoverProps>
 
-export const Comum: ComponentStory<typeof Tooltip.Text> = (args) => {
+export const Comum: ComponentStory<typeof Tooltip.Hover> = (args) => {
   return (
-    <Tooltip.Text {...args}>
+    <Tooltip.Hover {...args}>
       <Question size={24} />
-    </Tooltip.Text>
+    </Tooltip.Hover>
   )
 }

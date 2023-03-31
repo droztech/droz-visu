@@ -1,13 +1,13 @@
 import TooltipClose from './Close'
+import TooltipHover from './Hover'
 import TooltipStep from './Step'
-import TooltipText from './Text'
 
-export type { TooltipTextProps } from './Text'
+export type { TooltipHoverProps } from './Hover'
 export type { TooltipCloseProps } from './Close'
 export type { TooltipStepProps } from './Step'
 
 const Tooltip = {
-  Text: TooltipText,
+  Hover: TooltipHover,
   Close: TooltipClose,
   Step: TooltipStep,
 }

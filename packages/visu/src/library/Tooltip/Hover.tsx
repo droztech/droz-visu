@@ -2,12 +2,12 @@ import * as RadixTooltip from '@radix-ui/react-tooltip'
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
-export interface TooltipTextProps extends HTMLAttributes<HTMLDivElement> {
+export interface TooltipHoverProps extends HTMLAttributes<HTMLDivElement> {
   side?: 'top' | 'right' | 'bottom' | 'left' | undefined
   text: string
 }
 
-const TooltipText: FC<TooltipTextProps> = ({
+const TooltipHover: FC<TooltipHoverProps> = ({
   side,
   text,
   children,
@@ -35,4 +35,4 @@ const TooltipText: FC<TooltipTextProps> = ({
   )
 }
 
-export default TooltipText
+export default TooltipHover
