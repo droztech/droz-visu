@@ -1,5 +1,5 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, useState } from 'react'
 

@@ -1,5 +1,5 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
 export interface TooltipTextProps extends HTMLAttributes<HTMLDivElement> {
