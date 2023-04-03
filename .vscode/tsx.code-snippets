@@ -1,7 +1,7 @@
 // https://code.visualstudio.com/docs/editor/userdefinedsnippets
-// DiretórioArquivo: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}
+// DiretórioArquivo: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}
 // Diretório: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}
-// Arquivo: ${TM_FILENAME/[.].*/${2:/pascalcase}/}
+// Arquivo: ${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}
 // Variáveis: ${1}, ${1:default}, ${1|one,two,three|}...
 
 {
@@ -12,9 +12,9 @@
       "import { clsx } from 'clsx'",
       "import { FC, HTMLAttributes } from 'react'",
       "",
-      "export interface ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props extends HTMLAttributes<HTMLDivElement> {}",
+      "export interface ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props extends HTMLAttributes<HTMLDivElement> {}",
       "",
-      "const ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}: FC<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props> = ({ children, className, ...rest }) => {",
+      "const ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}: FC<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props> = ({ children, className, ...rest }) => {",
       "  return (",
       "    <div className={clsx('${1}', className)} {...rest}>",
       "      {children}",
@@ -23,7 +23,7 @@
       "  )",
       "}",
       "",
-      "export default ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}",
+      "export default ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}",
       ""
     ],
     "description": "Create ReactJS component with all is necessary"
@@ -34,11 +34,11 @@
     "body": [
       "import { ComponentStory, Meta } from '@storybook/react'",
       "",
-      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}, ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props } from '@coaktion/visu'",
+      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}, ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props } from '@coaktion/visu'",
       "",
       "export default {",
-      "  title: '${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}/${TM_FILENAME/[.].*/${2:/pascalcase}/}',",
-      "  component: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/},",
+      "  title: '${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}/${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  component: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/},",
       "  argTypes: {",
       "    children: {",
       "      table: {",
@@ -51,10 +51,10 @@
       "  args: {",
       "    children: '',",
       "  },",
-      "} as Meta<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/}Props>",
+      "} as Meta<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props>",
       "",
-      "export const Comum: ComponentStory<typeof ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/}> = (args) => {",
-      "  return <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/} {...args}></${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/}>",
+      "export const Comum: ComponentStory<typeof ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}> = (args) => {",
+      "  return <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} {...args}></${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}>",
       "}",
       ""
     ],
@@ -74,14 +74,14 @@
       "  }",
       "})",
       "",
-      "describe('${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/} tests', () => {",
-      "  it('Should render a ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/[.].*/${2:/pascalcase}/} element', () => {",
+      "describe('${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} tests', () => {",
+      "  it('Should render a ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} element', () => {",
       "    render(",
-      "      <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/} data-testid=\"element\">",
+      "      <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} data-testid=\"element\">",
       "        ${1}",
-      "      </${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/[.].*/${2:/pascalcase}/}>",
+      "      </${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}>",
       "    )",
-      "    const element = screen.getByTestId('element')",
+      "    const element = screen.queryByTestId('element')",
       "",
       "    expect(element).toBeDefined()",
       "  })",

@@ -1,5 +1,6 @@
-import { Flex } from '@library'
+import { Flex, FloatCard } from '@library'
 import { clsx } from 'clsx'
+import { Question } from 'phosphor-react'
 
 function App() {
   return (
@@ -14,12 +15,19 @@ function App() {
           'border-2',
           'border-solid',
           'border-gray-500',
-          'bg-backgroundColor',
+          'bg-background',
           'p-16',
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-
+        <FloatCard.Root>
+          <FloatCard.Trigger>
+            <Question size={32} />
+          </FloatCard.Trigger>
+          <FloatCard.Content side="right">
+            <span>Hello</span>
+          </FloatCard.Content>
+        </FloatCard.Root>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
