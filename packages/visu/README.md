@@ -26,6 +26,14 @@ A biblioteca é publicada atualmente no Github Packages, então é necessário i
 npm install @coaktion/visu
 ```
 
+## Instalação de pacotes
+
+Para instalar pacotes no Visu `packages/visu` acesse a raiz do projeto no terminal `/` e utilize o comando:
+
+```bash
+npm install -D [pacote] --workspace=@coaktion/visu
+```
+
 ## Utilização
 
 Para utilizar, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook]()

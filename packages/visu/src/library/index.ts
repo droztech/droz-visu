@@ -30,3 +30,10 @@ export type {
   TooltipStepProps,
   TooltipHoverProps,
 } from './Tooltip'
+
+export { default as FloatCard } from './FloatCard'
+export type {
+  FloatCardContentProps,
+  FloatCardRootProps,
+  FloatCardTriggerProps,
+} from './FloatCard'
