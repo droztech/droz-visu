@@ -30,7 +30,7 @@ const TooltipClose: FC<TooltipCloseProps> = ({
             {text}
           </span>
           <RadixPopover.Close className="bg-gray-300 rounded-full flex items-center justify-center h-6 w-6 text-primary hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100 transition-all">
-            <X />
+            <X size={16} />
           </RadixPopover.Close>
           <RadixPopover.Arrow className="fill-gray-100 w-5 h-2" />
         </RadixPopover.Content>
