@@ -24,6 +24,31 @@ export default {
       type: { name: 'string', required: true },
       defaultValue: 'Texto do Tooltip',
     },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'Inicia o tooltip já aberto',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    side: {
+      control: { type: 'inline-radio' },
+      description: 'Define o lado tooltip',
+      options: [
+        'bottom',
+        'left',
+        'right',
+        'top',
+      ] as TooltipCloseProps['side'][],
+      table: {
+        type: {
+          summary: ['bottom', 'left', 'right', 'top'].join('|'),
+        },
+      },
+      type: { name: 'string', required: false },
+    },
   },
   args: {
     children: '',

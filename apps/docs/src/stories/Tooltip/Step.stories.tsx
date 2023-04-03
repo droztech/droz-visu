@@ -31,8 +31,7 @@ export default {
         type: { summary: 'text' },
         defaultValue: { summary: '' },
       },
-      type: { name: 'string', required: true },
-      defaultValue: 'Próximo',
+      type: { name: 'string', required: false },
     },
     stepText: {
       control: 'text',
@@ -41,8 +40,36 @@ export default {
         type: { summary: 'text' },
         defaultValue: { summary: '' },
       },
-      type: { name: 'string', required: true },
-      defaultValue: 'Etapa',
+      type: { name: 'string', required: false },
+    },
+    closeText: {
+      control: 'text',
+      description: 'Texto do tooltip',
+      table: {
+        type: { summary: 'text' },
+        defaultValue: { summary: '' },
+      },
+      type: { name: 'string', required: false },
+    },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'Inicia o tooltip já aberto',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    side: {
+      control: { type: 'inline-radio' },
+      description: 'Define o lado tooltip',
+      options: ['bottom', 'left', 'right', 'top'] as TooltipStepProps['side'][],
+      table: {
+        type: {
+          summary: ['bottom', 'left', 'right', 'top'].join('|'),
+        },
+      },
+      type: { name: 'string', required: false },
     },
   },
   args: {

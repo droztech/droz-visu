@@ -24,6 +24,22 @@ export default {
       type: { name: 'string', required: true },
       defaultValue: 'Texto do Tooltip',
     },
+    side: {
+      control: { type: 'inline-radio' },
+      description: 'Define o lado tooltip',
+      options: [
+        'bottom',
+        'left',
+        'right',
+        'top',
+      ] as TooltipHoverProps['side'][],
+      table: {
+        type: {
+          summary: ['bottom', 'left', 'right', 'top'].join('|'),
+        },
+      },
+      type: { name: 'string', required: false },
+    },
   },
   args: {
     children: '',
