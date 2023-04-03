@@ -15,13 +15,12 @@ const FloatCardContent: FC<FloatCardContentProps> = ({
   return (
     <HoverCard.Portal>
       <HoverCard.Content
-        sideOffset={8}
+        sideOffset={16}
         side={side}
         className={clsx('rounded bg-gray-100 shadow-md p-4', className)}
         {...rest}
       >
         {children}
-        <HoverCard.Arrow className="fill-background w-5 h-2" />
       </HoverCard.Content>
     </HoverCard.Portal>
   )
