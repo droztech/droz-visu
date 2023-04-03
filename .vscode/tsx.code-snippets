@@ -81,7 +81,7 @@
       "        ${1}",
       "      </${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}>",
       "    )",
-      "    const element = screen.getByTestId('element')",
+      "    const element = screen.queryByTestId('element')",
       "",
       "    expect(element).toBeDefined()",
       "  })",

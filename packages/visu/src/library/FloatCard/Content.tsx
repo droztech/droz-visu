@@ -1,5 +1,5 @@
 import * as HoverCard from '@radix-ui/react-hover-card'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { FC } from 'react'
 
 export interface FloatCardContentProps extends HoverCard.HoverCardContentProps {
