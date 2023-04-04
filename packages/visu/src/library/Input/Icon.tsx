@@ -8,6 +8,7 @@ const InputIcon = ({
   children,
   className,
   onClick,
+  type,
   ...rest
 }: InputIconProps) => {
   const IconComponent = useRef<HTMLButtonElement | null>(null)
@@ -27,8 +28,8 @@ const InputIcon = ({
   )
 
   const clickableClass = useMemo(() => {
-    return onClick ? 'hover:text-primary hover:cursor-pointer' : ''
-  }, [onClick])
+    return onClick || type ? 'hover:text-primary hover:cursor-pointer' : ''
+  }, [onClick, type])
 
   return (
     <button
