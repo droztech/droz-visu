@@ -119,7 +119,8 @@ const Text = ({
         'text-inherit-size',
         'transition-all',
         'children:text-inherit-size',
-        'children:align-middle',
+        'children:inline',
+        '[&_svg]:align-middle',
       ])}
       {...rest}
     >

@@ -60,6 +60,54 @@
     ],
     "description": "Create Storybook story with all is necessary"
   },
+  "Create Simple Storybook Story Arg": {
+    "scope": "typescriptreact",
+    "prefix": "argsimple",
+    "body": [
+      "${1}: {",
+      "  control: '${2|booolean,number,range,object,text,color|}',",
+      "  description: 'Aplica o ${1} em ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  table: {",
+      "    type: { summary: '${2}' },",
+      "    defaultValue: { summary: ${5} },",
+      "  },",
+      "  type: { name: '${3|string,number,boolean,boolean|}', required: ${4|true,false|} },",
+      "  defaultValue: ${5} as ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props['${1}'],",
+      "},"
+    ],
+    "description": "Create Storybook story arg with all is necessary"
+  },
+  "Create Function Storybook Story Arg": {
+    "scope": "typescriptreact",
+    "prefix": "argfunc",
+    "body": [
+      "${1}: {",
+      "  action: 'clicked',",
+      "  description: 'Define o ${1} em ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  table: { type: { summary: 'function' } },",
+      "},"
+    ],
+    "description": "Create Storybook story arg with all is necessary"
+  },
+  "Create Complex Storybook Story Arg": {
+    "scope": "typescriptreact",
+    "prefix": "argcomplex",
+    "body": [
+      "${1}: {",
+      "  control: '${2|radio,inline-radio,check,inline-check,select|}',",
+      "  description: 'Aplica o ${1} em ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  options: [''] as ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props['${1}'][],",
+      "  table: {",
+      "    type: {",
+      "      summary: [''].join('|'),",
+      "    },",
+      "  },",
+      "  type: { name: '${3|string,number,boolean|}', required: ${4|true,false|} },",
+      "  defaultValue: ${5} as ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props['${1}'],",
+      "},"
+    ],
+    "description": "Create Storybook story arg with all is necessary"
+  },
   "Create Jest Test": {
     "scope": "typescriptreact",
     "prefix": "jesttest",

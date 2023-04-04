@@ -84,6 +84,16 @@ export default {
       },
       type: { name: 'boolean', required: false },
     },
+    loading: {
+      control: { type: 'boolean' },
+      description: 'Aplica o loading do ButtonRoot',
+      table: {
+        type: { summary: 'booolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+      defaultValue: false as ButtonRootProps['loading'],
+    },
     onClick: {
       action: 'clicked',
       description: 'Define o evento de click',
