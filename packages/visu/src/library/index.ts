@@ -37,3 +37,6 @@ export type {
   FloatCardRootProps,
   FloatCardTriggerProps,
 } from './FloatCard'
+
+export { default as Avatar } from './Avatar'
+export type { AvatarProps } from './Avatar'
