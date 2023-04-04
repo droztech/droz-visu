@@ -28,7 +28,7 @@ const ButtonRoot = ({
   variant = 'primary',
   ...rest
 }: ButtonRootProps) => {
-  const RootComponent = asChild ? Slot : 'button'
+  const RootComponent = asChild && !loading ? Slot : 'button'
 
   // Variants
 
@@ -122,15 +122,21 @@ const ButtonRoot = ({
       disabled={disabled || loading}
       {...rest}
     >
-      <span
-        className={clsx(
-          'flex flex-row gap-2.5 items-center justify-center transition-all',
-          loadingClass
-        )}
-      >
-        {children}
-      </span>
-      {loading && <LoadingDots className="absolute" />}
+      {!loading ? (
+        children
+      ) : (
+        <>
+          <span
+            className={clsx(
+              'flex flex-row gap-2.5 items-center justify-center transition-all',
+              loadingClass
+            )}
+          >
+            {children}
+          </span>
+          {loading && <LoadingDots className="absolute" />}
+        </>
+      )}
     </RootComponent>
   )
 }

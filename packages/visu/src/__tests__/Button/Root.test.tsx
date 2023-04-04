@@ -62,6 +62,18 @@ describe('Button Root tests', () => {
     expect(buttonClick).toHaveBeenCalledTimes(1)
   })
 
+  it('Should render a button element with loading', () => {
+    render(
+      <Button.Root data-testid="element" loading>
+        {buttonText}
+      </Button.Root>
+    )
+    const element = screen.getByTestId('element')
+
+    expect(element.tagName).toBe('BUTTON')
+    expect(element.children[0].tagName).toBe('SPAN')
+  })
+
   it('Should render a different element using the "asChild" property', () => {
     render(
       <Button.Root data-testid="element" asChild>
@@ -71,5 +83,17 @@ describe('Button Root tests', () => {
     const element = screen.getByTestId('element')
 
     expect(element.tagName).toBe('H1')
+  })
+
+  it('Should render loading over the children element using the "asChild" and loading property simultaneously', () => {
+    render(
+      <Button.Root data-testid="element" asChild loading>
+        <h1>Hello World</h1>
+      </Button.Root>
+    )
+    const element = screen.getByTestId('element')
+
+    expect(element.tagName).toBe('BUTTON')
+    expect(element.children[0].tagName).toBe('SPAN')
   })
 })
