@@ -104,6 +104,8 @@ const ButtonRoot = ({
       className={clsx([
         className,
         'flex',
+        'flex-row',
+        'gap-2.5',
         'items-center',
         'justify-center',
         'relative',
@@ -128,7 +130,7 @@ const ButtonRoot = ({
         <>
           <span
             className={clsx(
-              'flex flex-row gap-2.5 items-center justify-center transition-all',
+              'flex flex-row gap-2.5 items-center justify-center',
               loadingClass
             )}
           >
