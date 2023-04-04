@@ -2,12 +2,15 @@ import { Slot } from '@radix-ui/react-slot'
 import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, useMemo } from 'react'
 
+import LoadingDots from '../Loading'
+
 export interface ButtonRootProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
   full?: boolean
   ghost?: boolean
   light?: boolean
+  loading?: boolean
   size?: 'sm' | 'md' | 'lg'
   variant?: 'neutral' | 'primary' | 'secondary'
 }
@@ -20,6 +23,7 @@ const ButtonRoot = ({
   full,
   ghost,
   light,
+  loading,
   size = 'md',
   variant = 'primary',
   ...rest
@@ -29,23 +33,28 @@ const ButtonRoot = ({
   // Variants
 
   const disabledClass = useMemo(() => {
-    return disabled
+    return disabled || loading
       ? clsx({
-          'pointer-events-none': disabled,
-          '!bg-gray !text-gray-500': disabled && !ghost && !light,
-          'border-gray text-gray bg-transparent': disabled && ghost,
-          'text-gray bg-transparent': disabled && light,
+          'pointer-events-none': disabled || loading,
+          '!bg-gray !text-gray-500': (disabled || loading) && !ghost && !light,
+          '!border-gray !text-gray-500 !bg-transparent':
+            (disabled || loading) && ghost,
+          'text-gray bg-transparent': (disabled || loading) && light,
         })
       : ''
-  }, [disabled, ghost, light, variant])
+  }, [disabled, loading, ghost, light, variant])
 
   const fullClass = useMemo(() => {
     return full ? '!w-full' : 'w-fit'
-  }, [])
+  }, [full])
+
+  const loadingClass = useMemo(() => {
+    return loading ? 'opacity-0' : ''
+  }, [loading])
 
   const ghostClass = useMemo(() => {
     return ghost ? '!border !border-solid bg-transparent' : ''
-  }, [])
+  }, [ghost])
 
   const lightClass = useMemo(() => {
     return light ? 'border-none !bg-transparent !p-3' : ''
@@ -95,25 +104,33 @@ const ButtonRoot = ({
       className={clsx([
         className,
         'flex',
-        'gap-2.5',
         'items-center',
         'justify-center',
+        'relative',
         'rounded-lg',
         'border-none',
         'cursor-pointer',
         'transition-all',
         compoundVariantsClass,
-        disabledClass,
         fullClass,
         ghostClass,
         lightClass,
         sizeClass,
         variantClass,
+        disabledClass,
       ])}
-      disabled={disabled}
+      disabled={disabled || loading}
       {...rest}
     >
-      {children}
+      <span
+        className={clsx(
+          'flex flex-row gap-2.5 items-center justify-center transition-all',
+          loadingClass
+        )}
+      >
+        {children}
+      </span>
+      {loading && <LoadingDots className="absolute" />}
     </RootComponent>
   )
 }
