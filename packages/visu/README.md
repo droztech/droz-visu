@@ -57,18 +57,18 @@ Os testes se encontram em `__tests__` e cada arquivo ou pasta representa um comp
 ## Desenvolvimento
 
 Para desenvolver um teste certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
-O script `test` está configurado nesse projeto para executar os testes. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
+O script `test:coverage` está configurado nesse projeto para executar os testes. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
 
 ```bash
-npm run test
+npm run test:coverage
 ```
 
 ### Test watch
 
-O script `test:watch` está configurado nesse projeto para executar os testes em modo watch. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
+O script `test` está configurado nesse projeto para executar os testes em modo watch. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
 
 ```bash
-npm run test:watch
+npm run test -- [pasta/arquivo]
 ```
 
 ## License

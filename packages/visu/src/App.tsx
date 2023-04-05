@@ -1,4 +1,4 @@
-import { Flex } from '@library'
+import { Avatar, Flex } from '@library'
 import { clsx } from 'clsx'
 
 function App() {
@@ -19,6 +19,12 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
+        <Avatar
+          size="lg"
+          url="https://picsum.photos/200/200"
+          fallback="CO"
+          color="secondary"
+        />
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
