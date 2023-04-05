@@ -53,7 +53,7 @@ npm run test
 Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
 
 ```
-npm run test -- [nome].test.tsx
+npm run test -- [pasta/arquivo]
 ```
 
 ## Biblioteca

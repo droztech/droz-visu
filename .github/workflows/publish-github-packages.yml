@@ -9,7 +9,6 @@ env:
 
 jobs:
   check-and-publish:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -17,27 +16,27 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        registry-url: https://npm.pkg.github.com/
-        cache: 'npm'
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://npm.pkg.github.com/
+          cache: 'npm'
 
-    - name: Install Dependencies
-      run: npm ci
+      - name: Install Dependencies
+        run: npm ci
 
-    - name: Build Project
-      run: npm run build
+      - name: Build Project
+        run: npm run build
 
-    - name: Tests
-      working-directory: packages/visu
-      run: npm run test
+      - name: Tests
+        working-directory: packages/visu
+        run: npm run test:coverage
 
-    - name: Publish
-      working-directory: packages/visu
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Publish
+        working-directory: packages/visu
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
