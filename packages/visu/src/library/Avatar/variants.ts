@@ -19,6 +19,7 @@ export const statusColorVariants = {
 export const statusStatusVariants = {
   success: 'bg-success',
   error: 'bg-error',
+  none: '',
 }
 
 export const statusSizeVariants = {

@@ -13,7 +13,7 @@ import {
 export interface AvatarProps extends RadixAvatar.AvatarProps {
   url: string
   fallback: string
-  status?: 'success' | 'error'
+  status?: 'success' | 'error' | 'none'
   size?: 'sm' | 'md' | 'lg'
   color?: 'primary' | 'secondary'
 }
@@ -21,7 +21,7 @@ export interface AvatarProps extends RadixAvatar.AvatarProps {
 const Avatar: FC<AvatarProps> = ({
   url,
   fallback,
-  status,
+  status = 'none',
   size = 'md',
   color = 'primary',
   children,
@@ -34,7 +34,7 @@ const Avatar: FC<AvatarProps> = ({
 
   const statusClass = useMemo(() => {
     return clsx(
-      status && statusStatusVariants[status],
+      statusStatusVariants[status],
       statusSizeVariants[size],
       statusColorVariants[color]
     )
@@ -48,7 +48,7 @@ const Avatar: FC<AvatarProps> = ({
       )}
       {...rest}
     >
-      {status && (
+      {status !== 'none' && (
         <div
           className={clsx(
             'absolute top-0 right-0 rounded-full outline outline-2',
@@ -61,7 +61,12 @@ const Avatar: FC<AvatarProps> = ({
         src={url}
         alt={`${fallback} Avatar`}
       />
-      <RadixAvatar.Fallback delayMs={600}>{fallback}</RadixAvatar.Fallback>
+      <RadixAvatar.Fallback
+        className="p-1 overflow-hidden text-ellipsis whitespace-nowrap"
+        delayMs={600}
+      >
+        {fallback}
+      </RadixAvatar.Fallback>
     </RadixAvatar.Root>
   )
 }
