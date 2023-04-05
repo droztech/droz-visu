@@ -24,18 +24,7 @@ function App() {
           url="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
           fallback="YR"
           status="success"
-        />
-        <Avatar
-          size="md"
-          url="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-          fallback="YR"
-          status="success"
-        />
-        <Avatar
-          size="sm"
-          url="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-          fallback="YR"
-          status="success"
+          color="secondary"
         />
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
