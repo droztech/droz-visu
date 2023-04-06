@@ -8,7 +8,7 @@ import {
   statusColorVariants,
   statusSizeVariants,
   statusStatusVariants,
-} from './variants'
+} from './style'
 
 export interface AvatarProps extends RadixAvatar.AvatarProps {
   url: string

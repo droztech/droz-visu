@@ -40,3 +40,6 @@ export type {
 
 export { default as Avatar } from './Avatar'
 export type { AvatarProps } from './Avatar'
+
+export { default as Checkbox } from './Checkbox'
+export type { CheckboxInputProps, CheckboxRootProps } from './Checkbox'
