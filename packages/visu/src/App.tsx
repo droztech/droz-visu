@@ -1,7 +1,10 @@
-import { Avatar, Flex } from '@library'
+import { Checkbox, Flex } from '@library'
 import { clsx } from 'clsx'
+import { useState } from 'react'
 
 function App() {
+  const [checked, setChecked] = useState(false)
+
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
       <Flex.Col
@@ -19,12 +22,13 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <Avatar
-          size="lg"
-          url="https://picsum.photos/200/200"
-          fallback="CO"
-          color="secondary"
-        />
+        <Checkbox.Root>
+          <Checkbox.Input
+            color="secondary"
+            checked={checked}
+            onCheckedChange={() => setChecked(!checked)}
+          />
+        </Checkbox.Root>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
