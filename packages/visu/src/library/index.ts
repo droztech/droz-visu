@@ -43,3 +43,6 @@ export type { AvatarProps } from './Avatar'
 
 export { default as Checkbox } from './Checkbox'
 export type { CheckboxInputProps, CheckboxRootProps } from './Checkbox'
+
+export { default as Radio } from './Radio'
+export type { RadioItemProps, RadioRootProps } from './Radio'

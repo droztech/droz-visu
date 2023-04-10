@@ -1,9 +1,10 @@
-import { Checkbox, Flex } from '@library'
+import { Flex, Radio } from '@library'
+import * as RadixRadio from '@radix-ui/react-radio-group'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
 function App() {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState('yes')
 
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
@@ -22,13 +23,14 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <Checkbox.Root>
-          <Checkbox.Input
-            color="secondary"
-            checked={checked}
-            onCheckedChange={() => setChecked(!checked)}
-          />
-        </Checkbox.Root>
+        <RadixRadio.Root value={checked} onValueChange={(ev) => setChecked(ev)}>
+          <Radio.Item value="yes" color="secondary" currentValue={checked}>
+            Sim
+          </Radio.Item>
+          <Radio.Item value="no" color="secondary" currentValue={checked}>
+            Não
+          </Radio.Item>
+        </RadixRadio.Root>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
