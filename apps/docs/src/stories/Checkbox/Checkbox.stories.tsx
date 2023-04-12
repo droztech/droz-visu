@@ -1,11 +1,11 @@
 import { useArgs } from '@storybook/client-api'
 import { ComponentStory, Meta } from '@storybook/react'
 
-import { Checkbox, CheckboxInputProps } from '@coaktion/visu'
+import { Checkbox, CheckboxProps } from '@coaktion/visu'
 
 export default {
-  title: 'Checkbox/Input',
-  component: Checkbox.Input,
+  title: 'Checkbox/Checkbox',
+  component: Checkbox,
   argTypes: {
     children: {
       table: {
@@ -16,19 +16,19 @@ export default {
     },
     color: {
       control: 'inline-radio',
-      description: 'Aplica o color em CheckboxInput',
-      options: ['primary', 'secondary'] as CheckboxInputProps['color'][],
+      description: 'Aplica o color em Checkbox',
+      options: ['primary', 'secondary'] as CheckboxProps['color'][],
       table: {
         type: {
           summary: ['primary', 'secondary'].join('|'),
         },
       },
       type: { name: 'string', required: false },
-      defaultValue: 'primary' as CheckboxInputProps['color'],
+      defaultValue: 'primary' as CheckboxProps['color'],
     },
     disabled: {
       control: 'boolean',
-      description: 'Aplica o disabled em CheckboxInput',
+      description: 'Aplica o disabled em Checkbox',
       table: {
         type: { summary: 'boolean' },
       },
@@ -36,7 +36,7 @@ export default {
     },
     checked: {
       control: 'boolean',
-      description: 'Aplica o checked em CheckboxInput',
+      description: 'Aplica o checked em Checkbox',
       table: {
         type: { summary: 'boolean' },
       },
@@ -44,16 +44,16 @@ export default {
     },
     onCheckedChange: {
       action: 'clicked',
-      description: 'Define o onCheckedChange em CheckboxInput',
+      description: 'Define o onCheckedChange em Checkbox',
       table: { type: { summary: 'function' } },
     },
   },
   args: {
     children: '',
   },
-} as Meta<CheckboxInputProps>
+} as Meta<CheckboxProps>
 
-export const Comum: ComponentStory<typeof Checkbox.Input> = (args) => {
+export const Comum: ComponentStory<typeof Checkbox> = (args) => {
   const [{ checked }, updateArgs] = useArgs()
   delete args.onCheckedChange
 
@@ -61,5 +61,5 @@ export const Comum: ComponentStory<typeof Checkbox.Input> = (args) => {
     updateArgs({ checked: !checked })
   }
 
-  return <Checkbox.Input onCheckedChange={toggleChecked} {...args} />
+  return <Checkbox onCheckedChange={toggleChecked} {...args} />
 }

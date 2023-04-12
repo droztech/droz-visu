@@ -1,4 +1,4 @@
-import { Flex, Switch } from '@library'
+import { Checkbox, Flex } from '@library'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
@@ -22,10 +22,11 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <label className="flex items-center gap-2">
-          Airplane
-          <Switch checked={test} onCheckedChange={() => setTest(!test)} />
-        </label>
+        <Checkbox
+          checked={test}
+          onCheckedChange={() => setTest(!test)}
+          color="secondary"
+        />
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>

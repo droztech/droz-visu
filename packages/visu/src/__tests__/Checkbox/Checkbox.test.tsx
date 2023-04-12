@@ -8,9 +8,9 @@ jest.mock('clsx', () => {
   }
 })
 
-describe('CheckboxInput tests', () => {
-  it('Should render a CheckboxInput element', () => {
-    render(<Checkbox.Input data-testid="element" />)
+describe('Checkbox tests', () => {
+  it('Should render a Checkbox element', () => {
+    render(<Checkbox data-testid="element" />)
     const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()
