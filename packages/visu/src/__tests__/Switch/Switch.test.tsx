@@ -1,4 +1,4 @@
-import { Checkbox } from '@library'
+import { Switch } from '@library'
 import { render, screen } from '@testing-library/react'
 import clsx from 'clsx'
 
@@ -8,9 +8,9 @@ jest.mock('clsx', () => {
   }
 })
 
-describe('CheckboxInput tests', () => {
-  it('Should render a CheckboxInput element', () => {
-    render(<Checkbox.Input data-testid="element" />)
+describe('Switch tests', () => {
+  it('Should render a Switch element', () => {
+    render(<Switch data-testid="element" />)
     const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()

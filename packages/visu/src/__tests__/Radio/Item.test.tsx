@@ -12,7 +12,7 @@ describe('RadioItem tests', () => {
   it('Should render a RadioItem element', () => {
     render(
       <Radio.Root>
-        <Radio.Item value="opt1" currentValue="opt1" data-testid="element">
+        <Radio.Item value="opt1" data-testid="element">
           Option One
         </Radio.Item>
       </Radio.Root>

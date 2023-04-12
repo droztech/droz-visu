@@ -1,11 +1,11 @@
 import { useArgs } from '@storybook/client-api'
 import { ComponentStory, Meta } from '@storybook/react'
 
-import { Checkbox, CheckboxInputProps } from '@coaktion/visu'
+import { Switch, SwitchProps } from '@coaktion/visu'
 
 export default {
-  title: 'Checkbox/Input',
-  component: Checkbox.Input,
+  title: 'Switch/Switch',
+  component: Switch,
   argTypes: {
     children: {
       table: {
@@ -14,21 +14,9 @@ export default {
         },
       },
     },
-    color: {
-      control: 'inline-radio',
-      description: 'Aplica o color em CheckboxInput',
-      options: ['primary', 'secondary'] as CheckboxInputProps['color'][],
-      table: {
-        type: {
-          summary: ['primary', 'secondary'].join('|'),
-        },
-      },
-      type: { name: 'string', required: false },
-      defaultValue: 'primary' as CheckboxInputProps['color'],
-    },
     disabled: {
       control: 'boolean',
-      description: 'Aplica o disabled em CheckboxInput',
+      description: 'Aplica o disabled em Switch',
       table: {
         type: { summary: 'boolean' },
       },
@@ -36,7 +24,7 @@ export default {
     },
     checked: {
       control: 'boolean',
-      description: 'Aplica o checked em CheckboxInput',
+      description: 'Aplica o checked em Switch',
       table: {
         type: { summary: 'boolean' },
       },
@@ -44,16 +32,16 @@ export default {
     },
     onCheckedChange: {
       action: 'clicked',
-      description: 'Define o onCheckedChange em CheckboxInput',
+      description: 'Define o onCheckedChange em Switch',
       table: { type: { summary: 'function' } },
     },
   },
   args: {
     children: '',
   },
-} as Meta<CheckboxInputProps>
+} as Meta<SwitchProps>
 
-export const Comum: ComponentStory<typeof Checkbox.Input> = (args) => {
+export const Comum: ComponentStory<typeof Switch> = (args) => {
   const [{ checked }, updateArgs] = useArgs()
   delete args.onCheckedChange
 
@@ -61,5 +49,5 @@ export const Comum: ComponentStory<typeof Checkbox.Input> = (args) => {
     updateArgs({ checked: !checked })
   }
 
-  return <Checkbox.Input onCheckedChange={toggleChecked} {...args} />
+  return <Switch onCheckedChange={toggleChecked} {...args}></Switch>
 }
