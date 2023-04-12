@@ -46,3 +46,6 @@ export type { CheckboxInputProps, CheckboxRootProps } from './Checkbox'
 
 export { default as Radio } from './Radio'
 export type { RadioItemProps, RadioRootProps } from './Radio'
+
+export { default as Switch } from './Switch'
+export type { SwitchProps } from './Switch'
