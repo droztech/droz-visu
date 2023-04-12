@@ -45,13 +45,13 @@ export const Comum: ComponentStory<typeof Radio.Item> = (args) => {
 
   return (
     <Radio.Root value={value} onValueChange={(ev) => setValue(ev)}>
-      <Radio.Item {...args} value="yes" currentValue={value}>
+      <Radio.Item {...args} value="yes">
         Yes
       </Radio.Item>
-      <Radio.Item {...args} value="no" currentValue={value}>
+      <Radio.Item {...args} value="no">
         No
       </Radio.Item>
-      <Radio.Item {...args} value="maybe" currentValue={value}>
+      <Radio.Item {...args} value="maybe">
         Maybe
       </Radio.Item>
     </Radio.Root>
