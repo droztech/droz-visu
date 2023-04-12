@@ -1,9 +1,9 @@
-import { Checkbox, Flex } from '@library'
+import { Flex, Pagination } from '@library'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
 function App() {
-  const [test, setTest] = useState(false)
+  const [test, setTest] = useState(0)
 
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
@@ -22,10 +22,10 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <Checkbox
-          checked={test}
-          onCheckedChange={() => setTest(!test)}
-          color="secondary"
+        <Pagination
+          current={test}
+          pageCount={15}
+          onPageChange={(ev) => setTest(ev)}
         />
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
