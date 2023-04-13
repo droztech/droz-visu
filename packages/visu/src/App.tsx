@@ -2,8 +2,11 @@ import { Flex } from '@library'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
+import { useAbcContext } from './library/Toast/Abc'
+
 function App() {
   const [test, setTest] = useState(false)
+  const { toast } = useAbcContext()
 
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
@@ -22,7 +25,17 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <button onClick={() => setTest(!test)}>click</button>
+        <button
+          onClick={() =>
+            toast({
+              variant: 'success',
+              desc: 'abc',
+              title: 'success',
+            })
+          }
+        >
+          click
+        </button>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
