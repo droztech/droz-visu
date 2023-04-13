@@ -49,3 +49,6 @@ export type { RadioItemProps, RadioRootProps } from './Radio'
 
 export { default as Switch } from './Switch'
 export type { SwitchProps } from './Switch'
+
+export { default as Toast } from './Toast'
+export type { ToastProviderProps } from './Toast'

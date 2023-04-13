@@ -6,4 +6,13 @@
   * {
     @apply box-border text-base focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-gray-900;
   }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

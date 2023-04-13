@@ -1,4 +1,4 @@
-import { Checkbox, Flex } from '@library'
+import { Flex } from '@library'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
@@ -10,9 +10,9 @@ function App() {
       <Flex.Col
         center
         className={clsx([
-          'max-w-[95vw]',
-          'min-w-[60vw]',
           'min-h-[40vh]',
+          'w-[95vw]',
+          'max-w-3xl',
           'rounded-lg',
           'border-2',
           'border-solid',
@@ -22,11 +22,7 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <Checkbox
-          checked={test}
-          onCheckedChange={() => setTest(!test)}
-          color="secondary"
-        />
+        <button onClick={() => setTest(!test)}>click</button>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
