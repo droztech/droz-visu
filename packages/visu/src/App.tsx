@@ -7,6 +7,13 @@ function App() {
   const [test, setTest] = useState(false)
   const { toast } = useToast()
 
+  const handleClick = () => {
+    toast.success({
+      title: 'Sucesso',
+      desc: 'Descrição de Sucesso',
+    })
+  }
+
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
       <Flex.Col
@@ -26,12 +33,7 @@ function App() {
         {/* ========================= TEST AREA ========================= */}
         <button
           className="py-2 px-4 rounded bg-primary text-gray-100"
-          onClick={() =>
-            toast.success({
-              title: 'Sucesso',
-              desc: 'Descrição de Sucesso',
-            })
-          }
+          onClick={handleClick}
         >
           Toast
         </button>
