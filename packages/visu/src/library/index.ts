@@ -42,7 +42,7 @@ export { default as Avatar } from './Avatar'
 export type { AvatarProps } from './Avatar'
 
 export { default as Checkbox } from './Checkbox'
-export type { CheckboxProps } from './Checkbox'
+export type { CheckboxIndicatorProps, CheckboxRootProps } from './Checkbox'
 
 export { default as Radio } from './Radio'
 export type { RadioItemProps, RadioRootProps } from './Radio'
