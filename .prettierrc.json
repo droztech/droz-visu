@@ -5,7 +5,7 @@
   "importOrder": [
     "^@coaktion/(.*)$",
     "^@library/(.*)$",
-    "^@styles/(.*)$",
+    "^@types/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,
