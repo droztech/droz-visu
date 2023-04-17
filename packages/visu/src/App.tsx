@@ -22,11 +22,13 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
+
         <Pagination
           current={test}
           pageCount={15}
           onPageChange={(ev) => setTest(ev)}
         />
+
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>

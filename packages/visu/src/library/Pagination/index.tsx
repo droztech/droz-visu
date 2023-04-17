@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
 
 export interface PaginationProps
@@ -7,17 +7,24 @@ export interface PaginationProps
   current: number
   onPageChange: (data: number) => void
   disabled?: boolean
+  size?: 'md' | 'sm'
 }
 
 const Pagination: FC<PaginationProps> = ({
   current,
   onPageChange,
   disabled,
+  size = 'md',
+  className,
   ...rest
 }) => {
+  const paginateSize = useMemo(() => {
+    return size === 'md' ? 3 : 1
+  }, [size])
+
   return (
     <ReactPaginate
-      className="flex items-center gap-1"
+      className={clsx('flex items-center gap-1', className)}
       nextLabel="›"
       previousLabel="‹"
       activeClassName={clsx(
@@ -42,7 +49,7 @@ const Pagination: FC<PaginationProps> = ({
       )}
       disabledClassName="pointer-events-none text-gray-400"
       forcePage={current}
-      pageRangeDisplayed={3}
+      pageRangeDisplayed={paginateSize}
       marginPagesDisplayed={1}
       onPageChange={({ selected }) => onPageChange(selected)}
       {...rest}
