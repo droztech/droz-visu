@@ -58,3 +58,11 @@ export {
   useToastProviderContext as useToast,
 } from './Toast'
 export type { ToastProviderProps } from './Toast'
+
+export { default as Menu } from './Menu'
+export type {
+  MenuRootProps,
+  MenuButtonProps,
+  MenuDividerProps,
+  MenuGroupProps,
+} from './Menu'
