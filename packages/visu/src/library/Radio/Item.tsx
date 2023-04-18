@@ -61,4 +61,6 @@ const RadioItem: FC<RadioItemProps> = ({
   )
 }
 
+RadioItem.displayName = 'Radio.Item'
+
 export default RadioItem

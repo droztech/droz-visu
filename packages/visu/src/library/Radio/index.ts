@@ -5,8 +5,8 @@ export type { RadioItemProps } from './Item'
 export type { RadioRootProps } from './Root'
 
 const Radio = {
-  Root: RadioRoot,
   Item: RadioItem,
+  Root: RadioRoot,
 }
 
 export default Radio
