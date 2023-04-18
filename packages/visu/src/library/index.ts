@@ -39,7 +39,11 @@ export type {
 } from './FloatCard'
 
 export { default as Avatar } from './Avatar'
-export type { AvatarProps } from './Avatar'
+export type {
+  AvatarFallbackProps,
+  AvatarImageProps,
+  AvatarRootProps,
+} from './Avatar'
 
 export { default as Checkbox } from './Checkbox'
 export type { CheckboxIndicatorProps, CheckboxRootProps } from './Checkbox'

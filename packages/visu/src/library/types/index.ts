@@ -1,3 +1,5 @@
+export * from './Avatar'
+
 export type Size = keyof SizeClass
 
 export type SizeClass = {
