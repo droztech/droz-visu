@@ -48,10 +48,10 @@ const Pagination: FC<PaginationProps> = ({
         disabled ? 'text-gray-400 pointer-events-none' : 'text-gray-600'
       )}
       disabledClassName="pointer-events-none text-gray-400"
-      forcePage={current}
+      forcePage={current - 1}
       pageRangeDisplayed={paginateSize}
       marginPagesDisplayed={1}
-      onPageChange={({ selected }) => onPageChange(selected)}
+      onPageChange={({ selected }) => onPageChange(selected + 1)}
       {...rest}
     />
   )

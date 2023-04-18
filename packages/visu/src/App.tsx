@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 import { useState } from 'react'
 
 function App() {
-  const [test, setTest] = useState(0)
+  const [test, setTest] = useState(6)
 
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
