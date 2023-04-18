@@ -1,5 +1,7 @@
 import './styles/index.css'
 
+export * from './types'
+
 export { default as Button } from './Button'
 export type { ButtonIconProps, ButtonRootProps } from './Button'
 

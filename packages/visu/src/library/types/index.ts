@@ -1,4 +1,5 @@
 export * from './Avatar'
+export * from './Button'
 
 export type Size = keyof SizeClass
 
