@@ -1,10 +1,10 @@
 import { clsx } from 'clsx'
-import { InputHTMLAttributes } from 'react'
+import { FC, InputHTMLAttributes } from 'react'
 
 export interface InputInputProps
   extends InputHTMLAttributes<HTMLInputElement> {}
 
-const InputInput = ({ className, ...rest }: InputInputProps) => {
+const InputInput: FC<InputInputProps> = ({ className, ...rest }) => {
   return (
     <input
       className={clsx([
