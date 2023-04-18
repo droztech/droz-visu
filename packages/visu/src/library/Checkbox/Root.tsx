@@ -1,13 +1,13 @@
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
-import { CheckboxColor, CheckboxColorClass } from '@types'
+import { Color, ColorClass } from '@types'
 import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
 
 export interface CheckboxRootProps extends RadixCheckbox.CheckboxProps {
-  color?: CheckboxColor
+  color?: Color
 }
 
-export const rootColorVariants: CheckboxColorClass = {
+export const rootColorVariants: ColorClass = {
   primary:
     'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
   secondary:
