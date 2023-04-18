@@ -1,9 +1,10 @@
 import * as HoverCard from '@radix-ui/react-hover-card'
+import { FloatCardContentSide } from '@types'
 import { clsx } from 'clsx'
 import { FC } from 'react'
 
 export interface FloatCardContentProps extends HoverCard.HoverCardContentProps {
-  side?: 'top' | 'right' | 'bottom' | 'left' | undefined
+  side?: FloatCardContentSide
 }
 
 const FloatCardContent: FC<FloatCardContentProps> = ({

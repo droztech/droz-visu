@@ -1,6 +1,7 @@
 export * from './Avatar'
 export * from './Button'
 export * from './Flex'
+export * from './FloatCard'
 
 export type Size = keyof SizeClass
 

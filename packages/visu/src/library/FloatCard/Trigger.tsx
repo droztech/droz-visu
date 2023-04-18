@@ -4,11 +4,7 @@ import { FC } from 'react'
 export interface FloatCardTriggerProps
   extends HoverCard.HoverCardTriggerProps {}
 
-const FloatCardTrigger: FC<FloatCardTriggerProps> = ({
-  children,
-  className,
-  ...rest
-}) => {
+const FloatCardTrigger: FC<FloatCardTriggerProps> = ({ children, ...rest }) => {
   return (
     <HoverCard.Trigger asChild {...rest}>
       {children}
