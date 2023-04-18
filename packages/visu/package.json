@@ -1,7 +1,7 @@
 {
   "name": "@coaktion/visu",
   "private": false,
-  "version": "1.3.0",
+  "version": "2.0.0-beta",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -63,6 +63,7 @@
     "@radix-ui/react-popover": "^1.0.5",
     "@radix-ui/react-radio-group": "^1.1.2",
     "@radix-ui/react-switch": "^1.0.2",
+    "@radix-ui/react-toast": "^1.1.3",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

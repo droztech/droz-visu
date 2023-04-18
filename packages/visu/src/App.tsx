@@ -10,9 +10,9 @@ function App() {
       <Flex.Col
         center
         className={clsx([
-          'max-w-[95vw]',
-          'min-w-[60vw]',
           'min-h-[40vh]',
+          'w-[95vw]',
+          'max-w-3xl',
           'rounded-lg',
           'border-2',
           'border-solid',
