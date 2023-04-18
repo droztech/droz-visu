@@ -1,18 +1,9 @@
-import { Flex } from '@library'
-import { useToast } from '@library'
+import { Flex, Pagination } from '@library'
 import { clsx } from 'clsx'
 import { useState } from 'react'
 
 function App() {
-  const [test, setTest] = useState(false)
-  const { toast } = useToast()
-
-  const handleClick = () => {
-    toast.success({
-      title: 'Sucesso',
-      desc: 'Descrição de Sucesso',
-    })
-  }
+  const [test, setTest] = useState(6)
 
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
@@ -31,12 +22,13 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <button
-          className="py-2 px-4 rounded bg-primary text-gray-100"
-          onClick={handleClick}
-        >
-          Toast
-        </button>
+
+        <Pagination
+          current={test}
+          pageCount={15}
+          onPageChange={(ev) => setTest(ev)}
+        />
+
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
