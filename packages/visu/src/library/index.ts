@@ -54,6 +54,9 @@ export type { RadioItemProps, RadioRootProps } from './Radio'
 export { default as Switch } from './Switch'
 export type { SwitchProps } from './Switch'
 
+export { default as Pagination } from './Pagination'
+export type { PaginationProps } from './Pagination'
+
 export {
   default as ToastProvider,
   useToastProviderContext as useToast,

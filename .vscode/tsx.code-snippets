@@ -5,6 +5,12 @@
 // Variáveis: ${1}, ${1:default}, ${1|one,two,three|}...
 
 {
+  "Create console.log": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "clg",
+    "body": ["console.log(${1})"],
+    "description": "Create fast console.log"
+  },
   "Create ReactJS Component": {
     "scope": "typescriptreact",
     "prefix": "reactcomp",
