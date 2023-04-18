@@ -4,13 +4,8 @@ import { FC, useMemo } from 'react'
 
 export interface SwitchProps extends RadixSwitch.SwitchProps {}
 
-const Switch: FC<SwitchProps> = ({
-  disabled,
-  children,
-  className,
-  ...rest
-}) => {
-  const rootColorClass = useMemo(() => {
+const Switch: FC<SwitchProps> = ({ className, disabled, ...rest }) => {
+  const rootColorClass = useMemo<string>(() => {
     if (disabled) return 'bg-gray-300 pointer-events-none'
 
     return 'data-[state=unchecked]:bg-error-400 data-[state=checked]:bg-success-400 hover:p-1 [&:hover>*]:h-4 [&:hover>*]:w-4'
@@ -18,11 +13,15 @@ const Switch: FC<SwitchProps> = ({
 
   return (
     <RadixSwitch.Root
-      className={clsx(
-        'w-12 h-6 rounded-3xl transition-all p-0.5',
+      className={clsx([
+        className,
+        'w-12',
+        'h-6',
+        'rounded-3xl',
+        'transition-all',
+        'p-0.5',
         rootColorClass,
-        className
-      )}
+      ])}
       disabled={disabled}
       {...rest}
     >
