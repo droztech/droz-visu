@@ -8,19 +8,34 @@ export interface SidebarRootProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const SidebarRoot: FC<SidebarRootProps> = ({
-  expanded,
-  setExpanded,
   children,
   className,
+  expanded,
+  setExpanded,
   ...rest
 }) => {
   return (
     <div
-      className={clsx(
-        'sticky top-0 flex h-screen gap-4 flex-col border-r border-gray-300 bg-gray-100 py-6 transition-all duration-300 justify-between [&_*]:text-ellipsis [&_*]:whitespace-nowrap [&_*]:overflow-hidden',
+      className={clsx([
+        className,
+        'sticky',
+        'top-0',
+        'flex',
+        'h-screen',
+        'gap-4',
+        'flex-col',
+        'border-r',
+        'border-gray-300',
+        'bg-gray-100',
+        'py-6',
+        'transition-all',
+        'duration-300',
+        'justify-between',
+        '[&_*]:text-ellipsis',
+        '[&_*]:whitespace-nowrap',
+        '[&_*]:overflow-hidden',
         expanded ? 'w-56 px-4' : 'w-14 px-2 [&_span]:hidden',
-        className
-      )}
+      ])}
       {...rest}
     >
       {setExpanded && (
