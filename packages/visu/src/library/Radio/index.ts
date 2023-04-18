@@ -1,8 +1,8 @@
-import RadioItem from './RadioItem'
-import RadioRoot from './RadioRoot'
+import RadioItem from './Item'
+import RadioRoot from './Root'
 
-export type { RadioItemProps } from './RadioItem'
-export type { RadioRootProps } from './RadioRoot'
+export type { RadioItemProps } from './Item'
+export type { RadioRootProps } from './Root'
 
 const Radio = {
   Root: RadioRoot,
