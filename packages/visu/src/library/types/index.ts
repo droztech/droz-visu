@@ -32,6 +32,10 @@ export interface SizeClass {
   sm: string
 }
 
+export type SmallerSizes = keyof SmallerSizesClass
+
+export interface SmallerSizesClass extends Omit<SizeClass, 'lg'> {}
+
 export type Status = keyof StatusClass
 
 export interface StatusClass {
