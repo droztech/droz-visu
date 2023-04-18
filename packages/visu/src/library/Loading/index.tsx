@@ -1,46 +1,48 @@
+import {
+  ExtendedColor,
+  ExtendedColorClass,
+  LargerSizes,
+  LargerSizesClass,
+} from '@types'
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes, useMemo } from 'react'
 
 export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
-  size?: 'md' | 'lg'
-  color?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'error'
-    | 'alert'
-    | 'gray'
-    | 'white'
-    | 'current'
+  color?: ExtendedColor
+  size?: LargerSizes
+}
+
+const colorClassVariants: ExtendedColorClass = {
+  alert: 'bg-alert',
+  current: 'bg-current',
+  error: 'bg-error',
+  gray: 'bg-gray',
+  primary: 'bg-primary',
+  secondary: 'bg-secondary',
+  success: 'bg-success',
+  white: 'bg-gray-100',
+}
+
+const sizeClassVariants: LargerSizesClass = {
+  md: 'w-2 h-2',
+  lg: 'w-3 h-3',
 }
 
 const LoadingDots: FC<LoadingProps> = ({
-  size = 'md',
-  color = 'current',
   className,
+  color = 'current',
+  size = 'md',
   ...rest
 }) => {
+  const colorClass = useMemo<string>(() => {
+    return colorClassVariants[color]
+  }, [color])
+
   const dotClass = 'animate-flash opacity-20 rounded-full'
 
-  const sizeClass = useMemo(() => {
-    return clsx({
-      'w-2 h-2': size === 'md',
-      'w-3 h-3': size === 'lg',
-    })
+  const sizeClass = useMemo<string>(() => {
+    return sizeClassVariants[size]
   }, [size])
-
-  const colorClass = useMemo(() => {
-    return clsx({
-      'bg-primary': color === 'primary',
-      'bg-secondary': color === 'secondary',
-      'bg-success': color === 'success',
-      'bg-error': color === 'error',
-      'bg-alert': color === 'alert',
-      'bg-gray': color === 'gray',
-      'bg-gray-100': color === 'white',
-      'bg-current': color === 'current',
-    })
-  }, [color])
 
   return (
     <div className={clsx('flex gap-2', className)} {...rest}>
