@@ -1,21 +1,80 @@
 import { Slot } from '@radix-ui/react-slot'
+import {
+  FlexDirection,
+  FlexDirectionClass,
+  FlexItems,
+  FlexItemsClass,
+  FlexJustify,
+  FlexJustifyClass,
+  FlexText,
+  FlexTextClass,
+  FlexWrap,
+  FlexWrapClass,
+  Size,
+  SizeClass,
+} from '@types'
 import { clsx } from 'clsx'
-import { HTMLAttributes, useMemo } from 'react'
+import { FC, HTMLAttributes, useMemo } from 'react'
 
 export interface FlexRootProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
   center?: boolean
-  direction?: 'col' | 'col-reverse' | 'row' | 'row-reverse'
+  direction?: FlexDirection
   full?: boolean
-  gap?: 'lg' | 'md' | 'sm'
-  items?: 'baseline' | 'center' | 'end' | 'start' | 'stretch'
-  justify?: 'around' | 'between' | 'center' | 'end' | 'evenly' | 'start'
+  gap?: Size
+  items?: FlexItems
+  justify?: FlexJustify
   red?: boolean
-  text?: 'center' | 'end' | 'justify' | 'left' | 'right' | 'start'
-  wrap?: 'nowrap' | 'reverse' | 'wrap'
+  text?: FlexText
+  wrap?: FlexWrap
 }
 
-const FlexRoot = ({
+const directionClassVariants: FlexDirectionClass = {
+  col: 'flex-col',
+  'col-reverse': 'flex-col-reverse',
+  row: 'flex-row',
+  'row-reverse': 'flex-row-reverse',
+}
+
+const gapClassVariants: SizeClass = {
+  lg: 'gap-8',
+  md: 'gap-4',
+  sm: 'gap-2',
+}
+
+const itemsClassVariants: FlexItemsClass = {
+  baseline: 'items-baseline',
+  center: 'items-center',
+  end: 'items-end',
+  start: 'items-start',
+  stretch: 'items-stretch',
+}
+
+const justifyClassVariants: FlexJustifyClass = {
+  around: 'justify-around',
+  between: 'justify-between',
+  center: 'justify-center',
+  end: 'justify-end',
+  evenly: 'justify-evenly',
+  start: 'justify-start',
+}
+
+const textClassVariants: FlexTextClass = {
+  center: 'text-center',
+  end: 'text-end',
+  justify: 'text-justify',
+  left: 'text-left',
+  right: 'text-right',
+  start: 'text-start',
+}
+
+const wrapClassVariants: FlexWrapClass = {
+  nowrap: 'flex-nowrap',
+  reverse: 'flex-wrap-reverse',
+  wrap: 'flex-wrap',
+}
+
+const FlexRoot: FC<FlexRootProps> = ({
   asChild,
   center,
   children,
@@ -29,84 +88,43 @@ const FlexRoot = ({
   text,
   wrap = 'wrap',
   ...rest
-}: FlexRootProps) => {
+}) => {
   const RootComponent = asChild ? Slot : 'div'
 
-  const centerClass = useMemo(() => {
+  const centerClass = useMemo<string>(() => {
     return center ? 'items-center justify-center' : ''
   }, [center])
 
-  const directionClass = useMemo(() => {
-    return direction
-      ? clsx({
-          'flex-col': direction === 'col',
-          'flex-col-reverse': direction === 'col-reverse',
-          'flex-row': direction === 'row',
-          'flex-row-reverse': direction === 'row-reverse',
-        })
-      : ''
+  const directionClass = useMemo<string>(() => {
+    return direction ? directionClassVariants[direction] : ''
   }, [direction])
 
-  const fullClass = useMemo(() => {
+  const fullClass = useMemo<string>(() => {
     return full ? 'w-full' : ''
   }, [full])
 
-  const gapClass = useMemo(() => {
-    return clsx({
-      'gap-8': gap === 'lg',
-      'gap-4': gap === 'md',
-      'gap-2': gap === 'sm',
-    })
+  const gapClass = useMemo<string>(() => {
+    return gapClassVariants[gap]
   }, [gap])
 
-  const itemsClass = useMemo(() => {
-    return items
-      ? clsx({
-          'items-baseline': items === 'baseline',
-          'items-center': items === 'center',
-          'items-end': items === 'end',
-          'items-start': items === 'start',
-          'items-stretch': items === 'stretch',
-        })
-      : ''
+  const itemsClass = useMemo<string>(() => {
+    return items ? itemsClassVariants[items] : ''
   }, [items])
 
-  const justifyClass = useMemo(() => {
-    return justify
-      ? clsx({
-          'justify-around': justify === 'around',
-          'justify-between': justify === 'between',
-          'justify-center': justify === 'center',
-          'justify-end': justify === 'end',
-          'justify-evenly': justify === 'evenly',
-          'justify-start': justify === 'start',
-        })
-      : ''
+  const justifyClass = useMemo<string>(() => {
+    return justify ? justifyClassVariants[justify] : ''
   }, [justify])
 
-  const redClass = useMemo(() => {
+  const redClass = useMemo<string>(() => {
     return red ? 'bg-[red]' : ''
   }, [red])
 
-  const textClass = useMemo(() => {
-    return text
-      ? clsx({
-          'text-center': text === 'center',
-          'text-end': text === 'end',
-          'text-justify': text === 'justify',
-          'text-left': text === 'left',
-          'text-right': text === 'right',
-          'text-start': text === 'start',
-        })
-      : ''
+  const textClass = useMemo<string>(() => {
+    return text ? textClassVariants[text] : ''
   }, [text])
 
-  const wrapClass = useMemo(() => {
-    return clsx({
-      'flex-nowrap': wrap === 'nowrap',
-      'flex-wrap-reverse': wrap === 'reverse',
-      'flex-wrap': wrap === 'wrap',
-    })
+  const wrapClass = useMemo<string>(() => {
+    return wrapClassVariants[wrap]
   }, [wrap])
 
   return (

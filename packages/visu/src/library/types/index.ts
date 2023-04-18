@@ -1,12 +1,13 @@
 export * from './Avatar'
 export * from './Button'
+export * from './Flex'
 
 export type Size = keyof SizeClass
 
 export type SizeClass = {
-  sm: string
-  md: string
   lg: string
+  md: string
+  sm: string
 }
 
 export type Color = keyof ColorClass
