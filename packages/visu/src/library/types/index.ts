@@ -53,6 +53,15 @@ export type LargerSizes = keyof LargerSizesClass
 
 export interface LargerSizesClass extends Omit<SizeClass, 'sm'> {}
 
+export type Position = keyof PositionClass
+
+export interface PositionClass {
+  bottom: string
+  left: string
+  right: string
+  top: string
+}
+
 export type Side = keyof SideClass
 
 export interface SideClass {
