@@ -1,7 +1,7 @@
 {
   "name": "@coaktion/visu",
   "private": false,
-  "version": "2.1.0-beta",
+  "version": "2.1.1-beta",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
