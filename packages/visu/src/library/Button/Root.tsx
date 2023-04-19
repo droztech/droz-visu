@@ -1,7 +1,14 @@
 import { Slot } from '@radix-ui/react-slot'
 import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
 import { clsx } from 'clsx'
-import { ButtonHTMLAttributes, FC, useMemo } from 'react'
+import {
+  ButtonHTMLAttributes,
+  Ref,
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react'
 
 import LoadingDots from '../Loading'
 
@@ -31,126 +38,136 @@ const variantClassVariants: ButtonVariantClass = {
     'bg-secondary text-gray-100 hover:bg-secondary-500 active:bg-secondary-600',
 }
 
-const ButtonRoot: FC<ButtonRootProps> = ({
-  asChild,
-  children,
-  className,
-  disabled,
-  full,
-  ghost,
-  light,
-  loading,
-  size = 'md',
-  variant = 'primary',
-  ...rest
-}) => {
-  const RootComponent = asChild && !loading ? Slot : 'button'
+const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
+  (
+    {
+      asChild,
+      children,
+      className,
+      disabled,
+      full,
+      ghost,
+      light,
+      loading,
+      size = 'md',
+      variant = 'primary',
+      ...rest
+    },
+    ref: Ref<HTMLButtonElement | null>
+  ) => {
+    const buttonRef = useRef<HTMLButtonElement>(null)
+    const RootComponent = asChild && !loading ? Slot : 'button'
 
-  // Variants
+    useImperativeHandle(ref, () => buttonRef.current)
 
-  const disabledClass = useMemo<string>(() => {
-    return disabled || loading
-      ? clsx({
-          'pointer-events-none': disabled || loading,
-          '!bg-gray !text-gray-500': (disabled || loading) && !ghost && !light,
-          '!border-gray !text-gray-500 !bg-transparent':
-            (disabled || loading) && ghost,
-          'text-gray bg-transparent': (disabled || loading) && light,
-        })
-      : ''
-  }, [disabled, loading, ghost, light, variant])
+    // Variants
 
-  const fullClass = useMemo<string>(() => {
-    return full ? '!w-full' : 'w-fit'
-  }, [full])
+    const disabledClass = useMemo<string>(() => {
+      return disabled || loading
+        ? clsx({
+            'pointer-events-none': disabled || loading,
+            '!bg-gray !text-gray-500':
+              (disabled || loading) && !ghost && !light,
+            '!border-gray !text-gray-500 !bg-transparent':
+              (disabled || loading) && ghost,
+            'text-gray bg-transparent': (disabled || loading) && light,
+          })
+        : ''
+    }, [disabled, loading, ghost, light, variant])
 
-  const loadingClass = useMemo<string>(() => {
-    return loading ? 'opacity-0' : ''
-  }, [loading])
+    const fullClass = useMemo<string>(() => {
+      return full ? '!w-full' : 'w-fit'
+    }, [full])
 
-  const ghostClass = useMemo<string>(() => {
-    return ghost ? '!border !border-solid bg-transparent' : ''
-  }, [ghost])
+    const loadingClass = useMemo<string>(() => {
+      return loading ? 'opacity-0' : ''
+    }, [loading])
 
-  const lightClass = useMemo<string>(() => {
-    return light ? 'border-none !bg-transparent !p-3' : ''
-  }, [light])
+    const ghostClass = useMemo<string>(() => {
+      return ghost ? '!border !border-solid bg-transparent' : ''
+    }, [ghost])
 
-  const sizeClass = useMemo<string>(() => {
-    return sizeClassVariants[size]
-  }, [size])
+    const lightClass = useMemo<string>(() => {
+      return light ? 'border-none !bg-transparent !p-3' : ''
+    }, [light])
 
-  const variantClass = useMemo<string>(() => {
-    return variantClassVariants[variant]
-  }, [variant])
+    const sizeClass = useMemo<string>(() => {
+      return sizeClassVariants[size]
+    }, [size])
 
-  // Compound Variants
+    const variantClass = useMemo<string>(() => {
+      return variantClassVariants[variant]
+    }, [variant])
 
-  const compoundVariantsClass = useMemo<string>(() => {
-    const ghostAndVariantClass = clsx({
-      'border-primary text-primary hover:!border-primary-500 hover:!text-primary-500 hover:!bg-primary-100 active:!border-primary-600 active:!text-primary-600 active:!bg-primary-100':
-        ghost && variant === 'primary',
-      'border-secondary text-secondary hover:!border-secondary-500 hover:!text-secondary-500 hover:!bg-secondary-100 active:!border-secondary-600 active:!text-secondary-600 active:!bg-secondary-100':
-        ghost && variant === 'secondary',
-    })
+    // Compound Variants
 
-    const lightAndVariantClass = clsx({
-      'text-primary hover:text-primary-500 !hover:bg-transparent active:text-primary-600 !active:bg-transparent':
-        light && variant === 'primary',
-      'text-secondary hover:text-secondary-500 !hover:bg-transparent active:text-secondary-600 !active:bg-transparent':
-        light && variant === 'secondary',
-    })
+    const compoundVariantsClass = useMemo<string>(() => {
+      const ghostAndVariantClass = clsx({
+        'border-primary text-primary hover:!border-primary-500 hover:!text-primary-500 hover:!bg-primary-100 active:!border-primary-600 active:!text-primary-600 active:!bg-primary-100':
+          ghost && variant === 'primary',
+        'border-secondary text-secondary hover:!border-secondary-500 hover:!text-secondary-500 hover:!bg-secondary-100 active:!border-secondary-600 active:!text-secondary-600 active:!bg-secondary-100':
+          ghost && variant === 'secondary',
+      })
 
-    return clsx(ghostAndVariantClass, lightAndVariantClass)
-  }, [ghost, light, variant])
+      const lightAndVariantClass = clsx({
+        'text-primary hover:text-primary-500 !hover:bg-transparent active:text-primary-600 !active:bg-transparent':
+          light && variant === 'primary',
+        'text-secondary hover:text-secondary-500 !hover:bg-transparent active:text-secondary-600 !active:bg-transparent':
+          light && variant === 'secondary',
+      })
 
-  return (
-    <RootComponent
-      className={clsx([
-        className,
-        'flex',
-        'flex-row',
-        'gap-2.5',
-        'items-center',
-        'justify-center',
-        'relative',
-        'rounded-lg',
-        'border-none',
-        'cursor-pointer',
-        'transition-all',
-        compoundVariantsClass,
-        fullClass,
-        ghostClass,
-        lightClass,
-        sizeClass,
-        variantClass,
-        disabledClass,
-      ])}
-      disabled={disabled || loading}
-      {...rest}
-    >
-      {!loading ? (
-        children
-      ) : (
-        <>
-          <span
-            className={clsx([
-              'flex',
-              'flex-row',
-              'gap-2.5',
-              'items-center',
-              'justify-center',
-              loadingClass,
-            ])}
-          >
-            {children}
-          </span>
-          {loading && <LoadingDots className="absolute" />}
-        </>
-      )}
-    </RootComponent>
-  )
-}
+      return clsx(ghostAndVariantClass, lightAndVariantClass)
+    }, [ghost, light, variant])
+
+    return (
+      <RootComponent
+        className={clsx([
+          className,
+          'flex',
+          'flex-row',
+          'gap-2.5',
+          'items-center',
+          'justify-center',
+          'relative',
+          'rounded-lg',
+          'border-none',
+          'cursor-pointer',
+          'transition-all',
+          compoundVariantsClass,
+          fullClass,
+          ghostClass,
+          lightClass,
+          sizeClass,
+          variantClass,
+          disabledClass,
+        ])}
+        disabled={disabled || loading}
+        ref={buttonRef}
+        {...rest}
+      >
+        {!loading ? (
+          children
+        ) : (
+          <>
+            <span
+              className={clsx([
+                'flex',
+                'flex-row',
+                'gap-2.5',
+                'items-center',
+                'justify-center',
+                loadingClass,
+              ])}
+            >
+              {children}
+            </span>
+            {loading && <LoadingDots className="absolute" />}
+          </>
+        )}
+      </RootComponent>
+    )
+  }
+)
 
 ButtonRoot.displayName = 'Button.Root'
 
