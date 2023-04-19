@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './Flex'
 export * from './FloatCard'
+export * from './Toast'
 
 export type Align = keyof AlignClass
 
@@ -23,6 +24,12 @@ export interface ExtendedColorClass extends FullColorClass {
   current: string
   gray: string
   white: string
+}
+
+export type ExtendedStatus = keyof ExtendedStatusClass
+
+export interface ExtendedStatusClass extends StatusClass {
+  alert: string
 }
 
 export type FullColor = keyof FullColorClass

@@ -59,10 +59,7 @@ export type { SwitchProps } from './Switch'
 export { default as Pagination } from './Pagination'
 export type { PaginationProps } from './Pagination'
 
-export {
-  default as ToastProvider,
-  useToastProviderContext as useToast,
-} from './Toast'
+export { default as ToastProvider, useToast } from './Toast'
 export type { ToastProviderProps } from './Toast'
 
 export { default as Menu } from './Menu'

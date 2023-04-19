@@ -1,16 +1,9 @@
 import * as RadixToast from '@radix-ui/react-toast'
+import { PosX, PosXClass, PosY, PosYClass } from '@types'
 import { clsx } from 'clsx'
-import {
-  FC,
-  ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from 'react'
+import { FC, ReactNode, createContext, useCallback, useState } from 'react'
 
-import ToastRoot, { ToastRootProps } from '../ToastRoot'
-import { posXVariants, posYVariants } from './style'
+import ToastRoot, { ToastRootProps } from '../Root'
 
 export interface ToastProviderContextProps
   extends RadixToast.ToastProviderProps {
@@ -23,8 +16,18 @@ export interface ToastProviderContextProps
 
 type ToastProviderProps = {
   children: ReactNode
-  posX: 'left' | 'right'
-  posY: 'top' | 'bottom'
+  posX: PosX
+  posY: PosY
+}
+
+export const posXClassVariants: PosXClass = {
+  left: 'left-0',
+  right: 'right-0',
+}
+
+export const posYClassVariants: PosYClass = {
+  bottom: 'bottom-0',
+  top: 'top-0',
 }
 
 export const ToastProviderContext = createContext<ToastProviderContextProps>(
@@ -33,6 +36,13 @@ export const ToastProviderContext = createContext<ToastProviderContextProps>(
 
 const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
   const [messages, setMessages] = useState<ToastRootProps[]>([])
+
+  const alert = useCallback(
+    (data: Omit<ToastRootProps, 'variant'>) => {
+      setMessages([...messages, { ...data, variant: 'alert' }])
+    },
+    [messages, setMessages]
+  )
 
   const error = useCallback(
     (data: Omit<ToastRootProps, 'variant'>) => {
@@ -48,16 +58,9 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
     [messages, setMessages]
   )
 
-  const alert = useCallback(
-    (data: Omit<ToastRootProps, 'variant'>) => {
-      setMessages([...messages, { ...data, variant: 'alert' }])
-    },
-    [messages, setMessages]
-  )
-
   const toast = {
-    error,
     alert,
+    error,
     success,
   }
 
@@ -80,8 +83,8 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
         <RadixToast.Viewport
           className={clsx(
             'fixed z-50 p-2 flex flex-col-reverse gap-2 max-h-44 overflow-auto scrollbar-hide',
-            posXVariants[posX],
-            posYVariants[posY]
+            posXClassVariants[posX],
+            posYClassVariants[posY]
           )}
         />
       </RadixToast.Provider>
@@ -90,13 +93,3 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
 }
 
 export default ToastProvider
-
-export const useToastProviderContext = (): ToastProviderContextProps => {
-  const context = useContext(ToastProviderContext)
-
-  if (context === undefined) {
-    throw new Error('Context should be used under a provider')
-  }
-
-  return context
-}
