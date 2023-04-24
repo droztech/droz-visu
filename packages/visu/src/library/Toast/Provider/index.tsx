@@ -14,7 +14,7 @@ export interface ToastProviderContextProps
   }
 }
 
-type ToastProviderProps = {
+export interface ToastProviderProps {
   children: ReactNode
   posX: PosX
   posY: PosY
