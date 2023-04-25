@@ -26,7 +26,6 @@ const SidebarRoot: FC<SidebarRootProps> = ({
         'flex-col',
         'border-r',
         'border-gray-300',
-        'bg-gray-100',
         'py-6',
         'transition-all',
         'duration-300',
