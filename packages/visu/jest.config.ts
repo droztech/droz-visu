@@ -14,7 +14,7 @@ const config: JestConfigWithTsJest = {
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   collectCoverageFrom: ['src/library/**/**'],
-  coveragePathIgnorePatterns: ['src/library/index.ts'],
+  coveragePathIgnorePatterns: ['src/library/index.ts', 'src/library/styles'],
 }
 
 export default config

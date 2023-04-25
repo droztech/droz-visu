@@ -22,6 +22,12 @@ export const closeColorClassVariants: ExtendedStatusClass = {
   success: 'hover:bg-success-500 active:bg-success-600',
 }
 
+const variantIcon = {
+  alert: <Warning />,
+  error: <WarningCircle />,
+  success: <CheckCircle />,
+}
+
 const ToastRoot: FC<ToastRootProps> = ({
   className,
   desc,
@@ -30,14 +36,7 @@ const ToastRoot: FC<ToastRootProps> = ({
   ...rest
 }) => {
   const variantIconElement = useMemo(() => {
-    switch (variant) {
-      case 'success':
-        return <CheckCircle />
-      case 'error':
-        return <WarningCircle />
-      case 'alert':
-        return <Warning />
-    }
+    return variantIcon[variant]
   }, [variant])
 
   return (
