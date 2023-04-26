@@ -21,7 +21,6 @@ const InputInput = forwardRef<HTMLInputElement, InputInputProps>(
         className={clsx([
           className,
           'bg-transparent',
-          'text-gray-900',
           'outline-none',
           'focus:outline-none',
           'h-10',
