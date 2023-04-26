@@ -1,7 +1,7 @@
-import ToastProvider from './ToastProvider'
+import ToastProvider from './Provider'
 
-export type { ToastProviderProps } from '@radix-ui/react-toast'
+export type { ToastProviderProps } from './Provider'
+
+export { useToast } from './Hook/useToast'
 
 export default ToastProvider
-
-export { useToastProviderContext } from './ToastProvider'

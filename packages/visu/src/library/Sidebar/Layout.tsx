@@ -9,10 +9,12 @@ const SidebarLayout: FC<SidebarLayoutProps> = ({
   ...rest
 }) => {
   return (
-    <div className={clsx('flex flex-row w-full', className)} {...rest}>
+    <div className={clsx([className, 'flex', 'flex-row', 'w-full'])} {...rest}>
       {children}
     </div>
   )
 }
+
+SidebarLayout.displayName = 'Sidebar.Layout'
 
 export default SidebarLayout

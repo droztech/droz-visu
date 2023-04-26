@@ -1,3 +1,4 @@
+import { SmallerSizes } from '@types'
 import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
@@ -7,7 +8,7 @@ export interface PaginationProps
   current: number
   onPageChange: (data: number) => void
   disabled?: boolean
-  size?: 'md' | 'sm'
+  size?: SmallerSizes
 }
 
 const Pagination: FC<PaginationProps> = ({
@@ -18,7 +19,7 @@ const Pagination: FC<PaginationProps> = ({
   className,
   ...rest
 }) => {
-  const paginateSize = useMemo(() => {
+  const paginateSize = useMemo<number>(() => {
     return size === 'md' ? 3 : 1
   }, [size])
 

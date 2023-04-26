@@ -1,5 +1,7 @@
 import './styles/index.css'
 
+export * from './types'
+
 export { default as Button } from './Button'
 export type { ButtonIconProps, ButtonRootProps } from './Button'
 
@@ -39,10 +41,14 @@ export type {
 } from './FloatCard'
 
 export { default as Avatar } from './Avatar'
-export type { AvatarProps } from './Avatar'
+export type {
+  AvatarFallbackProps,
+  AvatarImageProps,
+  AvatarRootProps,
+} from './Avatar'
 
 export { default as Checkbox } from './Checkbox'
-export type { CheckboxProps } from './Checkbox'
+export type { CheckboxIndicatorProps, CheckboxRootProps } from './Checkbox'
 
 export { default as Radio } from './Radio'
 export type { RadioItemProps, RadioRootProps } from './Radio'
@@ -53,10 +59,7 @@ export type { SwitchProps } from './Switch'
 export { default as Pagination } from './Pagination'
 export type { PaginationProps } from './Pagination'
 
-export {
-  default as ToastProvider,
-  useToastProviderContext as useToast,
-} from './Toast'
+export { default as ToastProvider, useToast } from './Toast'
 export type { ToastProviderProps } from './Toast'
 
 export { default as Menu } from './Menu'

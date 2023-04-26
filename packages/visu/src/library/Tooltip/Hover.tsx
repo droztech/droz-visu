@@ -1,17 +1,18 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
+import { Position } from '@types'
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
 export interface TooltipHoverProps extends HTMLAttributes<HTMLDivElement> {
-  side?: 'top' | 'right' | 'bottom' | 'left' | undefined
+  side?: Position
   text: string
 }
 
 const TooltipHover: FC<TooltipHoverProps> = ({
-  side,
-  text,
   children,
   className,
+  side,
+  text,
   ...rest
 }) => {
   return (
@@ -24,7 +25,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
           <RadixTooltip.Content side={side} sideOffset={5}>
             <RadixTooltip.Arrow className="fill-background w-5 h-2" />
             <div className="bg-background shadow-sm rounded-md p-3 max-w-xs">
-              <span className={clsx('text-sm', className)} {...rest}>
+              <span className={clsx([className, 'text-sm'])} {...rest}>
                 {text}
               </span>
             </div>

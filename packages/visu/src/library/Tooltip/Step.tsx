@@ -1,26 +1,27 @@
 import * as RadixPopover from '@radix-ui/react-popover'
+import { Position } from '@types'
 import { clsx } from 'clsx'
 import { ArrowRight, X } from 'phosphor-react'
 import { FC, HTMLAttributes, useState } from 'react'
 
 export interface TooltipStepProps extends HTMLAttributes<HTMLDivElement> {
-  side?: 'top' | 'right' | 'bottom' | 'left' | undefined
-  text: string[]
-  nextText?: string
-  stepText?: string
   closeText?: string
   defaultOpen?: boolean
+  nextText?: string
+  side?: Position
+  stepText?: string
+  text: string[]
 }
 
 const TooltipStep: FC<TooltipStepProps> = ({
-  side,
-  text,
-  nextText,
-  stepText,
-  closeText,
-  defaultOpen,
   children,
   className,
+  closeText,
+  defaultOpen,
+  nextText,
+  side,
+  stepText,
+  text,
   ...rest
 }) => {
   const [currentStep, setCurrentStep] = useState(1)
@@ -34,7 +35,7 @@ const TooltipStep: FC<TooltipStepProps> = ({
           sideOffset={16}
           className="bg-background shadow-sm rounded-md p-6 max-w-xs flex flex-col gap-4 items-center"
         >
-          <span className={clsx('text-sm w-full', className)} {...rest}>
+          <span className={clsx([className, 'text-sm w-full'])} {...rest}>
             {text[currentStep - 1]}
           </span>
           <div className="flex justify-between items-center w-full gap-6">

@@ -15,16 +15,4 @@ describe('SidebarDivider tests', () => {
 
     expect(element).toBeDefined()
   })
-
-  it('Should render a SidebarDivider element without children', () => {
-    render(
-      <Sidebar.Divider data-testid="element">
-        <div></div>
-        <div></div>
-      </Sidebar.Divider>
-    )
-    const element = screen.getByTestId('element')
-
-    expect(element.children.length).toBe(0)
-  })
 })

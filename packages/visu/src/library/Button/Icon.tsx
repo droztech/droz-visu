@@ -1,9 +1,9 @@
 import { clsx } from 'clsx'
-import { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 
 export interface ButtonIconProps extends HTMLAttributes<HTMLDivElement> {}
 
-const ButtonIcon = ({ children, className, ...rest }: ButtonIconProps) => {
+const ButtonIcon: FC<ButtonIconProps> = ({ children, className, ...rest }) => {
   return (
     <div
       className={clsx([

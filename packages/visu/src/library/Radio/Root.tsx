@@ -7,4 +7,6 @@ const RadioRoot: FC<RadioRootProps> = ({ children, ...rest }) => {
   return <RadixRadio.Root {...rest}>{children}</RadixRadio.Root>
 }
 
+RadioRoot.displayName = 'Radio.Root'
+
 export default RadioRoot

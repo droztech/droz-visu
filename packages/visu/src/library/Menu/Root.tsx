@@ -1,35 +1,51 @@
+import { Side, SideClass } from '@types'
 import { clsx } from 'clsx'
-import { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes, useMemo } from 'react'
 
 export interface MenuRootProps extends HTMLAttributes<HTMLDivElement> {
   expanded: boolean
-  side?: 'right' | 'left'
+  side?: Side
 }
 
-const rootSideVariants = {
+const sideClassVariants: SideClass = {
   left: '-translate-x-full',
   right: 'translate-x-full',
 }
 
 const MenuRoot: FC<MenuRootProps> = ({
-  expanded,
-  side = 'left',
   children,
   className,
+  expanded,
+  side = 'left',
   ...rest
 }) => {
+  const sideClass = useMemo<string>(() => {
+    return sideClassVariants[side]
+  }, [side])
+
   return (
     <div
-      className={clsx(
-        'flex flex-col justify-between h-full w-screen p-4 bg-gray-100 fixed transition-all overflow-hidden',
-        expanded ? 'translate-x-0' : rootSideVariants[side],
-        className
-      )}
+      className={clsx([
+        className,
+        'flex',
+        'flex-col',
+        'justify-between',
+        'h-full',
+        'w-screen',
+        'p-4',
+        'bg-gray-100',
+        'fixed',
+        'transition-all',
+        'overflow-hidden',
+        expanded ? 'translate-x-0' : sideClass,
+      ])}
       {...rest}
     >
       {children}
     </div>
   )
 }
+
+MenuRoot.displayName = 'Menu.Root'
 
 export default MenuRoot

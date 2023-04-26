@@ -1,16 +1,16 @@
 import { clsx } from 'clsx'
-import { ButtonHTMLAttributes, useCallback, useMemo, useRef } from 'react'
+import { ButtonHTMLAttributes, FC, useCallback, useMemo, useRef } from 'react'
 
 export interface InputIconProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const InputIcon = ({
+const InputIcon: FC<InputIconProps> = ({
   children,
   className,
   onClick,
   type,
   ...rest
-}: InputIconProps) => {
+}) => {
   const IconComponent = useRef<HTMLButtonElement | null>(null)
 
   const focusInput = useCallback(() => {
