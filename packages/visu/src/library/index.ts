@@ -69,3 +69,6 @@ export type {
   MenuDividerProps,
   MenuGroupProps,
 } from './Menu'
+
+export { default as Divider } from './Divider'
+export type { DividerProps } from './Divider'
