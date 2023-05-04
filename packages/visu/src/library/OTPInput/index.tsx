@@ -10,17 +10,12 @@ import {
   useState,
 } from 'react'
 
-export interface VerificationInputProps extends HTMLAttributes<HTMLDivElement> {
+export interface OTPInputProps extends HTMLAttributes<HTMLDivElement> {
   count: number
   error?: boolean
 }
 
-const VerificationInput: FC<VerificationInputProps> = ({
-  count,
-  error,
-  className,
-  ...rest
-}) => {
+const OTPInput: FC<OTPInputProps> = ({ count, error, className, ...rest }) => {
   const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
   const refs = useRef<(HTMLInputElement | null)[]>([])
 
@@ -74,4 +69,4 @@ const VerificationInput: FC<VerificationInputProps> = ({
   )
 }
 
-export default VerificationInput
+export default OTPInput
