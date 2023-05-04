@@ -2,7 +2,7 @@ import { clsx } from 'clsx'
 import { Moon, Sun } from 'phosphor-react'
 import { useCallback, useState } from 'react'
 
-import { Button, Flex } from '@coaktion/visu'
+import { Button } from '@coaktion/visu'
 
 function App() {
   const [theme, setTheme] = useState('')
@@ -16,31 +16,24 @@ function App() {
   }, [theme])
 
   return (
-    <Flex.Col
-      className={clsx([
-        'bg-backgroundColor',
-        'text-gray-100',
-        'h-screen',
-        'w-screen',
-      ])}
-      justify="start"
-      items="center"
+    <div
+      className={clsx(
+        'flex flex-col min-h-screen w-full',
+        theme === 'darkTheme' && 'dark bg-gray-800 text-gray-100'
+      )}
     >
-      <Flex.Row
-        className={clsx(['w-full', 'p-2'])}
-        items="center"
-        justify="end"
-      >
-        <Button.Root onClick={handleChangeTheme} light>
+      <header className="flex items-center justify-between p-6">
+        <span>Teste</span>
+        <Button.Root size="sm" onClick={handleChangeTheme} variant="neutral">
           <Button.Icon>{theme ? <Sun /> : <Moon />}</Button.Icon>
         </Button.Root>
-      </Flex.Row>
-      <Flex.Col className={clsx(['max-w-3xl', 'w-[95vw]', 'h-full'])} center>
+      </header>
+      <div className="flex items-center justify-center p-6 flex-1">
         {/* ========================= TEST AREA ========================= */}
 
         {/* ========================= TEST AREA ========================= */}
-      </Flex.Col>
-    </Flex.Col>
+      </div>
+    </div>
   )
 }
 
