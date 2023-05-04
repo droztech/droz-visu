@@ -5,21 +5,30 @@ import {
   FC,
   HTMLAttributes,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react'
 
 export interface VerificationInputProps extends HTMLAttributes<HTMLDivElement> {
   count: number
+  error?: boolean
 }
 
 const VerificationInput: FC<VerificationInputProps> = ({
   count,
+  error,
   className,
   ...rest
 }) => {
   const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
   const refs = useRef<(HTMLInputElement | null)[]>([])
+
+  const inputColorClass = useMemo(() => {
+    return error
+      ? 'border-error hover:border-error-600'
+      : 'border-gray hover:border-gray-700 active:border-primary'
+  }, [error])
 
   const handleChange = (
     { target }: ChangeEvent<HTMLInputElement>,
@@ -47,15 +56,14 @@ const VerificationInput: FC<VerificationInputProps> = ({
 
   return (
     <div className={clsx('flex gap-4 justify-center', className)} {...rest}>
-      <button
-        className="h-4 w-4 bg-error rounded-sm"
-        onClick={() => console.log(otp)}
-      />
       {otp.map((item, index) => (
         <input
           key={index}
           ref={(ref) => (refs.current[index] = ref)}
-          className="flex-1 border rounded border-gray h-14 max-w-[3.5rem] w-full text-center text-lg font-semibold"
+          className={clsx(
+            'flex-1 border rounded h-14 max-w-[3.5rem] w-full text-center text-lg font-semibold transition-colors',
+            inputColorClass
+          )}
           onChange={(ev) => handleChange(ev, index)}
           onPaste={handlePaste}
           value={otp[index].charAt(0)}
