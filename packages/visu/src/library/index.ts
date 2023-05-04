@@ -11,9 +11,6 @@ export type { FlexColProps, FlexRootProps, FlexRowProps } from './Flex'
 export { default as Input } from './Input'
 export type { InputIconProps, InputInputProps, InputRootProps } from './Input'
 
-export { default as Text } from './Text'
-export type { TextProps } from './Text'
-
 export { default as Sidebar } from './Sidebar'
 export type {
   SidebarRootProps,
@@ -72,3 +69,6 @@ export type {
 
 export { default as Divider } from './Divider'
 export type { DividerProps } from './Divider'
+
+export { default as Link } from './Link'
+export type { LinkProps } from './Link'
