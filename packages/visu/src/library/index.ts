@@ -72,3 +72,6 @@ export type { DividerProps } from './Divider'
 
 export { default as Link } from './Link'
 export type { LinkProps } from './Link'
+
+export { default as OTPInput } from './OTPInput'
+export type { OTPInputProps } from './OTPInput'
