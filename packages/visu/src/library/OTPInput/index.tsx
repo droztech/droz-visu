@@ -3,19 +3,29 @@ import {
   ChangeEvent,
   ClipboardEvent,
   FC,
-  HTMLAttributes,
+  InputHTMLAttributes,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react'
 
-export interface OTPInputProps extends HTMLAttributes<HTMLDivElement> {
+export interface OTPInputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   count: number
   error?: boolean
+  onChange?: (data: string[]) => void
+  value?: string[]
 }
 
-const OTPInput: FC<OTPInputProps> = ({ count, error, className, ...rest }) => {
+const OTPInput: FC<OTPInputProps> = ({
+  count,
+  error,
+  onChange,
+  value,
+  className,
+  ...rest
+}) => {
   const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
   const refs = useRef<(HTMLInputElement | null)[]>([])
 
@@ -32,12 +42,15 @@ const OTPInput: FC<OTPInputProps> = ({ count, error, className, ...rest }) => {
     setOtp((prevOtp) =>
       prevOtp.map((value, i) => (i === index ? target.value : value))
     )
+    if (onChange)
+      onChange(otp.map((value, i) => (i === index ? target.value : value)))
   }
 
   const handlePaste = ({ clipboardData }: ClipboardEvent<HTMLInputElement>) => {
     const paste = clipboardData.getData('text/plain').replace(' ', '')
     const pasteArray = paste.split('').slice(0, otp.length)
     setOtp(pasteArray)
+    if (onChange) onChange(pasteArray)
   }
 
   useEffect(() => {
@@ -61,7 +74,7 @@ const OTPInput: FC<OTPInputProps> = ({ count, error, className, ...rest }) => {
           )}
           onChange={(ev) => handleChange(ev, index)}
           onPaste={handlePaste}
-          value={otp[index].charAt(0)}
+          value={value ? value[index] : otp[index]}
           maxLength={1}
         />
       ))}
