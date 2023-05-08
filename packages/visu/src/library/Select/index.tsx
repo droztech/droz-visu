@@ -1,29 +1,31 @@
+import * as RadixDropdown from '@radix-ui/react-dropdown-menu'
 import { clsx } from 'clsx'
 import { CaretDown } from 'phosphor-react'
-import { FC, HTMLAttributes, useMemo, useState } from 'react'
+import { FC, useMemo } from 'react'
 
 export interface SelectProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  extends Omit<RadixDropdown.MenuContentProps, 'onChange'> {
   options: {
     value: string
     label: string
+    disabled?: boolean
   }[]
   value?: string
   onChange?: (data: string) => void
+  disabled?: boolean
 }
 
 const Select: FC<SelectProps> = ({
   options,
+  disabled,
   onChange,
   value,
   className,
+  sideOffset = 5,
   placeholder,
   ...rest
 }) => {
-  const [expanded, setExpanded] = useState(false)
-
   const handleChange = (ev: string) => {
-    setExpanded(false)
     if (onChange) onChange(ev)
   }
 
@@ -34,47 +36,44 @@ const Select: FC<SelectProps> = ({
   }, [value])
 
   return (
-    <div className="flex flex-col gap-1 relative" {...rest}>
-      <div
+    <RadixDropdown.Root>
+      <RadixDropdown.Trigger
         className={clsx(
-          'border px-4 py-2 rounded-lg bg-transparent border-gray flex items-center gap-4 justify-between select-none cursor-pointer w-72 min-h-10 text-sm',
-          value === '' && 'text-gray',
+          'disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray border px-4 py-2 rounded-lg bg-transparent border-gray flex items-center gap-4 justify-between w-72 min-h-10 text-sm [&[data-state=open]>div]:rotate-180 hover:border-gray-700 transition-colors active:border-primary data-[state=open]:border-primary',
+          !value && 'text-gray',
           className
         )}
-        onClick={() => setExpanded(!expanded)}
+        disabled={disabled}
       >
         <span>{currentValue}</span>
-        <span
-          className={clsx(
-            'text-primary transition-all',
-            expanded && 'rotate-180'
-          )}
-        >
+        <div className="text-primary transition-all">
           <CaretDown />
-        </span>
-      </div>
-      <ul
-        className={clsx(
-          'flex-col p-3 rounded-lg gap-2 border border-gray shadow absolute bg-gray-100 top-12 w-full [&>li]:text-sm',
-          expanded ? 'flex' : 'hidden'
-        )}
-      >
-        {placeholder && (
-          <li className="pointer-events-none text-gray px-3 py-2">
-            {placeholder}
-          </li>
-        )}
-        {options.map((item, index) => (
-          <li
-            className="rounded-lg transition-colors px-3 py-2 hover:bg-gray-300 hover:text-primary cursor-pointer"
-            key={index}
-            onClick={() => handleChange(item.value)}
-          >
-            {item.label}
-          </li>
-        ))}
-      </ul>
-    </div>
+        </div>
+      </RadixDropdown.Trigger>
+      <RadixDropdown.Portal>
+        <RadixDropdown.Content
+          sideOffset={sideOffset}
+          className="flex flex-col p-3 rounded-lg gap-2 border border-gray shadow bg-gray-100 top-12 w-72 [&>li]:text-sm"
+          {...rest}
+        >
+          {placeholder && (
+            <span className="pointer-events-none text-gray px-3 py-2">
+              {placeholder}
+            </span>
+          )}
+          {options.map((item, index) => (
+            <RadixDropdown.Item
+              className="rounded-lg transition-colors px-3 py-2 hover:bg-gray-300 hover:text-primary cursor-pointer active:outline-none focus:outline-none focus:bg-gray-300 focus:text-primary data-[disabled]:pointer-events-none data-[disabled]:text-gray"
+              key={index}
+              onSelect={() => handleChange(item.value)}
+              disabled={item.disabled}
+            >
+              {item.label}
+            </RadixDropdown.Item>
+          ))}
+        </RadixDropdown.Content>
+      </RadixDropdown.Portal>
+    </RadixDropdown.Root>
   )
 }
 
