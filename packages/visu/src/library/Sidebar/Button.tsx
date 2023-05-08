@@ -26,6 +26,7 @@ const SidebarButton: FC<SidebarButtonProps> = ({
         'py-2',
         'transition-colors',
         'gap-2',
+        'w-full',
         'hover:bg-primary',
         'hover:text-gray-100',
         '[&_svg]:text-primary',
