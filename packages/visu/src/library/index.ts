@@ -75,3 +75,6 @@ export type { LinkProps } from './Link'
 
 export { default as OTPInput } from './OTPInput'
 export type { OTPInputProps } from './OTPInput'
+
+export { default as Select } from './Select'
+export type { SelectRootProps, SelectItemProps } from './Select'
