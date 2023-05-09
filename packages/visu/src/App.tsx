@@ -1,7 +1,10 @@
-import { Flex } from '@library'
+import { Flex, Select } from '@library'
 import { clsx } from 'clsx'
+import { useState } from 'react'
 
 function App() {
+  const [test, setTest] = useState('')
+
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
       <Flex.Col
@@ -19,7 +22,18 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-
+        <Select.Root
+          value={test}
+          onValueChange={(ev) => setTest(ev)}
+          placeholder="Escolha uma opção"
+        >
+          <Select.Item value="yes">Sim</Select.Item>
+          <Select.Item value="no">Não</Select.Item>
+          <Select.Item value="maybe">Talvez</Select.Item>
+          <Select.Item value="maybeYesOrNo">
+            Talvez Sim ou Talvez Não Talvez Sim ou Talvez Não
+          </Select.Item>
+        </Select.Root>
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>
