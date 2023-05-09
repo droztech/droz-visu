@@ -78,3 +78,6 @@ export type { OTPInputProps } from './OTPInput'
 
 export { default as Select } from './Select'
 export type { SelectRootProps, SelectItemProps } from './Select'
+
+export { default as File } from './File'
+export type { FileProps } from './File'
