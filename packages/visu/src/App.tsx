@@ -1,10 +1,7 @@
-import { File, Flex } from '@library'
+import { Flex } from '@library'
 import { clsx } from 'clsx'
-import { useState } from 'react'
 
 function App() {
-  const [file, setFile] = useState<File>()
-
   return (
     <Flex.Root center className="min-h-screen bg-gray-800">
       <Flex.Col
@@ -22,11 +19,7 @@ function App() {
         ])}
       >
         {/* ========================= TEST AREA ========================= */}
-        <File
-          formats={['image/png', 'image/jpeg']}
-          onChange={(ev) => setFile(ev)}
-          value={file}
-        />
+
         {/* ========================= TEST AREA ========================= */}
       </Flex.Col>
     </Flex.Root>

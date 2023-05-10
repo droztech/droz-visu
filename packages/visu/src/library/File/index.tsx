@@ -4,7 +4,7 @@ import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react'
 
 export interface FileProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
-  formats: string[]
+  formats?: string[] | string
   onChange?: (data: File | undefined) => void
   value?: File
 }
@@ -13,6 +13,7 @@ const File: FC<FileProps> = ({
   formats,
   className,
   onChange,
+  children,
   value,
   ...rest
 }) => {
@@ -22,12 +23,13 @@ const File: FC<FileProps> = ({
   const handleFileChange = (ev: ChangeEvent<HTMLInputElement>) => {
     if (ev.target.files && ev.target.files[0]) {
       const selectedFile = ev.target.files[0]
-      if (formats.includes(selectedFile.type) && onChange) {
-        onChange(selectedFile)
-      } else {
+
+      if (formats && !formats.includes(selectedFile.type)) {
         handleClearFile()
-        console.log(selectedFile.type)
+        return console.log(new Error(`invalid ${selectedFile.type} file`))
       }
+
+      if (onChange) onChange(selectedFile)
     }
   }
 
