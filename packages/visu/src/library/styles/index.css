@@ -8,11 +8,16 @@
   }
 
   .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+    @apply hidden;
   }
 
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  input::-webkit-file-upload-button,
+  input::file-selector-button {
+    @apply hidden;
   }
 }
