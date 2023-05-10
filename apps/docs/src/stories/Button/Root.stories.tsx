@@ -3,7 +3,7 @@ import { CheckCircle } from 'phosphor-react'
 
 import { Button, ButtonRootProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<ButtonRootProps> = {
   title: 'Button/Root',
   component: Button.Root,
   argTypes: {
@@ -113,9 +113,12 @@ export default {
     size: 'md',
     variant: 'primary',
   },
-} as Meta<ButtonRootProps>
+}
 
-export const Comum: StoryObj<ButtonRootProps> = {
+export default meta
+type ButtonRootStory = StoryObj<ButtonRootProps>
+
+export const Comum: ButtonRootStory = {
   argTypes: {
     asChild: {
       control: 'none',
@@ -126,7 +129,7 @@ export const Comum: StoryObj<ButtonRootProps> = {
   },
 }
 
-export const ComIcone: StoryObj<ButtonRootProps> = {
+export const ComIcone: ButtonRootStory = {
   argTypes: {
     children: {
       control: 'none',
@@ -145,7 +148,7 @@ export const ComIcone: StoryObj<ButtonRootProps> = {
   },
 }
 
-export const ComIconeNaEsquerda: StoryObj<ButtonRootProps> = {
+export const ComIconeNaEsquerda: ButtonRootStory = {
   argTypes: {
     children: {
       control: 'none',
@@ -164,7 +167,7 @@ export const ComIconeNaEsquerda: StoryObj<ButtonRootProps> = {
   },
 }
 
-export const ComoTagAnchor: StoryObj<ButtonRootProps> = {
+export const ComoTagAnchor: ButtonRootStory = {
   argTypes: {
     children: {
       control: 'none',

@@ -1,9 +1,9 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
 
 import { Button, ButtonIconProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<ButtonIconProps> = {
   title: 'Button/Icon',
   component: Button.Icon,
   argTypes: {
@@ -19,14 +19,17 @@ export default {
   args: {
     children: '',
   },
-} as Meta<ButtonIconProps>
-
-const Template: ComponentStory<typeof Button.Icon> = (args) => {
-  return (
-    <Button.Icon {...args}>
-      <CheckCircle />
-    </Button.Icon>
-  )
 }
 
-export const Comum = Template.bind({})
+export default meta
+type ButtonIconStory = StoryObj<ButtonIconProps>
+
+export const Comum: ButtonIconStory = {
+  render: (args) => {
+    return (
+      <Button.Icon {...args}>
+        <CheckCircle />
+      </Button.Icon>
+    )
+  },
+}
