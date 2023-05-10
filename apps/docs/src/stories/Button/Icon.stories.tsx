@@ -8,6 +8,7 @@ export default {
   component: Button.Icon,
   argTypes: {
     children: {
+      description: 'Ícone a ser exibido pelo componente.',
       table: {
         type: {
           summary: 'React.ReactNode',
