@@ -1,11 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
+import { withDesign } from 'storybook-addon-designs'
 
 import { Button, ButtonRootProps } from '@coaktion/visu'
 
 const meta: Meta<ButtonRootProps> = {
   title: 'Button/Root',
   component: Button.Root,
+  decorators: [withDesign],
   argTypes: {
     children: {
       table: {
@@ -112,6 +114,12 @@ const meta: Meta<ButtonRootProps> = {
     loading: false,
     size: 'md',
     variant: 'primary',
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18885&t=i2mg4ixu1iYnYf6w-0',
+    },
   },
 }
 
