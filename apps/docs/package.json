@@ -6,9 +6,10 @@
   "scripts": {
     "app": "vite",
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build-storybook": "storybook build",
     "build:app": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "chromatic": "npx chromatic --project-token=chpt_81ccfe16db86372"
   },
   "dependencies": {
     "@coaktion/visu": "*",
@@ -30,9 +31,13 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.17.4",
     "storybook": "^7.0.10",
+    "storybook-addon-designs": "^7.0.0-beta.2",
     "tsconfig": "*",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "docs@1.3.0"
 }

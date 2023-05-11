@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
 
 import { Avatar, AvatarImageProps } from '@coaktion/visu'
 
 const meta: Meta<AvatarImageProps> = {
   title: 'Avatar/Image',
   component: Avatar.Image,
+  decorators: [withDesign],
   argTypes: {
     alt: {
       control: 'text',
@@ -21,6 +23,12 @@ const meta: Meta<AvatarImageProps> = {
         type: { summary: 'string' },
       },
       type: { name: 'string', required: true },
+    },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17807&t=i2mg4ixu1iYnYf6w-0',
     },
   },
 }

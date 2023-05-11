@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
 
 import { Avatar, AvatarRootProps } from '@coaktion/visu'
 
 const meta: Meta<AvatarRootProps> = {
   title: 'Avatar/Root',
   component: Avatar.Root,
+  decorators: [withDesign],
   argTypes: {
     children: {
       control: 'none',
@@ -55,6 +57,12 @@ const meta: Meta<AvatarRootProps> = {
     color: 'primary',
     size: 'md',
     status: '',
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17807&t=i2mg4ixu1iYnYf6w-0',
+    },
   },
 }
 

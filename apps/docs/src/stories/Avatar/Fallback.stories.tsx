@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { withDesign } from 'storybook-addon-designs'
 
 import { Avatar, AvatarFallbackProps } from '@coaktion/visu'
 
 const meta: Meta<AvatarFallbackProps> = {
   title: 'Avatar/Fallback',
   component: Avatar.Fallback,
+  decorators: [withDesign],
   argTypes: {
     fallback: {
       control: 'text',
@@ -16,6 +18,12 @@ const meta: Meta<AvatarFallbackProps> = {
         },
       },
       type: { name: 'string', required: true },
+    },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17807&t=i2mg4ixu1iYnYf6w-0',
     },
   },
 }
