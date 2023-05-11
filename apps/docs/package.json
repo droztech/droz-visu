@@ -6,6 +6,7 @@
   "scripts": {
     "app": "vite",
     "dev": "storybook dev -p 6006",
+    "build": "storybook build",
     "build-storybook": "storybook build",
     "build:app": "tsc && vite build",
     "preview": "vite preview",
@@ -37,7 +38,5 @@
     "tsconfig": "*",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "docs@1.3.0"
+  }
 }
