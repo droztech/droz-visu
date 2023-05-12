@@ -20,6 +20,13 @@ const meta: Meta<InputIconProps> = {
   args: {
     disabled: false,
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3119-16270&t=AdZjH6UtpERmhB5O-0',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
