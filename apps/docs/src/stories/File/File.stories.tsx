@@ -24,7 +24,7 @@ const meta: Meta<FileProps> = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/vimM8ueWbwKbUB2F4anWLS/%5BDroz-Nexo%5D-Telas?type=design&node-id=3295-27317&t=t0RzfGnHc1izbdAY-0',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3487-664&t=yA8ycLkgL79CIrNW-0',
     },
   },
 }
