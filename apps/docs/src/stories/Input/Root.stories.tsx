@@ -1,11 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
+import { withDesign } from 'storybook-addon-designs'
 
 import { Input, InputRootProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<InputRootProps> = {
   title: 'Input/Root',
   component: Input.Root,
+  decorators: [withDesign],
   argTypes: {
     children: {
       control: 'none',
@@ -15,20 +17,9 @@ export default {
         },
       },
     },
-    status: {
-      control: { type: 'select' },
-      description: 'Define o status do input',
-      options: ['default', 'error', 'success'],
-      table: {
-        type: {
-          summary: ['default', 'error', 'success'].join('|'),
-        },
-      },
-      type: { name: 'string', required: false },
-    },
     disabled: {
       control: { type: 'boolean' },
-      description: 'Desabilita todos os elementos do input',
+      description: 'Desabilita todos os elementos do componente.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -37,90 +28,119 @@ export default {
     },
     full: {
       control: { type: 'boolean' },
-      description: 'Faz com que o input preencha todo o espaço disponível',
+      description:
+        'Faz com que o componente preencha todo o espaço disponível.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
       },
       type: { name: 'boolean', required: false },
     },
+    status: {
+      control: { type: 'select' },
+      description: 'Define o status do componente.',
+      options: ['default', 'error', 'success'],
+      table: {
+        type: {
+          summary: ['default', 'error', 'success'].join('|'),
+        },
+      },
+      type: { name: 'string', required: false },
+    },
   },
   args: {
     children: '',
-    status: undefined,
     disabled: false,
     full: false,
+    status: undefined,
   },
-} as Meta<InputRootProps>
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18717&t=AdZjH6UtpERmhB5O-0',
+    },
+  },
+}
 
-export const Comum: StoryObj<InputRootProps> = {
+export default meta
+type InputRootStory = StoryObj<InputRootProps>
+
+export const Comum: InputRootStory = {
   args: {
     children: <Input.Input type="text" placeholder="Escreva seu nome aqui" />,
   },
 }
 
-export const ComIcone: StoryObj<InputRootProps> = {
-  args: {
-    children: [
-      <Input.Input
-        key="input"
-        type="email"
-        placeholder="Escreva seu email aqui"
-      />,
-      <Input.Icon key="icon">
-        <Envelope />
-      </Input.Icon>,
-    ],
+export const ComIcone: InputRootStory = {
+  render: (args) => {
+    return (
+      <Input.Root {...args}>
+        <Input.Input
+          key="input"
+          type="email"
+          placeholder="Escreva seu email aqui"
+        />
+        <Input.Icon key="icon">
+          <Envelope />
+        </Input.Icon>
+      </Input.Root>
+    )
   },
 }
 
-export const ComIconeClicavel: StoryObj<InputRootProps> = {
-  args: {
-    children: [
-      <Input.Input
-        key="input"
-        type="email"
-        placeholder="Escreva seu email aqui"
-      />,
-      <Input.Icon key="icon" onClick={() => console.log('clicou')}>
-        <Envelope />
-      </Input.Icon>,
-    ],
+export const ComIconeClicavel: InputRootStory = {
+  render: (args) => {
+    return (
+      <Input.Root {...args}>
+        <Input.Input
+          key="input"
+          type="email"
+          placeholder="Escreva seu email aqui"
+        />
+        <Input.Icon key="icon" onClick={() => console.log('clicou')}>
+          <Envelope />
+        </Input.Icon>
+      </Input.Root>
+    )
   },
 }
 
-export const ComIconeNaEsquerda: StoryObj<InputRootProps> = {
-  args: {
-    children: [
-      <Input.Icon key="icon">
-        <Envelope />
-      </Input.Icon>,
-      <Input.Input
-        key="input"
-        type="email"
-        placeholder="Escreva seu email aqui"
-      />,
-    ],
+export const ComIconeNaEsquerda: InputRootStory = {
+  render: (args) => {
+    return (
+      <Input.Root {...args}>
+        <Input.Icon key="icon">
+          <Envelope />
+        </Input.Icon>
+        <Input.Input
+          key="input"
+          type="email"
+          placeholder="Escreva seu email aqui"
+        />
+      </Input.Root>
+    )
   },
 }
 
-export const ComMaisDeUmIcone: StoryObj<InputRootProps> = {
-  args: {
-    children: [
-      <Input.Icon key="icon1">
-        <Envelope />
-      </Input.Icon>,
-      <Input.Input
-        key="input"
-        type="email"
-        placeholder="Escreva seu email aqui"
-      />,
-      <Input.Icon key="icon2">
-        <Envelope />
-      </Input.Icon>,
-      <Input.Icon key="icon3">
-        <Envelope />
-      </Input.Icon>,
-    ],
+export const ComMaisDeUmIcone: InputRootStory = {
+  render: (args) => {
+    return (
+      <Input.Root {...args}>
+        <Input.Icon key="icon1">
+          <Envelope />
+        </Input.Icon>
+        <Input.Input
+          key="input"
+          type="email"
+          placeholder="Escreva seu email aqui"
+        />
+        <Input.Icon key="icon2">
+          <Envelope />
+        </Input.Icon>
+        <Input.Icon key="icon3">
+          <Envelope />
+        </Input.Icon>
+      </Input.Root>
+    )
   },
 }
