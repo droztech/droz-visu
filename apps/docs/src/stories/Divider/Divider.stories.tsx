@@ -24,6 +24,7 @@ const meta: Meta<DividerProps> = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/vimM8ueWbwKbUB2F4anWLS/%5BDroz-Nexo%5D-Telas?type=design&node-id=3295-26683&t=t0RzfGnHc1izbdAY-0',
+      allowFullscreen: true,
     },
   },
 }

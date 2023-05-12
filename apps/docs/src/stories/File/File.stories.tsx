@@ -25,6 +25,7 @@ const meta: Meta<FileProps> = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3487-664&t=yA8ycLkgL79CIrNW-0',
+      allowFullscreen: true,
     },
   },
 }

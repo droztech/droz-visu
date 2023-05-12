@@ -24,6 +24,7 @@ const meta: Meta<CheckboxIndicatorProps> = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18146&t=i2mg4ixu1iYnYf6w-0',
+      allowFullscreen: true,
     },
   },
 }
