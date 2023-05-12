@@ -1,11 +1,13 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { SquaresFour } from 'phosphor-react'
+import { withDesign } from 'storybook-addon-designs'
 
 import { Divider, DividerProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<DividerProps> = {
   title: 'Divider/Divider',
   component: Divider,
+  decorators: [withDesign],
   argTypes: {
     children: {
       table: {
@@ -18,20 +20,35 @@ export default {
   args: {
     children: '',
   },
-} as Meta<DividerProps>
-
-export const Comum: ComponentStory<typeof Divider> = (args) => {
-  return <Divider {...args} />
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/vimM8ueWbwKbUB2F4anWLS/%5BDroz-Nexo%5D-Telas?type=design&node-id=3295-26683&t=t0RzfGnHc1izbdAY-0',
+    },
+  },
 }
 
-export const ComTexto: ComponentStory<typeof Divider> = (args) => {
-  return <Divider {...args}>OU</Divider>
+export default meta
+type DividerStory = StoryObj<DividerProps>
+
+export const Comum: DividerStory = {
+  render: (args) => {
+    return <Divider {...args} />
+  },
 }
 
-export const ComIcone: ComponentStory<typeof Divider> = (args) => {
-  return (
-    <Divider {...args}>
-      <SquaresFour />
-    </Divider>
-  )
+export const ComTexto: DividerStory = {
+  render: (args) => {
+    return <Divider {...args}>OU</Divider>
+  },
+}
+
+export const ComIcone: DividerStory = {
+  render: (args) => {
+    return (
+      <Divider {...args}>
+        <SquaresFour />
+      </Divider>
+    )
+  },
 }
