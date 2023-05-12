@@ -29,9 +29,9 @@ const meta: Meta<CheckboxIndicatorProps> = {
 }
 
 export default meta
-type CheckboxRootStory = StoryObj<CheckboxIndicatorProps>
+type CheckboxIndicatorStory = StoryObj<CheckboxIndicatorProps>
 
-export const Comum: CheckboxRootStory = {
+export const Comum: CheckboxIndicatorStory = {
   render: (args) => {
     return (
       <Checkbox.Root checked>
@@ -41,7 +41,7 @@ export const Comum: CheckboxRootStory = {
   },
 }
 
-export const Indeterminado: CheckboxRootStory = {
+export const Indeterminado: CheckboxIndicatorStory = {
   render: (args) => {
     return (
       <Checkbox.Root checked="indeterminate">
