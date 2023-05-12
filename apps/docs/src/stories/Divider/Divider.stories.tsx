@@ -33,22 +33,32 @@ type DividerStory = StoryObj<DividerProps>
 
 export const Comum: DividerStory = {
   render: (args) => {
-    return <Divider {...args} />
+    return (
+      <div style={{ width: '300px', height: '400px', display: 'flex' }}>
+        <Divider {...args} />
+      </div>
+    )
   },
 }
 
 export const ComTexto: DividerStory = {
   render: (args) => {
-    return <Divider {...args}>OU</Divider>
+    return (
+      <div style={{ width: '300px', height: '400px', display: 'flex' }}>
+        <Divider {...args}>OU</Divider>
+      </div>
+    )
   },
 }
 
 export const ComIcone: DividerStory = {
   render: (args) => {
     return (
-      <Divider {...args}>
-        <SquaresFour />
-      </Divider>
+      <div style={{ width: '300px', height: '400px', display: 'flex' }}>
+        <Divider {...args}>
+          <SquaresFour />
+        </Divider>
+      </div>
     )
   },
 }
