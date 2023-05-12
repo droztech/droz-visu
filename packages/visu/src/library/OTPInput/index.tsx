@@ -82,4 +82,6 @@ const OTPInput: FC<OTPInputProps> = ({
   )
 }
 
+OTPInput.displayName = 'OTPInput'
+
 export default OTPInput
