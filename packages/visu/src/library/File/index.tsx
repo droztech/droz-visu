@@ -10,15 +10,21 @@ export interface FileProps
 }
 
 const File: FC<FileProps> = ({
-  formats,
   className,
+  formats,
   onChange,
-  children,
   value,
   ...rest
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [dragOver, setDragOver] = useState(false)
+
+  const handleClearFile = () => {
+    if (onChange) onChange(undefined)
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
 
   const handleFileChange = (ev: ChangeEvent<HTMLInputElement>) => {
     if (ev.target.files && ev.target.files[0]) {
@@ -30,13 +36,6 @@ const File: FC<FileProps> = ({
       }
 
       if (onChange) onChange(selectedFile)
-    }
-  }
-
-  const handleClearFile = () => {
-    if (onChange) onChange(undefined)
-    if (fileInputRef.current) {
-      fileInputRef.current.value = ''
     }
   }
 
