@@ -1,31 +1,18 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { MouseSimple } from 'phosphor-react'
 
-import { Avatar, Flex, FloatCard, FloatCardContentProps } from '@coaktion/visu'
+import { Avatar, Flex, FloatCard, FloatCardRootProps } from '@coaktion/visu'
 
-const meta: Meta<FloatCardContentProps> = {
-  title: 'FloatCard/Content',
+const meta: Meta<FloatCardRootProps> = {
+  title: 'FloatCard/Root',
   component: FloatCard.Content,
   argTypes: {
     children: {
-      control: 'none',
-      description: 'Conteúdo do card.',
       table: {
         type: {
           summary: 'React.ReactNode',
         },
       },
-    },
-    side: {
-      control: { type: 'inline-radio' },
-      description: 'Define o lado em que o card será exibido.',
-      options: ['bottom', 'left', 'right', 'top'],
-      table: {
-        type: {
-          summary: ['bottom', 'left', 'right', 'top'].join('|'),
-        },
-      },
-      type: { name: 'string', required: false },
     },
   },
   args: {
@@ -34,16 +21,16 @@ const meta: Meta<FloatCardContentProps> = {
 }
 
 export default meta
-type FloatCardContentStory = StoryObj<FloatCardContentProps>
+type FloatCardRootStory = StoryObj<FloatCardRootProps>
 
-export const Comum: FloatCardContentStory = {
+export const Comum: FloatCardRootStory = {
   render: (args) => {
     return (
-      <FloatCard.Root>
+      <FloatCard.Root {...args}>
         <FloatCard.Trigger>
           <MouseSimple size={32} />
         </FloatCard.Trigger>
-        <FloatCard.Content {...args}>
+        <FloatCard.Content>
           <Flex.Root direction={'col'}>
             <Avatar.Root>
               <Avatar.Fallback fallback="FC" />
