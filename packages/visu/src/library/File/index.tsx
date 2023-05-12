@@ -68,4 +68,6 @@ const File: FC<FileProps> = ({
   )
 }
 
+File.displayName = 'File'
+
 export default File
