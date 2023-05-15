@@ -1,13 +1,13 @@
-import { useArgs } from '@storybook/client-api'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Sidebar, SidebarRootProps } from '@coaktion/visu'
+import { Flex, Sidebar, SidebarRootProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<SidebarRootProps> = {
   title: 'Sidebar/Root',
   component: Sidebar.Root,
   argTypes: {
     children: {
+      control: 'none',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -16,7 +16,8 @@ export default {
     },
     expanded: {
       control: { type: 'boolean' },
-      description: 'Faz com que o sidebar encolha ou expanda',
+      description:
+        'Propriedade que define se o componente está expandido ou comprimido.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },
@@ -25,28 +26,65 @@ export default {
     },
     setExpanded: {
       action: 'clicked',
-      description: 'Define o evento de expandir o sidebar',
+      description:
+        'Propriedade que representa o método executado ao clicar em expandir ou comprimir o componente. <b>Ao passar essa propriedade o botão de expandir ou comprimir é exibido, caso ela não seja enviada o botão não existirá</b>.',
       table: { type: { summary: 'function' } },
     },
   },
   args: {
     children: '',
+    expanded: true,
   },
-} as Meta<SidebarRootProps>
-
-export const Comum: ComponentStory<typeof Sidebar.Root> = (args) => {
-  const [{ expanded }, updateArgs] = useArgs()
-  delete args.setExpanded
-
-  const toggleExpanded = () => {
-    updateArgs({ expanded: !expanded })
-  }
-
-  return <Sidebar.Root setExpanded={toggleExpanded} {...args}></Sidebar.Root>
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17418&t=F4jFiS042bjLT7s3-0',
+      allowFullscreen: true,
+    },
+  },
 }
 
-export const SemSetExpanded: ComponentStory<typeof Sidebar.Root> = (args) => {
-  delete args.setExpanded
+export default meta
+type SidebarRoot = StoryObj<SidebarRootProps>
 
-  return <Sidebar.Root {...args}></Sidebar.Root>
+export const Comum: SidebarRoot = {
+  render: (args) => {
+    return (
+      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+        <Sidebar.Root {...args} style={{ border: '1px dashed red' }}>
+          Menu
+        </Sidebar.Root>
+      </Flex.Root>
+    )
+  },
+}
+
+export const Comprimido: SidebarRoot = {
+  args: {
+    expanded: false,
+  },
+  render: (args) => {
+    return (
+      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+        <Sidebar.Root {...args} style={{ border: '1px dashed red' }}>
+          Menu
+        </Sidebar.Root>
+      </Flex.Root>
+    )
+  },
+}
+
+export const SemSetExpanded: SidebarRoot = {
+  name: 'Sem opção de expandir',
+  render: (args) => {
+    delete args.setExpanded
+
+    return (
+      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+        <Sidebar.Root {...args} style={{ border: '1px dashed red' }}>
+          Menu
+        </Sidebar.Root>
+      </Flex.Root>
+    )
+  },
 }
