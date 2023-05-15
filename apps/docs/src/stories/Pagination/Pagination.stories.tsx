@@ -6,14 +6,6 @@ const meta: Meta<PaginationProps> = {
   title: 'Pagination/Pagination',
   component: Pagination,
   argTypes: {
-    children: {
-      control: 'none',
-      table: {
-        type: {
-          summary: 'React.ReactNode',
-        },
-      },
-    },
     current: {
       control: 'number',
       description: 'Define a página atual.',
@@ -82,7 +74,6 @@ const meta: Meta<PaginationProps> = {
     },
   },
   args: {
-    children: '',
     current: 1,
     disabled: false,
     initialPage: 0,
@@ -96,7 +87,7 @@ const meta: Meta<PaginationProps> = {
       allowFullscreen: true,
     },
   },
-} as Meta<PaginationProps>
+}
 
 export default meta
 type PaginationStory = StoryObj<PaginationProps>
