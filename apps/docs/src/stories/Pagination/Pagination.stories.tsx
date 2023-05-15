@@ -1,13 +1,13 @@
-import { useArgs } from '@storybook/client-api'
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Pagination, PaginationProps } from '@coaktion/visu'
+import { Flex, Pagination, PaginationProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<PaginationProps> = {
   title: 'Pagination/Pagination',
   component: Pagination,
   argTypes: {
     children: {
+      control: 'none',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -16,16 +16,15 @@ export default {
     },
     current: {
       control: 'number',
-      description: 'Aplica o current em Pagination',
+      description: 'Define a página atual.',
       table: {
         type: { summary: 'number' },
       },
       type: { name: 'number', required: true },
-      defaultValue: 5,
     },
     disabled: {
       control: 'boolean',
-      description: 'Aplica o disabled em Pagination',
+      description: 'Desabilita o componente.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -33,48 +32,105 @@ export default {
       type: { name: 'boolean', required: false },
       defaultValue: false as PaginationProps['disabled'],
     },
+    initialPage: {
+      control: 'number',
+      description:
+        'Define o número da página inicial. Iniciando em 0 para a primeira página.',
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: 1 },
+      },
+      type: { name: 'number', required: false },
+    },
     pageCount: {
       control: 'number',
-      description: 'Aplica o pageCount em Pagination',
+      description: 'Define o número total de páginas.',
       table: {
         type: { summary: 'number' },
       },
       type: { name: 'number', required: true },
-      defaultValue: 10,
     },
     size: {
       control: 'inline-radio',
-      description: 'Aplica o size em Pagination',
+      description: 'Define o tamanho do componente.',
       options: ['md', 'sm'] as PaginationProps['size'][],
       table: {
         type: {
           summary: ['md', 'sm'].join('|'),
         },
+        defaultValue: { summary: 'md' },
       },
       type: { name: 'string', required: false },
-      defaultValue: 'md' as PaginationProps['size'],
+    },
+    onClick: {
+      action: 'click',
+      description:
+        'Evento de clique do componente. Emite informações de qualquer parte clicada do componente.',
+      table: { type: { summary: 'function' } },
+    },
+    onPageActive: {
+      action: 'pageActive',
+      description:
+        'Evento que dispara quando uma página ativa é clicada. Emite informações da página ativa.',
+      table: { type: { summary: 'function' } },
     },
     onPageChange: {
-      action: 'clicked',
-      description: 'Define o onPageChange em Pagination',
+      action: 'pageChange',
+      description:
+        'Evento de troca de página do componente. Emite informações da página atual.',
       table: { type: { summary: 'function' } },
     },
   },
   args: {
     children: '',
+    current: 1,
+    disabled: false,
+    initialPage: 0,
+    pageCount: 1,
+    size: 'md',
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17233&t=gSZqfhVYy3KRKNHz-0',
+      allowFullscreen: true,
+    },
   },
 } as Meta<PaginationProps>
 
-export const Comum: ComponentStory<typeof Pagination> = ({
-  // eslint-disable-next-line unused-imports/no-unused-vars, react/prop-types
-  onPageChange,
-  ...args
-}) => {
-  const [{ current }, updateArgs] = useArgs()
+export default meta
+type PaginationStory = StoryObj<PaginationProps>
 
-  const setCurrent = (ev: number) => {
-    updateArgs({ current: ev })
-  }
+export const Comum: PaginationStory = {
+  render: (args) => {
+    return (
+      <Flex.Col center>
+        <span>
+          O componente foi criado utilizando react-paginate. Para ver todas as
+          propriedades acesse a documentação do react-paginate.
+        </span>
+        <Pagination {...args} />
+      </Flex.Col>
+    )
+  },
+}
 
-  return <Pagination onPageChange={setCurrent} {...args} />
+export const MaisPaginas: PaginationStory = {
+  args: {
+    current: 5,
+    pageCount: 10,
+    initialPage: 4,
+  },
+  name: 'Com mais páginas',
+  render: (args) => {
+    return (
+      <Flex.Col center>
+        <span>
+          O componente foi criado utilizando react-paginate. Para ver todas as
+          propriedades acesse a documentação do react-paginate.
+        </span>
+        <Pagination {...args} />
+      </Flex.Col>
+    )
+  },
 }
