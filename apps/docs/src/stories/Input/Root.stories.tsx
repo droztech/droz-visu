@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
 import { withDesign } from 'storybook-addon-designs'
 
-import { Input, InputRootProps } from '@coaktion/visu'
+import { Flex, Input, InputRootProps } from '@coaktion/visu'
 
 const meta: Meta<InputRootProps> = {
   title: 'Input/Root',
@@ -67,24 +67,32 @@ export default meta
 type InputRootStory = StoryObj<InputRootProps>
 
 export const Comum: InputRootStory = {
-  args: {
-    children: <Input.Input type="text" placeholder="Escreva seu nome aqui" />,
+  render: (args) => {
+    return (
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Input.Root {...args}>
+          <Input.Input type="text" placeholder="Escreva seu nome aqui" />
+        </Input.Root>
+      </Flex.Root>
+    )
   },
 }
 
 export const ComIcone: InputRootStory = {
   render: (args) => {
     return (
-      <Input.Root {...args}>
-        <Input.Input
-          key="input"
-          type="email"
-          placeholder="Escreva seu email aqui"
-        />
-        <Input.Icon key="icon">
-          <Envelope />
-        </Input.Icon>
-      </Input.Root>
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Input.Root {...args}>
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
+          <Input.Icon key="icon">
+            <Envelope />
+          </Input.Icon>
+        </Input.Root>
+      </Flex.Root>
     )
   },
 }
@@ -92,16 +100,18 @@ export const ComIcone: InputRootStory = {
 export const ComIconeClicavel: InputRootStory = {
   render: (args) => {
     return (
-      <Input.Root {...args}>
-        <Input.Input
-          key="input"
-          type="email"
-          placeholder="Escreva seu email aqui"
-        />
-        <Input.Icon key="icon" onClick={() => console.log('clicou')}>
-          <Envelope />
-        </Input.Icon>
-      </Input.Root>
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Input.Root {...args}>
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
+          <Input.Icon key="icon" onClick={() => console.log('clicou')}>
+            <Envelope />
+          </Input.Icon>
+        </Input.Root>
+      </Flex.Root>
     )
   },
 }
@@ -109,16 +119,18 @@ export const ComIconeClicavel: InputRootStory = {
 export const ComIconeNaEsquerda: InputRootStory = {
   render: (args) => {
     return (
-      <Input.Root {...args}>
-        <Input.Icon key="icon">
-          <Envelope />
-        </Input.Icon>
-        <Input.Input
-          key="input"
-          type="email"
-          placeholder="Escreva seu email aqui"
-        />
-      </Input.Root>
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Input.Root {...args}>
+          <Input.Icon key="icon">
+            <Envelope />
+          </Input.Icon>
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
+        </Input.Root>
+      </Flex.Root>
     )
   },
 }
@@ -126,22 +138,24 @@ export const ComIconeNaEsquerda: InputRootStory = {
 export const ComMaisDeUmIcone: InputRootStory = {
   render: (args) => {
     return (
-      <Input.Root {...args}>
-        <Input.Icon key="icon1">
-          <Envelope />
-        </Input.Icon>
-        <Input.Input
-          key="input"
-          type="email"
-          placeholder="Escreva seu email aqui"
-        />
-        <Input.Icon key="icon2">
-          <Envelope />
-        </Input.Icon>
-        <Input.Icon key="icon3">
-          <Envelope />
-        </Input.Icon>
-      </Input.Root>
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Input.Root {...args}>
+          <Input.Icon key="icon1">
+            <Envelope />
+          </Input.Icon>
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
+          <Input.Icon key="icon2">
+            <Envelope />
+          </Input.Icon>
+          <Input.Icon key="icon3">
+            <Envelope />
+          </Input.Icon>
+        </Input.Root>
+      </Flex.Root>
     )
   },
 }
