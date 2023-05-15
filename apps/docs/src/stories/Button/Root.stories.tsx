@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
 import { withDesign } from 'storybook-addon-designs'
 
-import { Button, ButtonRootProps } from '@coaktion/visu'
+import { Button, ButtonRootProps, Flex } from '@coaktion/visu'
 
 const meta: Meta<ButtonRootProps> = {
   title: 'Button/Root',
@@ -119,6 +119,7 @@ const meta: Meta<ButtonRootProps> = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18885&t=i2mg4ixu1iYnYf6w-0',
+      allowFullscreen: true,
     },
   },
 }
@@ -132,8 +133,12 @@ export const Comum: ButtonRootStory = {
       control: 'none',
     },
   },
-  args: {
-    children: 'Clique aqui',
+  render: (args) => {
+    return (
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Button.Root {...args}>Clique aqui</Button.Root>
+      </Flex.Root>
+    )
   },
 }
 
@@ -146,13 +151,17 @@ export const ComIcone: ButtonRootStory = {
       control: 'none',
     },
   },
-  args: {
-    children: [
-      'Clique aqui',
-      <Button.Icon key="icon">
-        <CheckCircle />
-      </Button.Icon>,
-    ],
+  render: (args) => {
+    return (
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Button.Root {...args}>
+          Clique aqui
+          <Button.Icon key="icon">
+            <CheckCircle />
+          </Button.Icon>
+        </Button.Root>
+      </Flex.Root>
+    )
   },
 }
 
@@ -165,24 +174,36 @@ export const ComIconeNaEsquerda: ButtonRootStory = {
       control: 'none',
     },
   },
-  args: {
-    children: [
-      <Button.Icon key="icon">
-        <CheckCircle />
-      </Button.Icon>,
-      'Clique aqui',
-    ],
+  render: (args) => {
+    return (
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Button.Root {...args}>
+          <Button.Icon key="icon">
+            <CheckCircle />
+          </Button.Icon>
+          Clique aqui
+        </Button.Root>
+      </Flex.Root>
+    )
   },
 }
 
 export const ComoTagAnchor: ButtonRootStory = {
+  args: {
+    asChild: true,
+  },
   argTypes: {
     children: {
       control: 'none',
     },
   },
-  args: {
-    asChild: true,
-    children: <a href="/">Link</a>,
+  render: (args) => {
+    return (
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Button.Root {...args}>
+          <a href="/">Link</a>
+        </Button.Root>
+      </Flex.Root>
+    )
   },
 }
