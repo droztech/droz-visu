@@ -18,9 +18,6 @@ const meta: Meta<FileProps> = {
       defaultValue: ['image/jpeg', 'image/png', 'image/gif'],
     },
   },
-  args: {
-    children: '',
-  },
   parameters: {
     design: {
       type: 'figma',
@@ -35,6 +32,6 @@ type FileStory = StoryObj<FileProps>
 
 export const Comum: FileStory = {
   render: (args) => {
-    return <File {...args}></File>
+    return <File {...args} />
   },
 }
