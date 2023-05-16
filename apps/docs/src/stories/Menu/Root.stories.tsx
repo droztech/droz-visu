@@ -1,12 +1,13 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Menu, MenuRootProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<MenuRootProps> = {
   title: 'Menu/Root',
   component: Menu.Root,
   argTypes: {
     children: {
+      control: 'none',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -15,7 +16,7 @@ export default {
     },
     expanded: {
       control: { type: 'boolean' },
-      description: 'Faz com que o Menu encolha ou expanda',
+      description: 'Define se o menu está encolhido ou expandido.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },
@@ -25,9 +26,35 @@ export default {
   },
   args: {
     children: '',
+    expanded: false,
   },
-} as Meta<MenuRootProps>
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/vimM8ueWbwKbUB2F4anWLS/%5BDroz-Nexo%5D-Telas?type=design&node-id=3295-23409&t=L7rzcV7ijjLp260X-0',
+      allowFullscreen: true,
+    },
+  },
+}
 
-export const Comum: ComponentStory<typeof Menu.Root> = (args) => {
-  return <Menu.Root {...args}></Menu.Root>
+export default meta
+type MenuRootStory = StoryObj<MenuRootProps>
+
+export const Comum: MenuRootStory = {
+  render: (args) => {
+    return (
+      <div style={{ width: '300px', border: '1px dashed blue' }}>
+        <Menu.Root
+          {...args}
+          style={{
+            position: 'unset',
+            width: '200px',
+            border: '1px dashed red',
+          }}
+        >
+          <span style={{ color: 'black' }}>Menu.Root</span>
+        </Menu.Root>
+      </div>
+    )
+  },
 }

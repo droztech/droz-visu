@@ -7,4 +7,6 @@ const FloatCardRoot: FC<FloatCardRootProps> = ({ children, ...rest }) => {
   return <HoverCard.Root {...rest}>{children}</HoverCard.Root>
 }
 
+FloatCardRoot.displayName = 'FloatCard.Root'
+
 export default FloatCardRoot

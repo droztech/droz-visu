@@ -5,10 +5,11 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
+    'storybook-addon-designs',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-vite',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
   features: {
     storyStoreV7: true,
@@ -26,4 +27,7 @@ module.exports = {
       }
     </style>
   `,
+  docs: {
+    autodocs: true,
+  },
 }

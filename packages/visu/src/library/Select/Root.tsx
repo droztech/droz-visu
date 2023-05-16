@@ -67,4 +67,6 @@ const SelectRoot: FC<SelectRootProps> = ({
   )
 }
 
+SelectRoot.displayName = 'Select.Root'
+
 export default SelectRoot

@@ -67,4 +67,6 @@ const TooltipStep: FC<TooltipStepProps> = ({
   )
 }
 
+TooltipStep.displayName = 'Tooltip.Step'
+
 export default TooltipStep

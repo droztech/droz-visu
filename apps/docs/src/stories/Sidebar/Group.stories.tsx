@@ -1,12 +1,13 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Sidebar, SidebarGroupProps } from '@coaktion/visu'
+import { Flex, Sidebar, SidebarGroupProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<SidebarGroupProps> = {
   title: 'Sidebar/Group',
   component: Sidebar.Group,
   argTypes: {
     children: {
+      control: 'none',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -17,22 +18,52 @@ export default {
   args: {
     children: '',
   },
-} as Meta<SidebarGroupProps>
-
-const Template: ComponentStory<typeof Sidebar.Group> = (args) => {
-  return (
-    <Sidebar.Group {...args}>
-      <div
-        style={{ width: '240px', height: '60px', backgroundColor: 'red' }}
-      ></div>
-      <div
-        style={{ width: '240px', height: '60px', backgroundColor: 'green' }}
-      ></div>
-      <div
-        style={{ width: '240px', height: '60px', backgroundColor: 'blue' }}
-      ></div>
-    </Sidebar.Group>
-  )
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17418&t=F4jFiS042bjLT7s3-0',
+      allowFullscreen: true,
+    },
+  },
 }
 
-export const Comum = Template.bind({})
+export default meta
+type SidebarGroupStory = StoryObj<SidebarGroupProps>
+
+export const Comum: SidebarGroupStory = {
+  render: (args) => {
+    return (
+      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+        <Sidebar.Root expanded style={{ border: '1px dashed red' }}>
+          <Sidebar.Group
+            {...args}
+            style={{
+              width: '100%',
+              border: '1px dashed green',
+            }}
+          >
+            Grupo 1
+          </Sidebar.Group>
+          <Sidebar.Group
+            {...args}
+            style={{
+              width: '100%',
+              border: '1px dashed blue',
+            }}
+          >
+            Grupo 2
+          </Sidebar.Group>
+          <Sidebar.Group
+            {...args}
+            style={{
+              width: '100%',
+              border: '1px dashed orange',
+            }}
+          >
+            Grupo 3
+          </Sidebar.Group>
+        </Sidebar.Root>
+      </Flex.Root>
+    )
+  },
+}

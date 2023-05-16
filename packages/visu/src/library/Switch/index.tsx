@@ -30,4 +30,6 @@ const Switch: FC<SwitchProps> = ({ className, disabled, ...rest }) => {
   )
 }
 
+Switch.displayName = 'Switch'
+
 export default Switch

@@ -36,4 +36,6 @@ const TooltipHover: FC<TooltipHoverProps> = ({
   )
 }
 
+TooltipHover.displayName = 'Tooltip.Hover'
+
 export default TooltipHover

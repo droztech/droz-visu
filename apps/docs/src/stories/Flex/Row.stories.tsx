@@ -1,51 +1,65 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, FlexProps } from '@coaktion/visu'
+import { Flex, FlexRowProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<FlexRowProps> = {
   title: 'Flex/Row',
   component: Flex.Row,
   argTypes: {
     children: {
+      control: 'none',
       table: {
         type: {
           summary: 'React.ReactNode',
         },
       },
     },
-    className: {
-      control: { type: 'text' },
-      description: 'Aplica uma classe personalizada no container',
+    asChild: {
+      control: 'none',
+      description:
+        'Ao passar essa propriedade com o valor true, o componente irá se transformar no componente filho. É obrigatório passar um children ao utilizar essa propriedade. <b>Verifique a tag ao inspecionar o componente na DOM</b>.',
       table: {
-        type: {
-          summary: 'string',
-        },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
-      type: { name: 'string', required: false },
+      type: { name: 'boolean', required: false },
+    },
+    center: {
+      control: { type: 'boolean' },
+      description:
+        'Propriedade que centraliza os elementos horizontalmente e verticalmente dentro do componente.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    full: {
+      control: { type: 'boolean' },
+      description:
+        'Propriedade que faz com que o componente ocupe todo o espaço disponível.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
     },
     gap: {
-      control: { type: 'text' },
-      description: 'Aplica um gap ao espaçamento do container',
+      control: { type: 'inline-radio' },
+      options: ['lg', 'md', 'sm'],
+      description:
+        'Propriedade que define a distância entre os elementos filhos do componente.',
       table: {
         type: {
-          summary: 'string',
-        },
-      },
-      type: { name: 'string', required: false },
-    },
-    flex: {
-      control: { type: 'text' },
-      description: 'Aplica um tamanho flex ao container',
-      table: {
-        type: {
-          summary: 'string',
+          summary: ['lg', 'md', 'sm'].join(' | '),
         },
       },
       type: { name: 'string', required: false },
     },
     items: {
       control: { type: 'inline-radio' },
-      description: 'Aplica a orientação align items no container',
+      description:
+        'Define o valor da propriedade css `align-items` no componente.',
       options: ['center', 'start', 'end', 'stretch'],
       table: {
         type: {
@@ -56,7 +70,8 @@ export default {
     },
     justify: {
       control: { type: 'inline-radio' },
-      description: 'Aplica a orientação justify content no container',
+      description:
+        'Define o valor da propriedade css `justify-content` no componente.',
       options: ['center', 'start', 'end', 'stretch', 'between', 'evenly'],
       table: {
         type: {
@@ -72,9 +87,19 @@ export default {
       },
       type: { name: 'string', required: false },
     },
+    red: {
+      control: { type: 'boolean' },
+      description:
+        'Propriedade que adiciona uma cor de fundo vermelha para destacar o componente em relação ao resto da página, ajudando no desenvolvimento.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
     text: {
       control: { type: 'inline-radio' },
-      description: 'Aplica a orientação text align no container',
+      description: 'Define o valor da propriedade `text-align` no componente.',
       options: ['left', 'center', 'right'],
       table: {
         type: {
@@ -83,59 +108,58 @@ export default {
       },
       type: { name: 'string', required: false },
     },
-    red: {
-      control: { type: 'boolean' },
-      description:
-        'Adiciona a cor de fundo vermelha para destacar o container em relação ao resto da página, ajudando no desenvolvimento',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
-    full: {
-      control: { type: 'boolean' },
-      description: 'Ocupa o tamanho máximo da largura disponível',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
-    center: {
-      control: { type: 'boolean' },
-      description:
-        'Centraliza os elementos horizontalmente e verticalmente dentro do container',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
-    asChild: {
-      control: { type: 'boolean' },
-      description:
-        'Ao passar essa propriedade com o valor true, o componente irá se transformar no componente filho. É obrigatório passar um children ao utilizar essa propriedade. <b>Verifique a tag ao inspecionar o componente na DOM</b>',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
   },
   args: {
     children: '',
+    asChild: false,
+    center: false,
+    full: false,
+    gap: 'md',
+    items: '',
+    justify: '',
+    red: false,
+    text: '',
   },
-} as Meta<FlexProps>
-
-const Template: ComponentStory<typeof Flex.Row> = (args) => {
-  return (
-    <Flex.Row {...args}>
-      <div style={{ backgroundColor: '#f00', width: '5rem' }}>First</div>
-      <div style={{ backgroundColor: '#0f0', width: '5rem' }}>Second</div>
-      <div style={{ backgroundColor: '#00f', width: '5rem' }}>Third</div>
-    </Flex.Row>
-  )
 }
 
-export const Comum = Template.bind({})
+export default meta
+type FexRowStory = StoryObj<FlexRowProps>
+
+export const Comum: FexRowStory = {
+  render: (args) => {
+    return (
+      <Flex.Row
+        {...args}
+        style={{ border: '1px solid green', width: '30rem', height: '15rem' }}
+      >
+        <div style={{ border: '1px solid blue', width: '5rem' }}>First</div>
+        <div style={{ border: '1px solid blue', width: '8rem' }}>Second</div>
+        <div style={{ border: '1px solid blue', width: '5rem' }}>Third</div>
+      </Flex.Row>
+    )
+  },
+}
+
+export const ComAsChild: FexRowStory = {
+  name: 'Com asChild',
+  render: (args) => {
+    return (
+      <div>
+        <span>Componente Flex como tag span</span>
+        <Flex.Row
+          {...args}
+          style={{ border: '1px solid green', width: '30rem', height: '15rem' }}
+          asChild
+        >
+          <span>
+            <div style={{ border: '1px solid blue', width: '5rem' }}>First</div>
+            <div style={{ border: '1px solid blue', width: '8rem' }}>
+              Second
+            </div>
+            <div style={{ border: '1px solid blue', width: '5rem' }}>Third</div>
+          </span>
+        </Flex.Row>
+      </div>
+    )
+  },
+}

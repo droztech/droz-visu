@@ -1,8 +1,8 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Link, LinkProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<LinkProps> = {
   title: 'Link/Link',
   component: Link,
   argTypes: {
@@ -47,19 +47,36 @@ export default {
   },
   args: {
     children: '',
+    asChild: false,
+    color: 'primary',
+    underline: false,
   },
-} as Meta<LinkProps>
-
-export const Comum: ComponentStory<typeof Link> = (args) => {
-  return <Link {...args}>Hello World</Link>
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18756&t=AdZjH6UtpERmhB5O-0',
+      allowFullscreen: true,
+    },
+  },
 }
 
-export const ComoAnchor: ComponentStory<typeof Link> = (args) => {
-  return (
-    <Link asChild {...args}>
-      <a href="" target="_blank">
-        Hello World
-      </a>
-    </Link>
-  )
+export default meta
+type LinkStory = StoryObj<LinkProps>
+
+export const Comum: LinkStory = {
+  render: (args) => {
+    return <Link {...args}>Hello World</Link>
+  },
+}
+
+export const ComoAnchor: LinkStory = {
+  render: (args) => {
+    return (
+      <Link asChild {...args}>
+        <a href="" target="_blank">
+          Hello World
+        </a>
+      </Link>
+    )
+  },
 }

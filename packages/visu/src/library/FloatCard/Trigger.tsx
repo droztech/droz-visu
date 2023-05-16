@@ -12,4 +12,6 @@ const FloatCardTrigger: FC<FloatCardTriggerProps> = ({ children, ...rest }) => {
   )
 }
 
+FloatCardTrigger.displayName = 'FloatCard.Trigger'
+
 export default FloatCardTrigger

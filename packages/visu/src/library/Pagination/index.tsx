@@ -58,4 +58,6 @@ const Pagination: FC<PaginationProps> = ({
   )
 }
 
+Pagination.displayName = 'Pagination'
+
 export default Pagination

@@ -1,33 +1,14 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Loading, LoadingProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<LoadingProps> = {
   title: 'Loading/Loading',
   component: Loading,
   argTypes: {
-    children: {
-      table: {
-        type: {
-          summary: 'React.ReactNode',
-        },
-      },
-    },
-    size: {
-      control: { type: 'inline-radio' },
-      description: 'Define o tamanho do loading',
-      options: ['md', 'lg'] as LoadingProps['size'][],
-      table: {
-        type: {
-          summary: ['md', 'lg'].join('|'),
-        },
-        defaultValue: { summary: 'md' },
-      },
-      type: { name: 'string', required: false },
-    },
     color: {
       control: { type: 'select' },
-      description: 'Define a de cor do loading',
+      description: 'Define a de cor do componente.',
       options: [
         'alert',
         'current',
@@ -54,12 +35,37 @@ export default {
       },
       type: { name: 'string', required: false },
     },
+    size: {
+      control: { type: 'inline-radio' },
+      description: 'Define o tamanho do componente.',
+      options: ['md', 'lg'] as LoadingProps['size'][],
+      table: {
+        type: {
+          summary: ['md', 'lg'].join('|'),
+        },
+        defaultValue: { summary: 'md' },
+      },
+      type: { name: 'string', required: false },
+    },
   },
   args: {
-    children: '',
+    color: 'current',
+    size: 'md',
   },
-} as Meta<LoadingProps>
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18088&t=AdZjH6UtpERmhB5O-0',
+      allowFullscreen: true,
+    },
+  },
+}
 
-export const Comum: ComponentStory<typeof Loading> = (args) => {
-  return <Loading {...args}></Loading>
+export default meta
+type LoadingStory = StoryObj<LoadingProps>
+
+export const Comum: LoadingStory = {
+  render: (args) => {
+    return <Loading {...args}></Loading>
+  },
 }

@@ -50,4 +50,6 @@ const SidebarRoot: FC<SidebarRootProps> = ({
   )
 }
 
+SidebarRoot.displayName = 'Sidebar.Root'
+
 export default SidebarRoot

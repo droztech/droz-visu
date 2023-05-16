@@ -22,4 +22,5 @@ const SelectItem = forwardRef<HTMLInputElement, SelectItemProps>(
 )
 
 SelectItem.displayName = 'Select.Item'
+
 export default SelectItem
