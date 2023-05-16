@@ -27,4 +27,6 @@ const FloatCardContent: FC<FloatCardContentProps> = ({
   )
 }
 
+FloatCardContent.displayName = 'FloatCard.Content'
+
 export default FloatCardContent

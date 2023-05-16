@@ -1,8 +1,8 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Input, InputInputProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<InputInputProps> = {
   title: 'Input/Input',
   component: Input.Input,
   argTypes: {
@@ -30,16 +30,49 @@ export default {
     placeholder: 'Escreva seu email aqui',
     disabled: false,
   },
-} as Meta<InputInputProps>
-
-const Template: ComponentStory<typeof Input.Input> = (args) => {
-  return (
-    <>
-      Input comum com todas as propriedades de um input comum
-      <br />
-      <Input.Input {...args} />
-    </>
-  )
 }
 
-export const Comum = Template.bind({})
+export default meta
+type InputInputStory = StoryObj<InputInputProps>
+
+export const Comum: InputInputStory = {
+  render: (args) => {
+    return (
+      <>
+        Input comum com todas as propriedades de um input comum
+        <br />
+        <Input.Input {...args} />
+      </>
+    )
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-18717&t=AdZjH6UtpERmhB5O-0',
+      allowFullscreen: true,
+    },
+  },
+}
+
+export const Password: InputInputStory = {
+  args: {
+    placeholder: 'Digite a senha',
+  },
+  render: (args) => {
+    return (
+      <>
+        Input comum com todas as propriedades de um input comum. Com um type
+        password aplicado.
+        <br />
+        <Input.Input type="password" {...args} />
+      </>
+    )
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3119-16270&t=AdZjH6UtpERmhB5O-0',
+      allowFullscreen: true,
+    },
+  },
+}

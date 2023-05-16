@@ -40,4 +40,6 @@ const TooltipClose: FC<TooltipCloseProps> = ({
   )
 }
 
+TooltipClose.displayName = 'Tooltip.Close'
+
 export default TooltipClose

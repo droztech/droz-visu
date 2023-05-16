@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, FlexColProps } from '@coaktion/visu'
+import { Flex, FlexRootProps } from '@coaktion/visu'
 
-const meta: Meta<FlexColProps> = {
-  title: 'Flex/Col',
-  component: Flex.Col,
+const meta: Meta<FlexRootProps> = {
+  title: 'Flex/Root',
+  component: Flex.Root,
   argTypes: {
     children: {
       control: 'none',
@@ -31,6 +31,16 @@ const meta: Meta<FlexColProps> = {
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    direction: {
+      control: { type: 'inline-radio' },
+      options: ['col', 'row'],
+      description:
+        'Define a direção dos elementos filhos do componente em linha ou coluna.',
+      table: {
+        type: { summary: ['col', 'row'].join(' | ') },
       },
       type: { name: 'boolean', required: false },
     },
@@ -113,6 +123,7 @@ const meta: Meta<FlexColProps> = {
     children: '',
     asChild: false,
     center: false,
+    direction: '',
     full: false,
     gap: 'md',
     items: '',
@@ -123,30 +134,30 @@ const meta: Meta<FlexColProps> = {
 }
 
 export default meta
-type FexColStory = StoryObj<FlexColProps>
+type FexRootStory = StoryObj<FlexRootProps>
 
-export const Comum: FexColStory = {
+export const Comum: FexRootStory = {
   render: (args) => {
     return (
-      <Flex.Col
+      <Flex.Root
         {...args}
         style={{ border: '1px solid green', width: '30rem', height: '15rem' }}
       >
         <div style={{ border: '1px solid blue', width: '5rem' }}>First</div>
         <div style={{ border: '1px solid blue', width: '8rem' }}>Second</div>
         <div style={{ border: '1px solid blue', width: '5rem' }}>Third</div>
-      </Flex.Col>
+      </Flex.Root>
     )
   },
 }
 
-export const ComAsChild: FexColStory = {
+export const ComAsChild: FexRootStory = {
   name: 'Com asChild',
   render: (args) => {
     return (
       <div>
         <span>Componente Flex como tag span</span>
-        <Flex.Col
+        <Flex.Root
           {...args}
           style={{ border: '1px solid green', width: '30rem', height: '15rem' }}
           asChild
@@ -158,7 +169,7 @@ export const ComAsChild: FexColStory = {
             </div>
             <div style={{ border: '1px solid blue', width: '5rem' }}>Third</div>
           </span>
-        </Flex.Col>
+        </Flex.Root>
       </div>
     )
   },

@@ -1,20 +1,15 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { House } from 'phosphor-react'
 
-import { Sidebar, SidebarButtonProps } from '@coaktion/visu'
+import { Flex, Sidebar, SidebarButtonProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<SidebarButtonProps> = {
   title: 'Sidebar/Button',
   component: Sidebar.Button,
   argTypes: {
-    children: {
-      table: {
-        type: {
-          summary: 'React.ReactNode',
-        },
-      },
-    },
     icon: {
+      control: 'none',
+      description: 'Propriedade que recebe o ícone do botão.',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -24,7 +19,7 @@ export default {
     },
     text: {
       control: 'text',
-      description: 'Texto do botão',
+      description: 'Propriedade que recebe o texto do botão.',
       table: {
         type: { summary: 'text' },
         defaultValue: { summary: 'Home' },
@@ -32,13 +27,47 @@ export default {
       type: { name: 'string', required: true },
     },
   },
-  args: {
-    children: '',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3107-17418&t=F4jFiS042bjLT7s3-0',
+      allowFullscreen: true,
+    },
   },
-} as Meta<SidebarButtonProps>
+}
 
-export const Comum: ComponentStory<typeof Sidebar.Button> = (args) => {
-  args.icon = <House />
+export default meta
+type SidebarButtonStory = StoryObj<SidebarButtonProps>
 
-  return <Sidebar.Button {...args}></Sidebar.Button>
+export const Comum: SidebarButtonStory = {
+  args: {
+    icon: <House />,
+    text: 'Home',
+  },
+  render: (args) => {
+    return (
+      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+        <Sidebar.Root expanded style={{ border: '1px dashed red' }}>
+          <Sidebar.Button {...args}></Sidebar.Button>
+        </Sidebar.Root>
+      </Flex.Root>
+    )
+  },
+}
+
+export const Comprimido: SidebarButtonStory = {
+  name: 'Com menu comprimido',
+  args: {
+    icon: <House />,
+    text: 'Home',
+  },
+  render: (args) => {
+    return (
+      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+        <Sidebar.Root expanded={false} style={{ border: '1px dashed red' }}>
+          <Sidebar.Button {...args}></Sidebar.Button>
+        </Sidebar.Root>
+      </Flex.Root>
+    )
+  },
 }

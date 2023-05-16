@@ -13,4 +13,6 @@ const Divider: FC<DividerProps> = ({ children, className, ...rest }) => {
   )
 }
 
+Divider.displayName = 'Divider'
+
 export default Divider

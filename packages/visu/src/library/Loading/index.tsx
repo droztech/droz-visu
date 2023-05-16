@@ -62,4 +62,6 @@ const LoadingDots: FC<LoadingProps> = ({
   )
 }
 
+LoadingDots.displayName = 'Loading'
+
 export default LoadingDots

@@ -1,21 +1,53 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
-import { Select, SelectRootProps } from '@coaktion/visu'
+import { Flex, Select, SelectRootProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<SelectRootProps> = {
   title: 'Select/Root',
   component: Select.Root,
   argTypes: {
     children: {
+      control: 'none',
       table: {
         type: {
           summary: 'React.ReactNode',
         },
       },
     },
+    align: {
+      control: 'inline-radio',
+      description: 'Define o alinhamento do conteúdo em relação ao trigger.',
+      options: ['center', 'end', 'start'] as SelectRootProps['align'][],
+      table: {
+        type: {
+          summary: ['center', 'end', 'start'].join('|'),
+        },
+        defaultValue: { summary: 'center' },
+      },
+      type: { name: 'string', required: false },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Desabilita o componente.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    full: {
+      control: 'boolean',
+      description:
+        'Faz com que o componente preencha todo o espaço disponível.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
     placeholder: {
       control: 'text',
-      description: 'Aplica o placeholder em SelectRoot',
+      description: 'Define o placeholder do componente.',
       table: {
         type: { summary: 'text' },
       },
@@ -23,63 +55,56 @@ export default {
     },
     position: {
       control: 'inline-radio',
-      description: 'Aplica o position em SelectRoot',
-      options: ['popper', 'item-aligned'] as SelectRootProps['position'][],
+      description:
+        'Define a posição em que o conteúdo irá abrir. O valor defaul `item-aligned` abre o conteúdo relativo ao trigger. O valor `popper` irá abrir o conteúdo logo abaixo do trigger.',
+      options: ['item-aligned', 'popper'] as SelectRootProps['position'][],
       table: {
         type: {
-          summary: ['popper', 'item-aligned'].join('|'),
+          summary: ['item-aligned', 'popper'].join('|'),
         },
+        defaultValue: { summary: 'popper' },
       },
       type: { name: 'string', required: false },
-      defaultValue: 'popper' as SelectRootProps['position'],
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Aplica o disabled em SelectRoot',
-      table: {
-        type: { summary: 'boolean' },
-      },
-      type: { name: 'boolean', required: false },
     },
     value: {
       control: 'text',
-      description: 'Aplica o value em SelectRoot',
+      description: 'Valor atual do componente.',
       table: {
         type: { summary: 'text' },
       },
       type: { name: 'string', required: false },
       defaultValue: '',
     },
-    align: {
-      control: 'inline-radio',
-      description: 'Aplica o align em SelectRoot',
-      options: ['center', 'start', 'end'] as SelectRootProps['align'][],
-      table: {
-        type: {
-          summary: ['center', 'start', 'end'].join('|'),
-        },
-      },
-      type: { name: 'string', required: false },
-    },
-    full: {
-      control: 'boolean',
-      description: 'Aplica o full em SelectRoot',
-      table: {
-        type: { summary: 'boolean' },
-      },
-      type: { name: 'boolean', required: false },
-    },
   },
   args: {
     children: '',
+    align: 'center',
+    disabled: false,
+    full: false,
+    placeholder: 'Selecione um item',
+    position: 'popper',
   },
-} as Meta<SelectRootProps>
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3108-16362&t=gSZqfhVYy3KRKNHz-0',
+      allowFullscreen: true,
+    },
+  },
+}
 
-export const Comum: ComponentStory<typeof Select.Root> = (args) => {
-  return (
-    <Select.Root {...args}>
-      <Select.Item value="yes">Sim</Select.Item>
-      <Select.Item value="no">Não</Select.Item>
-    </Select.Root>
-  )
+export default meta
+type SelectRootStory = StoryObj<SelectRootProps>
+
+export const Comum: SelectRootStory = {
+  render: (args) => {
+    return (
+      <Flex.Root center style={{ width: '80vw' }}>
+        <Select.Root {...args}>
+          <Select.Item value="item1">Item 1</Select.Item>
+          <Select.Item value="item2">Item 2</Select.Item>
+        </Select.Root>
+      </Flex.Root>
+    )
+  },
 }
