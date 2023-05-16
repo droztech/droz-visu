@@ -63,7 +63,10 @@ const OTPInput: FC<OTPInputProps> = ({
   }, [otp])
 
   return (
-    <div className={clsx('flex gap-4 justify-center', className)} {...rest}>
+    <div
+      className={clsx('flex gap-4 max-sm:gap-2 justify-center', className)}
+      {...rest}
+    >
       {otp.map((item, index) => (
         <input
           key={index}

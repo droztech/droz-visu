@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import LayoutDefault from './layout/Default'
-import { Input } from './library'
+import { Button } from './library'
 
 const formSchema = z.object({
   data: z.string().nonempty('required'),
@@ -13,7 +13,7 @@ const formSchema = z.object({
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const { handleSubmit, watch, register } = useForm<FormSchemaProps>({
+  const { handleSubmit, watch } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues: { data: '' },
   })
@@ -33,9 +33,7 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Input.Root>
-          <Input.Input placeholder="Digite aqui..." {...register('data')} />
-        </Input.Root>
+        <Button.Root light>Clique</Button.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

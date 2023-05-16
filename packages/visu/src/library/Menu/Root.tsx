@@ -31,12 +31,13 @@ const MenuRoot: FC<MenuRootProps> = ({
         'flex-col',
         'justify-between',
         'h-full',
-        'w-screen',
+        'w-full',
         'p-4',
         'bg-gray-100',
         'fixed',
         'transition-all',
         'overflow-hidden',
+        'z-50',
         expanded ? 'translate-x-0' : sideClass,
       ])}
       {...rest}

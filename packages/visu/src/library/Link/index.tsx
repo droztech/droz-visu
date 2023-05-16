@@ -10,15 +10,24 @@ const rootColorVariants = {
   success: 'hover:text-success-500 active:text-success-600',
 }
 
+const rootSizes = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  md: 'text-md',
+  lg: 'text-lg',
+}
+
 export interface LinkProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
   color?: keyof typeof rootColorVariants
   underline?: boolean
+  size?: keyof typeof rootSizes
 }
 
 const Link: FC<LinkProps> = ({
   asChild,
   color = 'primary',
+  size,
   underline,
   children,
   className,
@@ -29,9 +38,10 @@ const Link: FC<LinkProps> = ({
   return (
     <Component
       className={clsx(
-        'cursor-pointer transition-colors children:text-inherit-size children:inline [&_svg]:align-middle',
+        'cursor-pointer transition-colors children:text-inherit-size children:inline [&_svg]:align-middle tex',
         underline && 'underline underline-offset-2',
         rootColorVariants[color],
+        size && rootSizes[size],
         className
       )}
       {...rest}

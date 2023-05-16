@@ -15,7 +15,7 @@ const SidebarRoot: FC<SidebarRootProps> = ({
   ...rest
 }) => {
   return (
-    <div
+    <aside
       className={clsx([
         className,
         'sticky',
@@ -46,7 +46,7 @@ const SidebarRoot: FC<SidebarRootProps> = ({
         </div>
       )}
       {children}
-    </div>
+    </aside>
   )
 }
 

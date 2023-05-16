@@ -33,7 +33,7 @@ const ghostClassVariants: ButtonVariantClass = {
 }
 
 const lightClassVariants: ButtonVariantClass = {
-  neutral: 'bg-transparent text-gray-900',
+  neutral: 'bg-transparent text-gray-900 p-2',
   primary: 'bg-transparent text-primary',
   secondary: 'bg-transparent text-secondary',
 }
@@ -104,7 +104,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
     }, [loading])
 
     const sizeClass = useMemo<string>(() => {
-      return sizeClassVariants[size]
+      return light ? '' : sizeClassVariants[size]
     }, [size])
 
     return (

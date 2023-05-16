@@ -30,16 +30,14 @@ const InputRoot: FC<InputRootProps> = ({
 }) => {
   const RootComponent = useRef<HTMLDivElement | null>(null)
 
-  const disabledClass = useMemo(() => {
-    return disabled ? 'bg-gray-200 cursor-not-allowed !border-gray-400' : ''
-  }, [disabled])
-
   const fullClass = useMemo(() => {
     return full ? 'w-full' : 'w-fit'
   }, [full])
 
-  const statusClass = useMemo(() => {
-    return status ? statusClassVariants[status] : 'border-gray-500'
+  const rootClass = useMemo(() => {
+    if (disabled) return 'bg-gray-200 cursor-not-allowed border-gray'
+    if (status) return statusClassVariants[status]
+    return 'border-gray'
   }, [status])
 
   useEffect(() => {
@@ -69,7 +67,6 @@ const InputRoot: FC<InputRootProps> = ({
         'gap-3',
         'py-0',
         'px-4',
-        'text-gray-500',
         'rounded-lg',
         'cursor-text',
         'border',
@@ -80,9 +77,8 @@ const InputRoot: FC<InputRootProps> = ({
         'focus-within:has-[input:invalid]:placeholder-shown:outline-2',
         'focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
         'focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2',
-        disabledClass,
         fullClass,
-        statusClass,
+        rootClass,
       ])}
       onClick={focusInput}
       {...rest}
