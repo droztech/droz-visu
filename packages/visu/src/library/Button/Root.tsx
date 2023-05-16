@@ -1,5 +1,5 @@
 import { Slot } from '@radix-ui/react-slot'
-import { ButtonVariant, ButtonVariantClass } from '@types'
+import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
 import { clsx } from 'clsx'
 import {
   ButtonHTMLAttributes,
@@ -21,7 +21,7 @@ export interface ButtonRootProps
   ghost?: boolean
   light?: boolean
   loading?: boolean
-  size?: keyof typeof sizeClassVariants
+  size?: Size
   variant?: ButtonVariant
 }
 
@@ -38,8 +38,7 @@ const lightClassVariants: ButtonVariantClass = {
   secondary: 'bg-transparent text-secondary',
 }
 
-const sizeClassVariants = {
-  xs: 'p-2 text-sm',
+const sizeClassVariants: SizeClass = {
   sm: 'py-2.5 px-6 text-sm min-h-10',
   md: 'py-3 px-10 min-h-12',
   lg: 'py-9 px-12 text-lg min-h-28 [&_div]:h-10 [&_div]:w-10',
