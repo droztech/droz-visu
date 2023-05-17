@@ -5,21 +5,20 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import LayoutDefault from './layout/Default'
-import { Checkbox } from './library'
 
 const formSchema = z.object({
-  // data: z.string().nonempty('required'),
-  data: z.boolean(),
+  data: z.string().nonempty('required'),
 })
 
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const [test, setTest] = useState(false)
-  const { handleSubmit, watch, reset, setValue } = useForm<FormSchemaProps>({
-    resolver: zodResolver(formSchema),
-    defaultValues: { data: true },
-  })
+  const [test, setTest] = useState('')
+  const { handleSubmit, watch, reset, setValue, register } =
+    useForm<FormSchemaProps>({
+      resolver: zodResolver(formSchema),
+      defaultValues: { data: '' },
+    })
 
   const onSubmit: SubmitHandler<FormSchemaProps> = (data) => {
     console.log(data)
@@ -40,19 +39,14 @@ function App() {
           icon: <Eraser />,
           onClick: () => {
             reset()
-            setTest(false)
+            setTest('')
           },
         },
       ]}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Checkbox.Root
-          value={watch('data')}
-          onChange={(ev) => setValue('data', ev)}
-        >
-          <Checkbox.Indicator />
-        </Checkbox.Root>
+
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
