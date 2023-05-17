@@ -14,8 +14,8 @@ export interface OTPInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   count: number
   error?: boolean
-  onChange?: (data: string[]) => void
-  value?: string[]
+  onChange?: (data: string) => void
+  value?: string
 }
 
 const OTPInput: FC<OTPInputProps> = ({
@@ -43,28 +43,49 @@ const OTPInput: FC<OTPInputProps> = ({
       prevOtp.map((value, i) => (i === index ? target.value : value))
     )
     if (onChange)
-      onChange(otp.map((value, i) => (i === index ? target.value : value)))
+      onChange(
+        otp.map((value, i) => (i === index ? target.value : value)).join('')
+      )
   }
 
   const handlePaste = ({ clipboardData }: ClipboardEvent<HTMLInputElement>) => {
     const paste = clipboardData.getData('text/plain').replace(' ', '')
     const pasteArray = paste.split('').slice(0, otp.length)
     setOtp(pasteArray)
-    if (onChange) onChange(pasteArray)
+    if (onChange) onChange(pasteArray.join(''))
   }
 
-  useEffect(() => {
+  const handleFocus = () => {
     for (const i in otp) {
       if (otp[i] === '') {
         refs.current[i]?.focus()
         break
       }
     }
-  }, [otp])
+  }
+
+  useEffect(() => {
+    handleFocus()
+  }, [handleFocus])
+
+  useEffect(() => {
+    const characters = value?.split('')
+
+    if (characters) {
+      for (let i = 0; i < characters.length; i++) {
+        if (characters[i]) {
+          setOtp((prevOtp) =>
+            prevOtp.map((val, ind) => (i === ind ? characters[i] : val))
+          )
+        }
+      }
+    }
+  }, [value])
 
   return (
     <div
       className={clsx('flex gap-4 max-sm:gap-2 justify-center', className)}
+      onClick={handleFocus}
       {...rest}
     >
       {otp.map((item, index) => (
@@ -72,12 +93,12 @@ const OTPInput: FC<OTPInputProps> = ({
           key={index}
           ref={(ref) => (refs.current[index] = ref)}
           className={clsx(
-            'flex-1 border rounded h-14 max-w-[3.5rem] w-full text-center text-lg font-semibold transition-colors',
+            'flex-1 border rounded h-14 max-w-[3.5rem] w-full text-center text-lg font-semibold transition-colors bg-inherit',
             inputColorClass
           )}
           onChange={(ev) => handleChange(ev, index)}
           onPaste={handlePaste}
-          value={value ? value[index] : otp[index]}
+          value={otp[index]}
           maxLength={1}
         />
       ))}
