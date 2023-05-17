@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Question } from 'phosphor-react'
+import { ArrowClockwise, Eraser } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -15,7 +15,7 @@ type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
   const [test, setTest] = useState('')
-  const { handleSubmit, watch } = useForm<FormSchemaProps>({
+  const { handleSubmit, watch, reset, setValue } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues: { data: '' },
   })
@@ -27,15 +27,32 @@ function App() {
   return (
     <LayoutDefault
       asChild
-      terminal={watch()}
+      terminal={[watch(), test]}
       buttons={[
-        { icon: <Question />, onClick: () => console.log(test) },
-        { icon: <Question />, onClick: () => console.log('Place Anything') },
+        {
+          icon: <ArrowClockwise />,
+          onClick: () => {
+            window.location.reload()
+          },
+        },
+        {
+          icon: <Eraser />,
+          onClick: () => {
+            reset()
+            setTest('')
+          },
+        },
       ]}
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <OTPInput count={5} value={test} onChange={(ev) => setTest(ev)} />
+        <OTPInput
+          count={5}
+          value={watch('data')}
+          onChange={(ev) => {
+            setValue('data', ev)
+          }}
+        />
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

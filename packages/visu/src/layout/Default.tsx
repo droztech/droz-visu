@@ -12,7 +12,7 @@ import { FC, HTMLAttributes, ReactNode, useState } from 'react'
 
 export interface LayoutDefaultProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
-  terminal?: object
+  terminal?: unknown[]
   buttons?: {
     icon: ReactNode
     onClick: (data?: unknown) => void
@@ -91,15 +91,22 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
           {children}
         </Comp>
         {terminal && (
-          <pre className="bg-gray-800 p-4 rounded text-gray-400 relative min-h-12 text-xs w-full">
-            {JSON.stringify(terminal, null, 2)}
-            <button
-              className="absolute top-2 right-2 p-2 rounded bg-gray-800 transition-colors hover:bg-gray-700 border border-gray-700"
-              onClick={() => console.log(terminal)}
-            >
-              <Terminal />
-            </button>
-          </pre>
+          <div className="flex flex-col w-full gap-2">
+            {terminal.map((item, index) => (
+              <pre
+                key={index}
+                className="bg-gray-800 p-4 rounded text-gray-400 relative min-h-12 text-xs w-full"
+              >
+                {JSON.stringify(item, null, 2)}
+                <button
+                  className="absolute top-2 right-2 p-2 rounded bg-gray-800 transition-colors hover:bg-gray-700 border border-gray-700"
+                  onClick={() => console.log(item)}
+                >
+                  <Terminal size={12} />
+                </button>
+              </pre>
+            ))}
+          </div>
         )}
       </div>
     </div>
