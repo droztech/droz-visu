@@ -27,7 +27,7 @@ const OTPInput: FC<OTPInputProps> = ({
   ...rest
 }) => {
   const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
-  const refs = useRef<(HTMLInputElement | null)[]>([])
+  const refs = useRef<(HTMLInputElement | null)[]>(Array(count).fill(null))
 
   const inputColorClass = useMemo(() => {
     return error
@@ -70,22 +70,21 @@ const OTPInput: FC<OTPInputProps> = ({
 
   useEffect(() => {
     const characters = value?.split('')
+    const newOtp = Array(count).fill('')
 
-    if (characters) {
+    if (characters?.length) {
       for (let i = 0; i < characters.length; i++) {
         if (characters[i]) {
-          setOtp((prevOtp) =>
-            prevOtp.map((val, ind) => (i === ind ? characters[i] : val))
-          )
+          newOtp[i] = characters[i]
         }
       }
     }
+    setOtp(newOtp)
   }, [value])
 
   return (
     <div
       className={clsx('flex gap-4 max-sm:gap-2 justify-center', className)}
-      onClick={handleFocus}
       {...rest}
     >
       {otp.map((item, index) => (
