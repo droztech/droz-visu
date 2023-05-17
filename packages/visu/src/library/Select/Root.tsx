@@ -11,6 +11,7 @@ const statusClassVariants = {
 export interface SelectRootProps extends RadixSelect.SelectProps {
   placeholder?: string
   className?: string
+  onChange?: (value: string) => void
   position?: RadixSelect.SelectContentProps['position']
   align?: RadixSelect.SelectContentProps['align']
   full?: boolean
@@ -26,10 +27,16 @@ const SelectRoot: FC<SelectRootProps> = ({
   status,
   full,
   value,
+  onChange,
+  onValueChange,
   ...rest
 }) => {
   return (
-    <RadixSelect.Root value={value} {...rest}>
+    <RadixSelect.Root
+      value={value}
+      onValueChange={onChange ?? onValueChange}
+      {...rest}
+    >
       <RadixSelect.Trigger
         className={clsx(
           '[&[data-state=open]_span:last-child]:rotate-180 disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray border px-4 py-2 rounded-lg bg-transparent flex items-center gap-4 justify-between min-h-10 text-sm [&[data-state=open]>div]:rotate-180 hover:border-gray-700 transition-colors active:border-primary data-[state=open]:border-primary',

@@ -50,12 +50,12 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
   return (
     <div className="min-h-screen bg-[#272727] flex items-center justify-center">
       <div className="w-[90vw] min-w-[320px] max-w-5xl items-center justify-center flex-col gap-8 flex">
-        <div className="flex gap-4 items-center w-full justify-between flex-wrap-reverse max-sm:justify-center">
+        <div className="flex gap-4 items-center w-full justify-between flex-wrap-reverse max-sm:justify-center text-gray">
           <div className="flex gap-4 max-md:gap-2 items-center">
             {buttons?.map((item, index) => (
               <button
                 key={index}
-                className="p-2 rounded bg-gray-800 transition-colors hover:bg-gray-700 text-gray-100"
+                className="p-2 rounded bg-gray-800 transition-colors hover:bg-gray-700"
                 onClick={item.onClick}
               >
                 {item.icon}
@@ -66,7 +66,7 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
             {layoutButtons?.map((item, index) => (
               <button
                 key={index}
-                className="p-2 rounded bg-gray-800 transition-colors hover:bg-gray-700 text-gray-100"
+                className="p-2 rounded bg-gray-800 transition-colors hover:bg-gray-700"
                 onClick={item.onClick}
               >
                 {item.icon}
@@ -95,7 +95,7 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
             {terminal.map((item, index) => (
               <pre
                 key={index}
-                className="bg-gray-800 p-4 rounded text-gray-400 relative min-h-12 text-xs w-full"
+                className="bg-gray-800 text-gray p-4 rounded relative min-h-12 text-xs w-full"
               >
                 {JSON.stringify(item, null, 2)}
                 <button
