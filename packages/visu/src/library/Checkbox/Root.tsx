@@ -3,8 +3,15 @@ import { Color, ColorClass } from '@types'
 import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 
-export interface CheckboxRootProps extends RadixCheckbox.CheckboxProps {
+export interface CheckboxRootProps
+  extends Omit<
+    RadixCheckbox.CheckboxProps,
+    'value' | 'onChange' | 'onCheckedChange'
+  > {
   color?: Color
+  value?: boolean
+  onChange?: (data: boolean) => void
+  onCheckedChange?: (data: boolean) => void
 }
 
 export const rootColorVariants: ColorClass = {
@@ -16,7 +23,17 @@ export const rootColorVariants: ColorClass = {
 
 const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
   (
-    { children, className, color = 'primary', disabled, ...rest },
+    {
+      children,
+      className,
+      color = 'primary',
+      disabled,
+      onCheckedChange,
+      onChange,
+      checked,
+      value,
+      ...rest
+    },
     ref: Ref<HTMLButtonElement | null>
   ) => {
     const checkboxRef = useRef<HTMLButtonElement>(null)
@@ -32,6 +49,16 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
         ? 'data-[state=checked]:!bg-gray-400 data-[state=checked]:!border-gray !bg-gray-300 !border-gray'
         : ''
     }, [disabled])
+
+    const handleCheck = (ev: RadixCheckbox.CheckedState) => {
+      if (ev === 'indeterminate') ev = false
+      if (onChange) {
+        return onChange(ev)
+      }
+      if (onCheckedChange) {
+        return onCheckedChange(ev)
+      }
+    }
 
     return (
       <RadixCheckbox.Root
@@ -52,6 +79,8 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
         ])}
         disabled={disabled}
         ref={checkboxRef}
+        checked={value ?? checked}
+        onCheckedChange={(ev) => handleCheck(ev)}
         {...rest}
       >
         {children}

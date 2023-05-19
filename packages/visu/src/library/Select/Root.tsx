@@ -3,12 +3,19 @@ import { clsx } from 'clsx'
 import { CaretDown } from 'phosphor-react'
 import { FC } from 'react'
 
+const statusClassVariants = {
+  error: 'border-error',
+  success: 'border-success',
+}
+
 export interface SelectRootProps extends RadixSelect.SelectProps {
   placeholder?: string
   className?: string
+  onChange?: (value: string) => void
   position?: RadixSelect.SelectContentProps['position']
   align?: RadixSelect.SelectContentProps['align']
   full?: boolean
+  status?: keyof typeof statusClassVariants
 }
 
 const SelectRoot: FC<SelectRootProps> = ({
@@ -17,17 +24,25 @@ const SelectRoot: FC<SelectRootProps> = ({
   placeholder,
   position = 'popper',
   align = 'center',
+  status,
   full,
   value,
+  onChange,
+  onValueChange,
   ...rest
 }) => {
   return (
-    <RadixSelect.Root value={value} {...rest}>
+    <RadixSelect.Root
+      value={value}
+      onValueChange={onChange ?? onValueChange}
+      {...rest}
+    >
       <RadixSelect.Trigger
         className={clsx(
-          '[&[data-state=open]_span:last-child]:rotate-180 disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray border px-4 py-2 rounded-lg bg-transparent border-gray flex items-center gap-4 justify-between min-h-10 text-sm [&[data-state=open]>div]:rotate-180 hover:border-gray-700 transition-colors active:border-primary data-[state=open]:border-primary',
+          '[&[data-state=open]_span:last-child]:rotate-180 disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray border px-4 py-2 rounded-lg bg-transparent flex items-center gap-4 justify-between min-h-10 text-sm [&[data-state=open]>div]:rotate-180 hover:border-gray-700 transition-colors active:border-primary data-[state=open]:border-primary',
           !value && 'text-gray',
           full ? 'w-full' : 'w-fit',
+          status ? statusClassVariants[status] : 'border-gray',
           className
         )}
       >

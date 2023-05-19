@@ -104,7 +104,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
     }, [loading])
 
     const sizeClass = useMemo<string>(() => {
-      return sizeClassVariants[size]
+      return light ? 'p-2' : sizeClassVariants[size]
     }, [size])
 
     return (

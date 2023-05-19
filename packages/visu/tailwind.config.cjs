@@ -3,7 +3,12 @@ const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/library/**/*.{ts,tsx}', './src/App.tsx', './src/main.tsx'],
+  content: [
+    './src/library/**/*.{ts,tsx}',
+    './src/App.tsx',
+    './src/main.tsx',
+    './src/layout/**/*.tsx',
+  ],
   theme: {
     extend: {
       boxShadow: {

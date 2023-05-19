@@ -62,6 +62,7 @@ const AvatarRoot: FC<AvatarRootProps> = ({
     <RadixAvatar.Root
       className={clsx([
         className,
+        'aspect-square',
         'font-semibold',
         'uppercase',
         'select-none',

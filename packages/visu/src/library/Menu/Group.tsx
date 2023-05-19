@@ -5,7 +5,7 @@ export interface MenuGroupProps extends HTMLAttributes<HTMLDivElement> {}
 
 const MenuGroup: FC<MenuGroupProps> = ({ children, className, ...rest }) => {
   return (
-    <div className={clsx([className, 'flex', 'flex-col', 'gap-2'])} {...rest}>
+    <div className={clsx([className, 'flex flex-col gap-2'])} {...rest}>
       {children}
     </div>
   )

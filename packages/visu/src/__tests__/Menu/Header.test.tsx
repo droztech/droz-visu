@@ -8,9 +8,9 @@ jest.mock('clsx', () => {
   }
 })
 
-describe('MenuDivider tests', () => {
-  it('Should render a MenuDivider element', () => {
-    render(<Menu.Divider data-testid="element"></Menu.Divider>)
+describe('MenuHeader tests', () => {
+  it('Should render a MenuHeader element', () => {
+    render(<Menu.Header data-testid="element" />)
     const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()

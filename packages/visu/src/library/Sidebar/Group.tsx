@@ -9,7 +9,7 @@ const SidebarGroup: FC<SidebarGroupProps> = ({
   ...rest
 }) => {
   return (
-    <div className={clsx([className, 'flex', 'flex-col', 'gap-2'])} {...rest}>
+    <div className={clsx([className, 'flex flex-col gap-2'])} {...rest}>
       {children}
     </div>
   )

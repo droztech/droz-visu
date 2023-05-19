@@ -1,28 +1,46 @@
-import { Flex } from '@library'
-import { clsx } from 'clsx'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Eraser } from 'phosphor-react'
+import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { z } from 'zod'
+
+import LayoutDefault from './layout/Default'
+
+const formSchema = z.object({
+  data: z.string().nonempty('required'),
+})
+
+type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  return (
-    <Flex.Root center className="min-h-screen bg-gray-800">
-      <Flex.Col
-        center
-        className={clsx([
-          'min-h-[40vh]',
-          'w-[95vw]',
-          'max-w-3xl',
-          'rounded-lg',
-          'border-2',
-          'border-solid',
-          'border-gray-500',
-          'bg-background',
-          'p-16',
-        ])}
-      >
-        {/* ========================= TEST AREA ========================= */}
+  const [test, setTest] = useState('')
+  const { handleSubmit, watch, reset, setValue, register } =
+    useForm<FormSchemaProps>({
+      resolver: zodResolver(formSchema),
+      defaultValues: { data: '' },
+    })
 
-        {/* ========================= TEST AREA ========================= */}
-      </Flex.Col>
-    </Flex.Root>
+  const onSubmit: SubmitHandler<FormSchemaProps> = (data) => {
+    console.log(data)
+  }
+
+  const clearState = () => {
+    reset()
+    setTest('')
+  }
+
+  return (
+    <LayoutDefault
+      asChild
+      terminal={[watch(), test]}
+      buttons={[{ icon: <Eraser />, onClick: clearState }]}
+    >
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/* ================================= TEST AREA ================================= */}
+
+        {/* ================================= TEST AREA ================================= */}
+      </form>
+    </LayoutDefault>
   )
 }
 

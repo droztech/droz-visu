@@ -15,9 +15,10 @@ export { default as Sidebar } from './Sidebar'
 export type {
   SidebarRootProps,
   SidebarButtonProps,
-  SidebarDividerProps,
   SidebarGroupProps,
   SidebarLayoutProps,
+  SidebarBodyProps,
+  SidebarHeaderProps,
 } from './Sidebar'
 
 export { default as Loading } from './Loading'
@@ -63,8 +64,9 @@ export { default as Menu } from './Menu'
 export type {
   MenuRootProps,
   MenuButtonProps,
-  MenuDividerProps,
   MenuGroupProps,
+  MenuBodyProps,
+  MenuHeaderProps,
 } from './Menu'
 
 export { default as Divider } from './Divider'

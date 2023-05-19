@@ -56,6 +56,7 @@
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
+    "@hookform/resolvers": "^3.1.0",
     "@radix-ui/react-avatar": "^1.0.2",
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-hover-card": "^1.0.5",
@@ -83,11 +84,13 @@
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-paginate": "^8.1.5",
     "ts-jest": "^29.0.5",
     "tsconfig": "*",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
-    "vite-plugin-dts": "^1.7.1"
+    "vite-plugin-dts": "^1.7.1",
+    "zod": "^3.21.4"
   }
 }
