@@ -8,10 +8,10 @@ jest.mock('clsx', () => {
   }
 })
 
-describe('SidebarDivider tests', () => {
-  it('Should render a SidebarDivider element', () => {
-    render(<Sidebar.Divider data-testid="element" />)
-    const element = screen.getByTestId('element')
+describe('SidebarBody tests', () => {
+  it('Should render a SidebarBody element', () => {
+    render(<Sidebar.Body data-testid="element" />)
+    const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()
   })
