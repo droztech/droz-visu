@@ -1,13 +1,6 @@
 import { Slot } from '@radix-ui/react-slot'
 import { clsx } from 'clsx'
-import {
-  DeviceMobileCamera,
-  DeviceTabletCamera,
-  Monitor,
-  Moon,
-  Sun,
-  Terminal,
-} from 'phosphor-react'
+import { ArrowClockwise, Moon, Sun, Terminal } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useState } from 'react'
 
 export interface LayoutDefaultProps extends HTMLAttributes<HTMLDivElement> {
@@ -25,11 +18,9 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
   children,
   className,
   buttons,
-  style,
   ...rest
 }) => {
   const Comp = asChild ? Slot : 'div'
-  const [screen, setScreen] = useState<string>()
   const [theme, setTheme] = useState<'light' | 'dark'>(
     (localStorage.getItem('visuDevTheme') as 'light' | 'dark') ?? 'light'
   )
@@ -40,11 +31,13 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
     localStorage.setItem('visuDevTheme', newTheme)
   }
 
+  const refreshPage = () => {
+    window.location.reload()
+  }
+
   const layoutButtons = [
     { icon: theme === 'dark' ? <Sun /> : <Moon />, onClick: toggleTheme },
-    { icon: <DeviceMobileCamera />, onClick: () => setScreen('375px') },
-    { icon: <DeviceTabletCamera />, onClick: () => setScreen('768px') },
-    { icon: <Monitor />, onClick: () => setScreen(undefined) },
+    { icon: <ArrowClockwise />, onClick: refreshPage },
   ]
 
   return (
@@ -76,16 +69,12 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
         </div>
         <Comp
           className={clsx(
-            'min-h-[50vh] rounded p-4 flex items-center justify-center flex-col gap-4 shadow-sm w-full overflow-auto relative',
+            'min-h-[50vh] rounded p-4 flex items-center justify-center flex-col gap-4 shadow-sm w-screen max-w-5xl overflow-auto relative',
             className,
             theme === 'light'
               ? 'bg-gray-100 text-gray-900'
               : 'bg-gray-800 text-gray-100 dark'
           )}
-          style={{
-            maxWidth: screen,
-            ...style,
-          }}
           {...rest}
         >
           {children}
