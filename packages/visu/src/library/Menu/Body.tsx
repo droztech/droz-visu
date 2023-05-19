@@ -6,7 +6,10 @@ export interface MenuBodyProps extends HTMLAttributes<HTMLDivElement> {}
 const MenuBody: FC<MenuBodyProps> = ({ children, className, ...rest }) => {
   return (
     <div
-      className={clsx('flex flex-col justify-between h-full w-full', className)}
+      className={clsx(
+        'flex flex-col py-4 justify-between h-full w-full gap-2',
+        className
+      )}
       {...rest}
     >
       {children}

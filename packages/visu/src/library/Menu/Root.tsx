@@ -27,7 +27,7 @@ const MenuRoot: FC<MenuRootProps> = ({
     <div
       className={clsx([
         className,
-        'flex flex-col h-full w-full p-4 bg-gray-100 fixed transition-all overflow-hidden z-50',
+        'flex flex-col h-full w-full bg-gray-100 fixed transition-all overflow-hidden z-50 px-4',
         expanded ? 'translate-x-0' : sideClass,
       ])}
       {...rest}
