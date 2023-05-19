@@ -18,21 +18,7 @@ const SidebarRoot: FC<SidebarRootProps> = ({
     <aside
       className={clsx([
         className,
-        'sticky',
-        'top-0',
-        'flex',
-        'h-screen',
-        'gap-4',
-        'flex-col',
-        'border-r',
-        'border-gray-300',
-        'py-6',
-        'transition-all',
-        'duration-300',
-        'justify-between',
-        '[&_*]:text-ellipsis',
-        '[&_*]:whitespace-nowrap',
-        '[&_*]:overflow-hidden',
+        'sticky top-0 flex h-screen flex-col border-r border-gray-300 transition-all duration-300 justify-between [&_*]:text-ellipsis [&_*]:whitespace-nowrap [&_*]:overflow-hidden',
         expanded ? 'w-56 px-4' : 'w-14 px-2 [&_span]:hidden',
       ])}
       {...rest}

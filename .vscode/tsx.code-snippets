@@ -29,6 +29,8 @@
       "  )",
       "}",
       "",
+      "${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}.displayName = '${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}'",
+      "",
       "export default ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}",
       ""
     ],

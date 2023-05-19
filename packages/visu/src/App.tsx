@@ -1,11 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowClockwise, Eraser, House, X } from 'phosphor-react'
+import { ArrowClockwise, Eraser, House } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import LayoutDefault from './layout/Default'
-import { Button, Menu } from './library'
+import { Sidebar } from './library'
 
 const formSchema = z.object({
   data: z.string().nonempty('required'),
@@ -26,27 +26,22 @@ function App() {
   }
 
   return (
-    <>
-      <Menu.Root expanded={test}>
-        <Menu.Header className="flex justify-between items-center">
-          <h1 className="text-xl">Projeto X</h1>
-          <Button.Root onClick={() => setTest(false)} light>
-            <Button.Icon>
-              <X />
-            </Button.Icon>
-          </Button.Root>
-        </Menu.Header>
-        <Menu.Body>
-          <Menu.Group>
-            <Menu.Button text="Home" icon={<House />} />
-            <Menu.Button text="Home" icon={<House />} />
-          </Menu.Group>
-          <Menu.Group>
-            <Menu.Button text="Home" icon={<House />} />
-            <Menu.Button text="Home" icon={<House />} />
-          </Menu.Group>
-        </Menu.Body>
-      </Menu.Root>
+    <Sidebar.Layout>
+      <Sidebar.Root expanded={test} setExpanded={() => setTest(!test)}>
+        <Sidebar.Header>
+          <h1 className="text-lg">Projeto X</h1>
+        </Sidebar.Header>
+        <Sidebar.Body>
+          <Sidebar.Group>
+            <Sidebar.Button text="Home" icon={<House />} />
+            <Sidebar.Button text="Home" icon={<House />} />
+          </Sidebar.Group>
+          <Sidebar.Group>
+            <Sidebar.Button text="Home" icon={<House />} />
+            <Sidebar.Button text="Home" icon={<House />} />
+          </Sidebar.Group>
+        </Sidebar.Body>
+      </Sidebar.Root>
       <LayoutDefault
         asChild
         terminal={[watch(), test]}
@@ -72,7 +67,7 @@ function App() {
           {/* ================================= TEST AREA ================================= */}
         </form>
       </LayoutDefault>
-    </>
+    </Sidebar.Layout>
   )
 }
 
