@@ -75,6 +75,17 @@ const meta: Meta<SelectRootProps> = {
       type: { name: 'string', required: false },
       defaultValue: '',
     },
+    status: {
+      control: 'inline-radio',
+      description: 'Aplica o status em SelectRoot',
+      options: ['error', 'success'] as SelectRootProps['status'][],
+      table: {
+        type: {
+          summary: ['error', 'success'].join('|'),
+        },
+      },
+      type: { name: 'string', required: false },
+    },
   },
   args: {
     children: '',
