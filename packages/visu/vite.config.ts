@@ -33,6 +33,10 @@ export default defineConfig({
         find: '@library',
         replacement: path.resolve(__dirname, './src/library'),
       },
+      {
+        find: '@types',
+        replacement: path.resolve(__dirname, './src/library/types'),
+      },
     ],
   },
 })
