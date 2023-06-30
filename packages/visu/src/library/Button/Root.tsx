@@ -46,7 +46,7 @@ const sizeClassVariants: SizeClass = {
 
 const variantClassVariants: ButtonVariantClass = {
   neutral:
-    'bg-gray-100 border-none text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-300',
+    'bg-gray-100 border-none text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-400',
   primary:
     'bg-primary border-none text-gray-100 hover:bg-primary-500 active:bg-primary-600',
   secondary:
