@@ -14,6 +14,7 @@ export type { InputIconProps, InputInputProps, InputRootProps } from './Input'
 export { default as Sidebar } from './Sidebar'
 export type {
   SidebarRootProps,
+  SidebarLinkProps,
   SidebarButtonProps,
   SidebarGroupProps,
   SidebarLayoutProps,

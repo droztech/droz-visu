@@ -1,3 +1,4 @@
+import LoadingDots from '../Loading'
 import { Slot } from '@radix-ui/react-slot'
 import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
 import { clsx } from 'clsx'
@@ -11,8 +12,6 @@ import {
   useRef,
   useState,
 } from 'react'
-
-import LoadingDots from '../Loading'
 
 export interface ButtonRootProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -68,7 +67,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
       variant = 'primary',
       ...rest
     },
-    ref: Ref<HTMLButtonElement | null>
+    ref: Ref<HTMLButtonElement | null>,
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null)
     const RootComponent = asChild && !loading ? Slot : 'button'
@@ -105,21 +104,13 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
 
     const sizeClass = useMemo<string>(() => {
       return light ? 'p-2' : sizeClassVariants[size]
-    }, [size])
+    }, [light, size])
 
     return (
       <RootComponent
         className={clsx([
           className,
-          'flex',
-          'flex-row',
-          'gap-2.5',
-          'items-center',
-          'justify-center',
-          'relative',
-          'rounded-lg',
-          'cursor-pointer',
-          'transition-all',
+          'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all',
           fullClass,
           rootClass,
           sizeClass,
@@ -149,7 +140,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
         )}
       </RootComponent>
     )
-  }
+  },
 )
 
 ButtonRoot.displayName = 'Button.Root'
