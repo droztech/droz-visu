@@ -84,3 +84,6 @@ export type { SelectRootProps, SelectItemProps } from './Select'
 
 export { default as File } from './File'
 export type { FileProps } from './File'
+
+export { default as Icon } from './Icon'
+export type { IconProps } from './Icon'
