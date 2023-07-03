@@ -85,7 +85,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
     const rootClass = useMemo(() => {
       if (isDisabled) {
         if (ghost)
-          return 'pointer-events-none border-gray text-gray-500 bg-transparent'
+          return 'pointer-events-none border border-gray text-gray-500 bg-transparent'
         if (light) return 'pointer-events-none text-gray bg-transparent'
         return 'pointer-events-none bg-gray text-gray-500'
       }
@@ -98,10 +98,6 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
       return full ? '!w-full' : 'w-fit'
     }, [full])
 
-    const loadingClass = useMemo<string>(() => {
-      return loading ? 'opacity-0' : ''
-    }, [loading])
-
     const sizeClass = useMemo<string>(() => {
       return light ? 'p-2' : sizeClassVariants[size]
     }, [light, size])
@@ -109,8 +105,8 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
     return (
       <RootComponent
         className={clsx([
-          className,
           'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all',
+          className,
           fullClass,
           rootClass,
           sizeClass,
@@ -123,19 +119,10 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
           children
         ) : (
           <>
-            <span
-              className={clsx([
-                'flex',
-                'flex-row',
-                'gap-2.5',
-                'items-center',
-                'justify-center',
-                loadingClass,
-              ])}
-            >
+            <span className="flex flex-row items-center justify-center gap-2.5 opacity-0">
               {children}
             </span>
-            {loading && <LoadingDots className="absolute" />}
+            <LoadingDots className="absolute" />
           </>
         )}
       </RootComponent>
