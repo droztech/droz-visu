@@ -1,3 +1,4 @@
+import LoadingDots from '../Loading'
 import { Slot } from '@radix-ui/react-slot'
 import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
 import { clsx } from 'clsx'
@@ -11,8 +12,6 @@ import {
   useRef,
   useState,
 } from 'react'
-
-import LoadingDots from '../Loading'
 
 export interface ButtonRootProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -46,7 +45,7 @@ const sizeClassVariants: SizeClass = {
 
 const variantClassVariants: ButtonVariantClass = {
   neutral:
-    'bg-gray-100 border-none text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-300',
+    'bg-gray-100 border-none text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-400',
   primary:
     'bg-primary border-none text-gray-100 hover:bg-primary-500 active:bg-primary-600',
   secondary:
@@ -68,7 +67,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
       variant = 'primary',
       ...rest
     },
-    ref: Ref<HTMLButtonElement | null>
+    ref: Ref<HTMLButtonElement | null>,
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null)
     const RootComponent = asChild && !loading ? Slot : 'button'
@@ -86,7 +85,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
     const rootClass = useMemo(() => {
       if (isDisabled) {
         if (ghost)
-          return 'pointer-events-none border-gray text-gray-500 bg-transparent'
+          return 'pointer-events-none border border-gray text-gray-500 bg-transparent'
         if (light) return 'pointer-events-none text-gray bg-transparent'
         return 'pointer-events-none bg-gray text-gray-500'
       }
@@ -99,27 +98,15 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
       return full ? '!w-full' : 'w-fit'
     }, [full])
 
-    const loadingClass = useMemo<string>(() => {
-      return loading ? 'opacity-0' : ''
-    }, [loading])
-
     const sizeClass = useMemo<string>(() => {
       return light ? 'p-2' : sizeClassVariants[size]
-    }, [size])
+    }, [light, size])
 
     return (
       <RootComponent
         className={clsx([
+          'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all',
           className,
-          'flex',
-          'flex-row',
-          'gap-2.5',
-          'items-center',
-          'justify-center',
-          'relative',
-          'rounded-lg',
-          'cursor-pointer',
-          'transition-all',
           fullClass,
           rootClass,
           sizeClass,
@@ -132,24 +119,15 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
           children
         ) : (
           <>
-            <span
-              className={clsx([
-                'flex',
-                'flex-row',
-                'gap-2.5',
-                'items-center',
-                'justify-center',
-                loadingClass,
-              ])}
-            >
+            <span className="flex flex-row items-center justify-center gap-2.5 opacity-0">
               {children}
             </span>
-            {loading && <LoadingDots className="absolute" />}
+            <LoadingDots className="absolute" />
           </>
         )}
       </RootComponent>
     )
-  }
+  },
 )
 
 ButtonRoot.displayName = 'Button.Root'

@@ -39,14 +39,14 @@ const SelectRoot: FC<SelectRootProps> = ({
     >
       <RadixSelect.Trigger
         className={clsx(
-          '[&[data-state=open]_span:last-child]:rotate-180 disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray border px-4 py-2 rounded-lg bg-transparent flex items-center gap-4 justify-between min-h-10 text-sm [&[data-state=open]>div]:rotate-180 hover:border-gray-700 transition-colors active:border-primary data-[state=open]:border-primary',
+          'disabled:text-gray min-h-10 active:border-primary data-[state=open]:border-primary flex items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-gray-900 transition-colors hover:border-gray-700 disabled:pointer-events-none disabled:bg-gray-200 [&[data-state=open]>div]:rotate-180 [&[data-state=open]_span:last-child]:rotate-180',
           !value && 'text-gray',
           full ? 'w-full' : 'w-fit',
           status ? statusClassVariants[status] : 'border-gray',
-          className
+          className,
         )}
       >
-        <span className="whitespace-nowrap text-ellipsis overflow-hidden">
+        <span className="overflow-hidden text-ellipsis whitespace-nowrap">
           <RadixSelect.Value
             placeholder={<span className="text-gray">{placeholder}</span>}
           />
@@ -62,13 +62,13 @@ const SelectRoot: FC<SelectRootProps> = ({
           align={align}
           sideOffset={5}
           collisionPadding={10}
-          className="flex flex-col rounded-lg gap-2 border border-gray shadow bg-gray-100 !max-w-[calc(100vw-20px)] min-w-[220px]"
+          className="border-gray flex min-w-[220px] !max-w-[calc(100vw-20px)] flex-col gap-2 rounded-lg border bg-gray-100 shadow"
         >
           <RadixSelect.Viewport className="p-3">
             {placeholder && (
               <RadixSelect.Item
                 value=""
-                className="px-3 py-2 text-gray pointer-events-none"
+                className="text-gray pointer-events-none px-3 py-2"
                 disabled
               >
                 <RadixSelect.ItemText>{placeholder}</RadixSelect.ItemText>

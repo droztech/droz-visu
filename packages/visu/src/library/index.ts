@@ -14,6 +14,7 @@ export type { InputIconProps, InputInputProps, InputRootProps } from './Input'
 export { default as Sidebar } from './Sidebar'
 export type {
   SidebarRootProps,
+  SidebarLinkProps,
   SidebarButtonProps,
   SidebarGroupProps,
   SidebarLayoutProps,
@@ -83,3 +84,6 @@ export type { SelectRootProps, SelectItemProps } from './Select'
 
 export { default as File } from './File'
 export type { FileProps } from './File'
+
+export { default as Icon } from './Icon'
+export type { IconProps } from './Icon'

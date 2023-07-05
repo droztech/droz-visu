@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Switch, SwitchProps } from '@coaktion/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<SwitchProps> = {
   title: 'Switch/Switch',
@@ -17,6 +16,14 @@ const meta: Meta<SwitchProps> = {
       type: { name: 'boolean', required: false },
     },
     checked: {
+      control: 'boolean',
+      description: 'Propriedade que define se o valor está verificado.',
+      table: {
+        type: { summary: 'boolean' },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    value: {
       control: 'boolean',
       description: 'Propriedade que define se o valor está verificado.',
       table: {
@@ -55,6 +62,19 @@ const meta: Meta<SwitchProps> = {
       action: 'change',
       description: 'Evento de mudança de valor.',
       table: { type: { summary: 'function' } },
+    },
+    onChange: {
+      action: 'change',
+      description: 'Evento de mudança de valor.',
+      table: { type: { summary: 'function' } },
+    },
+    label: {
+      control: 'boolean',
+      description: 'Aplica o label em SwitchSwitch',
+      table: {
+        type: { summary: 'boolean' },
+      },
+      type: { name: 'boolean', required: false },
     },
   },
   args: {
