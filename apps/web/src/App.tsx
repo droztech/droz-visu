@@ -1,8 +1,7 @@
+import { Button } from '@coaktion/visu'
 import { clsx } from 'clsx'
 import { Moon, Sun } from 'phosphor-react'
 import { useCallback, useState } from 'react'
-
-import { Button } from '@coaktion/visu'
 
 function App() {
   const [theme, setTheme] = useState('')
@@ -18,8 +17,8 @@ function App() {
   return (
     <div
       className={clsx(
-        'flex flex-col min-h-screen w-full',
-        theme === 'darkTheme' && 'dark bg-gray-800 text-gray-100'
+        'flex min-h-screen w-full flex-col',
+        theme === 'darkTheme' && 'dark bg-gray-800 text-gray-100',
       )}
     >
       <header className="flex items-center justify-between p-6">
@@ -28,8 +27,11 @@ function App() {
           <Button.Icon>{theme ? <Sun /> : <Moon />}</Button.Icon>
         </Button.Root>
       </header>
-      <div className="flex items-center justify-center p-6 flex-1">
+      <div className="flex flex-1 items-center justify-center p-6">
         {/* ========================= TEST AREA ========================= */}
+
+        <span className="text-lime-500">Opa</span>
+        <Button.Root>Botão</Button.Root>
 
         {/* ========================= TEST AREA ========================= */}
       </div>
