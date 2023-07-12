@@ -38,7 +38,11 @@
       "import": "./dist/visu.es.js",
       "require": "./dist/visu.umd.js"
     },
-    "./styles": "./dist/style.css"
+    "./styles": "./dist/style.css",
+    "./dist/theme-plugin": {
+      "import": "./dist/theme-plugin.js",
+      "types": "./dist/theme-plugin.d.ts"
+    }
   },
   "scripts": {
     "dev": "vite",
@@ -86,6 +90,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-paginate": "^8.1.5",
+    "rollup-plugin-copy": "^3.4.0",
     "ts-jest": "^29.0.5",
     "tsconfig": "*",
     "typescript": "^4.9.3",

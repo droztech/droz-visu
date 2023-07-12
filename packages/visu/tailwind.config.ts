@@ -1,4 +1,4 @@
-import { VisuTailwindcssPlugin } from './src/theme'
+import VisuTailwindcssPlugin from './src/theme/theme-plugin'
 import type { Config } from 'tailwindcss'
 
 export default {
