@@ -1,5 +1,10 @@
 <p align="center">
-  <h1 align="center">Visu - Manual Tests</h1>
+  <h1 align="center">
+    <picture>
+      <img alt="Visu" src="../../packages/visu/public/visu.svg" height="30px" />
+    </picture>
+    Visu - Manual Tests
+  </h1>
 </p>
 
 <p align="center">
