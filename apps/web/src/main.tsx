@@ -1,6 +1,5 @@
 import App from './App'
 import './index.css'
-// import '@coaktion/visu/styles'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 

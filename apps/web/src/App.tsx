@@ -30,9 +30,6 @@ function App() {
       <div className="flex flex-1 items-center justify-center p-6">
         {/* ========================= TEST AREA ========================= */}
 
-        <span className="text-lime-500">Opa</span>
-        <Button.Root>Botão</Button.Root>
-
         {/* ========================= TEST AREA ========================= */}
       </div>
     </div>
