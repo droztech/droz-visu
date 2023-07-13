@@ -41,7 +41,8 @@
     "./styles": "./dist/style.css",
     "./dist/theme-plugin": {
       "import": "./dist/theme-plugin.js",
-      "types": "./dist/theme-plugin.d.ts"
+      "types": "./dist/theme-plugin.d.ts",
+      "default": "./dist/theme-plugin.js"
     }
   },
   "scripts": {
