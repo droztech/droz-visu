@@ -8,7 +8,7 @@
   </a>
 </p>
 
-Este projeto foi criado para a Documentação da Biblioteca de Componentes Visu.
+Este projeto foi criado para a Documentação da Biblioteca de Componentes e Design System Visu.
 
 ## Visu Docs
 
