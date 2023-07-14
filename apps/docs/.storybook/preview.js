@@ -1,4 +1,4 @@
-import theme from './theme.cjs'
+import theme from './theme.js'
 
 import '@coaktion/visu/styles'
 

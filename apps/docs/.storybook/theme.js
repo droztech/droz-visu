@@ -5,6 +5,6 @@ export default create({
 
   brandTitle: 'Visu',
   brandUrl: 'https://example.com',
-  brandImage: './visu.png',
+  brandImage: './droz-visu.svg',
   brandTarget: '_blank',
 });

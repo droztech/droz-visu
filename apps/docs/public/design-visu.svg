@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 401.78 94.29" style="enable-background:new 0 0 401.78 94.29;" xml:space="preserve">
+	 viewBox="0 0 403.73 131.64" style="enable-background:new 0 0 403.73 131.64;" xml:space="preserve">
 <style type="text/css">
-	.st0{clip-path:url(#SVGID_00000138570209374541812600000001689147837441827720_);}
+	.st0{clip-path:url(#SVGID_00000168097508093834105770000002510310737063195054_);}
 	.st1{opacity:0.4;fill:#FF006E;}
 	.st2{opacity:0.7;fill:#FF006E;}
 	.st3{opacity:0.8;fill:#FF006E;}
-	.st4{clip-path:url(#SVGID_00000090978985160844698560000014095642383541539722_);}
+	.st4{clip-path:url(#SVGID_00000010284236621694359630000014956515543538807949_);}
 	.st5{opacity:0.56;fill:#FFFFFF;}
 	.st6{fill:#1F44FF;}
 	.st7{fill:#FF006E;}
-	.st8{clip-path:url(#SVGID_00000041295517647799280910000004768552900570840738_);}
-	.st9{clip-path:url(#SVGID_00000041295517647799280910000004768552900570840738_);fill:none;}
+	.st8{clip-path:url(#SVGID_00000183207598345660702650000013160925771635074464_);}
+	.st9{clip-path:url(#SVGID_00000183207598345660702650000013160925771635074464_);fill:none;}
 	.st10{opacity:0.5;fill:#FA0557;}
 	.st11{fill:#FA0557;}
 	.st12{opacity:0.52;fill-rule:evenodd;clip-rule:evenodd;fill:#FA0557;}
@@ -76,9 +76,9 @@
 	.st70{opacity:0.6;fill:#FF006E;}
 	.st71{opacity:0.5;fill:#FFFFFF;}
 	.st72{opacity:0.5;}
-	.st73{clip-path:url(#SVGID_00000067224212752148460890000005580687573413094026_);}
-	.st74{opacity:0.8;clip-path:url(#SVGID_00000064324535476153420780000004002215600270842766_);fill:#7900F2;}
-	.st75{opacity:0.4;clip-path:url(#SVGID_00000064324535476153420780000004002215600270842766_);fill:#7900F2;}
+	.st73{clip-path:url(#SVGID_00000028321624514952911940000013380066818924402620_);}
+	.st74{opacity:0.8;clip-path:url(#SVGID_00000026857686044423076640000008898957175738371770_);fill:#7900F2;}
+	.st75{opacity:0.4;clip-path:url(#SVGID_00000026857686044423076640000008898957175738371770_);fill:#7900F2;}
 	.st76{opacity:0.7;fill:#35E59A;}
 	.st77{opacity:0.66;fill:#9999FF;}
 	.st78{opacity:0.7;}
@@ -92,6 +92,8 @@
 	.st86{opacity:0.5;fill:#BFD730;}
 	.st87{fill:#231F20;}
 	.st88{opacity:0.5;fill:#1E1E1E;}
+	.st89{font-family:'Kanit-Light';}
+	.st90{font-size:31.5354px;}
 </style>
 <g>
 	<g>
@@ -120,5 +122,6 @@
 			c0.4-0.37,0.62-0.91,0.62-1.46V13.45c0-1.1,0.9-2,2-2h16.33c1.1,0,2,0.9,2,2v67.38c0,1.1-0.9,2-2,2h-15.04
 			c-1.02,0-1.88-0.77-1.99-1.78l-0.55-5c-6.93,5.52-15.31,8.28-25.15,8.28C348.42,84.34,341.74,81.93,337.03,77.12z"/>
 	</g>
+	<text transform="matrix(1 0 0 1 128.5285 120.9505)" class="st16 st89 st90">droz design system</text>
 </g>
 </svg>
