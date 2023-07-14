@@ -1,4 +1,4 @@
-import { themes } from '@storybook/theming'
+import theme from './theme.cjs'
 
 import '@coaktion/visu/styles'
 
@@ -13,7 +13,7 @@ export const parameters = {
     },
   },
   docs: {
-    theme: themes.dark,
+    theme,
   },
   backgrounds: {
     default: 'Light',
