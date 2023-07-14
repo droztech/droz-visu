@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { OTPInput, OTPInputProps } from '@coaktion/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<OTPInputProps> = {
   title: 'OTPInput/OTPInput',
@@ -42,7 +41,7 @@ const meta: Meta<OTPInputProps> = {
   args: {
     count: 1,
     error: false,
-    value: [],
+    value: '',
   },
   parameters: {
     design: {
