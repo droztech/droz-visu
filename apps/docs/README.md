@@ -1,10 +1,7 @@
 <p align="center">
-  <h1 align="center">
-    <picture>
-      <img alt="Visu" src="../../packages/visu/public/visu.svg" height="30px" />
-    </picture>
-    Visu - Docs
-  </h1>
+  <picture>
+    <img alt="Visu" src="../../packages/visu/public/droz-visu.svg" height="64px" />
+  </picture>
 </p>
 
 <p align="center">
