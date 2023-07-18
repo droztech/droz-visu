@@ -1,5 +1,7 @@
 <p align="center">
-  <h1 align="center">Visu - Manual Tests</h1>
+  <picture>
+    <img alt="Visu" src="../../packages/visu/public/droz-visu.svg" height="64px" />
+  </picture>
 </p>
 
 <p align="center">
@@ -12,19 +14,19 @@ Este projeto foi criado para testar a Biblioteca de Componentes Visu de forma ma
 
 ## Visu Manual Tests
 
-O projeto utiliza o [Vite](https://vitejs.dev/) junto com o [React](https://pt-br.reactjs.org/) para criar o ambiente em que os testes manuais possam ser executados.
+O projeto utiliza o [Vite](https://vitejs.dev/), [React](https://pt-br.reactjs.org/) e [Tailwindcss](https://tailwindcss.com/) para criar o ambiente em que os testes manuais possam ser executados.
 
 A Biblioteca Visu é uma dependência desse projeto, e para testar um componente basta importar o componente no `src/App.tsx` e utilizar ele para verificar se está tudo ok.
-## Testar um componente
+## Testar um componente ou design system
 
-Para testar um componente certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
+Certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
 Execute o projeto com o script `dev`, utilizando o comando:
 
 ```bash
 npm run dev
 ```
 
-Entre no arquivo `src/App.tsx` e insira o componente na área de testes
+Entre no arquivo `src/App.tsx` e insira o componente na área de testes ou utilize o design system com tailwindcss.
 
 
 ```typescript

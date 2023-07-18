@@ -1,9 +1,9 @@
-import { ComponentStory, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
 
 import { Input, InputIconProps } from '@coaktion/visu'
 
-export default {
+const meta: Meta<InputIconProps> = {
   title: 'Input/Icon',
   component: Input.Icon,
   argTypes: {
@@ -20,23 +20,46 @@ export default {
   args: {
     disabled: false,
   },
-} as Meta<InputIconProps>
-
-const Template: ComponentStory<typeof Input.Icon> = (args) => {
-  return (
-    <Input.Icon {...args}>
-      <Envelope />
-    </Input.Icon>
-  )
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=3119-16270&t=AdZjH6UtpERmhB5O-0',
+      allowFullscreen: true,
+    },
+  },
 }
 
-export const Comum = Template.bind({})
+export default meta
+type InputIconStory = StoryObj<InputIconProps>
 
-export const ComAcaoDeClique = Template.bind({})
-ComAcaoDeClique.argTypes = {
-  onClick: {
-    action: 'clicked',
-    description: 'Define o evento de click',
-    table: { type: { summary: 'function' } },
+export const Comum: InputIconStory = {
+  render: (args) => {
+    return (
+      <Input.Icon {...args}>
+        <Envelope />
+      </Input.Icon>
+    )
+  },
+}
+
+export const ComAcaoDeClique: InputIconStory = {
+  argTypes: {
+    onClick: {
+      action: 'clicked',
+      description: 'Define o evento de click',
+      table: { type: { summary: 'function' } },
+    },
+  },
+  render: (args) => {
+    return (
+      <Input.Icon
+        {...args}
+        onClick={() => {
+          ;('')
+        }}
+      >
+        <Envelope />
+      </Input.Icon>
+    )
   },
 }

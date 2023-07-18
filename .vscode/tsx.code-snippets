@@ -1,0 +1,154 @@
+// https://code.visualstudio.com/docs/editor/userdefinedsnippets
+// DiretórioArquivo: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}
+// Diretório: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}
+// Arquivo: ${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}
+// Variáveis: ${1}, ${1:default}, ${1|one,two,three|}...
+
+{
+  "Create console.log": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "clg",
+    "body": ["console.log(${1})"],
+    "description": "Create fast console.log"
+  },
+  "Create ReactJS Component": {
+    "scope": "typescriptreact",
+    "prefix": "reactcomp",
+    "body": [
+      "import { clsx } from 'clsx'",
+      "import { FC, HTMLAttributes } from 'react'",
+      "",
+      "export interface ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props extends HTMLAttributes<HTMLDivElement> {}",
+      "",
+      "const ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}: FC<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props> = ({ children, className, ...rest }) => {",
+      "  return (",
+      "    <div className={clsx('${1}', className)} {...rest}>",
+      "      {children}",
+      "      ${2}",
+      "    </div>",
+      "  )",
+      "}",
+      "",
+      "${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}.displayName = '${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}'",
+      "",
+      "export default ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}",
+      ""
+    ],
+    "description": "Create ReactJS component with all is necessary"
+  },
+  "Create Storybook Story": {
+    "scope": "typescriptreact",
+    "prefix": "storybookstory",
+    "body": [
+      "import { Meta, StoryObj } from '@storybook/react'",
+      "",
+      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}, ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props } from '@coaktion/visu'",
+      "",
+      "const meta: Meta<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props> = {",
+      "  title: '${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}/${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  component: ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/},",
+      "  argTypes: {",
+      "    children: {",
+      "      table: {",
+      "        type: {",
+      "          summary: 'React.ReactNode',",
+      "        },",
+      "      },",
+      "    },",
+      "  },",
+      "  args: {",
+      "    children: '',",
+      "  },",
+      "} as Meta<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props>",
+      "",
+      "export default meta",
+      "type Story${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props = StoryObj<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props>",
+      "",
+      "export const Comum: Story${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props = {",
+      "  render: (args) => {",
+      "    return <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} {...args}></${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}>",
+      "  },",
+      "}",
+      ""
+    ],
+    "description": "Create Storybook story with all is necessary"
+  },
+  "Create Simple Storybook Story Arg": {
+    "scope": "typescriptreact",
+    "prefix": "argsimple",
+    "body": [
+      "${1}: {",
+      "  control: '${2|boolean,number,range,object,text,color|}',",
+      "  description: 'Aplica o ${1} em ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  table: {",
+      "    type: { summary: '${2}' },",
+      "    defaultValue: { summary: ${5} },",
+      "  },",
+      "  type: { name: '${3|string,number,boolean|}', required: ${4|true,false|} },",
+      "  defaultValue: ${5} as ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props['${1}'],",
+      "},"
+    ],
+    "description": "Create Storybook story arg with all is necessary"
+  },
+  "Create Function Storybook Story Arg": {
+    "scope": "typescriptreact",
+    "prefix": "argfunc",
+    "body": [
+      "${1}: {",
+      "  action: 'clicked',",
+      "  description: 'Define o ${1} em ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  table: { type: { summary: 'function' } },",
+      "},"
+    ],
+    "description": "Create Storybook story arg with all is necessary"
+  },
+  "Create Complex Storybook Story Arg": {
+    "scope": "typescriptreact",
+    "prefix": "argcomplex",
+    "body": [
+      "${1}: {",
+      "  control: '${2|radio,inline-radio,check,inline-check,select|}',",
+      "  description: 'Aplica o ${1} em ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}',",
+      "  options: [''] as ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props['${1}'][],",
+      "  table: {",
+      "    type: {",
+      "      summary: [''].join('|'),",
+      "    },",
+      "  },",
+      "  type: { name: '${3|string,number,boolean|}', required: ${4|true,false|} },",
+      "  defaultValue: ${5} as ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props['${1}'],",
+      "},"
+    ],
+    "description": "Create Storybook story arg with all is necessary"
+  },
+  "Create Jest Test": {
+    "scope": "typescriptreact",
+    "prefix": "jesttest",
+    "body": [
+      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/} } from '@library'",
+      "import { render, screen } from '@testing-library/react'",
+      "import clsx from 'clsx'",
+      "",
+      "jest.mock('clsx', () => {",
+      "  return {",
+      "    clsx: jest.fn().mockImplementation(() => clsx),",
+      "  }",
+      "})",
+      "",
+      "describe('${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} tests', () => {",
+      "  it('Should render a ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} element', () => {",
+      "    render(",
+      "      <${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/} data-testid=\"element\">",
+      "        ${1}",
+      "      </${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}.${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}>",
+      "    )",
+      "    const element = screen.queryByTestId('element')",
+      "",
+      "    expect(element).toBeDefined()",
+      "  })",
+      "})",
+      ""
+    ],
+    "description": "Create Jest and Testing Library test with all is necessary"
+  }
+}

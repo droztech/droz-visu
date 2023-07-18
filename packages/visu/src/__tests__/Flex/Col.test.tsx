@@ -1,5 +1,12 @@
 import { Flex } from '@library'
 import { render, screen } from '@testing-library/react'
+import clsx from 'clsx'
+
+jest.mock('clsx', () => {
+  return {
+    clsx: jest.fn().mockImplementation(() => clsx),
+  }
+})
 
 describe('Flex tests', () => {
   it('Should render a Flex row element', () => {

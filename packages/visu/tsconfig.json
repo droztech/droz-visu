@@ -4,7 +4,7 @@
     "paths": {
       "@/*": ["*"],
       "@library": ["src/library"],
-      "@styles/*": ["src/styles/*"]
+      "@types": ["src/library/types"]
     }
   },
   "extends": "tsconfig/library.json",

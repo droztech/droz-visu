@@ -1,5 +1,7 @@
 <p align="center">
-  <h1 align="center">Visu</h1>
+  <picture>
+    <img alt="Visu" src="./packages/visu/public/droz-visu.svg" height="64px" />
+  </picture>
 </p>
 
 <p align="center">
@@ -8,7 +10,7 @@
   </a>
 </p>
 
-Um projeto para a criação, testes e documentação de componentes para os produtos Coaktion.
+Uma biblioteca de componentes e design system coaktion. Com testes e documentação para todos os componentes.
 
 ## Como o projeto funciona?
 
@@ -18,13 +20,13 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 - `docs`: Um projeto para a documentação dos componentes criados na biblioteca Visu realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
 
-- `web`: Projeto para validação manual dos componentes criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca e dos componentes em um projeto externo.
+- `web`: Projeto para validação manual dos componentes e design system criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca, dos componentes e do design system em um projeto externo.
 
 ### Packages
 
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo.
+- `tsconfig`: `tsconfig.json` utilizado no monorepo.
 
-- `visu`: Projeto onde são desenvolvidos os componentes da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [Stitches](https://stitches.dev/docs/introduction) e realiza o build em [Modo Lib](https://storybook.js.org) da pasta `src/library` para a publicação da biblioteca. O projeto testa os componentes utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
+- `visu`: Projeto onde são desenvolvidos os componentes e o design system da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [React](https://react.dev/) e [Tailwindcss](https://tailwindcss.com/). O build é realizado [Modo Lib](https://storybook.js.org) da pasta `src/library` para os componentes e copiando os arquivos da pasta `src/theme` para o design system que consiste em um plugin do tailwindcss. O projeto testa os componentes utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
 
 ### Build
 
@@ -53,12 +55,12 @@ npm run test
 Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
 
 ```
-npm run test -- [nome].test.tsx
+npm run test -- [pasta/arquivo]
 ```
 
 ## Biblioteca
 
-Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir da pasta `src/library`. Para realizar a publicação precisamos gerar um build da biblioteca que irá criar a pasta `dist` com essa pasta criada podemos então executar o comando `npm publish`. Já está tudo configurado no package.json para a publicação da biblioteca, caso tenha permissão para realizar a publicação o comando deverá funcionar. <b>Nesse primeiro momento a biblioteca está sendo publicada apenas no Github Packages.</b>
+Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir das pastas `src/library` e `src/theme`. Para realizar a publicação precisamos gerar um build da biblioteca que irá criar a pasta `dist` com essa pasta criada podemos então executar o comando `npm publish`. Já está tudo configurado no package.json para a publicação da biblioteca, caso tenha permissão para realizar a publicação. <b>Nesse primeiro momento a biblioteca está sendo publicada apenas no Github Packages.</b>
 
 ### Github Packages
 
@@ -82,6 +84,33 @@ Aprenda mais sobre `Turborepo`:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+Aprenda mais sobre `Vite`:
+
+- [Início](https://vitejs.dev/guide/)
+- [CLI](https://vitejs.dev/guide/cli.html)
+- [Plugins](https://vitejs.dev/guide/using-plugins.html)
+- [Library Mode Build](https://vitejs.dev/guide/build.html#library-mode)
+
+Aprenda mais sobre `React`:
+
+- [Início](https://react.dev/learn)
+- [Hooks](https://react.dev/reference/react)
+- [Built-in Components](https://react.dev/reference/react/components)
+- [Built-in APIs](https://react.dev/reference/react/apis)
+- [Directives](https://react.dev/reference/react/directives)
+- [Client APIs](https://react.dev/reference/react-dom/client)
+- [Server APIs](https://react.dev/reference/react-dom/server)
+
+Aprenda mais sobre `Tailwindcss`:
+
+- [Instalação](https://tailwindcss.com/docs/installation/using-postcss)
+- [Configuração](https://tailwindcss.com/docs/configuration)
+- [Configuração do setup](https://tailwindcss.com/docs/editor-setup)
+- [Utility-first](https://tailwindcss.com/docs/utility-first)
+- [Responsive Design](https://tailwindcss.com/docs/responsive-design)
+- [Dark Mode](https://tailwindcss.com/docs/dark-mode)
+- [Plugins](https://tailwindcss.com/docs/plugins)
 
 Aprenda mais sobre `Storybook`:
 

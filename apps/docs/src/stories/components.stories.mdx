@@ -1,0 +1,46 @@
+{/* ExampleDocumentation.mdx */}
+
+import { Meta } from '@storybook/blocks';
+
+{/* 👇 Documentation-only page */}
+
+<Meta title="Componentes" />
+
+{/* 👇 Component documentation page */}
+
+<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '48px' }}>
+  <picture>
+    <img alt="Visu" src="./visu.svg" width="200px" />
+  </picture>
+</div>
+
+## Componentes
+
+Para utilizar os componentes é necessário importar a estilização da biblioteca de `@coaktion/visu/styles`
+
+```typescript
+import '@coaktion/visu/styles'
+```
+
+Caso esteja utilizando o `tailwindcss` no projeto, faça a importação da estilização da biblioteca juntamente da estilização do tailwindcss
+
+```css
+@import '@coaktion/visu/styles';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Com a estilização importada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook](?path=/docs/componentes--docs)
+
+```typescript
+import { Button } from '@coaktion/visu'
+
+function App() {
+  return <Button.Root>Clique aqui</Button.Root>
+}
+
+export default App
+```
+

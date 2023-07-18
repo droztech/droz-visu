@@ -1,0 +1,4 @@
+@import '@coaktion/visu/styles';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

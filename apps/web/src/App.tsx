@@ -1,10 +1,7 @@
+import { Button } from '@coaktion/visu'
+import { clsx } from 'clsx'
 import { Moon, Sun } from 'phosphor-react'
 import { useCallback, useState } from 'react'
-
-import { Button } from '@coaktion/visu'
-
-import { darkTheme } from '../visu.config'
-import * as C from './styles/index'
 
 function App() {
   const [theme, setTheme] = useState('')
@@ -14,22 +11,28 @@ function App() {
       setTheme('')
       return
     }
-    setTheme(darkTheme)
+    setTheme('darkTheme')
   }, [theme])
 
   return (
-    <C.Main className={theme}>
-      <C.Header>
-        <Button.Root onClick={handleChangeTheme} light>
+    <div
+      className={clsx(
+        'flex min-h-screen w-full flex-col',
+        theme === 'darkTheme' && 'dark bg-gray-800 text-gray-100',
+      )}
+    >
+      <header className="flex items-center justify-between p-6">
+        <span>Teste</span>
+        <Button.Root size="sm" onClick={handleChangeTheme} variant="neutral">
           <Button.Icon>{theme ? <Sun /> : <Moon />}</Button.Icon>
         </Button.Root>
-      </C.Header>
-      <C.Container>
+      </header>
+      <div className="flex flex-1 items-center justify-center p-6">
         {/* ========================= TEST AREA ========================= */}
 
         {/* ========================= TEST AREA ========================= */}
-      </C.Container>
-    </C.Main>
+      </div>
+    </div>
   )
 }
 
