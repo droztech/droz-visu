@@ -1,18 +1,25 @@
-import { Tabs, TabsProps } from '@radix-ui/react-tabs'
+import { Root, List, TabsProps } from '@radix-ui/react-tabs'
 
 import { Ref, forwardRef, useImperativeHandle, useRef } from "react";
 
-export interface TabsRootProps extends TabsProps {}
+export interface TabsRootProps extends TabsProps {
+  triggers: React.ReactNode[]
+}
 
 const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>((
-  { children, ...rest }, ref: Ref<HTMLDivElement | null>
+  { children, triggers, ...rest }, ref: Ref<HTMLDivElement | null>
 ) => {
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => tabsRef.current);
 
   return (
-    <Tabs ref={tabsRef} {...rest}>{children}</Tabs>
+    <Root ref={tabsRef} {...rest}>
+      <List className='flex w-full flex-row'>
+        {triggers}
+      </List>
+      {children}
+    </Root>
   )
 })
 
