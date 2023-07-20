@@ -78,6 +78,9 @@ export type {
 export { default as Switch } from './Switch'
 export type { SwitchProps } from './Switch'
 
+export { default as Tabs } from './Tabs'
+export type { TabsContentProps, TabsRootProps, TabsTriggerProps } from './Tabs'
+
 export { default as Tooltip } from './Tooltip'
 export type {
   TooltipCloseProps,
