@@ -2,7 +2,7 @@ import {
   TabsTrigger as RadixTabsTrigger,
   TabsTriggerProps as RadixTabsTriggerProps,
 } from '@radix-ui/react-tabs'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { ReactNode, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
 export interface TabsTriggerProps

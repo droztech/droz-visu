@@ -1,5 +1,5 @@
 import { Root, List, TabsProps } from '@radix-ui/react-tabs'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
 export interface TabsRootProps extends TabsProps {

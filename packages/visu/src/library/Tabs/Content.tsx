@@ -2,7 +2,7 @@ import {
   TabsContent as RadixTabsContent,
   TabsContentProps as RadixTabsContentProps,
 } from '@radix-ui/react-tabs'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
 export type TabsContentProps = RadixTabsContentProps
