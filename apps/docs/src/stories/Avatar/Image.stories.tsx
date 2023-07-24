@@ -1,12 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-
 import { Avatar, AvatarImageProps } from '@coaktion/visu'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarImageProps> = {
   title: 'Avatar/Image',
   component: Avatar.Image,
-  decorators: [withDesign],
   argTypes: {
     alt: {
       control: 'text',

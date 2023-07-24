@@ -1,12 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-
 import { File, FileProps } from '@coaktion/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<FileProps> = {
   title: 'File/File',
   component: File,
-  decorators: [withDesign],
   argTypes: {
     formats: {
       control: 'object',

@@ -1,13 +1,10 @@
+import { Button, ButtonRootProps, Flex } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
-import { withDesign } from 'storybook-addon-designs'
-
-import { Button, ButtonRootProps, Flex } from '@coaktion/visu'
 
 const meta: Meta<ButtonRootProps> = {
   title: 'Button/Root',
   component: Button.Root,
-  decorators: [withDesign],
   argTypes: {
     children: {
       table: {

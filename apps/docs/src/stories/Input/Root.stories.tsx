@@ -1,13 +1,10 @@
+import { Flex, Input, InputRootProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
-import { withDesign } from 'storybook-addon-designs'
-
-import { Flex, Input, InputRootProps } from '@coaktion/visu'
 
 const meta: Meta<InputRootProps> = {
   title: 'Input/Root',
   component: Input.Root,
-  decorators: [withDesign],
   argTypes: {
     children: {
       control: 'none',

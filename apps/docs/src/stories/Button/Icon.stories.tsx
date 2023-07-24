@@ -1,13 +1,10 @@
+import { Button, ButtonIconProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
-import { withDesign } from 'storybook-addon-designs'
-
-import { Button, ButtonIconProps } from '@coaktion/visu'
 
 const meta: Meta<ButtonIconProps> = {
   title: 'Button/Icon',
   component: Button.Icon,
-  decorators: [withDesign],
   argTypes: {
     children: {
       description: 'Ícone a ser exibido pelo componente.',

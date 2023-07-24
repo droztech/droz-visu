@@ -1,12 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-
 import { Avatar, AvatarFallbackProps } from '@coaktion/visu'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarFallbackProps> = {
   title: 'Avatar/Fallback',
   component: Avatar.Fallback,
-  decorators: [withDesign],
   argTypes: {
     fallback: {
       control: 'text',

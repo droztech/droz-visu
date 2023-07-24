@@ -1,12 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { withDesign } from 'storybook-addon-designs'
-
 import { Avatar, AvatarRootProps } from '@coaktion/visu'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarRootProps> = {
   title: 'Avatar/Root',
   component: Avatar.Root,
-  decorators: [withDesign],
   argTypes: {
     children: {
       control: 'none',
