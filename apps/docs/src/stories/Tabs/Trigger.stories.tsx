@@ -53,6 +53,13 @@ const meta: Meta<TabsTriggerProps> = {
     value: '',
     disabled: false,
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/%5BDroz-Nexo%5D-Library?type=design&node-id=4117-789&mode=design&t=GkCuiPciOuvVbU6h-0',
+      allowFullscreen: true,
+    },
+  },
 }
 
 export default meta
