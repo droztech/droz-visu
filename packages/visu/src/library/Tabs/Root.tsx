@@ -2,7 +2,7 @@ import { Root, List, TabsProps } from '@radix-ui/react-tabs'
 import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
-export interface TabsRootProps extends TabsProps {
+export interface TabsRootProps extends Omit<TabsProps, 'orientation'> {
   triggers: React.ReactNode[]
 }
 
@@ -17,7 +17,7 @@ const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
 
     return (
       <Root className={clsx([className])} ref={tabsRef} {...rest}>
-        <List className="flex w-full flex-row">{triggers}</List>
+        <List className="flex h-8 w-full flex-row">{triggers}</List>
         {children}
       </Root>
     )
