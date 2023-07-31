@@ -1,13 +1,10 @@
+import { Divider, DividerProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { SquaresFour } from 'phosphor-react'
-import { withDesign } from 'storybook-addon-designs'
-
-import { Divider, DividerProps } from '@coaktion/visu'
 
 const meta: Meta<DividerProps> = {
   title: 'Divider/Divider',
   component: Divider,
-  decorators: [withDesign],
   argTypes: {
     children: {
       table: {

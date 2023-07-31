@@ -1,13 +1,10 @@
+import { Checkbox, CheckboxIndicatorProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Question } from 'phosphor-react'
-import { withDesign } from 'storybook-addon-designs'
-
-import { Checkbox, CheckboxIndicatorProps } from '@coaktion/visu'
 
 const meta: Meta<CheckboxIndicatorProps> = {
   title: 'Checkbox/Indicator',
   component: Checkbox.Indicator,
-  decorators: [withDesign],
   argTypes: {
     children: {
       control: 'none',

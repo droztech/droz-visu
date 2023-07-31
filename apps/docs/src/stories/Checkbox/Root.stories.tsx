@@ -1,13 +1,10 @@
+import { Checkbox, CheckboxRootProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Check, Question } from 'phosphor-react'
-import { withDesign } from 'storybook-addon-designs'
-
-import { Checkbox, CheckboxRootProps } from '@coaktion/visu'
 
 const meta: Meta<CheckboxRootProps> = {
   title: 'Checkbox/Root',
   component: Checkbox.Root,
-  decorators: [withDesign],
   argTypes: {
     children: {
       control: 'none',
