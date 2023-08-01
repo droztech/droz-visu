@@ -7,6 +7,14 @@ export interface SwitchProps
   label?: boolean
   value?: boolean
   onChange?: (ev: boolean) => void
+  /**
+   * @deprecated Use `value` instead
+   */
+  checked?: boolean
+  /**
+   * @deprecated Use `onChange` instead
+   */
+  onCheckedChange?: (checked: boolean) => void
 }
 
 const Switch: FC<SwitchProps> = ({
