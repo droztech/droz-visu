@@ -97,7 +97,7 @@
     "tsconfig": "*",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
-    "vite-plugin-dts": "^1.7.1",
+    "vite-plugin-dts": "^3.4.0",
     "zod": "^3.21.4"
   }
 }
