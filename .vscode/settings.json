@@ -9,5 +9,6 @@
   },
   "material-icon-theme.files.associations": {
     "eslint.config.cjs": "eslint"
-  }
+  },
+  "tailwindCSS.experimental.configFile": "./packages/visu/tailwind.config.ts",
 }
