@@ -20,6 +20,12 @@ module.exports = {
     },
     ecmaVersion: 2020,
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
+    project: [
+      './packages/visu/tsconfig.json',
+      './apps/docs/tsconfig.json',
+      './apps/web/tsconfig.json',
+    ],
   },
   plugins: ['unused-imports', 'react', 'jsx-a11y', '@typescript-eslint'],
   rules: {

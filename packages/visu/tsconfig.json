@@ -8,6 +8,6 @@
     }
   },
   "extends": "tsconfig/library.json",
-  "include": ["src"],
+  "include": ["src", "../../eslint.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
