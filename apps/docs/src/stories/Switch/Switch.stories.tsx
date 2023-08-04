@@ -5,24 +5,6 @@ const meta: Meta<SwitchProps> = {
   title: 'Switch/Switch',
   component: Switch,
   argTypes: {
-    asChild: {
-      control: { type: 'boolean' },
-      description:
-        'Ao passar essa propriedade com o valor true, o componente irá se transformar no componente filho. É obrigatório passar um children ao utilizar essa propriedade. <b>Verifique a tag ao inspecionar o componente na DOM</b>.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
-    checked: {
-      control: 'boolean',
-      description: 'Propriedade que define se o valor está verificado.',
-      table: {
-        type: { summary: 'boolean' },
-      },
-      type: { name: 'boolean', required: false },
-    },
     value: {
       control: 'boolean',
       description: 'Propriedade que define se o valor está verificado.',
@@ -58,12 +40,8 @@ const meta: Meta<SwitchProps> = {
       },
       type: { name: 'boolean', required: false },
     },
-    onCheckedChange: {
-      action: 'change',
-      description: 'Evento de mudança de valor.',
-      table: { type: { summary: 'function' } },
-    },
     onChange: {
+      control: 'none',
       action: 'change',
       description: 'Evento de mudança de valor.',
       table: { type: { summary: 'function' } },
@@ -76,9 +54,35 @@ const meta: Meta<SwitchProps> = {
       },
       type: { name: 'boolean', required: false },
     },
+
+    /**
+     * @deprecated - Deprecated props will be removed in the next major version.
+     */
+    checked: {
+      control: 'boolean',
+      name: 'checked (deprecated)',
+      description:
+        '<s>Propriedade que define se o valor está verificado.</s> (deprecated) - Use a propriedade `value`.',
+      table: {
+        type: { summary: 'boolean' },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    onCheckedChange: {
+      control: 'none',
+      action: 'change',
+      name: 'onCheckedChange (deprecated)',
+      description:
+        '<s>Evento de mudança de valor.</s> <br> (deprecated) - Use o método `onChange`.',
+      table: { type: { summary: 'function' } },
+    },
   },
   args: {
-    asChild: false,
+    defaultChecked: false,
+    disabled: false,
+    label: false,
+    required: false,
+    value: undefined,
   },
   parameters: {
     design: {
