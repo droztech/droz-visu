@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🤔 Questions or ideas?
+    url: https://github.com/Coaktion/Droz-Visu/discussions
+    about: Ask long-form questions and discuss ideas.
+  - name: 💬 New Updates (Releases)
+    url: https://github.com/Coaktion/Droz-Visu/releases
+    about: Link to our releases page.
