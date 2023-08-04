@@ -49,8 +49,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test:coverage": "jest --detectOpenHandles --collectCoverage",
-    "test": "jest --watch --detectOpenHandles",
+    "test:coverage": "jest --collectCoverage",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "ci": "jest --ci"
   },
   "peerDependencies": {
