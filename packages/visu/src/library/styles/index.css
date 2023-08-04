@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    @apply box-border text-base focus:outline-gray-800 focus:outline-2 focus:outline;
+    @apply box-border text-base focus:outline-gray-800 focus:outline-2 focus:outline focus:-outline-offset-1;
   }
 
   .scrollbar-hide::-webkit-scrollbar {
