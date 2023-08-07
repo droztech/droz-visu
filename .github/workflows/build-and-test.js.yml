@@ -30,4 +30,4 @@ jobs:
 
       - name: Tests
         working-directory: packages/visu
-        run: npm run test:coverage
+        run: npm run test

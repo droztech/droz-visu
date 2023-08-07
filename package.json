@@ -8,10 +8,17 @@
   ],
   "scripts": {
     "build": "turbo run build --no-cache",
+    "build:docs": "turbo run build --no-cache --filter=docs",
+    "build:visu": "turbo run build --no-cache --filter=@coaktion/visu",
+    "build:web": "turbo run build --no-cache --filter=web",
     "dev": "turbo run dev --parallel --no-cache",
-    "lint": "turbo run lint",
+    "dev:docs": "turbo run dev --parallel --no-cache --filter=docs",
+    "dev:visu": "turbo run dev --parallel --no-cache --filter=@coaktion/visu",
+    "dev:web": "turbo run dev --parallel --no-cache --filter=web",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install"
+    "lint": "turbo run lint",
+    "prepare": "husky install",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
