@@ -1,4 +1,4 @@
-name: Publish Github Packages
+name: Publish Chromatic
 
 on:
   release:
