@@ -2,21 +2,28 @@ import * as RadixPopover from '@radix-ui/react-popover'
 import { Position } from '@types'
 import { clsx } from 'clsx'
 import { ArrowRight, X } from 'phosphor-react'
-import { FC, HTMLAttributes, useState } from 'react'
+import { FC, HTMLAttributes, ReactNode, useMemo, useState } from 'react'
 
-export interface TooltipStepProps extends HTMLAttributes<HTMLDivElement> {
+export interface TooltipStepProps
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   closeText?: string
+  // Optional because we can't remove `text` until the next major release
+  content?: ReactNode[]
   defaultOpen?: boolean
   nextText?: string
   side?: Position
   stepText?: string
-  text: string[]
+  /**
+   * @deprecated Use `content` instead. Will be removed in the next major release
+   */
+  text?: string[]
 }
 
 const TooltipStep: FC<TooltipStepProps> = ({
   children,
   className,
   closeText,
+  content,
   defaultOpen,
   nextText,
   side,
@@ -26,6 +33,28 @@ const TooltipStep: FC<TooltipStepProps> = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(1)
 
+  const currentLength = useMemo(() => {
+    if (content?.length) {
+      return content.length
+    }
+    if (text?.length) {
+      return text.length
+    }
+
+    return 0
+  }, [content?.length, text?.length])
+
+  const currentlyShownItem = useMemo(() => {
+    if (content?.length) {
+      return content[currentStep - 1]
+    }
+    if (text?.length) {
+      return text[currentStep - 1]
+    }
+
+    return ''
+  }, [content, currentStep, text])
+
   return (
     <RadixPopover.Root defaultOpen={defaultOpen}>
       <RadixPopover.Trigger asChild>{children}</RadixPopover.Trigger>
@@ -33,19 +62,22 @@ const TooltipStep: FC<TooltipStepProps> = ({
         <RadixPopover.Content
           side={side}
           sideOffset={16}
-          className="bg-background shadow-sm rounded-md p-6 max-w-xs flex flex-col gap-4 items-center"
+          className="flex max-w-xs flex-col items-center gap-4 rounded-md bg-background p-6 shadow-sm"
         >
-          <span className={clsx([className, 'text-sm w-full'])} {...rest}>
-            {text[currentStep - 1]}
+          <span className={clsx([className, 'w-full text-sm'])} {...rest}>
+            {currentlyShownItem}
           </span>
-          <div className="flex justify-between items-center w-full gap-6">
-            <span className="text-gray-500 text-sm">
-              {stepText} {currentStep}/{text.length}
+          <div className="flex w-full items-center justify-between gap-6">
+            <span className="text-sm text-gray-500">
+              {stepText} {currentStep}/{currentLength}
             </span>
-            {currentStep === text.length ? (
+            {currentStep === currentLength ? (
               <RadixPopover.Close
                 onClick={() => setCurrentStep(1)}
-                className="bg-gray-300 text-sm rounded-full px-4 py-1 flex gap-2 items-center justify-center text-primary hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100 transition-all"
+                className={clsx(
+                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all',
+                  'hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
+                )}
               >
                 {closeText}
                 <X size={16} />
@@ -53,14 +85,17 @@ const TooltipStep: FC<TooltipStepProps> = ({
             ) : (
               <button
                 onClick={() => setCurrentStep(currentStep + 1)}
-                className="bg-gray-300 text-sm rounded-full px-4 py-1 flex gap-2 items-center justify-center text-primary hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100 transition-all"
+                className={clsx(
+                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all',
+                  'hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
+                )}
               >
                 {nextText}
                 <ArrowRight size={16} />
               </button>
             )}
           </div>
-          <RadixPopover.Arrow className="fill-gray-100 w-5 h-2" />
+          <RadixPopover.Arrow className="h-2 w-5 fill-gray-100" />
         </RadixPopover.Content>
       </RadixPopover.Portal>
     </RadixPopover.Root>
