@@ -1,7 +1,6 @@
+import { Button, Tooltip, TooltipStepProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Question } from 'phosphor-react'
-
-import { Tooltip, TooltipStepProps } from '@coaktion/visu'
 
 const meta: Meta<TooltipStepProps> = {
   title: 'Tooltip/Step',
@@ -9,6 +8,7 @@ const meta: Meta<TooltipStepProps> = {
   argTypes: {
     children: {
       control: 'none',
+      description: 'Trigger do Tooltip, exibe o Tooltip Steps ao clicar.',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -22,6 +22,15 @@ const meta: Meta<TooltipStepProps> = {
       table: {
         type: { summary: 'text' },
         defaultValue: { summary: '' },
+      },
+      type: { name: 'string', required: false },
+    },
+    content: {
+      control: 'object',
+      description:
+        'Propriedade que recebe um array com o conteúdo de cada etapa.',
+      table: {
+        type: { summary: 'React.ReactNode[]' },
       },
       type: { name: 'string', required: false },
     },
@@ -68,24 +77,30 @@ const meta: Meta<TooltipStepProps> = {
       },
       type: { name: 'string', required: false },
     },
+
+    /**
+     * @deprecated - Deprecated props will be removed in the next major version.
+     */
     text: {
-      control: 'object',
-      description: 'Propriedade que recebe um array com textos de cada etapa.',
+      control: 'none',
+      name: 'text (deprecated)',
+      description:
+        '<s>Propriedade que recebe um array com textos de cada etapa.</s> (deprecated) - Use a propriedade `content`.',
       table: {
         type: { summary: 'string[]' },
         defaultValue: { summary: [] },
       },
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
     },
   },
   args: {
     children: '',
+    content: ['Conteúdo da etapa 1', 'Conteúdo da etapa 2'],
     closeText: 'Finalizar',
     defaultOpen: false,
     nextText: 'Próximo',
     side: 'bottom',
     stepText: 'Etapa',
-    text: ['Etapa 1', 'Etapa 2'],
   },
   parameters: {
     design: {
@@ -99,7 +114,31 @@ const meta: Meta<TooltipStepProps> = {
 export default meta
 type TooltipStepStory = StoryObj<TooltipStepProps>
 
-export const Comum: TooltipStepStory = {
+export const ComTexto: TooltipStepStory = {
+  name: 'Com texto',
+  render: (args) => {
+    return (
+      <Tooltip.Step {...args}>
+        <Question size={24} />
+      </Tooltip.Step>
+    )
+  },
+}
+
+export const ComReactNode: TooltipStepStory = {
+  name: 'Com ReactNode',
+  args: {
+    content: [
+      <>
+        <p>Conteúdo da etapa 1</p>
+        <Button.Root>Button da etapa 1</Button.Root>
+      </>,
+      <>
+        <p>Conteúdo da etapa 2</p>
+        <Button.Root>Button da etapa 2</Button.Root>
+      </>,
+    ],
+  },
   render: (args) => {
     return (
       <Tooltip.Step {...args}>
