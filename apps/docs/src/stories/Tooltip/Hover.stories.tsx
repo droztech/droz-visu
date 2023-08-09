@@ -1,7 +1,6 @@
+import { Button, Tooltip, TooltipHoverProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Question } from 'phosphor-react'
-
-import { Tooltip, TooltipHoverProps } from '@coaktion/visu'
 
 const meta: Meta<TooltipHoverProps> = {
   title: 'Tooltip/Hover',
@@ -9,11 +8,20 @@ const meta: Meta<TooltipHoverProps> = {
   argTypes: {
     children: {
       control: 'none',
+      description: 'Trigger do Tooltip.',
       table: {
         type: {
           summary: 'React.ReactNode',
         },
       },
+    },
+    content: {
+      control: 'text',
+      description: 'Define o conteúdo exibido no Tooltip.',
+      table: {
+        type: { summary: 'React.ReactNode' },
+      },
+      type: { name: 'string', required: false },
     },
     side: {
       control: { type: 'inline-radio' },
@@ -28,19 +36,25 @@ const meta: Meta<TooltipHoverProps> = {
       },
       type: { name: 'string', required: false },
     },
+
+    /**
+     * @deprecated - Deprecated props will be removed in the next major version.
+     */
     text: {
-      control: 'text',
-      description: 'Define o valor em texto do componente.',
+      control: 'none',
+      name: 'text (deprecated)',
+      description:
+        '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
       table: {
         type: { summary: 'text' },
       },
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
     },
   },
   args: {
     children: '',
+    content: 'Texto do tooltip',
     side: 'bottom',
-    text: 'Texto do tooltip',
   },
   parameters: {
     design: {
@@ -54,7 +68,32 @@ const meta: Meta<TooltipHoverProps> = {
 export default meta
 type TooltipHoverStory = StoryObj<TooltipHoverProps>
 
-export const Comum: TooltipHoverStory = {
+export const ComTexto: TooltipHoverStory = {
+  name: 'Com texto',
+  render: (args) => {
+    return (
+      <Tooltip.Hover {...args}>
+        <Question size={24} />
+      </Tooltip.Hover>
+    )
+  },
+}
+
+export const ComReactNode: TooltipHoverStory = {
+  name: 'Com ReactNode',
+  args: {
+    content: (
+      <>
+        <p>Texto do tooltip</p>
+        <Button.Root>Button do tooltip</Button.Root>
+      </>
+    ),
+  },
+  argTypes: {
+    content: {
+      control: 'none',
+    },
+  },
   render: (args) => {
     return (
       <Tooltip.Hover {...args}>
