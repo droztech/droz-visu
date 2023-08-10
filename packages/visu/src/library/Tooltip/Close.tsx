@@ -2,17 +2,24 @@ import * as RadixPopover from '@radix-ui/react-popover'
 import { Position } from '@types'
 import { clsx } from 'clsx'
 import { X } from 'phosphor-react'
-import { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes, ReactNode } from 'react'
 
-export interface TooltipCloseProps extends HTMLAttributes<HTMLDivElement> {
+export interface TooltipCloseProps
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
+  // Optional because we can't remove `text` until the next major release
+  content?: ReactNode
   defaultOpen?: boolean
   side?: Position
-  text: string
+  /**
+   * @deprecated Use `content` instead. Will be removed in the next major release
+   */
+  text?: string
 }
 
 const TooltipClose: FC<TooltipCloseProps> = ({
   children,
   className,
+  content,
   defaultOpen,
   side,
   text,
@@ -25,15 +32,20 @@ const TooltipClose: FC<TooltipCloseProps> = ({
         <RadixPopover.Content
           side={side}
           sideOffset={16}
-          className="bg-gray-100 shadow-sm rounded-md p-6 max-w-xs flex gap-4 items-center"
+          className="flex max-w-xs items-center gap-4 rounded-md bg-gray-100 p-6 shadow-sm"
         >
-          <span className={clsx([className, 'text-sm flex-1'])} {...rest}>
-            {text}
+          <span className={clsx([className, 'flex-1 text-sm'])} {...rest}>
+            {content || text}
           </span>
-          <RadixPopover.Close className="bg-gray-300 rounded-full flex items-center justify-center h-6 w-6 text-primary hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100 transition-all">
+          <RadixPopover.Close
+            className={clsx(
+              'flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 text-primary transition-all',
+              'hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
+            )}
+          >
             <X size={16} />
           </RadixPopover.Close>
-          <RadixPopover.Arrow className="fill-gray-100 w-5 h-2" />
+          <RadixPopover.Arrow className="h-2 w-5 fill-gray-100" />
         </RadixPopover.Content>
       </RadixPopover.Portal>
     </RadixPopover.Root>

@@ -1,7 +1,6 @@
+import { Button, Tooltip, TooltipCloseProps } from '@coaktion/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Question } from 'phosphor-react'
-
-import { Tooltip, TooltipCloseProps } from '@coaktion/visu'
 
 const meta: Meta<TooltipCloseProps> = {
   title: 'Tooltip/Close',
@@ -9,11 +8,20 @@ const meta: Meta<TooltipCloseProps> = {
   argTypes: {
     children: {
       control: 'none',
+      description: 'Trigger do Tooltip, exibe o Tooltip ao clicar.',
       table: {
         type: {
           summary: 'React.ReactNode',
         },
       },
+    },
+    content: {
+      control: 'text',
+      description: 'Define o conteúdo exibido no Tooltip.',
+      table: {
+        type: { summary: 'React.ReactNode' },
+      },
+      type: { name: 'string', required: false },
     },
     defaultOpen: {
       control: 'none',
@@ -38,20 +46,26 @@ const meta: Meta<TooltipCloseProps> = {
       },
       type: { name: 'string', required: false },
     },
+
+    /**
+     * @deprecated - Deprecated props will be removed in the next major version.
+     */
     text: {
-      control: 'text',
-      description: 'Define o valor em texto do componente.',
+      control: 'none',
+      name: 'text (deprecated)',
+      description:
+        '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
       table: {
         type: { summary: 'text' },
       },
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
     },
   },
   args: {
     children: '',
+    content: 'Texto do tooltip',
     defaultOpen: false,
     side: 'bottom',
-    text: 'Texto do tooltip',
   },
   parameters: {
     design: {
@@ -65,7 +79,35 @@ const meta: Meta<TooltipCloseProps> = {
 export default meta
 type TooltipClose = StoryObj<TooltipCloseProps>
 
-export const Comum: TooltipClose = {
+export const ComTexto: TooltipClose = {
+  name: 'Com texto',
+  render: (args) => {
+    return (
+      <Tooltip.Close {...args}>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          Clique para abrir
+          <Question size={24} />
+        </div>
+      </Tooltip.Close>
+    )
+  },
+}
+
+export const ComReactNode: TooltipClose = {
+  name: 'Com ReactNode',
+  args: {
+    content: (
+      <>
+        <p>Texto do tooltip</p>
+        <Button.Root>Button do tooltip</Button.Root>
+      </>
+    ),
+  },
+  argTypes: {
+    content: {
+      control: 'none',
+    },
+  },
   render: (args) => {
     return (
       <Tooltip.Close {...args}>
