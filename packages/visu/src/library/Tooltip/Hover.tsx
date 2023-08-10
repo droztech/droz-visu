@@ -63,7 +63,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
         <RadixTooltip.Trigger
           className="z-10"
           asChild
-          onClick={() => setTooltipOpen(true)}
+          onClick={() => handleOpenChange(true)}
         >
           {children}
         </RadixTooltip.Trigger>
