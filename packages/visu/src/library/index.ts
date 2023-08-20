@@ -15,6 +15,17 @@ export type { ButtonIconProps, ButtonRootProps } from './Button'
 export { default as Checkbox } from './Checkbox'
 export type { CheckboxIndicatorProps, CheckboxRootProps } from './Checkbox'
 
+export { default as Dialog } from './Dialog'
+export type {
+  BodyProps,
+  CloseProps,
+  ContentProps,
+  FooterProps,
+  HeaderProps,
+  RootProps,
+  TriggerProps,
+} from './Dialog'
+
 export { default as Divider } from './Divider'
 export type { DividerProps } from './Divider'
 
