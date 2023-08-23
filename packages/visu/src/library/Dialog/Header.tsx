@@ -4,7 +4,8 @@ import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export interface DialogHeaderProps extends HTMLAttributes<HTMLDivElement> {
+export interface DialogHeaderProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   closeIcon?: ReactNode
   title: string
   titleIcon?: ReactNode
@@ -34,7 +35,7 @@ const DialogHeader: FC<DialogHeaderProps> = ({
         <span className="text-md font-normal text-gray-900">{title}</span>
       </div>
       {withClose && (
-        <Close asChild>
+        <Close asChild data-testid="visu-dialog-header-close">
           <Icon size="sm">{closeIcon}</Icon>
         </Close>
       )}
