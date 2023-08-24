@@ -17,13 +17,13 @@ export type { CheckboxIndicatorProps, CheckboxRootProps } from './Checkbox'
 
 export { default as Dialog } from './Dialog'
 export type {
-  BodyProps,
-  CloseProps,
-  ContentProps,
-  FooterProps,
-  HeaderProps,
-  RootProps,
-  TriggerProps,
+  DialogBodyProps,
+  DialogCloseProps,
+  DialogContentProps,
+  DialogFooterProps,
+  DialogHeaderProps,
+  DialogRootProps,
+  DialogTriggerProps,
 } from './Dialog'
 
 export { default as Divider } from './Divider'
