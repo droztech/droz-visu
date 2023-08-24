@@ -21,12 +21,16 @@ const DialogContent: FC<DialogContentProps> = ({
         />
       )}
       <Dialog.Content
-        className="fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] overflow-hidden shadow-xl focus:outline-none"
+        className={twMerge(
+          'fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] overflow-hidden shadow-xl',
+          'focus:outline-none',
+        )}
         {...rest}
       >
         <div
           className={twMerge(
-            'min-h-[220px] min-w-[620px] rounded-xl bg-gray-100 ',
+            'min-h-[220px] w-[90vw] min-w-0 rounded-xl bg-gray-100',
+            'md:w-auto md:min-w-[620px]',
             className,
           )}
         >
