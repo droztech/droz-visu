@@ -76,6 +76,13 @@ const meta: Meta<DialogContentProps> = {
     children: '',
     asChild: false,
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/cUmiZr1GhrB9HsRCuOJ0S2/(Global)-Droz-Design-System?type=design&node-id=4625-2063&mode=design&t=eYqgLWw8loUHfxvB-0',
+      allowFullscreen: true,
+    },
+  },
   decorators: [
     (Story) => (
       <Dialog.Root>
