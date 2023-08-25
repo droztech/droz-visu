@@ -23,7 +23,7 @@ const DialogHeader: FC<DialogHeaderProps> = ({
   return (
     <div
       className={twMerge(
-        'flex items-center justify-between border-b border-gray-300 px-6 py-4',
+        'flex min-h-16 items-center justify-between gap-6 border-b border-gray-300 px-6 py-4',
         className,
       )}
       {...rest}
