@@ -7,7 +7,7 @@ import DialogTrigger from './Trigger'
 import { Close } from '@radix-ui/react-dialog'
 
 export type { DialogBodyProps } from './Body'
-export type { Close as DialogCloseProps } from '@radix-ui/react-dialog'
+export type { DialogCloseProps } from '@radix-ui/react-dialog'
 export type { DialogContentProps } from './Content'
 export type { DialogFooterProps } from './Footer'
 export type { DialogHeaderProps } from './Header'
