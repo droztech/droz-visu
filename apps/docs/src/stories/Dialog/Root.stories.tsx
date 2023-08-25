@@ -76,7 +76,7 @@ export const Default: DialogRootStory = {
   args: {
     children: [
       <Dialog.Trigger key={''}>
-        <Button.Root>Modal</Button.Root>
+        <Button.Root>Dialog</Button.Root>
       </Dialog.Trigger>,
 
       <Dialog.Content key={''}></Dialog.Content>,
