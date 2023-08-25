@@ -31,7 +31,7 @@ const DialogFooter: FC<DialogFooterProps> = ({
   return (
     <div
       className={twMerge(
-        'flex flex-row items-center gap-2 border-t border-gray-300 p-4',
+        'mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4',
         className,
         variantClass,
       )}

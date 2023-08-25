@@ -4,6 +4,8 @@ const {
   boxShadow,
   keyframes,
   minHeight,
+  minWidth,
+  spacing,
 } = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
@@ -141,6 +143,25 @@ module.exports = plugin(
         10: '2.5rem',
         12: '3rem',
         28: '7rem',
+        34: '8.5rem',
+        56: '14rem',
+        156: '39rem',
+      },
+
+      minWidth: {
+        ...minWidth,
+        10: '2.5rem',
+        12: '3rem',
+        28: '7rem',
+        34: '8.5rem',
+        56: '14rem',
+        156: '39rem',
+      },
+
+      spacing: {
+        ...spacing,
+        34: '8.5rem',
+        156: '39rem',
       },
     },
   },

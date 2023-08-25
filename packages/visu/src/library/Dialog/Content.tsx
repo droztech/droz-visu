@@ -29,8 +29,8 @@ const DialogContent: FC<DialogContentProps> = ({
       >
         <div
           className={twMerge(
-            'min-h-[220px] w-[90vw] min-w-0 rounded-xl bg-gray-100',
-            'md:w-auto md:min-w-[620px]',
+            'flex h-full min-h-34 w-[90vw] min-w-0 flex-col rounded-xl bg-gray-100',
+            'md:w-auto md:min-w-156',
             className,
           )}
         >
