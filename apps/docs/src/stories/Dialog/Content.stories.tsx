@@ -74,6 +74,7 @@ const meta: Meta<DialogContentProps> = {
   },
   args: {
     children: '',
+    asChild: false,
   },
   decorators: [
     (Story) => (
