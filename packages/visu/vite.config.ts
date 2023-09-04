@@ -53,4 +53,7 @@ export default defineConfig({
       },
     ],
   },
+  esbuild: {
+    banner: '"use client"'
+  }
 })
