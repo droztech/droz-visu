@@ -35,7 +35,10 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/visu.es.js",
+      "import": {
+        "default": "./dist/visu.es.js",
+        "types": "./dist/index.d.ts"
+      },
       "require": "./dist/visu.umd.js"
     },
     "./styles": "./dist/style.css",
@@ -98,7 +101,6 @@
     "tailwind-merge": "^1.14.0",
     "ts-jest": "^29.0.5",
     "tsconfig": "*",
-    "typescript": "^4.9.3",
     "vite": "^4.0.0",
     "vite-plugin-dts": "^3.4.0",
     "zod": "^3.21.4"
