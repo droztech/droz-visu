@@ -36,8 +36,8 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/visu.es.js",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/visu.es.js"
       },
       "require": "./dist/visu.umd.js"
     },
