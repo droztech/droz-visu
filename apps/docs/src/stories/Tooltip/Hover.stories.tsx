@@ -23,6 +23,34 @@ const meta: Meta<TooltipHoverProps> = {
       },
       type: { name: 'string', required: false },
     },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'Define se o Tooltip deve iniciar aberto ou fechado.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    delayDuration: {
+      control: 'number',
+      description:
+        'Define o tempo de delay em milissegundos para exibir o conteúdo do Tooltip.',
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '300' },
+      },
+      type: { name: 'number', required: false },
+    },
+    open: {
+      control: 'boolean',
+      description: 'Define se o conteúdo do Tooltip está visível ou não.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+      type: { name: 'boolean', required: false },
+    },
     side: {
       control: { type: 'inline-radio' },
       description:
@@ -35,6 +63,15 @@ const meta: Meta<TooltipHoverProps> = {
         defaultValue: { summary: 'bottom' },
       },
       type: { name: 'string', required: false },
+    },
+
+    onOpenChange: {
+      control: 'none',
+      description: 'Callback executado quando o estado de `open` é alterado.',
+      table: {
+        type: { summary: 'function' },
+      },
+      type: { name: 'function', required: false },
     },
 
     /**
@@ -54,6 +91,9 @@ const meta: Meta<TooltipHoverProps> = {
   args: {
     children: '',
     content: 'Texto do tooltip',
+    defaultOpen: false,
+    delayDuration: 300,
+    open: false,
     side: 'bottom',
   },
   parameters: {

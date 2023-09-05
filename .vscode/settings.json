@@ -11,4 +11,12 @@
     "eslint.config.cjs": "eslint"
   },
   "tailwindCSS.experimental.configFile": "./packages/visu/tailwind.config.ts",
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*ClassVariants",
+    ".*VariantClass",
+    ".*Class"
+  ]
 }
