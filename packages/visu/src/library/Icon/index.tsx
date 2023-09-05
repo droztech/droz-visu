@@ -1,5 +1,5 @@
 import { Slot } from '@radix-ui/react-slot'
-import { ExtendedColor, ExtendedColorClass } from '@types'
+import { IconColor, IconColorClass } from '@types'
 import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, FC, useMemo } from 'react'
 
@@ -10,19 +10,14 @@ const sizeClassVariants = {
 
 export interface IconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
-  color?: ExtendedColor
+  color?: IconColor
   size?: keyof typeof sizeClassVariants
 }
 
-const colorClassVariants: ExtendedColorClass = {
-  alert: 'bg-alert-100 text-alert hover:bg-alert-200',
-  current: 'bg-current text-current',
-  error: 'bg-error-100 text-error hover:bg-error-200',
-  gray: 'bg-gray-100 text-gray hover:bg-gray-200',
-  primary: 'bg-primary-100 text-primary hover:bg-primary-200',
-  secondary: 'bg-secondary-100 text-secondary hover:bg-secondary-200',
-  success: 'bg-success-100 text-success hover:bg-success-200',
-  white: 'bg-gray-100',
+const colorClassVariants: IconColorClass = {
+  error: 'bg-error-100 text-error hover:bg-error-200 active:bg-error-200',
+  primary:
+    'bg-primary-100 text-primary hover:bg-primary-200 active:bg-primary-200',
 }
 
 const Icon: FC<IconProps> = ({
