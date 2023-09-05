@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './Flex'
 export * from './FloatCard'
+export * from './Icon'
 export * from './Toast'
 
 export interface AlignClass {
