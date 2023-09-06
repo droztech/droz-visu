@@ -38,7 +38,6 @@
     "chromatic": "^6.17.4",
     "storybook": "^7.1.0",
     "tsconfig": "*",
-    "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }
 }
