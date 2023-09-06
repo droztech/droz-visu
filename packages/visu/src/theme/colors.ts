@@ -43,7 +43,9 @@ export const colors = {
 
   success: {
     DEFAULT: '#32C09D',
-    300: '#EDF7F5',
+    100: '#EDF7F5',
+    200: '#ADE6D8',
+    300: '#70D3BA',
     400: '#32C09D',
     500: '#248870',
     600: '#1B6553',
@@ -52,7 +54,9 @@ export const colors = {
 
   error: {
     DEFAULT: '#F20045',
-    300: '#FDEDF2',
+    100: '#FDEDF2',
+    200: '#FBB3C7',
+    300: '#F76F96',
     400: '#F20045',
     500: '#CC003A',
     600: '#99002B',
@@ -61,7 +65,9 @@ export const colors = {
 
   alert: {
     DEFAULT: '#FFA624',
-    300: '#FFF4E5',
+    100: '#FFF4E5',
+    200: '#FFDBA7',
+    300: '#FFC570',
     400: '#FFA624',
     500: '#E08401',
     600: '#B56A00',

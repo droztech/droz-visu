@@ -1,13 +1,6 @@
 import { Icon } from '@library'
 import { render, screen } from '@testing-library/react'
-import clsx from 'clsx'
 import { X } from 'phosphor-react'
-
-jest.mock('clsx', () => {
-  return {
-    clsx: jest.fn().mockImplementation(() => clsx),
-  }
-})
 
 describe('Icon tests', () => {
   it('Should render a Icon element', () => {
@@ -16,7 +9,7 @@ describe('Icon tests', () => {
         <X />
       </Icon>,
     )
-    const element = screen.queryByTestId('element')
+    const element = screen.getByTestId('element')
 
     expect(element).toBeDefined()
     expect(element?.children[0]).toBeDefined()
@@ -31,7 +24,7 @@ describe('Icon tests', () => {
         </a>
       </Icon>,
     )
-    const element = screen.queryByTestId('element')
+    const element = screen.getByTestId('element')
 
     expect(element?.tagName).toBe('A')
     expect(element?.children[0].tagName).toBe('svg')
