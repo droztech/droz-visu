@@ -1,13 +1,9 @@
-export type FlexDirection = keyof FlexDirectionClass
-
 export type FlexDirectionClass = {
   col: string
   'col-reverse': string
   row: string
   'row-reverse': string
 }
-
-export type FlexItems = keyof FlexItemsClass
 
 export type FlexItemsClass = {
   baseline: string
@@ -16,8 +12,6 @@ export type FlexItemsClass = {
   start: string
   stretch: string
 }
-
-export type FlexJustify = keyof FlexJustifyClass
 
 export type FlexJustifyClass = {
   around: string
@@ -28,8 +22,6 @@ export type FlexJustifyClass = {
   start: string
 }
 
-export type FlexText = keyof FlexTextClass
-
 export type FlexTextClass = {
   center: string
   end: string
@@ -39,10 +31,14 @@ export type FlexTextClass = {
   start: string
 }
 
-export type FlexWrap = keyof FlexWrapClass
-
 export type FlexWrapClass = {
   nowrap: string
   reverse: string
   wrap: string
 }
+
+export type FlexDirection = keyof FlexDirectionClass
+export type FlexItems = keyof FlexItemsClass
+export type FlexJustify = keyof FlexJustifyClass
+export type FlexText = keyof FlexTextClass
+export type FlexWrap = keyof FlexWrapClass

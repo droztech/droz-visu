@@ -13,9 +13,20 @@ const meta: Meta<IconProps> = {
         },
       },
     },
+    color: {
+      control: 'select',
+      description: 'Define a cor do componente.',
+      options: ['primary', 'error'] as IconProps['color'][],
+      table: {
+        type: {
+          summary: ['primary', 'error'].join('|'),
+        },
+        defaultValue: { summary: 'primary' },
+      },
+    },
     disabled: {
       control: 'boolean',
-      description: 'Aplica o disabled em Icon',
+      description: 'Desabilita o componente.',
       table: {
         type: { summary: 'boolean' },
       },
@@ -23,7 +34,7 @@ const meta: Meta<IconProps> = {
     },
     size: {
       control: 'inline-radio',
-      description: 'Aplica o size em Icon',
+      description: 'Define o tamanho do componente',
       options: ['sm', 'md'] as IconProps['size'][],
       table: {
         type: {
@@ -36,8 +47,9 @@ const meta: Meta<IconProps> = {
   },
   args: {
     children: '',
-    size: 'md',
+    color: 'primary',
     disabled: false,
+    size: 'md',
   },
 } as Meta<IconProps>
 
