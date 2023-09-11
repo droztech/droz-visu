@@ -4,8 +4,8 @@ import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, FC, useMemo } from 'react'
 
 const sizeClassVariants = {
-  sm: 'w-8 h-8 [&_svg]:h-4 [&_svg]:w-4',
-  md: 'w-10 h-10 [&_svg]:h-6 [&_svg]:w-6',
+  sm: 'w-8 h-8 min-w-8 min-h-8 [&_svg]:h-4 [&_svg]:w-4',
+  md: 'w-10 h-10 min-w-10 min-h-10 [&_svg]:h-6 [&_svg]:w-6',
 }
 
 export interface IconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
