@@ -146,6 +146,7 @@ module.exports = plugin(
 
       minHeight: {
         ...minHeight,
+        8: '2rem',
         10: '2.5rem',
         12: '3rem',
         16: '4rem',
@@ -157,6 +158,7 @@ module.exports = plugin(
 
       minWidth: {
         ...minWidth,
+        8: '2rem',
         10: '2.5rem',
         12: '3rem',
         16: '4rem',
