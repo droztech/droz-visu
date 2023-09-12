@@ -11,9 +11,14 @@ export interface AvatarRootProps extends RadixAvatar.AvatarProps {
 
 export const rootColorVariants: ColorClass = {
   primary:
-    'bg-primary-200 text-primary outline-primary hover:outline-primary-300 active:outline-primary-200 hover:text-primary-300 active:text-primary-300',
+    'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
   secondary:
-    'bg-secondary-200 text-secondary outline-secondary hover:outline-secondary-300 active:outline-secondary-200 hover:text-secondary-300 active:text-secondary-300',
+    'text-secondary border-secondary hover:border-secondary-300 active:border-secondary-200 hover:text-secondary-300 active:text-secondary-300',
+}
+
+export const bgColorVariants: ColorClass = {
+  primary: 'bg-primary-200',
+  secondary: 'bg-secondary-200',
 }
 
 export const rootSizeVariants: SizeClass = {
@@ -23,8 +28,8 @@ export const rootSizeVariants: SizeClass = {
 }
 
 export const statusColorVariants: ColorClass = {
-  primary: 'outline-primary',
-  secondary: 'outline-secondary',
+  primary: 'border-primary-700',
+  secondary: 'border-secondary-700',
 }
 
 export const statusStatusVariants: StatusClass = {
@@ -50,6 +55,10 @@ const AvatarRoot: FC<AvatarRootProps> = ({
     return clsx(rootColorVariants[color], rootSizeVariants[size])
   }, [color, size])
 
+  const bgClass = useMemo<string>(() => {
+    return bgColorVariants[color]
+  }, [color])
+
   const statusClass = useMemo<string>(() => {
     return clsx(
       status ? statusStatusVariants[status] : '',
@@ -62,20 +71,14 @@ const AvatarRoot: FC<AvatarRootProps> = ({
     <RadixAvatar.Root
       className={clsx([
         className,
-        'aspect-square',
-        'font-semibold',
         'uppercase',
         'select-none',
         'cursor-pointer',
         'relative',
-        'flex',
-        'items-center',
-        'justify-center',
         'rounded-full',
-        'outline',
-        'outline-2',
-        'outline-offset-2',
+        'border-2',
         'transition-all',
+        'p-[2px]',
         rootClass,
       ])}
       {...rest}
@@ -87,13 +90,14 @@ const AvatarRoot: FC<AvatarRootProps> = ({
             'top-0',
             'right-0',
             'rounded-full',
-            'outline',
-            'outline-2',
+            'border-2',
             statusClass,
           ])}
         />
       )}
-      {children}
+      <div className={clsx('rounded-full w-full h-full flex items-center justify-center aspect-square', bgClass)}>
+        {children}
+      </div>
     </RadixAvatar.Root>
   )
 }
