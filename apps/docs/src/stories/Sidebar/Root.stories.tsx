@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Sidebar, SidebarRootProps } from '@coaktion/visu'
+import { Flex, Sidebar, SidebarRootProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarRootProps> = {
   title: 'Sidebar/Root',

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Link, LinkProps } from '@coaktion/visu'
+import { Link, LinkProps } from '@droz-js/visu'
 
 const meta: Meta<LinkProps> = {
   title: 'Link/Link',

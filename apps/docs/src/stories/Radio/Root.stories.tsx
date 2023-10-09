@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Radio, RadioRootProps } from '@coaktion/visu'
+import { Flex, Radio, RadioRootProps } from '@droz-js/visu'
 
 const meta: Meta<RadioRootProps> = {
   title: 'Radio/Root',

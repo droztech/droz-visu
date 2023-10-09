@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { MouseSimple } from 'phosphor-react'
 
-import { Avatar, Flex, FloatCard, FloatCardTriggerProps } from '@coaktion/visu'
+import { Avatar, Flex, FloatCard, FloatCardTriggerProps } from '@droz-js/visu'
 
 const meta: Meta<FloatCardTriggerProps> = {
   title: 'FloatCard/Trigger',

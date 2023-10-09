@@ -1,4 +1,4 @@
-import { Button, ButtonIconProps } from '@coaktion/visu'
+import { Button, ButtonIconProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
 

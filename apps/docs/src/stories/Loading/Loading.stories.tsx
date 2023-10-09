@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Loading, LoadingProps } from '@coaktion/visu'
+import { Loading, LoadingProps } from '@droz-js/visu'
 
 const meta: Meta<LoadingProps> = {
   title: 'Loading/Loading',

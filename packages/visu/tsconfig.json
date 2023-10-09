@@ -7,7 +7,7 @@
       "@types": ["src/library/types"]
     }
   },
-  "extends": "tsconfig/library.json",
+  "extends": "@droz-js/tsconfig/library.json",
   "include": ["src", "../../eslint.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, FlexColProps } from '@coaktion/visu'
+import { Flex, FlexColProps } from '@droz-js/visu'
 
 const meta: Meta<FlexColProps> = {
   title: 'Flex/Col',

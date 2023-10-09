@@ -1,7 +1,7 @@
 {
-  "name": "docs",
+  "name": "@droz-js/visu-docs",
   "private": true,
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "module",
   "scripts": {
     "app": "vite",
@@ -13,7 +13,7 @@
     "chromatic": "npx chromatic --project-token=chpt_81ccfe16db86372"
   },
   "dependencies": {
-    "@coaktion/visu": "*",
+    "@droz-js/visu": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

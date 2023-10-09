@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { House } from 'phosphor-react'
 
-import { Sidebar, SidebarBodyProps } from '@coaktion/visu'
+import { Sidebar, SidebarBodyProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarBodyProps> = {
   title: 'Sidebar/Body',

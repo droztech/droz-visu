@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogCloseProps } from '@coaktion/visu'
+import { Button, Dialog, DialogCloseProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<DialogCloseProps> = {

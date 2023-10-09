@@ -1,4 +1,4 @@
-import { Tabs, TabsRootProps } from '@coaktion/visu'
+import { Tabs, TabsRootProps } from '@droz-js/visu'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Airplane, Alarm, Alien } from 'phosphor-react'
 

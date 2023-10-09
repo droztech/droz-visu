@@ -1,4 +1,4 @@
-@import '@coaktion/visu/styles';
+@import '@droz-js/visu/styles';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

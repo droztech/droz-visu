@@ -40,7 +40,7 @@
     "scope": "typescriptreact",
     "prefix": "storybookstory",
     "body": [
-      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}, ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props } from '@coaktion/visu'",
+      "import { ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}, ${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props } from '@droz-js/visu'",
       "import { Meta, StoryObj } from '@storybook/react'",
       "",
       "const meta: Meta<${TM_DIRECTORY/(^.+\\/(.*)$)/${2:/pascalcase}/}${TM_FILENAME/(index)?[.].*/${2:/pascalcase}/}Props> = {",

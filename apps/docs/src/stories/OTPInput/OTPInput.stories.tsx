@@ -1,4 +1,4 @@
-import { OTPInput, OTPInputProps } from '@coaktion/visu'
+import { OTPInput, OTPInputProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<OTPInputProps> = {

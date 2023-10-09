@@ -1,4 +1,4 @@
-import { Divider, DividerProps } from '@coaktion/visu'
+import { Divider, DividerProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { SquaresFour } from 'phosphor-react'
 

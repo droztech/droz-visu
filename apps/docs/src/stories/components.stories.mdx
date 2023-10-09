@@ -16,16 +16,16 @@ import { Meta } from '@storybook/blocks';
 
 ## Componentes
 
-Para utilizar os componentes é necessário importar a estilização da biblioteca de `@coaktion/visu/styles`
+Para utilizar os componentes é necessário importar a estilização da biblioteca de `@droz-js/visu/styles`
 
 ```typescript
-import '@coaktion/visu/styles'
+import '@droz-js/visu/styles'
 ```
 
 Caso esteja utilizando o `tailwindcss` no projeto, faça a importação da estilização da biblioteca juntamente da estilização do tailwindcss
 
 ```css
-@import '@coaktion/visu/styles';
+@import '@droz-js/visu/styles';
 
 @tailwind base;
 @tailwind components;
@@ -35,7 +35,7 @@ Caso esteja utilizando o `tailwindcss` no projeto, faça a importação da estil
 Com a estilização importada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook](?path=/docs/componentes--docs)
 
 ```typescript
-import { Button } from '@coaktion/visu'
+import { Button } from '@droz-js/visu'
 
 function App() {
   return <Button.Root>Clique aqui</Button.Root>

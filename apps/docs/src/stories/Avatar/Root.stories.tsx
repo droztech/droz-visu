@@ -1,4 +1,4 @@
-import { Avatar, AvatarRootProps } from '@coaktion/visu'
+import { Avatar, AvatarRootProps } from '@droz-js/visu'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarRootProps> = {

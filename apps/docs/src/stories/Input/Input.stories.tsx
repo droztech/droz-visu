@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Input, InputInputProps } from '@coaktion/visu'
+import { Input, InputInputProps } from '@droz-js/visu'
 
 const meta: Meta<InputInputProps> = {
   title: 'Input/Input',

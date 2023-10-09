@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Select, SelectRootProps } from '@coaktion/visu'
+import { Flex, Select, SelectRootProps } from '@droz-js/visu'
 
 const meta: Meta<SelectRootProps> = {
   title: 'Select/Root',

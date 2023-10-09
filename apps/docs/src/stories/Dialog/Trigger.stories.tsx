@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogTriggerProps } from '@coaktion/visu'
+import { Button, Dialog, DialogTriggerProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<DialogTriggerProps> = {

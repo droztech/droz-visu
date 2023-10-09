@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxRootProps } from '@coaktion/visu'
+import { Checkbox, CheckboxRootProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Check, Question } from 'phosphor-react'
 

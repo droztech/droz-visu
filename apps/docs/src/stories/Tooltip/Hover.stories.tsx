@@ -1,4 +1,4 @@
-import { Button, Tooltip, TooltipHoverProps } from '@coaktion/visu'
+import { Button, Tooltip, TooltipHoverProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Question } from 'phosphor-react'
 

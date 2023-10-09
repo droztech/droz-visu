@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Pagination, PaginationProps } from '@coaktion/visu'
+import { Flex, Pagination, PaginationProps } from '@droz-js/visu'
 
 const meta: Meta<PaginationProps> = {
   title: 'Pagination/Pagination',

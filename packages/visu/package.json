@@ -1,9 +1,10 @@
 {
-  "name": "@coaktion/visu",
+  "name": "@droz-js/visu",
   "private": false,
-  "version": "2.2.0",
+  "version": "2.2.1",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "description": "A library to use for coaktion projects!",
   "type": "module",

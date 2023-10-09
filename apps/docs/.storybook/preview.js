@@ -1,6 +1,6 @@
 import theme from './theme.js'
 
-import '@coaktion/visu/styles'
+import '@droz-js/visu/styles'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

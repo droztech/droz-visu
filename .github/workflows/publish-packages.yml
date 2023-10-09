@@ -1,29 +1,21 @@
-name: Publish Github Packages
+name: Publish Packages
 
 on:
   release:
     types: [published]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   check-and-publish:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: https://npm.pkg.github.com/
-          cache: 'npm'
+          node-version: 18
+          cache: npm
 
       - name: Install Dependencies
         run: npm ci
@@ -39,4 +31,4 @@ jobs:
         working-directory: packages/visu
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}

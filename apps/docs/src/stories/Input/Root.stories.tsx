@@ -1,4 +1,4 @@
-import { Flex, Input, InputRootProps } from '@coaktion/visu'
+import { Flex, Input, InputRootProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
 

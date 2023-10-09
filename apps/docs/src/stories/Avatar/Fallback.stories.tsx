@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallbackProps } from '@coaktion/visu'
+import { Avatar, AvatarFallbackProps } from '@droz-js/visu'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarFallbackProps> = {

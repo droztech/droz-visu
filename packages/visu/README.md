@@ -25,23 +25,23 @@ A biblioteca é publicada atualmente no Github Packages, então é necessário i
 2. Instale a biblioteca no projeto React
 
 ```bash
-npm install @coaktion/visu
+npm install @droz-js/visu
 ```
 
 ## Utilização
 
 ### Componentes
 
-Para utilizar os componentes é necessário importar a estilização da biblioteca de `@coaktion/visu/styles`
+Para utilizar os componentes é necessário importar a estilização da biblioteca de `@droz-js/visu/styles`
 
 ```typescript
-import '@coaktion/visu/styles'
+import '@droz-js/visu/styles'
 ```
 
 Caso esteja utilizando o `tailwindcss` no projeto, faça a importação da estilização da biblioteca juntamente da estilização do tailwindcss
 
 ```css
-@import '@coaktion/visu/styles';
+@import '@droz-js/visu/styles';
 
 @tailwind base;
 @tailwind components;
@@ -51,7 +51,7 @@ Caso esteja utilizando o `tailwindcss` no projeto, faça a importação da estil
 Com a estilização importada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook(em construção)](https://feat-update-storybook-v7--645ce9be8ed7e2ea5066a152.chromatic.com/)
 
 ```typescript
-import { Button } from '@coaktion/visu'
+import { Button } from '@droz-js/visu'
 
 function App() {
   return <Button.Root>Clique aqui</Button.Root>
@@ -62,11 +62,11 @@ export default App
 
 ### Design System
 
-O Design System do Visu foi criado para ser utilizado em conjunto com o [Tailwindcss](https://tailwindcss.com/), como um plugin. Para utilizar o Design System do Visu basta importar o Design System de `@coaktion/visu/dist/theme-plugin` e adicioná-lo ao arquivo `tailwind.config.ts`
+O Design System do Visu foi criado para ser utilizado em conjunto com o [Tailwindcss](https://tailwindcss.com/), como um plugin. Para utilizar o Design System do Visu basta importar o Design System de `@droz-js/visu/dist/theme-plugin` e adicioná-lo ao arquivo `tailwind.config.ts`
 
 
 ```typescript
-import VisuTailwindcssPlugin from '@coaktion/visu/dist/theme-plugin'
+import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
 import type { Config } from 'tailwindcss'
 
 export default {
@@ -106,7 +106,7 @@ npm run test -- [pasta/arquivo]
 Para instalar pacotes no Visu `packages/visu` acesse a raiz do projeto no terminal `/` e utilize o comando:
 
 ```bash
-npm install -D [pacote] --workspace=@coaktion/visu
+npm install -D [pacote] --workspace=@droz-js/visu
 ```
 
 ## License
