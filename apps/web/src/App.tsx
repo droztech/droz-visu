@@ -1,4 +1,4 @@
-import { Button } from '@coaktion/visu'
+import { Button } from '@droz-js/visu'
 import { clsx } from 'clsx'
 import { Moon, Sun } from 'phosphor-react'
 import { useCallback, useState } from 'react'

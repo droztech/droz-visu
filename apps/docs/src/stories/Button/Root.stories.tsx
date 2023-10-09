@@ -1,4 +1,4 @@
-import { Button, ButtonRootProps, Flex } from '@coaktion/visu'
+import { Button, ButtonRootProps, Flex } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
 

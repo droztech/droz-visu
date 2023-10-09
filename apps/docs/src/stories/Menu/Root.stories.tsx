@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Menu, MenuRootProps } from '@coaktion/visu'
+import { Menu, MenuRootProps } from '@droz-js/visu'
 
 const meta: Meta<MenuRootProps> = {
   title: 'Menu/Root',

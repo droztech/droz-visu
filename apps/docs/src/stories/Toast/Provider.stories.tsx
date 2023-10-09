@@ -5,7 +5,7 @@ import {
   ToastProvider,
   ToastProviderProps,
   useToast,
-} from '@coaktion/visu'
+} from '@droz-js/visu'
 
 const meta: Meta<ToastProviderProps> = {
   title: 'Toast/Provider',

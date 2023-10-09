@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Button, ToastProvider, ToastRootProps, useToast } from '@coaktion/visu'
+import { Button, ToastProvider, ToastRootProps, useToast } from '@droz-js/visu'
 
 const meta: Meta<ToastRootProps> = {
   title: 'Toast/useToast',

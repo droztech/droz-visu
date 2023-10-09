@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { House } from 'phosphor-react'
 
-import { Menu, MenuButtonProps } from '@coaktion/visu'
+import { Menu, MenuButtonProps } from '@droz-js/visu'
 
 const meta: Meta<MenuButtonProps> = {
   title: 'Menu/Button',

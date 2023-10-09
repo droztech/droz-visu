@@ -1,4 +1,4 @@
-import { Tabs, TabsTriggerProps } from '@coaktion/visu'
+import { Tabs, TabsTriggerProps } from '@droz-js/visu'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Image } from 'phosphor-react'
 

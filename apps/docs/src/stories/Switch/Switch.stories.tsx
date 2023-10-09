@@ -1,4 +1,4 @@
-import { Switch, SwitchProps } from '@coaktion/visu'
+import { Switch, SwitchProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<SwitchProps> = {

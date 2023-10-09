@@ -1,4 +1,4 @@
-import { Icon, IconProps } from '@coaktion/visu'
+import { Icon, IconProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { X } from 'phosphor-react'
 

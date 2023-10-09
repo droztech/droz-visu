@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, FlexRootProps } from '@coaktion/visu'
+import { Flex, FlexRootProps } from '@droz-js/visu'
 
 const meta: Meta<FlexRootProps> = {
   title: 'Flex/Root',

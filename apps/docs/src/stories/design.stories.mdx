@@ -17,13 +17,13 @@ import { Meta } from '@storybook/blocks';
 # Design System
 
 O Design System do Visu foi criado para ser utilizado em conjunto com o [Tailwindcss](https://tailwindcss.com/),
- como um plugin. Para utilizar o Design System do Visu basta importar o Design System de `@coaktion/visu/dist/theme-plugin`
+ como um plugin. Para utilizar o Design System do Visu basta importar o Design System de `@droz-js/visu/dist/theme-plugin`
   e adicioná-lo ao arquivo `tailwind.config.ts`. O plugin possui `tokens` e `variants` definidas, porém todos os valores do
   [tema padrão do tailwindcss](https://tailwindcss.com/docs/theme) que não são citados na documentação do Design System do Visu permanecem inalterados. 
 
 
 ```typescript
-import VisuTailwindcssPlugin from '@coaktion/visu/dist/theme-plugin'
+import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
 import type { Config } from 'tailwindcss'
 
 export default {

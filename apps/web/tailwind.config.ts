@@ -1,4 +1,4 @@
-import VisuTailwindcssPlugin from '@coaktion/visu/dist/theme-plugin'
+import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
 import type { Config } from 'tailwindcss'
 
 export default {

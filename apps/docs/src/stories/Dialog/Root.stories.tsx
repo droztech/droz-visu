@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogRootProps } from '@coaktion/visu'
+import { Button, Dialog, DialogRootProps } from '@droz-js/visu'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 import { SquaresFour } from 'phosphor-react'

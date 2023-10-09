@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogHeaderProps } from '@coaktion/visu'
+import { Button, Dialog, DialogHeaderProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Alien, SquaresFour, X } from 'phosphor-react'
 

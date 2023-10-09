@@ -1,4 +1,4 @@
-import { File, FileProps } from '@coaktion/visu'
+import { File, FileProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<FileProps> = {

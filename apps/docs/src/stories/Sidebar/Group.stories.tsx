@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Sidebar, SidebarGroupProps } from '@coaktion/visu'
+import { Flex, Sidebar, SidebarGroupProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarGroupProps> = {
   title: 'Sidebar/Group',

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Select, SelectItemProps } from '@coaktion/visu'
+import { Select, SelectItemProps } from '@droz-js/visu'
 
 const meta: Meta<SelectItemProps> = {
   title: 'Select/Item',
