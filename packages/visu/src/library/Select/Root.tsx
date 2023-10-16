@@ -1,7 +1,7 @@
+import { cn } from '@/src/utils/class-merge.helper'
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown } from 'phosphor-react'
 import { FC } from 'react'
-import { twMerge } from 'tailwind-merge'
 
 const statusClassVariants = {
   error: 'border-error',
@@ -34,8 +34,6 @@ const SelectRoot: FC<SelectRootProps> = ({
   onValueChange,
   ...rest
 }) => {
-  console.log(document.getElementById('parente'))
-
   return (
     <RadixSelect.Root
       value={value}
@@ -43,21 +41,23 @@ const SelectRoot: FC<SelectRootProps> = ({
       {...rest}
     >
       <RadixSelect.Trigger
-        className={twMerge(
-          'flex min-h-10 items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-gray-900 transition-colors',
-          'hover:border-gray-700 active:border-primary disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray data-[state=open]:border-primary [&[data-state=open]>div]:rotate-180 [&[data-state=open]_span:last-child]:rotate-180',
-          !value && 'text-gray',
+        className={cn(
+          'group flex min-h-10 items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-inherit transition-colors',
+          'hover:border-gray-700 active:border-primary disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray data-[state=open]:border-primary data-[placeholder]:text-gray [&[data-state=open]>div]:rotate-180 [&[data-state=open]_span:last-child]:rotate-180',
           full ? 'w-full' : 'w-fit',
           status ? statusClassVariants[status] : 'border-gray',
           className,
         )}
       >
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
-          <RadixSelect.Value
-            placeholder={<span className="text-gray">{placeholder}</span>}
-          />
+          <RadixSelect.Value placeholder={placeholder} />
         </span>
-        <RadixSelect.Icon className="text-primary transition-all">
+        <RadixSelect.Icon
+          className={cn(
+            'text-inherit transition-all',
+            'group-data-[state=open]:text-primary',
+          )}
+        >
           <CaretDown />
         </RadixSelect.Icon>
       </RadixSelect.Trigger>
