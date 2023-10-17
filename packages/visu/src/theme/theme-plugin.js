@@ -6,6 +6,7 @@ const {
   minHeight,
   minWidth,
   spacing,
+  zIndex,
 } = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
@@ -172,6 +173,11 @@ module.exports = plugin(
         ...spacing,
         34: '8.5rem',
         156: '39rem',
+      },
+
+      zIndex: {
+        ...zIndex,
+        100: '100',
       },
     },
   },

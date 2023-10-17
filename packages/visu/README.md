@@ -14,15 +14,7 @@ Visu é uma biblioteca de componentes e design system desenvolvida para os produ
 
 ## Instalação
 
-A biblioteca é publicada atualmente no Github Packages, então é necessário informar ao npm em qual registro buscar a biblioteca para a instalação, a melhor maneira de fazer isso é criar um arquivo na raiz do projeto e informar que o registro do Github será utilizado para todas as bibliotecas da organização @coaktion:
-
-1. Crie um arquivo `.npmrc` na raiz do projeto com o conteúdo
-
-```bash
-@coaktion:registry=https://npm.pkg.github.com
-```
-
-2. Instale a biblioteca no projeto React
+Instale a biblioteca em um projeto React com o comando
 
 ```bash
 npm install @droz-js/visu
@@ -32,23 +24,19 @@ npm install @droz-js/visu
 
 ### Componentes
 
-Para utilizar os componentes é necessário importar a estilização da biblioteca de `@droz-js/visu/styles`
+O Visu é construido utilizando o Tailwind CSS como base para a estilização dos componentes. Para utilizar os componentes corretamente é necessário ter o Tailwind CSS instalado no projeto. No arquivo `tailwind.config.js` o arquivo `@droz-js/visu/dist/visu.es.js` do Visu precisa ser adicionado ao content para que os componentes recebam as atualizações de estilização ao modificar alguma configuração do tema do Tailwind CSS.
 
 ```typescript
-import '@droz-js/visu/styles'
+import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: ['./index.html', './src/**/*.{ts,tsx}', './node_modules/@droz-js/visu/dist/visu.es.js'],
+} satisfies Config
+
 ```
 
-Caso esteja utilizando o `tailwindcss` no projeto, faça a importação da estilização da biblioteca juntamente da estilização do tailwindcss
-
-```css
-@import '@droz-js/visu/styles';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-Com a estilização importada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook(em construção)](https://feat-update-storybook-v7--645ce9be8ed7e2ea5066a152.chromatic.com/)
+Com a configuração do `tailwind.config.js` realizada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook(em construção)](https://feat-update-storybook-v7--645ce9be8ed7e2ea5066a152.chromatic.com/)
 
 ```typescript
 import { Button } from '@droz-js/visu'
@@ -70,7 +58,7 @@ import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
 import type { Config } from 'tailwindcss'
 
 export default {
-  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx}', './node_modules/@droz-js/visu/dist/visu.es.js'],
   plugins: [VisuTailwindcssPlugin],
 } satisfies Config
 
