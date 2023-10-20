@@ -48,6 +48,13 @@ function App() {
 export default App
 ```
 
+#### Utilização sem Tailwindcss
+Para utilizar sem o Tailwindcss é necessário importar a estilização de `@droz-js/visu/styles`. **Essa etapa não deve ser realizada caso esteja utilizando o Tailwindcss**
+
+```typescript
+import '@droz-js/visu/styles'
+```
+
 ### Design System
 
 O Design System do Visu foi criado para ser utilizado em conjunto com o [Tailwindcss](https://tailwindcss.com/), como um plugin. Para utilizar o Design System do Visu basta importar o Design System de `@droz-js/visu/dist/theme-plugin` e adicioná-lo ao arquivo `tailwind.config.ts`

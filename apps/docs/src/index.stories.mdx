@@ -47,7 +47,7 @@ export default {
 
 ```
 
-Com a configuração do `tailwind.config.js` realizada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook](?path=/docs/componentes--docs)
+Com a configuração do `tailwind.config.js` realizada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook(em construção)](https://feat-update-storybook-v7--645ce9be8ed7e2ea5066a152.chromatic.com/)
 
 ```typescript
 import { Button } from '@droz-js/visu'
@@ -57,6 +57,13 @@ function App() {
 }
 
 export default App
+```
+
+#### Utilização sem Tailwindcss
+Para utilizar sem o Tailwindcss é necessário importar a estilização de `@droz-js/visu/styles`. **Essa etapa não deve ser realizada caso esteja utilizando o Tailwindcss**
+
+```typescript
+import '@droz-js/visu/styles'
 ```
 
 ### Design System
