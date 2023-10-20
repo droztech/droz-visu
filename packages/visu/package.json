@@ -1,7 +1,7 @@
 {
   "name": "@droz-js/visu",
   "private": false,
-  "version": "2.2.1",
+  "version": "2.2.2",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
