@@ -1,7 +1,14 @@
 import { Slot } from '@radix-ui/react-slot'
 import { IconColor, IconColorClass } from '@types'
 import { clsx } from 'clsx'
-import { ButtonHTMLAttributes, FC, useMemo } from 'react'
+import {
+  ButtonHTMLAttributes,
+  Ref,
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react'
 
 const sizeClassVariants = {
   sm: 'w-8 h-8 min-w-8 min-h-8 [&_svg]:h-4 [&_svg]:w-4',
@@ -20,46 +27,55 @@ const colorClassVariants: IconColorClass = {
     'bg-primary-100 text-primary hover:bg-primary-200 active:bg-primary-200',
 }
 
-const Icon: FC<IconProps> = ({
-  asChild,
-  children,
-  className,
-  color = 'primary',
-  disabled,
-  size = 'md',
-  ...rest
-}) => {
-  const RootComponent = asChild ? Slot : 'button'
+const Icon = forwardRef<HTMLButtonElement, IconProps>(
+  (
+    {
+      asChild,
+      children,
+      className,
+      color = 'primary',
+      disabled,
+      size = 'md',
+      ...rest
+    },
+    ref: Ref<HTMLButtonElement | null>,
+  ) => {
+    const iconRef = useRef<HTMLButtonElement>(null)
 
-  const colorClass = useMemo(() => {
-    return colorClassVariants[color]
-  }, [color])
+    useImperativeHandle(ref, () => iconRef.current)
+    const RootComponent = asChild ? Slot : 'button'
 
-  const rootClass = useMemo(() => {
-    if (disabled) return 'bg-gray-200 text-gray pointer-events-none'
-    return ''
-  }, [disabled])
+    const colorClass = useMemo(() => {
+      return colorClassVariants[color]
+    }, [color])
 
-  const sizeClass = useMemo(() => {
-    return sizeClassVariants[size]
-  }, [size])
+    const rootClass = useMemo(() => {
+      if (disabled) return 'bg-gray-200 text-gray pointer-events-none'
+      return ''
+    }, [disabled])
 
-  return (
-    <RootComponent
-      className={clsx(
-        className,
-        'flex items-center justify-center rounded-full transition-all active:opacity-50',
-        colorClass,
-        rootClass,
-        sizeClass,
-      )}
-      disabled={disabled}
-      {...rest}
-    >
-      {children}
-    </RootComponent>
-  )
-}
+    const sizeClass = useMemo(() => {
+      return sizeClassVariants[size]
+    }, [size])
+
+    return (
+      <RootComponent
+        className={clsx(
+          className,
+          'flex items-center justify-center rounded-full transition-all active:opacity-50',
+          colorClass,
+          rootClass,
+          sizeClass,
+        )}
+        disabled={disabled}
+        ref={iconRef}
+        {...rest}
+      >
+        {children}
+      </RootComponent>
+    )
+  },
+)
 
 Icon.displayName = 'Icon'
 
