@@ -67,7 +67,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
         >
           {children}
         </RadixTooltip.Trigger>
-        <RadixTooltip.Portal className="hidden">
+        <RadixTooltip.Portal>
           <RadixTooltip.Content side={side} sideOffset={5}>
             <RadixTooltip.Arrow className="h-2 w-5 fill-background" />
             <div className="max-w-xs rounded-md bg-background p-3 shadow-sm">
