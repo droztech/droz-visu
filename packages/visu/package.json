@@ -1,7 +1,7 @@
 {
   "name": "@droz-js/visu",
   "private": false,
-  "version": "2.2.2",
+  "version": "2.3.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -50,6 +50,7 @@
     }
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",

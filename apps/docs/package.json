@@ -1,9 +1,10 @@
 {
   "name": "@droz-js/visu-docs",
   "private": true,
-  "version": "2.2.2",
+  "version": "2.3.0",
   "type": "module",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "app": "vite",
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
