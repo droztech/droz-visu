@@ -72,23 +72,22 @@ export const Comum: TabsTriggerStory = {
     value: 'trigger',
   },
   render: ({ title, value, ...args }) => (
-    <Tabs.Root
-      triggers={[
+    <Tabs.Root style={{ width: '50vw' }}>
+      <Tabs.List>
         <Tabs.Trigger
           key={value}
           title={[title, '1'].join('')}
           value={[value, '1'].join('')}
           {...args}
-        />,
+        />
+
         <Tabs.Trigger
           key={value}
           title={[title, '2'].join('')}
           value={[value, '2'].join('')}
           {...args}
-        />,
-      ]}
-      style={{ width: '50vw' }}
-    >
+        />
+      </Tabs.List>
       <Tabs.Content key={value} value={[value, '1'].join('')}>
         Tab 1 content
       </Tabs.Content>

@@ -1,15 +1,14 @@
-import { Tabs, TabsContentProps } from '@droz-js/visu'
+import { Tabs, TabsListProps } from '@droz-js/visu'
 import type { Meta, StoryObj } from '@storybook/react'
 import { Image } from 'phosphor-react'
 
-const meta: Meta<TabsContentProps> = {
-  title: 'Tabs/Content',
-  component: Tabs.Content,
+const meta: Meta<TabsListProps> = {
+  title: 'Tabs/List',
+  component: Tabs.List,
   argTypes: {
     children: {
       control: 'none',
-      description:
-        'Conteúdo da aba. Deve ser identificado pela propriedade `value` que deve ser semelhante ao `value` do `Tabs.Trigger`.',
+      description: 'Lista de Triggers da aba.',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -17,21 +16,9 @@ const meta: Meta<TabsContentProps> = {
       },
       type: { name: 'string', required: true },
     },
-    value: {
-      control: 'none',
-      description:
-        'Valor que representa o conteúdo da aba. Deve ser semelhante ao `value` do `Tabs.Trigger` correspondente.',
-      table: {
-        type: {
-          summary: 'string',
-        },
-      },
-      type: { name: 'string', required: true },
-    },
   },
   args: {
     children: undefined,
-    value: '',
   },
   parameters: {
     design: {
@@ -43,13 +30,10 @@ const meta: Meta<TabsContentProps> = {
 }
 
 export default meta
-type TabsContentStory = StoryObj<TabsContentProps>
+type TabsListStory = StoryObj<TabsListProps>
 
-export const Comum: TabsContentStory = {
-  args: {
-    value: 'tab',
-  },
-  render: ({ value, ...args }) => (
+export const Comum: TabsListStory = {
+  render: ({ ...args }) => (
     <Tabs.Root style={{ width: '50vw' }}>
       <Tabs.List>
         <Tabs.Trigger
@@ -66,10 +50,10 @@ export const Comum: TabsContentStory = {
         />
         ,
       </Tabs.List>
-      <Tabs.Content value={[value, '1'].join('')} {...args}>
+      <Tabs.Content value={'tab1'} {...args}>
         Conteúdo do Content 1
       </Tabs.Content>
-      <Tabs.Content value={[value, '2'].join('')} {...args}>
+      <Tabs.Content value={'tab2'} {...args}>
         Conteúdo do Content 2
       </Tabs.Content>
     </Tabs.Root>
