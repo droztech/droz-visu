@@ -40,6 +40,9 @@ const meta: Meta<TabsRootProps> = {
       },
       type: { name: 'string', required: false },
     },
+    /**
+     * @deprecated - Deprecated props will be removed in the next major version.
+     */
     triggers: {
       control: 'none',
       description:
@@ -98,6 +101,28 @@ export const Comum: TabsRootStory = {
   args: {
     children: (
       <>
+        <Tabs.List>
+          <Tabs.Trigger
+            icon={<Airplane />}
+            key="tab1"
+            title="Avião"
+            value="tab1"
+          />
+
+          <Tabs.Trigger
+            icon={<Alarm />}
+            key="tab2"
+            title="Alarme"
+            value="tab2"
+          />
+
+          <Tabs.Trigger
+            icon={<Alien />}
+            key="tab3"
+            title="Alien"
+            value="tab3"
+          />
+        </Tabs.List>
         <Tabs.Content value="tab1">
           <div>
             Conteúdo Avião <Airplane />
@@ -115,16 +140,6 @@ export const Comum: TabsRootStory = {
         </Tabs.Content>
       </>
     ),
-    triggers: [
-      <Tabs.Trigger
-        icon={<Airplane />}
-        key="tab1"
-        title="Avião"
-        value="tab1"
-      />,
-      <Tabs.Trigger icon={<Alarm />} key="tab2" title="Alarme" value="tab2" />,
-      <Tabs.Trigger icon={<Alien />} key="tab3" title="Alien" value="tab3" />,
-    ],
     defaultValue: 'tab1',
   },
   render: (args) => <Tabs.Root style={{ width: '80vw' }} {...args}></Tabs.Root>,

@@ -3,7 +3,10 @@ import { clsx } from 'clsx'
 import { ReactNode, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
 export interface TabsRootProps extends Omit<TabsProps, 'orientation'> {
-  triggers: ReactNode[]
+  /**
+   * @deprecated Use `Tabs.List` instead
+   */
+  triggers?: ReactNode[]
 }
 
 const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
