@@ -48,7 +48,6 @@ export const Comum: TabsListStory = {
           title="Trigger2"
           value="tab2"
         />
-        ,
       </Tabs.List>
       <Tabs.Content value={'tab1'} {...args}>
         Conteúdo do Content 1
