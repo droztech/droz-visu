@@ -1,12 +1,13 @@
 {
   "name": "@droz-js/monorepo",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "turbo run build --no-cache",
     "build:docs": "turbo run build --no-cache --filter=@droz-js/visu-docs",
     "build:visu": "turbo run build --no-cache --filter=@droz-js/visu",
