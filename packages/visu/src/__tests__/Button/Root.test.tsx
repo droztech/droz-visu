@@ -30,7 +30,7 @@ describe('Button Root tests', () => {
     render(
       <Button.Root data-testid="element">
         <span>{buttonText}</span>
-      </Button.Root>
+      </Button.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -42,7 +42,7 @@ describe('Button Root tests', () => {
     render(
       <Button.Root data-testid="element" disabled>
         {buttonText}
-      </Button.Root>
+      </Button.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -54,7 +54,7 @@ describe('Button Root tests', () => {
     render(
       <Button.Root data-testid="element" onClick={buttonClick}>
         {buttonText}
-      </Button.Root>
+      </Button.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -66,7 +66,7 @@ describe('Button Root tests', () => {
     render(
       <Button.Root data-testid="element" loading>
         {buttonText}
-      </Button.Root>
+      </Button.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -78,7 +78,7 @@ describe('Button Root tests', () => {
     render(
       <Button.Root data-testid="element" asChild>
         <h1>Hello World</h1>
-      </Button.Root>
+      </Button.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -89,7 +89,7 @@ describe('Button Root tests', () => {
     render(
       <Button.Root data-testid="element" asChild loading>
         <h1>Hello World</h1>
-      </Button.Root>
+      </Button.Root>,
     )
     const element = screen.getByTestId('element')
 

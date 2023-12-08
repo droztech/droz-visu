@@ -1,19 +1,48 @@
 import { colors } from './colors'
-import {
-  animation,
-  boxShadow,
-  keyframes,
-  minHeight,
-} from 'tailwindcss/defaultTheme'
+import { animation, boxShadow, minHeight, keyframes } from 'tailwindcss/defaultTheme'
 import { ThemeConfig } from 'tailwindcss/types/config'
 
 export const theme = {
+  keyframes: {
+    ...keyframes,
+    flash: {
+      from: { opacity: '1' },
+      to: { opacity: '0.2' },
+    },
+    hide: {
+      from: { opacity: '1' },
+      to: { opacity: '0' },
+    },
+    swipeIn: {
+      from: {
+        transform: 'translateX(calc(100% + 0.5rem))',
+      },
+      to: { transform: 'translateX(0)' },
+    },
+    swipeOut: {
+      from: {
+        transform: 'translateX(var(--radix-toast-swipe-end-x))',
+      },
+      to: { transform: 'translateX(calc(100% + 0.5rem))' },
+    },
+    slideDown: {
+      from: { height: '0' },
+      to: { height: 'var(--radix-accordion-content-height)' },
+    },
+    slideUp: {
+      from: { height: 'var(--radix-accordion-content-height)' },
+      to: { height: '0' },
+    },
+  },
+
   animation: {
     ...animation,
     flash: 'flash 1000ms infinite alternate',
     hide: 'hide 100ms ease-in',
-    slideIn: 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+    swipeIn: 'swipeIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
     swipeOut: 'swipeOut 100ms ease-out',
+    slideDown: 'slideDown 200ms ease-in',
+    slideUp: 'slideUp 200ms ease-out',
   },
 
   boxShadow: {
@@ -35,30 +64,6 @@ export const theme = {
     '2xl': ['3rem', '3.5rem'],
     '3xl': ['4rem', '4.5rem'],
     'inherit-size': 'inherit',
-  },
-
-  keyframes: {
-    ...keyframes,
-    flash: {
-      from: { opacity: '1' },
-      to: { opacity: '0.2' },
-    },
-    hide: {
-      from: { opacity: '1' },
-      to: { opacity: '0' },
-    },
-    slideIn: {
-      from: {
-        transform: 'translateX(calc(100% + 0.5rem))',
-      },
-      to: { transform: 'translateX(0)' },
-    },
-    swipeOut: {
-      from: {
-        transform: 'translateX(var(--radix-toast-swipe-end-x))',
-      },
-      to: { transform: 'translateX(calc(100% + 0.5rem))' },
-    },
   },
 
   minHeight: {

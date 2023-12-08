@@ -1,13 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const {
-  animation,
-  boxShadow,
-  keyframes,
-  minHeight,
-  minWidth,
-  spacing,
-  zIndex,
-} = require('tailwindcss/defaultTheme')
+const { animation, boxShadow, keyframes, minHeight, minWidth, spacing, zIndex } = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(
@@ -19,14 +11,6 @@ module.exports = plugin(
   },
   {
     theme: {
-      animation: {
-        ...animation,
-        flash: 'flash 1000ms infinite alternate',
-        hide: 'hide 100ms ease-in',
-        slideIn: 'slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        swipeOut: 'swipeOut 100ms ease-out',
-      },
-
       boxShadow: {
         ...boxShadow,
         sm: '0px 2px 16px 0px #00000029',
@@ -131,7 +115,7 @@ module.exports = plugin(
           from: { opacity: '1' },
           to: { opacity: '0' },
         },
-        slideIn: {
+        swipeIn: {
           from: {
             transform: 'translateX(calc(100% + 0.5rem))',
           },
@@ -143,6 +127,24 @@ module.exports = plugin(
           },
           to: { transform: 'translateX(calc(100% + 0.5rem))' },
         },
+        slideDown: {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        slideUp: {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+
+      animation: {
+        ...animation,
+        flash: 'flash 1000ms infinite alternate',
+        hide: 'hide 100ms ease-in',
+        swipeIn: 'swipeIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        swipeOut: 'swipeOut 100ms ease-out',
+        slideDown: 'slideDown 200ms ease-in',
+        slideUp: 'slideUp 200ms ease-out',
       },
 
       minHeight: {

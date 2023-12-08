@@ -28,13 +28,7 @@ const variantIcon = {
   success: <CheckCircle />,
 }
 
-const ToastRoot: FC<ToastRootProps> = ({
-  className,
-  desc,
-  title,
-  variant,
-  ...rest
-}) => {
+const ToastRoot: FC<ToastRootProps> = ({ className, desc, title, variant, ...rest }) => {
   const variantIconElement = useMemo(() => {
     return variantIcon[variant]
   }, [variant])
@@ -42,26 +36,24 @@ const ToastRoot: FC<ToastRootProps> = ({
   return (
     <RadixToast.Root
       className={clsx(
-        'transition-all gap-4 rounded-lg py-4 px-6 flex justify-between items-center max-w-sm data-[state=open]:animate-slideIn data-[state=closed]:animate-hide data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-swipeOut',
+        'data-[state=open]:animate-swipeIn flex max-w-sm items-center justify-between gap-4 rounded-lg px-6 py-4 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-hide data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]',
         rootColorClassVariants[variant],
-        className
+        className,
       )}
       {...rest}
     >
       <div className="flex-1">
-        <RadixToast.Title className="flex gap-2 items-center font-semibold">
+        <RadixToast.Title className="flex items-center gap-2 font-semibold">
           {variantIconElement}
           {title}
         </RadixToast.Title>
-        <RadixToast.Description className="text-sm">
-          {desc}
-        </RadixToast.Description>
+        <RadixToast.Description className="text-sm">{desc}</RadixToast.Description>
       </div>
       <RadixToast.Action
         altText="close"
         className={clsx(
-          'bg-gray-100 w-8 h-8 flex items-center justify-center rounded-full hover:text-gray-100 transition-all',
-          closeColorClassVariants[variant]
+          'flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-all hover:text-gray-100',
+          closeColorClassVariants[variant],
         )}
       >
         <X />

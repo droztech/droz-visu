@@ -1,15 +1,8 @@
 {
-  "eslint.format.enable": true,
   "editor.tabSize": 2,
+  "eslint.format.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "material-icon-theme.folders.associations": {
-    "tsconfig": "typescript",
-    "visu": "lib"
-  },
-  "material-icon-theme.files.associations": {
-    "eslint.config.cjs": "eslint"
+    "source.fixAll.eslint": "explicit"
   },
   "tailwindCSS.experimental.configFile": "./packages/visu/tailwind.config.ts",
   "tailwindCSS.classAttributes": [

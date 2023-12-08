@@ -8,6 +8,6 @@
     }
   },
   "extends": "@droz-js/tsconfig/library.json",
-  "include": ["src", "../../eslint.config.cjs"],
+  "include": ["src", "./tailwind.config.ts", "../../eslint.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
