@@ -4,15 +4,7 @@ module.exports = {
     es2020: true,
     jest: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:@typescript-eslint/recommended',
-    'standard',
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', 'standard', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -21,20 +13,17 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: [
-      './packages/visu/tsconfig.json',
-      './apps/docs/tsconfig.json',
-      './apps/web/tsconfig.json',
-    ],
+    project: ['./packages/visu/tsconfig.json', './apps/docs/tsconfig.json', './apps/web/tsconfig.json'],
   },
   plugins: ['unused-imports', 'react', 'jsx-a11y', '@typescript-eslint'],
   rules: {
-    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-imports': 'error',
     'no-undef': 'off',
+    'no-unused-vars': ['warn', { varsIgnorePattern: '_' }],
     'prettier/prettier': [
       'warn',
       {
-        printWidth: 80,
+        printWidth: 120,
         tabWidth: 2,
         singleQuote: true,
         trailingComma: 'all',
