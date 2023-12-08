@@ -1,7 +1,7 @@
 {
   "name": "@droz-js/visu",
   "private": false,
-  "version": "2.3.0",
+  "version": "2.3.1",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -64,6 +64,7 @@
     "react-dom": ">=16.x"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-avatar": "^1.0.2",
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.4",

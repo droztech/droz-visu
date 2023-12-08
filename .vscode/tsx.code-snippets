@@ -65,7 +65,7 @@
       "          summary: 'React.ReactNode',",
       "        },",
       "      },",
-      "      type: { name: 'other', required: true, value: 'React.ReactNode' },",
+      "      type: { name: 'other', required: false, value: 'React.ReactNode' },",
       "    },",
       "  },",
       "  args: {",
