@@ -19,7 +19,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
     "prepare": "husky install",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "test:watch": "turbo run test -- --watch"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
