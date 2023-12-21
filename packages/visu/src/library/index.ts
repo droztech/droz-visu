@@ -70,3 +70,6 @@ export type * from './Toast'
 
 export { default as Accordion } from './Accordion'
 export type * from './Accordion'
+
+export { default as Skeleton } from './Skeleton'
+export type * from './Skeleton'

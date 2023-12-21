@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Accordion } from './library'
+import { Skeleton } from './library'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
 import { useState } from 'react'
@@ -32,15 +32,10 @@ function App() {
     <LayoutDefault asChild terminal={[watch(), test]} buttons={[{ icon: <Eraser />, onClick: clearState }]}>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Accordion.Root type="single" collapsible>
-          <Accordion.Item value="default">
-            <Accordion.Header>
-              <span>XXX</span>
-              <Accordion.Trigger />
-            </Accordion.Header>
-            <Accordion.Content>YYY</Accordion.Content>
-          </Accordion.Item>
-        </Accordion.Root>
+        <div className="flex h-full w-full flex-col gap-4 ">
+          <Skeleton className="h-32 w-full" repeat={4} />
+        </div>
+
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
