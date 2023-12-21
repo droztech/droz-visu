@@ -15,7 +15,7 @@
     "scope": "typescriptreact",
     "prefix": "reactcomp",
     "body": [
-      "import { clsx } from 'clsx'",
+      "import { cn } from '@/src/utils/class-merge.helper'",
       "import {",
       "  FC,",
       "  HTMLAttributes,",
@@ -33,7 +33,7 @@
       "    useImperativeHandle(ref, () => elementRef.current)",
       "",
       "    return (",
-      "      <div className={clsx('', className)} ref={elementRef} {...rest}>",
+      "      <div className={cn('', className)} ref={elementRef} {...rest}>",
       "        {children}",
       "      </div>",
       "    )",
