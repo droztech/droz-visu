@@ -33,21 +33,9 @@ function App() {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
         <Tooltip.Time content="Copiado!" closeTime={2000} side="top">
-          <span>Times</span>
+          <span>Time</span>
         </Tooltip.Time>
-        <Tooltip.Close
-          content="eargfv erget grt hbertybwrt vwer cwqa dcew cerfv wertb wrterybhne rgbhqwe v erv rsb wsertb ertvb srtb
-            hntryehn ryhb wsertv erv"
-          side="top"
-        >
-          <span>Close</span>
-        </Tooltip.Close>
-        <Tooltip.Hover content="Copiado!" side="top">
-          <span>Hover</span>
-        </Tooltip.Hover>
-        <Tooltip.Step side="top">
-          <span>Step</span>
-        </Tooltip.Step>
+
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

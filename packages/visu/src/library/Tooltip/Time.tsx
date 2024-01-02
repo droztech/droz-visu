@@ -10,7 +10,6 @@ export interface TooltipTimeProps extends Omit<HTMLAttributes<HTMLSpanElement>, 
   open?: boolean
   side?: Position
   closeTime?: number
-
   onOpenChange?: (open: boolean) => void
   /**
    * @deprecated Use `content` instead. Will be removed in the next major release
@@ -23,9 +22,9 @@ const TooltipTime: FC<TooltipTimeProps> = ({
   className,
   content,
   defaultOpen = false,
+  closeTime = 2000,
   open = false,
   onOpenChange,
-  closeTime,
   side,
   text,
   ...rest
