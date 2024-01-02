@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Skeleton } from './library'
+import { Tooltip } from './library'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
 import { useState } from 'react'
@@ -32,10 +32,22 @@ function App() {
     <LayoutDefault asChild terminal={[watch(), test]} buttons={[{ icon: <Eraser />, onClick: clearState }]}>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <div className="flex h-full w-full flex-col gap-4 ">
-          <Skeleton className="h-32 w-full" repeat={4} />
-        </div>
-
+        <Tooltip.Time content="Copiado!" closeTime={2000} side="top">
+          <span>Times</span>
+        </Tooltip.Time>
+        <Tooltip.Close
+          content="eargfv erget grt hbertybwrt vwer cwqa dcew cerfv wertb wrterybhne rgbhqwe v erv rsb wsertb ertvb srtb
+            hntryehn ryhb wsertv erv"
+          side="top"
+        >
+          <span>Close</span>
+        </Tooltip.Close>
+        <Tooltip.Hover content="Copiado!" side="top">
+          <span>Hover</span>
+        </Tooltip.Hover>
+        <Tooltip.Step side="top">
+          <span>Step</span>
+        </Tooltip.Step>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
