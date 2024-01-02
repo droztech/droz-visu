@@ -38,9 +38,7 @@ describe('TooltipClose tests', () => {
     fireEvent.click(element)
 
     await waitFor(() => {
-      expect(screen.getByRole('dialog')).toContainHTML(
-        '<span data-testid="content">Text1</span>',
-      )
+      expect(screen.getByRole('dialog')).toContainHTML('<span data-testid="content">Text1</span>')
     })
   })
 
