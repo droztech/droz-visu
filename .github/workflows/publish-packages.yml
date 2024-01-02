@@ -32,6 +32,6 @@ jobs:
         working-directory: packages/visu
         run: |
           mv .npmrc.template .npmrc
-          npm publish
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}
