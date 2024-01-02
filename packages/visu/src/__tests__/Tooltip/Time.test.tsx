@@ -1,13 +1,12 @@
 import { Tooltip } from '@library'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
-// Testes limitados por conta do Radix
-describe('TooltipClose tests', () => {
-  it('Should render a TooltipClose element', () => {
+describe('TooltipTime tests', () => {
+  it('Should render a TooltipTime element', () => {
     render(
-      <Tooltip.Close content="Close">
+      <Tooltip.Time duration={5000} content="Time">
         <div data-testid="element">Hello</div>
-      </Tooltip.Close>,
+      </Tooltip.Time>,
     )
     const element = screen.getByTestId('element')
 
@@ -16,9 +15,9 @@ describe('TooltipClose tests', () => {
 
   it('Should render a text with the prop "content"', async () => {
     render(
-      <Tooltip.Close content="Text1">
+      <Tooltip.Time duration={5000} content="Text1">
         <div data-testid="element">Hello</div>
-      </Tooltip.Close>,
+      </Tooltip.Time>,
     )
     const element = screen.getByTestId('element')
     fireEvent.click(element)
@@ -30,9 +29,9 @@ describe('TooltipClose tests', () => {
 
   it('Should render a ReactNode content with the prop "content"', async () => {
     render(
-      <Tooltip.Close content={<span data-testid="content">Text1</span>}>
+      <Tooltip.Time duration={5000} content={<span data-testid="content">Text1</span>}>
         <div data-testid="element">Hello</div>
-      </Tooltip.Close>,
+      </Tooltip.Time>,
     )
     const element = screen.getByTestId('element')
     fireEvent.click(element)
@@ -42,20 +41,22 @@ describe('TooltipClose tests', () => {
     })
   })
 
-  /**
-   * @deprecated - Teste para uma propriedade deprecated
-   */
-  it('Should render a text with the prop "text"', async () => {
+  it('Should keep the TooltipTime open for the specified duration', async () => {
+    jest.useFakeTimers()
+
     render(
-      <Tooltip.Close text="Text1">
+      <Tooltip.Time duration={5000} content="Time">
         <div data-testid="element">Hello</div>
-      </Tooltip.Close>,
+      </Tooltip.Time>,
     )
+
     const element = screen.getByTestId('element')
     fireEvent.click(element)
 
+    jest.advanceTimersByTime(5000)
+
     await waitFor(() => {
-      expect(screen.getByRole('dialog')).toHaveTextContent('Text1')
+      expect(screen.queryByRole('dialog')).toBeNull()
     })
   })
 })

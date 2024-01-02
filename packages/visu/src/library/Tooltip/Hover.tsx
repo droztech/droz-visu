@@ -1,17 +1,9 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
 import { Position } from '@types'
 import { clsx } from 'clsx'
-import {
-  FC,
-  HTMLAttributes,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { FC, HTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react'
 
-export interface TooltipHoverProps
-  extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
+export interface TooltipHoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   // Optional because we can't remove `text` until the next major release
   content?: ReactNode
   defaultOpen?: boolean
@@ -60,11 +52,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
         open={tooltipOpen}
         onOpenChange={(value) => handleOpenChange(value)}
       >
-        <RadixTooltip.Trigger
-          className="z-10"
-          asChild
-          onClick={() => handleOpenChange(true)}
-        >
+        <RadixTooltip.Trigger className="z-10" asChild onClick={() => handleOpenChange(true)}>
           {children}
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
