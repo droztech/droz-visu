@@ -14,8 +14,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: npm
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm ci
@@ -27,12 +28,10 @@ jobs:
         working-directory: packages/visu
         run: npm run test:coverage
 
-      - name: Create .npmrc
-        working-directory: packages/visu
-        run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
-
       - name: Publish
         working-directory: packages/visu
-        run: npm publish
+        run: |
+          mv .npmrc.template .npmrc
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}
