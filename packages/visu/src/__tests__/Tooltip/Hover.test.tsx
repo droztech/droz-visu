@@ -106,4 +106,24 @@ describe('TooltipHover tests', () => {
       expect(screen.getByRole('tooltip')).toHaveTextContent('Text1')
     })
   })
+
+  it('Should close the tooltip after the specified closeTime', async () => {
+    const closeTime = 2500
+
+    render(
+      <Tooltip.Hover content="Text" closeTime={closeTime}>
+        <div data-testid="element">Hello</div>
+      </Tooltip.Hover>,
+    )
+
+    const element = screen.getByTestId('element')
+    fireEvent.click(element)
+
+    await waitFor(() => {
+      expect(screen.getByRole('tooltip')).toContainHTML('Text')
+      setTimeout(() => {
+        expect(screen.queryByRole('tooltip')).toBeNull()
+      }, closeTime + 100)
+    })
+  })
 })
