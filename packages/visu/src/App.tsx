@@ -32,10 +32,9 @@ function App() {
     <LayoutDefault asChild terminal={[watch(), test]} buttons={[{ icon: <Eraser />, onClick: clearState }]}>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Tooltip.Time content="Copiado!" closeTime={2000} side="top">
+        <Tooltip.Hover content="Copiado!" closeTime={1000} side="top">
           <span>Time</span>
-        </Tooltip.Time>
-
+        </Tooltip.Hover>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

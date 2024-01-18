@@ -7,10 +7,10 @@ export interface TooltipHoverProps extends Omit<HTMLAttributes<HTMLSpanElement>,
   // Optional because we can't remove `text` until the next major release
   content?: ReactNode
   defaultOpen?: boolean
+  closeTime?: number
   delayDuration?: number
   open?: boolean
   side?: Position
-
   onOpenChange?: (open: boolean) => void
   /**
    * @deprecated Use `content` instead. Will be removed in the next major release
@@ -22,6 +22,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
   children,
   className,
   content,
+  closeTime,
   defaultOpen = false,
   delayDuration = 300,
   open = false,
@@ -33,9 +34,16 @@ const TooltipHover: FC<TooltipHoverProps> = ({
   const [tooltipOpen, setTooltipOpen] = useState(open)
 
   const handleOpenChange = useCallback(
-    (value: boolean) => {
-      setTooltipOpen(value)
-      if (onOpenChange) onOpenChange(value)
+    (isOpen: boolean) => {
+      if (!isOpen && closeTime) {
+        setTimeout(() => {
+          setTooltipOpen(false)
+          if (onOpenChange) onOpenChange(false)
+        }, closeTime)
+      } else {
+        setTooltipOpen(isOpen)
+        if (onOpenChange) onOpenChange(isOpen)
+      }
     },
     [onOpenChange],
   )
