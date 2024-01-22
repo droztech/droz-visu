@@ -33,6 +33,41 @@ const meta: Meta<TooltipCloseProps> = {
       },
       type: { name: 'boolean', required: false },
     },
+    onOpenChange: {
+      control: 'none',
+      description: 'Callback executado quando o estado de `open` é alterado.',
+      table: {
+        type: { summary: 'function' },
+      },
+      type: { name: 'function', required: false },
+    },
+    open: {
+      control: 'boolean',
+      description: 'Define se o conteúdo do Tooltip está visível ou não.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    closeTime: {
+      control: 'number',
+      description: 'Define o tempo em milissegundos para fechar o conteúdo do Tooltip.',
+      table: {
+        type: { summary: 'number' },
+      },
+      type: { name: 'number', required: false },
+    },
+    closeButton: {
+      control: 'boolean',
+      description: 'Define se o tooltip terá um botão de close ou não.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+      },
+      type: { name: 'boolean', required: false },
+      defaultValue: true
+    },
     side: {
       control: { type: 'inline-radio' },
       description:
