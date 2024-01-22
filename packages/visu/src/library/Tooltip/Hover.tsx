@@ -23,9 +23,9 @@ const TooltipHover: FC<TooltipHoverProps> = ({
   className,
   content,
   closeTime,
-  defaultOpen = false,
-  delayDuration = 300,
-  open = false,
+  defaultOpen,
+  delayDuration,
+  open,
   onOpenChange,
   side,
   text,
@@ -48,10 +48,6 @@ const TooltipHover: FC<TooltipHoverProps> = ({
     [onOpenChange],
   )
 
-  useEffect(() => {
-    setTooltipOpen(open)
-  }, [open])
-
   return (
     <RadixTooltip.Provider>
       <RadixTooltip.Root
@@ -60,14 +56,14 @@ const TooltipHover: FC<TooltipHoverProps> = ({
         open={tooltipOpen}
         onOpenChange={(value) => handleOpenChange(value)}
       >
-        <RadixTooltip.Trigger className="z-10" asChild onClick={() => handleOpenChange(true)}>
+        <RadixTooltip.Trigger className="z-10" asChild>
           {children}
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content side={side} sideOffset={5}>
             <RadixTooltip.Arrow className="h-2 w-5 fill-background" />
             <div className="max-w-xs rounded-md bg-background p-3 shadow-sm">
-              <span className={clsx([className, 'text-sm'])} {...rest}>
+              <span className={clsx(className, 'text-sm')} {...rest}>
                 {content || text}
               </span>
             </div>

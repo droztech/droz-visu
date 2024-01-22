@@ -70,7 +70,6 @@ const meta: Meta<TooltipHoverProps> = {
       },
       type: { name: 'string', required: false },
     },
-
     onOpenChange: {
       control: 'none',
       description: 'Callback executado quando o estado de `open` é alterado.',
@@ -79,7 +78,6 @@ const meta: Meta<TooltipHoverProps> = {
       },
       type: { name: 'function', required: false },
     },
-
     /**
      * @deprecated - Deprecated props will be removed in the next major version.
      */

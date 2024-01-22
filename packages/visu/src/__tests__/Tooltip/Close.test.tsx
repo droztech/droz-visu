@@ -58,4 +58,24 @@ describe('TooltipClose tests', () => {
       expect(screen.getByRole('dialog')).toHaveTextContent('Text1')
     })
   })
+
+  it('Should close the tooltip after the specified closeTime', async () => {
+    const closeTime = 2500
+
+    render(
+      <Tooltip.Close content="Text" closeTime={closeTime}>
+        <div data-testid="element">Hello</div>
+      </Tooltip.Close>,
+    )
+
+    const element = screen.getByTestId('element')
+    fireEvent.click(element)
+
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toContainHTML('Text')
+      setTimeout(() => {
+        expect(screen.queryByRole('dialog')).toBeNull()
+      }, closeTime + 100)
+    })
+  })
 })
