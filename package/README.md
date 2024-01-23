@@ -10,98 +10,56 @@
   </a>
 </p>
 
-Visu é uma biblioteca de componentes e design system desenvolvida para os produtos Coaktion. A biblioteca utiliza [Vite](https://vitejs.dev/) para o desenvolvimento e build, [React](https://react.dev/) para os componentes e [Tailwindcss](https://tailwindcss.com/) para o design system.
+Visu is a component library and design system developed for Coaktion products. The library uses [Vite](https://vitejs.dev) for development and build, [React](https://react.dev) for components and [Tailwindcss](https://tailwindcss.com) for the design system.
 
-## Instalação
+## Installing
 
-Instale a biblioteca em um projeto React com o comando
+Install the library in a React project with the command
 
 ```bash
 npm install @droz-js/visu
 ```
 
-## Utilização
+## Configuration
 
-### Componentes
+Visu is built using Tailwind CSS as a basis for styling components, making it work in different environments. Based on this, there are 2 ways to install Visu to your project:
 
-O Visu é construido utilizando o Tailwind CSS como base para a estilização dos componentes. Para utilizar os componentes corretamente é necessário ter o Tailwind CSS instalado no projeto. No arquivo `tailwind.config.js` o arquivo `@droz-js/visu/dist/visu.es.js` do Visu precisa ser adicionado ao content para que os componentes recebam as atualizações de estilização ao modificar alguma configuração do tema do Tailwind CSS.
+### Project *WITH* Tailwindcss
+
+To use in projects **WITH** Tailwindcss it is necessary to import the styling of `@droz-js/visu/dist/theme-plugin` as a **plugin** and `@droz-js/visu/dist/visu.es.js` needs to be added to **content** in your `tailwind.config.js` file.
 
 ```typescript
+// tailwind.config.ts
 import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
-import type { Config } from 'tailwindcss'
 
 export default {
-  content: ['./index.html', './src/**/*.{ts,tsx}', './node_modules/@droz-js/visu/dist/visu.es.js'],
-} satisfies Config
-
-```
-
-Com a configuração do `tailwind.config.js` realizada, basta importar um componente e adicionar ele ao projeto seguindo a [documentação dos componentes no storybook(em construção)](https://feat-update-storybook-v7--645ce9be8ed7e2ea5066a152.chromatic.com/)
-
-```typescript
-import { Button } from '@droz-js/visu'
-
-function App() {
-  return <Button.Root>Clique aqui</Button.Root>
+  content: ['./node_modules/@droz-js/visu/dist/visu.es.js'],
+  plugins: [VisuTailwindcssPlugin],
 }
 
-export default App
 ```
 
-#### Utilização sem Tailwindcss
-Para utilizar sem o Tailwindcss é necessário importar a estilização de `@droz-js/visu/styles`. **Essa etapa não deve ser realizada caso esteja utilizando o Tailwindcss**
+### Project *WITHOUT* Tailwindcss
+
+To use in projects **WITHOUT** Tailwindcss, you need to import the styling from `@droz-js/visu/styles` into your global styles file.
 
 ```typescript
+// global.css
 import '@droz-js/visu/styles'
 ```
 
-### Design System
+## Using
 
-O Design System do Visu foi criado para ser utilizado em conjunto com o [Tailwindcss](https://tailwindcss.com/), como um plugin. Para utilizar o Design System do Visu basta importar o Design System de `@droz-js/visu/dist/theme-plugin` e adicioná-lo ao arquivo `tailwind.config.ts`
-
+Once the library is configured, simply import a component and add it to the project.
 
 ```typescript
-import VisuTailwindcssPlugin from '@droz-js/visu/dist/theme-plugin'
-import type { Config } from 'tailwindcss'
+import { Component } from '@droz-js/visu'
 
-export default {
-  content: ['./index.html', './src/**/*.{ts,tsx}', './node_modules/@droz-js/visu/dist/visu.es.js'],
-  plugins: [VisuTailwindcssPlugin],
-} satisfies Config
+function App() {
+  return <Component>...</Component>
+}
 
-```
-
-Ao adicionar o plugin do Visu será possível utilizar todos os tokens do Design System do Visu no projeto, como cores, espaçamentos, etc. Para verificar todos os tokens disponíveis acesse a [documentação do Design System(em construção)](https://feat-update-storybook-v7--645ce9be8ed7e2ea5066a152.chromatic.com/)
-
-# Testes
-
-O projeto utiliza o [Jest](https://jestjs.io/pt-BR/) junto com o [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) para realizar os testes dos componentes da Biblioteca.
-
-Os testes se encontram em `__tests__` e cada arquivo ou pasta representa um componente da Biblioteca.
-
-## Desenvolvimento
-
-Para desenvolver um teste certifique-se de que realizou a instalação de todas as dependências, executando `npm install` na raiz do projeto.
-O script `test:coverage` está configurado nesse projeto para executar os testes. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
-
-```bash
-npm run test:coverage
-```
-
-### Test watch
-
-O script `test` está configurado nesse projeto para executar os testes em modo watch. Para executar o comando certifique-se de que está no diretório do projeto `visu` e execute:
-
-```bash
-npm run test -- [pasta/arquivo]
-```
-
-### Instalação de pacotes
-
-Para instalar pacotes no Visu `package` acesse a raiz do projeto no terminal `/` e utilize o comando:
-
-```bash
-npm install -D [pacote] --workspace=@droz-js/visu
+export default App
 ```
 
 ## License

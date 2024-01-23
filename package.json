@@ -7,19 +7,19 @@
     "docs"
   ],
   "scripts": {
-    "build": "turbo run build --no-cache",
-    "build:docs": "turbo run build --no-cache --filter=@droz-js/visu-docs",
-    "build:visu": "turbo run build --no-cache --filter=@droz-js/visu",
-    "dev": "turbo run dev --parallel --no-cache",
-    "dev:docs": "turbo run dev --parallel --no-cache --filter=@droz-js/visu-docs",
-    "dev:visu": "turbo run dev --parallel --no-cache --filter=@droz-js/visu",
+    "build": "turbo run build",
+    "build:docs": "turbo run build --filter=@droz-js/visu-docs",
+    "build:visu": "turbo run build --filter=@droz-js/visu",
+    "dev": "turbo run dev --parallel",
+    "dev:docs": "turbo run dev --parallel --filter=@droz-js/visu-docs",
+    "dev:visu": "turbo run dev --parallel --filter=@droz-js/visu",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
     "test": "turbo run test",
-    "test:watch": "turbo run test -- --watch"
+    "test:watch": "turbo run test:watch"
   },
   "lint-staged": {
     "**/*.{js, jsx, ts, tsx}": [
