@@ -1,22 +1,8 @@
 {
   "name": "@droz-js/visu",
-  "private": false,
   "version": "2.6.1",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
+  "private": false,
   "description": "A library to use for coaktion projects!",
-  "type": "module",
-  "homepage": "https://main.d1rc90yigjmmrr.amplifyapp.com/",
-  "bugs": {
-    "url": "https://github.com/Coaktion/Droz-Visu/issues"
-  },
-  "repository": {
-    "type": "github",
-    "url": "git+https://github.com/Coaktion/Droz-Visu.git",
-    "directory": "package"
-  },
   "keywords": [
     "coaktion",
     "ui",
@@ -27,12 +13,16 @@
     "components library",
     "design system"
   ],
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/visu.umd.js",
-  "module": "./dist/visu.es.js",
-  "types": "./dist/index.d.ts",
+  "homepage": "https://main.d1rc90yigjmmrr.amplifyapp.com/",
+  "bugs": {
+    "url": "https://github.com/Coaktion/Droz-Visu/issues"
+  },
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/Coaktion/Droz-Visu.git",
+    "directory": "package"
+  },
+  "type": "module",
   "exports": {
     ".": {
       "import": {
@@ -48,19 +38,21 @@
       "default": "./dist/theme-plugin.js"
     }
   },
+  "main": "./dist/visu.umd.js",
+  "module": "./dist/visu.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "prepublishOnly": "npm run build",
-    "dev": "vite",
     "build": "tsc && vite build",
+    "ci": "jest --ci",
+    "dev": "vite",
+    "prepublishOnly": "npm run build",
     "preview": "vite preview",
-    "test:coverage": "jest --collectCoverage",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "ci": "jest --ci"
-  },
-  "peerDependencies": {
-    "react": ">=16.x",
-    "react-dom": ">=16.x"
+    "test:coverage": "jest --collectCoverage",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
@@ -84,10 +76,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.11",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
     "@types/testing-library__jest-dom": "^5.14.9",
-    "@vitejs/plugin-react": "^3.1.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.17",
     "clsx": "^1.2.1",
@@ -103,9 +92,15 @@
     "rollup-plugin-copy": "^3.5.0",
     "tailwind-merge": "^1.14.0",
     "ts-jest": "^29.1.2",
-    "tsconfig": "*",
-    "vite": "^4.5.2",
     "vite-plugin-dts": "^3.7.1",
     "zod": "^3.22.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.x",
+    "react-dom": ">=16.x"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

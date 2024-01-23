@@ -7,7 +7,6 @@
     "docs"
   ],
   "scripts": {
-    "prepublishOnly": "npm run build",
     "build": "turbo run build --no-cache",
     "build:docs": "turbo run build --no-cache --filter=@droz-js/visu-docs",
     "build:visu": "turbo run build --no-cache --filter=@droz-js/visu",
@@ -15,16 +14,25 @@
     "dev:docs": "turbo run dev --parallel --no-cache --filter=@droz-js/visu-docs",
     "dev:visu": "turbo run dev --parallel --no-cache --filter=@droz-js/visu",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install",
-    "test": "turbo run test",
-    "test:watch": "turbo run test -- --watch",
     "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
-    "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/"
+    "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build",
+    "test": "turbo run test",
+    "test:watch": "turbo run test -- --watch"
+  },
+  "lint-staged": {
+    "**/*.{js, jsx, ts, tsx}": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
+    "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
     "eslint-config-prettier": "^9.1.0",
@@ -44,16 +52,13 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tsconfig": "*",
     "turbo": "latest",
-    "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": ">=14.0.0"
+    "typescript": "^5.3.3",
+    "vite": "^4.5.2"
   },
   "packageManager": "npm@10.2.3",
-  "lint-staged": {
-    "**/*.{js, jsx, ts, tsx}": [
-      "eslint --fix"
-    ]
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
