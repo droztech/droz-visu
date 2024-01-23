@@ -20,8 +20,6 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 - `docs`: Um projeto para a documentação dos componentes criados na biblioteca Visu realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
 
-- `web`: Projeto para validação manual dos componentes e design system criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca, dos componentes e do design system em um projeto externo.
-
 ### Packages
 
 - `tsconfig`: `tsconfig.json` utilizado no monorepo.

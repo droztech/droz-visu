@@ -108,11 +108,10 @@ npm run dev:visu
 
 # optional
 npm run dev:docs ## this will start the documentation storybook.js server. The components are based on the packages/visu build
-npm run dev:web ## this will start a web environment on port 3000 to make tests. The components are based on the packages/visu build
 npm run dev ## this will start all the environments
 ```
 
-- If you will be working on the `docs` or `web`, you can use the following commands to build Visu components and then start the dev server:
+- If you will be working on the `docs`, you can use the following commands to build Visu components and then start the dev server:
 
 ```bash
 # Build Visu source components
@@ -120,8 +119,6 @@ npm ruin build:visu
 
 # Start documentation dev server
 npm run dev:docs
-# Start web dev server
-npm run dev:web
 ```
 
 > <span style="color: #FFA624">Remember that these commands must be executed in the root folder of the project.</span>
@@ -158,7 +155,6 @@ npm run build
 # Build isolated packages
 npm run build:docs ## build apps/docs
 npm run build:visu ## build packages/visu
-npm run build:web ## build apps/web
 ```
 
 > <span style="color: #FFA624">Note: ensure your version of Node is 16 or higher to run scripts</span>
