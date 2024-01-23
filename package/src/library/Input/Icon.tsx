@@ -1,30 +1,23 @@
 import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, FC, useCallback, useMemo, useRef } from 'react'
 
-export interface InputIconProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface InputIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const InputIcon: FC<InputIconProps> = ({
-  children,
-  className,
-  onClick,
-  type,
-  ...rest
-}) => {
+const InputIcon: FC<InputIconProps> = ({ children, className, onClick, type, ...rest }) => {
   const IconComponent = useRef<HTMLButtonElement | null>(null)
 
   const focusInput = useCallback(() => {
     const RootComponent = IconComponent?.current?.parentElement
     const InputComponent = RootComponent?.querySelector('input')
     InputComponent?.focus()
-  }, [IconComponent.current])
+  }, [])
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       focusInput()
       onClick?.(e)
     },
-    [onClick, focusInput]
+    [onClick, focusInput],
   )
 
   const clickableClass = useMemo(() => {

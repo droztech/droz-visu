@@ -26,10 +26,7 @@ type StorySidebarHeaderProps = StoryObj<SidebarHeaderProps>
 export const Comum: StorySidebarHeaderProps = {
   render: (args) => {
     return (
-      <Sidebar.Header
-        {...args}
-        className="flex justify-between items-center w-96"
-      >
+      <Sidebar.Header {...args} className="flex w-96 items-center justify-between">
         <h1>Nexo</h1>
         <Button.Root light>
           <Button.Icon>

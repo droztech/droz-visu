@@ -16,8 +16,7 @@ const meta: Meta<CheckboxRootProps> = {
     },
     checked: {
       control: { type: 'inline-radio' },
-      description:
-        'Propriedade que indica se o componente está marcado, não está marcado ou está indeterminado.',
+      description: 'Propriedade que indica se o componente está marcado, não está marcado ou está indeterminado.',
       options: [true, false, 'indeterminate'],
       table: {
         type: { summary: ['boolean', '"indeterminate"'].join(' | ') },
@@ -80,9 +79,7 @@ export const Indeterminado: CheckboxRootStory = {
   render: (args) => {
     return (
       <Checkbox.Root {...args}>
-        <Checkbox.Indicator>
-          {args.checked === 'indeterminate' ? <Question /> : <Check />}
-        </Checkbox.Indicator>
+        <Checkbox.Indicator>{args.checked === 'indeterminate' ? <Question /> : <Check />}</Checkbox.Indicator>
       </Checkbox.Root>
     )
   },

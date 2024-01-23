@@ -6,12 +6,7 @@ export interface MenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text: string
 }
 
-const MenuButton: FC<MenuButtonProps> = ({
-  className,
-  icon,
-  text,
-  ...rest
-}) => {
+const MenuButton: FC<MenuButtonProps> = ({ className, icon, text, ...rest }) => {
   return (
     <button
       className={clsx([
@@ -32,8 +27,8 @@ const MenuButton: FC<MenuButtonProps> = ({
       ])}
       {...rest}
     >
-      {icon && <div className="[&>svg]:w-6 [&>svg]:h-6 mx-auto">{icon}</div>}
-      <span className="text-sm flex-1 text-left">{text}</span>
+      {icon && <div className="mx-auto [&>svg]:h-6 [&>svg]:w-6">{icon}</div>}
+      <span className="flex-1 text-left text-sm">{text}</span>
     </button>
   )
 }

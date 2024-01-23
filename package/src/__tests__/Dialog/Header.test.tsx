@@ -99,11 +99,7 @@ describe('DialogHeader tests', () => {
         </Dialog.Trigger>
 
         <Dialog.Content>
-          <Dialog.Header
-            data-testid={dialogTestId}
-            title={title}
-            withClose={false}
-          />
+          <Dialog.Header data-testid={dialogTestId} title={title} withClose={false} />
         </Dialog.Content>
       </Dialog.Root>,
     )

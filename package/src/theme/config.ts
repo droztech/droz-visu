@@ -56,7 +56,7 @@ export const theme = {
     transparent: 'transparent',
     inherit: 'inherit',
     current: 'currentColor',
-  
+
     primary: {
       DEFAULT: '#7900F2',
       100: '#F9F8FC',
@@ -67,7 +67,7 @@ export const theme = {
       600: '#3E007C',
       700: '#241534',
     },
-  
+
     secondary: {
       DEFAULT: '#FD6D01',
       100: '#FFF8F2',
@@ -78,7 +78,7 @@ export const theme = {
       600: '#C35400',
       700: '#A14600',
     },
-  
+
     gray: {
       DEFAULT: '#C8C8C8',
       100: '#FFFFFF',
@@ -91,7 +91,7 @@ export const theme = {
       800: '#303030',
       900: '#000000',
     },
-  
+
     success: {
       DEFAULT: '#32C09D',
       100: '#EDF7F5',
@@ -102,7 +102,7 @@ export const theme = {
       600: '#1B6553',
       700: '#144A3D',
     },
-  
+
     error: {
       DEFAULT: '#F20045',
       100: '#FDEDF2',
@@ -113,7 +113,7 @@ export const theme = {
       600: '#99002B',
       700: '#66001D',
     },
-  
+
     alert: {
       DEFAULT: '#FFA624',
       100: '#FFF4E5',

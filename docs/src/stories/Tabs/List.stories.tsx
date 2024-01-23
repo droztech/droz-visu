@@ -36,18 +36,8 @@ export const Comum: TabsListStory = {
   render: ({ ...args }) => (
     <Tabs.Root style={{ width: '50vw' }}>
       <Tabs.List>
-        <Tabs.Trigger
-          key={'tab1'}
-          icon={<Image alt="Icone de exemplo" />}
-          title="Trigger1"
-          value="tab1"
-        />
-        <Tabs.Trigger
-          key={'tab2'}
-          icon={<Image alt="Icone de exemplo" />}
-          title="Trigger2"
-          value="tab2"
-        />
+        <Tabs.Trigger key={'tab1'} icon={<Image alt="Icone de exemplo" />} title="Trigger1" value="tab1" />
+        <Tabs.Trigger key={'tab2'} icon={<Image alt="Icone de exemplo" />} title="Trigger2" value="tab2" />
       </Tabs.List>
       <Tabs.Content value={'tab1'} {...args}>
         Conteúdo do Content 1

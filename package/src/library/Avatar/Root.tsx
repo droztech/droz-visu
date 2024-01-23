@@ -43,14 +43,7 @@ export const statusSizeVariants: SizeClass = {
   lg: 'w-3 h-3',
 }
 
-const AvatarRoot: FC<AvatarRootProps> = ({
-  children,
-  className,
-  color = 'primary',
-  size = 'md',
-  status,
-  ...rest
-}) => {
+const AvatarRoot: FC<AvatarRootProps> = ({ children, className, color = 'primary', size = 'md', status, ...rest }) => {
   const rootClass = useMemo<string>(() => {
     return clsx(rootColorVariants[color], rootSizeVariants[size])
   }, [color, size])
@@ -60,11 +53,7 @@ const AvatarRoot: FC<AvatarRootProps> = ({
   }, [color])
 
   const statusClass = useMemo<string>(() => {
-    return clsx(
-      status ? statusStatusVariants[status] : '',
-      statusSizeVariants[size],
-      statusColorVariants[color]
-    )
+    return clsx(status ? statusStatusVariants[status] : '', statusSizeVariants[size], statusColorVariants[color])
   }, [color, status, size])
 
   return (
@@ -83,19 +72,8 @@ const AvatarRoot: FC<AvatarRootProps> = ({
       ])}
       {...rest}
     >
-      {status && (
-        <div
-          className={clsx([
-            'absolute',
-            'top-0',
-            'right-0',
-            'rounded-full',
-            'border-2',
-            statusClass,
-          ])}
-        />
-      )}
-      <div className={clsx('rounded-full w-full h-full flex items-center justify-center aspect-square', bgClass)}>
+      {status && <div className={clsx(['absolute', 'top-0', 'right-0', 'rounded-full', 'border-2', statusClass])} />}
+      <div className={clsx('flex aspect-square h-full w-full items-center justify-center rounded-full', bgClass)}>
         {children}
       </div>
     </RadixAvatar.Root>

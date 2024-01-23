@@ -4,8 +4,7 @@ import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export interface DialogHeaderProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+export interface DialogHeaderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   closeIcon?: ReactNode
   title: string
   titleIcon?: ReactNode
@@ -29,9 +28,7 @@ const DialogHeader: FC<DialogHeaderProps> = ({
       {...rest}
     >
       <div className="flex items-center gap-2">
-        {titleIcon && (
-          <span className="[&_*]:text-lg [&_*]:text-primary">{titleIcon}</span>
-        )}
+        {titleIcon && <span className="[&_*]:text-lg [&_*]:text-primary">{titleIcon}</span>}
         <span className="text-md font-normal text-gray-900">{title}</span>
       </div>
       {withClose && (

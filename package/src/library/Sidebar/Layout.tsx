@@ -3,19 +3,9 @@ import { FC, HTMLAttributes } from 'react'
 
 export interface SidebarLayoutProps extends HTMLAttributes<HTMLDivElement> {}
 
-const SidebarLayout: FC<SidebarLayoutProps> = ({
-  children,
-  className,
-  ...rest
-}) => {
+const SidebarLayout: FC<SidebarLayoutProps> = ({ children, className, ...rest }) => {
   return (
-    <div
-      className={clsx([
-        className,
-        'flex flex-row w-full [&>*:nth-child(2)]:w-full',
-      ])}
-      {...rest}
-    >
+    <div className={clsx([className, 'flex w-full flex-row [&>*:nth-child(2)]:w-full'])} {...rest}>
       {children}
     </div>
   )

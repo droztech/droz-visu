@@ -21,16 +21,7 @@ const meta: Meta<LoadingProps> = {
       ] as LoadingProps['color'][],
       table: {
         type: {
-          summary: [
-            'alert',
-            'current',
-            'error',
-            'gray',
-            'primary',
-            'secondary',
-            'success',
-            'white',
-          ].join('|'),
+          summary: ['alert', 'current', 'error', 'gray', 'primary', 'secondary', 'success', 'white'].join('|'),
         },
       },
       type: { name: 'string', required: false },

@@ -13,7 +13,7 @@ describe('FloatCardTrigger tests', () => {
     render(
       <FloatCard.Root>
         <FloatCard.Trigger data-testid="element"></FloatCard.Trigger>
-      </FloatCard.Root>
+      </FloatCard.Root>,
     )
     const element = screen.queryByTestId('element')
 

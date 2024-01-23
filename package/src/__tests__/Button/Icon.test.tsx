@@ -21,7 +21,7 @@ describe('Button Icon tests', () => {
     render(
       <Button.Icon data-testid="element">
         <CheckCircle />
-      </Button.Icon>
+      </Button.Icon>,
     )
     const element = screen.getByTestId('element')
 

@@ -21,7 +21,7 @@ describe('SidebarLayout tests', () => {
       <Sidebar.Layout data-testid="element">
         <div></div>
         <div></div>
-      </Sidebar.Layout>
+      </Sidebar.Layout>,
     )
     const element = screen.getByTestId('element')
 

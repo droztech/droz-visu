@@ -5,12 +5,9 @@ import { FC, ReactNode, createContext, useCallback, useState } from 'react'
 
 import ToastRoot, { ToastRootProps } from '../Root'
 
-export interface ToastProviderContextProps
-  extends RadixToast.ToastProviderProps {
+export interface ToastProviderContextProps extends RadixToast.ToastProviderProps {
   toast: {
-    [key in ToastRootProps['variant']]: (
-      data: Omit<ToastRootProps, 'variant'>
-    ) => void
+    [key in ToastRootProps['variant']]: (data: Omit<ToastRootProps, 'variant'>) => void
   }
 }
 
@@ -30,9 +27,7 @@ export const posYClassVariants: PosYClass = {
   top: 'top-0',
 }
 
-export const ToastProviderContext = createContext<ToastProviderContextProps>(
-  {} as ToastProviderContextProps
-)
+export const ToastProviderContext = createContext<ToastProviderContextProps>({} as ToastProviderContextProps)
 
 const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
   const [messages, setMessages] = useState<ToastRootProps[]>([])
@@ -41,21 +36,21 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
     (data: Omit<ToastRootProps, 'variant'>) => {
       setMessages([...messages, { ...data, variant: 'alert' }])
     },
-    [messages, setMessages]
+    [messages, setMessages],
   )
 
   const error = useCallback(
     (data: Omit<ToastRootProps, 'variant'>) => {
       setMessages([...messages, { ...data, variant: 'error' }])
     },
-    [messages, setMessages]
+    [messages, setMessages],
   )
 
   const success = useCallback(
     (data: Omit<ToastRootProps, 'variant'>) => {
       setMessages([...messages, { ...data, variant: 'success' }])
     },
-    [messages, setMessages]
+    [messages, setMessages],
   )
 
   const toast = {
@@ -73,18 +68,13 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
       <RadixToast.Provider swipeDirection={posX}>
         {children}
         {messages.map((item, index) => (
-          <ToastRoot
-            key={index}
-            variant={item.variant}
-            title={item.title}
-            desc={item.desc}
-          />
+          <ToastRoot key={index} variant={item.variant} title={item.title} desc={item.desc} />
         ))}
         <RadixToast.Viewport
           className={clsx(
-            'fixed z-50 p-2 flex flex-col-reverse gap-2 max-h-44 overflow-auto scrollbar-hide',
+            'scrollbar-hide fixed z-50 flex max-h-44 flex-col-reverse gap-2 overflow-auto p-2',
             posXClassVariants[posX],
-            posYClassVariants[posY]
+            posYClassVariants[posY],
           )}
         />
       </RadixToast.Provider>

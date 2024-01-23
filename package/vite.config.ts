@@ -18,11 +18,7 @@ function copyTheme() {
 }
 
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({ entryRoot: './src/library', insertTypesEntry: true }),
-    copyTheme(),
-  ],
+  plugins: [react(), dts({ entryRoot: './src/library', insertTypesEntry: true }), copyTheme()],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/library/index.ts'),
@@ -54,6 +50,6 @@ export default defineConfig({
     ],
   },
   esbuild: {
-    banner: '"use client"'
-  }
+    banner: '"use client"',
+  },
 })

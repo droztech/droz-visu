@@ -2,20 +2,13 @@ import { clsx } from 'clsx'
 import { X } from 'phosphor-react'
 import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react'
 
-export interface FileProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
+export interface FileProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   formats?: string[] | string
   onChange?: (data: File | undefined) => void
   value?: File
 }
 
-const File: FC<FileProps> = ({
-  className,
-  formats,
-  onChange,
-  value,
-  ...rest
-}) => {
+const File: FC<FileProps> = ({ className, formats, onChange, value, ...rest }) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [dragOver, setDragOver] = useState(false)
 
@@ -43,10 +36,10 @@ const File: FC<FileProps> = ({
     <div className="relative flex items-center">
       <input
         className={clsx(
-          'pl-4 pr-10 border border-dashed rounded-lg transition-all cursor-pointer hover:bg-gray-300 active:border-primary',
-          dragOver ? 'py-8 bg-gray-300' : 'py-2',
+          'cursor-pointer rounded-lg border border-dashed pl-4 pr-10 transition-all hover:bg-gray-300 active:border-primary',
+          dragOver ? 'bg-gray-300 py-8' : 'py-2',
           value ? 'border-primary' : 'border-gray',
-          className
+          className,
         )}
         ref={fileInputRef}
         type="file"
@@ -57,10 +50,7 @@ const File: FC<FileProps> = ({
         {...rest}
       />
       {value && (
-        <button
-          className="absolute right-4 transition-colors hover:text-error rounded"
-          onClick={handleClearFile}
-        >
+        <button className="absolute right-4 rounded transition-colors hover:text-error" onClick={handleClearFile}>
           <X />
         </button>
       )}

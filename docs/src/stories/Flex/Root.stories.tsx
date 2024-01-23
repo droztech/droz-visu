@@ -26,8 +26,7 @@ const meta: Meta<FlexRootProps> = {
     },
     center: {
       control: { type: 'boolean' },
-      description:
-        'Propriedade que centraliza os elementos horizontalmente e verticalmente dentro do componente.',
+      description: 'Propriedade que centraliza os elementos horizontalmente e verticalmente dentro do componente.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -37,8 +36,7 @@ const meta: Meta<FlexRootProps> = {
     direction: {
       control: { type: 'inline-radio' },
       options: ['col', 'row'],
-      description:
-        'Define a direção dos elementos filhos do componente em linha ou coluna.',
+      description: 'Define a direção dos elementos filhos do componente em linha ou coluna.',
       table: {
         type: { summary: ['col', 'row'].join(' | ') },
       },
@@ -46,8 +44,7 @@ const meta: Meta<FlexRootProps> = {
     },
     full: {
       control: { type: 'boolean' },
-      description:
-        'Propriedade que faz com que o componente ocupe todo o espaço disponível.',
+      description: 'Propriedade que faz com que o componente ocupe todo o espaço disponível.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -57,8 +54,7 @@ const meta: Meta<FlexRootProps> = {
     gap: {
       control: { type: 'inline-radio' },
       options: ['lg', 'md', 'sm'],
-      description:
-        'Propriedade que define a distância entre os elementos filhos do componente.',
+      description: 'Propriedade que define a distância entre os elementos filhos do componente.',
       table: {
         type: {
           summary: ['lg', 'md', 'sm'].join(' | '),
@@ -68,8 +64,7 @@ const meta: Meta<FlexRootProps> = {
     },
     items: {
       control: { type: 'inline-radio' },
-      description:
-        'Define o valor da propriedade css `align-items` no componente.',
+      description: 'Define o valor da propriedade css `align-items` no componente.',
       options: ['center', 'start', 'end', 'stretch'],
       table: {
         type: {
@@ -80,19 +75,11 @@ const meta: Meta<FlexRootProps> = {
     },
     justify: {
       control: { type: 'inline-radio' },
-      description:
-        'Define o valor da propriedade css `justify-content` no componente.',
+      description: 'Define o valor da propriedade css `justify-content` no componente.',
       options: ['center', 'start', 'end', 'stretch', 'between', 'evenly'],
       table: {
         type: {
-          summary: [
-            'center',
-            'start',
-            'end',
-            'stretch',
-            'between',
-            'evenly',
-          ].join(' | '),
+          summary: ['center', 'start', 'end', 'stretch', 'between', 'evenly'].join(' | '),
         },
       },
       type: { name: 'string', required: false },
@@ -139,10 +126,7 @@ type FexRootStory = StoryObj<FlexRootProps>
 export const Comum: FexRootStory = {
   render: (args) => {
     return (
-      <Flex.Root
-        {...args}
-        style={{ border: '1px solid green', width: '30rem', height: '15rem' }}
-      >
+      <Flex.Root {...args} style={{ border: '1px solid green', width: '30rem', height: '15rem' }}>
         <div style={{ border: '1px solid blue', width: '5rem' }}>First</div>
         <div style={{ border: '1px solid blue', width: '8rem' }}>Second</div>
         <div style={{ border: '1px solid blue', width: '5rem' }}>Third</div>
@@ -157,16 +141,10 @@ export const ComAsChild: FexRootStory = {
     return (
       <div>
         <span>Componente Flex como tag span</span>
-        <Flex.Root
-          {...args}
-          style={{ border: '1px solid green', width: '30rem', height: '15rem' }}
-          asChild
-        >
+        <Flex.Root {...args} style={{ border: '1px solid green', width: '30rem', height: '15rem' }} asChild>
           <span>
             <div style={{ border: '1px solid blue', width: '5rem' }}>First</div>
-            <div style={{ border: '1px solid blue', width: '8rem' }}>
-              Second
-            </div>
+            <div style={{ border: '1px solid blue', width: '8rem' }}>Second</div>
             <div style={{ border: '1px solid blue', width: '5rem' }}>Third</div>
           </span>
         </Flex.Root>

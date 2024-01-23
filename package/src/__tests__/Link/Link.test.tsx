@@ -20,7 +20,7 @@ describe('Link tests', () => {
     render(
       <Link data-testid="element" asChild>
         <a href="">Hello</a>
-      </Link>
+      </Link>,
     )
     const element = screen.queryByTestId('element')
 

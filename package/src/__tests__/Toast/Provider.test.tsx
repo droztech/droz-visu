@@ -13,7 +13,7 @@ describe('ToastToast tests', () => {
     render(
       <ToastProvider posX="right" posY="bottom">
         <div>Toast</div>
-      </ToastProvider>
+      </ToastProvider>,
     )
     const element = screen.queryByTestId('element')
 

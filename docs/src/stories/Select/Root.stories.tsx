@@ -37,8 +37,7 @@ const meta: Meta<SelectRootProps> = {
     },
     full: {
       control: 'boolean',
-      description:
-        'Faz com que o componente preencha todo o espaço disponível.',
+      description: 'Faz com que o componente preencha todo o espaço disponível.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },

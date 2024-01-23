@@ -3,11 +3,7 @@ import { FC } from 'react'
 
 export interface DialogTriggerProps extends Dialog.DialogTriggerProps {}
 
-const DialogTrigger: FC<DialogTriggerProps> = ({
-  asChild = true,
-  children,
-  ...rest
-}) => {
+const DialogTrigger: FC<DialogTriggerProps> = ({ asChild = true, children, ...rest }) => {
   return (
     <Dialog.Trigger asChild={asChild} {...rest}>
       {children}

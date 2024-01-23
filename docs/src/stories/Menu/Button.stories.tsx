@@ -16,8 +16,7 @@ const meta: Meta<MenuButtonProps> = {
       },
     },
     icon: {
-      description:
-        'Propriedade que recebe o ícone a ser exibido no componente.',
+      description: 'Propriedade que recebe o ícone a ser exibido no componente.',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -27,8 +26,7 @@ const meta: Meta<MenuButtonProps> = {
     },
     text: {
       control: 'text',
-      description:
-        'Propriedade que recebe o texto a ser exibido no componente.',
+      description: 'Propriedade que recebe o texto a ser exibido no componente.',
       table: {
         type: { summary: 'text' },
       },
@@ -53,7 +51,7 @@ export default meta
 type MenuButtonStory = StoryObj<MenuButtonProps>
 
 export const Comum: MenuButtonStory = {
-  render: ({ icon, text, ...args }) => {
+  render: ({ icon: _a, text: _b, ...args }) => {
     return (
       <Menu.Root
         expanded

@@ -12,12 +12,7 @@ const alignVariantClass = {
   right: 'justify-end',
 }
 
-const DialogFooter: FC<DialogFooterProps> = ({
-  align = 'center',
-  children,
-  className,
-  ...rest
-}) => {
+const DialogFooter: FC<DialogFooterProps> = ({ align = 'center', children, className, ...rest }) => {
   const variantClass = useMemo(() => {
     const variants = []
 

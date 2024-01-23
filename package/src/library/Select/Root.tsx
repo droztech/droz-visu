@@ -35,11 +35,7 @@ const SelectRoot: FC<SelectRootProps> = ({
   ...rest
 }) => {
   return (
-    <RadixSelect.Root
-      value={value}
-      onValueChange={onChange ?? onValueChange}
-      {...rest}
-    >
+    <RadixSelect.Root value={value} onValueChange={onChange ?? onValueChange} {...rest}>
       <RadixSelect.Trigger
         className={cn(
           'group flex min-h-10 items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-inherit transition-colors',
@@ -52,12 +48,7 @@ const SelectRoot: FC<SelectRootProps> = ({
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
           <RadixSelect.Value placeholder={placeholder} />
         </span>
-        <RadixSelect.Icon
-          className={cn(
-            'text-inherit transition-all',
-            'group-data-[state=open]:text-primary',
-          )}
-        >
+        <RadixSelect.Icon className={cn('text-inherit transition-all', 'group-data-[state=open]:text-primary')}>
           <CaretDown />
         </RadixSelect.Icon>
       </RadixSelect.Trigger>
@@ -72,11 +63,7 @@ const SelectRoot: FC<SelectRootProps> = ({
         >
           <RadixSelect.Viewport className="p-3">
             {placeholder && (
-              <RadixSelect.Item
-                value=""
-                className="pointer-events-none px-3 py-2 text-gray"
-                disabled
-              >
+              <RadixSelect.Item value="" className="pointer-events-none px-3 py-2 text-gray" disabled>
                 <RadixSelect.ItemText>{placeholder}</RadixSelect.ItemText>
               </RadixSelect.Item>
             )}

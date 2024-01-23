@@ -13,7 +13,7 @@ describe('Avatar tests', () => {
     render(
       <Avatar.Root data-testid="element">
         <Avatar.Image src="" alt="" />
-      </Avatar.Root>
+      </Avatar.Root>,
     )
     const element = screen.queryByTestId('element')
 
@@ -27,7 +27,7 @@ describe('Avatar tests', () => {
     render(
       <Avatar.Root>
         <Avatar.Image src="" alt={ImageAltText} />
-      </Avatar.Root>
+      </Avatar.Root>,
     )
     const element = await screen.findByAltText(ImageAltText)
 
@@ -40,12 +40,8 @@ describe('Avatar tests', () => {
     render(
       <Avatar.Root data-testid="element">
         <Avatar.Image src="" />
-        <Avatar.Fallback
-          fallback={fallbackTextContent}
-          data-testid="fallback"
-          delayMs={0}
-        />
-      </Avatar.Root>
+        <Avatar.Fallback fallback={fallbackTextContent} data-testid="fallback" delayMs={0} />
+      </Avatar.Root>,
     )
     const element = await screen.findByTestId('fallback')
 

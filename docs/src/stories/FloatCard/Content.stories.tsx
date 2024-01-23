@@ -48,14 +48,8 @@ export const Comum: FloatCardContentStory = {
             <Avatar.Root>
               <Avatar.Fallback fallback="FC" />
             </Avatar.Root>
-            <span>
-              O FloatCard é utilizado para estruturas mais complexas do que um
-              Tooltip.
-            </span>
-            <span>
-              O Root é apenas o container do componente. Verifique o código na
-              docs.
-            </span>
+            <span>O FloatCard é utilizado para estruturas mais complexas do que um Tooltip.</span>
+            <span>O Root é apenas o container do componente. Verifique o código na docs.</span>
           </Flex.Root>
         </FloatCard.Content>
       </FloatCard.Root>

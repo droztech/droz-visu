@@ -1,9 +1,4 @@
-import {
-  ExtendedColor,
-  ExtendedColorClass,
-  LargerSizes,
-  LargerSizesClass,
-} from '@types'
+import { ExtendedColor, ExtendedColorClass, LargerSizes, LargerSizesClass } from '@types'
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes, useMemo } from 'react'
 
@@ -28,12 +23,7 @@ const sizeClassVariants: LargerSizesClass = {
   lg: 'w-3 h-3',
 }
 
-const LoadingDots: FC<LoadingProps> = ({
-  className,
-  color = 'current',
-  size = 'md',
-  ...rest
-}) => {
+const LoadingDots: FC<LoadingProps> = ({ className, color = 'current', size = 'md', ...rest }) => {
   const colorClass = useMemo<string>(() => {
     return colorClassVariants[color]
   }, [color])
@@ -46,18 +36,9 @@ const LoadingDots: FC<LoadingProps> = ({
 
   return (
     <div className={clsx('flex gap-2', className)} {...rest}>
-      <div
-        className={clsx(dotClass, sizeClass, colorClass)}
-        style={{ animationDelay: '0ms' }}
-      />
-      <div
-        className={clsx(dotClass, sizeClass, colorClass)}
-        style={{ animationDelay: '500ms' }}
-      />
-      <div
-        className={clsx(dotClass, sizeClass, colorClass)}
-        style={{ animationDelay: '1000ms' }}
-      />
+      <div className={clsx(dotClass, sizeClass, colorClass)} style={{ animationDelay: '0ms' }} />
+      <div className={clsx(dotClass, sizeClass, colorClass)} style={{ animationDelay: '500ms' }} />
+      <div className={clsx(dotClass, sizeClass, colorClass)} style={{ animationDelay: '1000ms' }} />
     </div>
   )
 }

@@ -11,18 +11,14 @@ jest.mock('clsx', () => {
 
 describe('SidebarButton tests', () => {
   it('Should render a SidebarButton element', () => {
-    render(
-      <Sidebar.Button data-testid="element" icon={<House />} text="Home" />
-    )
+    render(<Sidebar.Button data-testid="element" icon={<House />} text="Home" />)
     const element = screen.getByTestId('element')
 
     expect(element).toBeDefined()
   })
 
   it('Should render a SidebarButton element with icon and text', () => {
-    render(
-      <Sidebar.Button data-testid="element" icon={<House />} text="Home" />
-    )
+    render(<Sidebar.Button data-testid="element" icon={<House />} text="Home" />)
     const element = screen.getByTestId('element')
 
     expect(element.children[0].children[0].tagName).toBe('svg')

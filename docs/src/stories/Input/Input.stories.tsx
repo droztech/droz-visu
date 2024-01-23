@@ -61,8 +61,7 @@ export const Password: InputInputStory = {
   render: (args) => {
     return (
       <>
-        Input comum com todas as propriedades de um input comum. Com um type
-        password aplicado.
+        Input comum com todas as propriedades de um input comum. Com um type password aplicado.
         <br />
         <Input.Input type="password" {...args} />
       </>

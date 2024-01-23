@@ -15,7 +15,7 @@ describe('RadioItem tests', () => {
         <Radio.Item value="opt1" data-testid="element">
           Option One
         </Radio.Item>
-      </Radio.Root>
+      </Radio.Root>,
     )
     const element = screen.queryByTestId('element')
 

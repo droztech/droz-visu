@@ -38,8 +38,7 @@ const meta: Meta<RadioItemProps> = {
     },
     required: {
       control: { type: 'boolean' },
-      description:
-        'Define se é obrigatório marcar o item antes de submeter em um formulário.',
+      description: 'Define se é obrigatório marcar o item antes de submeter em um formulário.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -75,7 +74,7 @@ export default meta
 type RadioItemStory = StoryObj<RadioItemProps>
 
 export const Comum: RadioItemStory = {
-  render: ({ value, ...args }) => {
+  render: ({ value: _, ...args }) => {
     return (
       <Radio.Root>
         <Flex.Row center>

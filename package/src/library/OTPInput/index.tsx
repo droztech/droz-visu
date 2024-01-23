@@ -5,14 +5,14 @@ import {
   InputHTMLAttributes,
   LegacyRef,
   forwardRef,
+  useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react'
 
-export interface OTPInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
+export interface OTPInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   count: number
   error?: boolean
   onChange?: (data: string) => void
@@ -20,49 +20,34 @@ export interface OTPInputProps
 }
 
 const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
-  (
-    { count, error, onChange, value, className, ...rest },
-    forwardedRef: LegacyRef<HTMLDivElement> | undefined
-  ) => {
+  ({ count, error, onChange, value, className, ...rest }, forwardedRef: LegacyRef<HTMLDivElement> | undefined) => {
     const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
     const refs = useRef<(HTMLInputElement | null)[]>(Array(count).fill(null))
 
     const inputColorClass = useMemo(() => {
-      return error
-        ? 'border-error hover:border-error-600'
-        : 'border-gray hover:border-gray-700 active:border-primary'
+      return error ? 'border-error hover:border-error-600' : 'border-gray hover:border-gray-700 active:border-primary'
     }, [error])
 
-    const handleChange = (
-      { target }: ChangeEvent<HTMLInputElement>,
-      index: number
-    ) => {
-      setOtp((prevOtp) =>
-        prevOtp.map((value, i) => (i === index ? target.value : value))
-      )
-      if (onChange)
-        onChange(
-          otp.map((value, i) => (i === index ? target.value : value)).join('')
-        )
+    const handleChange = ({ target }: ChangeEvent<HTMLInputElement>, index: number) => {
+      setOtp((prevOtp) => prevOtp.map((value, i) => (i === index ? target.value : value)))
+      if (onChange) onChange(otp.map((value, i) => (i === index ? target.value : value)).join(''))
     }
 
-    const handlePaste = ({
-      clipboardData,
-    }: ClipboardEvent<HTMLInputElement>) => {
+    const handlePaste = ({ clipboardData }: ClipboardEvent<HTMLInputElement>) => {
       const paste = clipboardData.getData('text/plain').replace(' ', '')
       const pasteArray = paste.split('').slice(0, otp.length)
       setOtp(pasteArray)
       if (onChange) onChange(pasteArray.join(''))
     }
 
-    const handleFocus = () => {
+    const handleFocus = useCallback(() => {
       for (const i in otp) {
         if (otp[i] === '') {
           refs.current[i]?.focus()
           break
         }
       }
-    }
+    }, [otp])
 
     useEffect(() => {
       handleFocus()
@@ -80,21 +65,17 @@ const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
         }
       }
       setOtp(newOtp)
-    }, [value])
+    }, [count, value])
 
     return (
-      <div
-        className={clsx('flex gap-4 max-sm:gap-2 justify-center', className)}
-        ref={forwardedRef}
-        {...rest}
-      >
+      <div className={clsx('flex justify-center gap-4 max-sm:gap-2', className)} ref={forwardedRef} {...rest}>
         {otp.map((item, index) => (
           <input
             key={index}
             ref={(ref) => (refs.current[index] = ref)}
             className={clsx(
-              'flex-1 border rounded h-14 max-w-[3.5rem] w-full text-center text-lg font-semibold transition-colors bg-inherit',
-              inputColorClass
+              'h-14 w-full max-w-[3.5rem] flex-1 rounded border bg-inherit text-center text-lg font-semibold transition-colors',
+              inputColorClass,
             )}
             onChange={(ev) => handleChange(ev, index)}
             onPaste={handlePaste}
@@ -105,7 +86,7 @@ const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
         ))}
       </div>
     )
-  }
+  },
 )
 
 OTPInput.displayName = 'OTPInput'

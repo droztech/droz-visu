@@ -25,8 +25,7 @@ const meta: Meta<TooltipCloseProps> = {
     },
     defaultOpen: {
       control: 'none',
-      description:
-        'Propriedade que define se o componente inicialmente está visível ou não.',
+      description: 'Propriedade que define se o componente inicialmente está visível ou não.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -66,12 +65,11 @@ const meta: Meta<TooltipCloseProps> = {
         defaultValue: { summary: 'true' },
       },
       type: { name: 'boolean', required: false },
-      defaultValue: true
+      defaultValue: true,
     },
     side: {
       control: { type: 'inline-radio' },
-      description:
-        'Define o local em que o componente irá aparecer, relativo ao trigger.',
+      description: 'Define o local em que o componente irá aparecer, relativo ao trigger.',
       options: ['bottom', 'left', 'right', 'top'],
       table: {
         type: {
@@ -88,8 +86,7 @@ const meta: Meta<TooltipCloseProps> = {
     text: {
       control: 'none',
       name: 'text (deprecated)',
-      description:
-        '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
+      description: '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
       table: {
         type: { summary: 'text' },
       },

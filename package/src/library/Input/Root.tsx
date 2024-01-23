@@ -1,13 +1,6 @@
 import { Status } from '@types'
 import { clsx } from 'clsx'
-import {
-  FC,
-  HTMLAttributes,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react'
+import { FC, HTMLAttributes, useCallback, useEffect, useMemo, useRef } from 'react'
 
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
@@ -20,14 +13,7 @@ const statusClassVariants = {
   success: 'border-success',
 }
 
-const InputRoot: FC<InputRootProps> = ({
-  children,
-  className,
-  disabled,
-  full,
-  status,
-  ...rest
-}) => {
+const InputRoot: FC<InputRootProps> = ({ children, className, disabled, full, status, ...rest }) => {
   const RootComponent = useRef<HTMLDivElement | null>(null)
 
   const fullClass = useMemo(() => {
@@ -38,7 +24,7 @@ const InputRoot: FC<InputRootProps> = ({
     if (disabled) return 'bg-gray-200 cursor-not-allowed border-gray'
     if (status) return statusClassVariants[status]
     return 'border-gray'
-  }, [status])
+  }, [disabled, status])
 
   useEffect(() => {
     if (disabled) {

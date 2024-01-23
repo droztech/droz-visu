@@ -52,12 +52,7 @@ export const ComAcaoDeClique: InputIconStory = {
   },
   render: (args) => {
     return (
-      <Input.Icon
-        {...args}
-        onClick={() => {
-          ;('')
-        }}
-      >
+      <Input.Icon {...args} onClick={() => {}}>
         <Envelope />
       </Input.Icon>
     )

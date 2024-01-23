@@ -7,8 +7,7 @@ const meta: Meta<AvatarFallbackProps> = {
   argTypes: {
     fallback: {
       control: 'text',
-      description:
-        'Texto a ser exibido no lugar da imagem. Deve ser limitado a 2 caracteres.',
+      description: 'Texto a ser exibido no lugar da imagem. Deve ser limitado a 2 caracteres.',
       table: {
         type: {
           summary: 'string',

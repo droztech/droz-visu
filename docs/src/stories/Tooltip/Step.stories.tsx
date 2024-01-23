@@ -17,8 +17,7 @@ const meta: Meta<TooltipStepProps> = {
     },
     closeText: {
       control: 'text',
-      description:
-        'Propriedade que recebe o texto do botão que finaliza as etapas.',
+      description: 'Propriedade que recebe o texto do botão que finaliza as etapas.',
       table: {
         type: { summary: 'text' },
         defaultValue: { summary: '' },
@@ -27,8 +26,7 @@ const meta: Meta<TooltipStepProps> = {
     },
     content: {
       control: 'object',
-      description:
-        'Propriedade que recebe um array com o conteúdo de cada etapa.',
+      description: 'Propriedade que recebe um array com o conteúdo de cada etapa.',
       table: {
         type: { summary: 'React.ReactNode[]' },
       },
@@ -36,8 +34,7 @@ const meta: Meta<TooltipStepProps> = {
     },
     defaultOpen: {
       control: 'none',
-      description:
-        'Propriedade que define se o componente inicialmente está visível ou não.',
+      description: 'Propriedade que define se o componente inicialmente está visível ou não.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -46,8 +43,7 @@ const meta: Meta<TooltipStepProps> = {
     },
     nextText: {
       control: 'text',
-      description:
-        'Propriedade que recebe o texto do botão que passa para a próxima etapa.',
+      description: 'Propriedade que recebe o texto do botão que passa para a próxima etapa.',
       table: {
         type: { summary: 'text' },
         defaultValue: { summary: '' },
@@ -56,8 +52,7 @@ const meta: Meta<TooltipStepProps> = {
     },
     side: {
       control: { type: 'inline-radio' },
-      description:
-        'Define o local em que o componente irá aparecer, relativo ao trigger.',
+      description: 'Define o local em que o componente irá aparecer, relativo ao trigger.',
       options: ['bottom', 'left', 'right', 'top'],
       table: {
         type: {
@@ -69,8 +64,7 @@ const meta: Meta<TooltipStepProps> = {
     },
     stepText: {
       control: 'text',
-      description:
-        'Propriedade que recebe o texto que aparece junto à marcação de etapa.',
+      description: 'Propriedade que recebe o texto que aparece junto à marcação de etapa.',
       table: {
         type: { summary: 'text' },
         defaultValue: { summary: '' },

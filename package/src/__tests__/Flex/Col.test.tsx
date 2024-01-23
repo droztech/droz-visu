@@ -15,7 +15,7 @@ describe('Flex tests', () => {
         <div>First</div>
         <div>Second</div>
         <div>Third</div>
-      </Flex.Col>
+      </Flex.Col>,
     )
     const element = screen.getByTestId('element')
 
@@ -28,7 +28,7 @@ describe('Flex tests', () => {
         <div>First</div>
         <span>Second</span>
         <h1>Third</h1>
-      </Flex.Col>
+      </Flex.Col>,
     )
     const element = screen.getByTestId('element')
 
@@ -45,7 +45,7 @@ describe('Flex tests', () => {
           <input type="text" />
           <input type="submit" />
         </form>
-      </Flex.Col>
+      </Flex.Col>,
     )
     const element = screen.getByTestId('element')
 

@@ -14,7 +14,7 @@ describe('Checkbox tests', () => {
     render(
       <Checkbox.Root data-testid="element">
         <Checkbox.Indicator />
-      </Checkbox.Root>
+      </Checkbox.Root>,
     )
     const element = screen.queryByTestId('element')
 
@@ -25,7 +25,7 @@ describe('Checkbox tests', () => {
     render(
       <Checkbox.Root checked>
         <Checkbox.Indicator data-testid="indicator" />
-      </Checkbox.Root>
+      </Checkbox.Root>,
     )
     const element = screen.getByTestId('indicator')
 
@@ -37,13 +37,9 @@ describe('Checkbox tests', () => {
     const user = userEvent.setup()
 
     render(
-      <Checkbox.Root
-        checked={checked}
-        onCheckedChange={(check) => (checked = check)}
-        data-testid="element"
-      >
+      <Checkbox.Root checked={checked} onCheckedChange={(check) => (checked = check)} data-testid="element">
         <Checkbox.Indicator />
-      </Checkbox.Root>
+      </Checkbox.Root>,
     )
     const element = screen.getByTestId('element')
 

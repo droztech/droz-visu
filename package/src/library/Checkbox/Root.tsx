@@ -3,11 +3,7 @@ import { Color, ColorClass } from '@types'
 import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 
-export interface CheckboxRootProps
-  extends Omit<
-    RadixCheckbox.CheckboxProps,
-    'value' | 'onChange' | 'onCheckedChange'
-  > {
+export interface CheckboxRootProps extends Omit<RadixCheckbox.CheckboxProps, 'value' | 'onChange' | 'onCheckedChange'> {
   color?: Color
   value?: boolean
   onChange?: (data: boolean) => void
@@ -23,18 +19,8 @@ export const rootColorVariants: ColorClass = {
 
 const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
   (
-    {
-      children,
-      className,
-      color = 'primary',
-      disabled,
-      onCheckedChange,
-      onChange,
-      checked,
-      value,
-      ...rest
-    },
-    ref: Ref<HTMLButtonElement | null>
+    { children, className, color = 'primary', disabled, onCheckedChange, onChange, checked, value, ...rest },
+    ref: Ref<HTMLButtonElement | null>,
   ) => {
     const checkboxRef = useRef<HTMLButtonElement>(null)
 
@@ -86,7 +72,7 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
         {children}
       </RadixCheckbox.Root>
     )
-  }
+  },
 )
 
 CheckboxRoot.displayName = 'Checkbox.Root'

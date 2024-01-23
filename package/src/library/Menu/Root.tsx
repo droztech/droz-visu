@@ -12,13 +12,7 @@ const sideClassVariants: SideClass = {
   right: 'translate-x-full',
 }
 
-const MenuRoot: FC<MenuRootProps> = ({
-  children,
-  className,
-  expanded,
-  side = 'left',
-  ...rest
-}) => {
+const MenuRoot: FC<MenuRootProps> = ({ children, className, expanded, side = 'left', ...rest }) => {
   const sideClass = useMemo<string>(() => {
     return sideClassVariants[side]
   }, [side])
@@ -27,7 +21,7 @@ const MenuRoot: FC<MenuRootProps> = ({
     <div
       className={clsx([
         className,
-        'flex flex-col h-full w-full bg-gray-100 fixed transition-all overflow-hidden z-50 px-4',
+        'fixed z-50 flex h-full w-full flex-col overflow-hidden bg-gray-100 px-4 transition-all',
         expanded ? 'translate-x-0' : sideClass,
       ])}
       {...rest}

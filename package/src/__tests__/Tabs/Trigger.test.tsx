@@ -14,15 +14,7 @@ describe('TabsTrigger tests', () => {
   it('Should render a Tabs.Trigger element', () => {
     render(
       <Tabs.Root
-        triggers={[
-          <Tabs.Trigger
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
+        triggers={[<Tabs.Trigger data-testid="element" value="tab1" key={'tab1'} title="Tab 1" icon={<Alien />} />]}
       ></Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
@@ -33,15 +25,7 @@ describe('TabsTrigger tests', () => {
   it('Should render a button element', () => {
     render(
       <Tabs.Root
-        triggers={[
-          <Tabs.Trigger
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
+        triggers={[<Tabs.Trigger data-testid="element" value="tab1" key={'tab1'} title="Tab 1" icon={<Alien />} />]}
       ></Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
@@ -52,15 +36,7 @@ describe('TabsTrigger tests', () => {
   it('Should render the title inside the button element', () => {
     render(
       <Tabs.Root
-        triggers={[
-          <Tabs.Trigger
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
+        triggers={[<Tabs.Trigger data-testid="element" value="tab1" key={'tab1'} title="Tab 1" icon={<Alien />} />]}
       ></Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
@@ -71,15 +47,7 @@ describe('TabsTrigger tests', () => {
   it('Should render an icon inside the button element', () => {
     render(
       <Tabs.Root
-        triggers={[
-          <Tabs.Trigger
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
+        triggers={[<Tabs.Trigger data-testid="element" value="tab1" key={'tab1'} title="Tab 1" icon={<Alien />} />]}
       ></Tabs.Root>,
     )
     const element = screen.queryByTestId('element')

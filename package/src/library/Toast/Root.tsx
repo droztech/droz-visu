@@ -36,7 +36,7 @@ const ToastRoot: FC<ToastRootProps> = ({ className, desc, title, variant, ...res
   return (
     <RadixToast.Root
       className={clsx(
-        'data-[state=open]:animate-swipeIn flex max-w-sm items-center justify-between gap-4 rounded-lg px-6 py-4 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-hide data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]',
+        'flex max-w-sm items-center justify-between gap-4 rounded-lg px-6 py-4 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-hide data-[state=open]:animate-swipeIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]',
         rootColorClassVariants[variant],
         className,
       )}

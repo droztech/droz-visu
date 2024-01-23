@@ -14,7 +14,7 @@ describe('SelectRoot tests', () => {
       <Select.Root data-testid="element">
         <Select.Item value="yes">Sim</Select.Item>
         <Select.Item value="no">Não</Select.Item>
-      </Select.Root>
+      </Select.Root>,
     )
     const element = screen.queryByTestId('element')
 

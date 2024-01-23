@@ -10,10 +10,7 @@ export interface TabsRootProps extends Omit<TabsProps, 'orientation'> {
 }
 
 const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
-  (
-    { children, className, triggers, ...rest },
-    ref: Ref<HTMLDivElement | null>,
-  ) => {
+  ({ children, className, triggers, ...rest }, ref: Ref<HTMLDivElement | null>) => {
     const tabsRef = useRef<HTMLDivElement>(null)
 
     useImperativeHandle(ref, () => tabsRef.current)

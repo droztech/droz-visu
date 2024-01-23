@@ -2,8 +2,7 @@ import * as RadixSwitch from '@radix-ui/react-switch'
 import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
 
-export interface SwitchProps
-  extends Omit<RadixSwitch.SwitchProps, 'value' | 'onChange'> {
+export interface SwitchProps extends Omit<RadixSwitch.SwitchProps, 'value' | 'onChange'> {
   label?: boolean
   value?: boolean
   onChange?: (ev: boolean) => void

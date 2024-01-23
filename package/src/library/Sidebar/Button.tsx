@@ -7,17 +7,12 @@ export interface SidebarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text: string
 }
 
-const SidebarButton: FC<SidebarButtonProps> = ({
-  className,
-  icon,
-  text,
-  ...rest
-}) => {
+const SidebarButton: FC<SidebarButtonProps> = ({ className, icon, text, ...rest }) => {
   return (
     <button
       className={clsx([
         className,
-        'hover:bg-primary [&_svg]:text-primary flex w-full flex-row items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:text-gray-100 [&:hover_svg]:text-gray-100',
+        'flex w-full flex-row items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:bg-primary hover:text-gray-100 [&:hover_svg]:text-gray-100 [&_svg]:text-primary',
       ])}
       {...rest}
     >

@@ -13,7 +13,7 @@ describe('FloatCardContent tests', () => {
     render(
       <FloatCard.Root>
         <FloatCard.Content data-testid="element"></FloatCard.Content>
-      </FloatCard.Root>
+      </FloatCard.Root>,
     )
     const element = screen.queryByTestId('element')
 

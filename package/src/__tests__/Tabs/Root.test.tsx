@@ -28,15 +28,7 @@ describe('TabsRoot tests', () => {
   it('Should render Triggers inside a tablist', () => {
     render(
       <Tabs.Root
-        triggers={[
-          <Tabs.Trigger
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
+        triggers={[<Tabs.Trigger data-testid="element" value="tab1" key={'tab1'} title="Tab 1" icon={<Alien />} />]}
       ></Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
@@ -49,14 +41,7 @@ describe('TabsRoot tests', () => {
     render(
       <Tabs.Root
         data-testid="rootElement"
-        triggers={[
-          <Tabs.Trigger
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
+        triggers={[<Tabs.Trigger value="tab1" key={'tab1'} title="Tab 1" icon={<Alien />} />]}
       >
         <Tabs.Content data-testid="element" value="tab1">
           E ai
@@ -75,13 +60,7 @@ describe('TabsRoot tests', () => {
       return rootRef
     })
 
-    render(
-      <Tabs.Root
-        data-testid="element"
-        triggers={[]}
-        ref={result.current}
-      ></Tabs.Root>,
-    )
+    render(<Tabs.Root data-testid="element" triggers={[]} ref={result.current}></Tabs.Root>)
     const element = screen.queryByTestId('element')
 
     expect(result.current.current).toEqual(element)

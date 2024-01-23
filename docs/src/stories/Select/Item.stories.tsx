@@ -61,7 +61,7 @@ export default meta
 type SelectItemStory = StoryObj<SelectItemProps>
 
 export const Comum: SelectItemStory = {
-  render: ({ value, ...args }) => {
+  render: ({ value: _, ...args }) => {
     return (
       <Select.Root placeholder="Selecione um item">
         <Select.Item value="item1" {...args}>
@@ -76,7 +76,7 @@ export const Comum: SelectItemStory = {
 }
 
 export const ComItemDesabilitado: SelectItemStory = {
-  render: ({ disabled, value, ...args }) => {
+  render: ({ disabled, value: _, ...args }) => {
     return (
       <Select.Root placeholder="Selecione um item">
         <Select.Item disabled={disabled} value="item1" {...args}>

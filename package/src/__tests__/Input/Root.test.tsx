@@ -21,7 +21,7 @@ describe('Input Root tests', () => {
     render(
       <Input.Root data-testid="element">
         <Input.Input />
-      </Input.Root>
+      </Input.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -34,7 +34,7 @@ describe('Input Root tests', () => {
       <Input.Root data-testid="element">
         <Input.Input />
         <Input.Icon id={IconContainerId} />
-      </Input.Root>
+      </Input.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -48,7 +48,7 @@ describe('Input Root tests', () => {
           <Envelope />
         </Input.Icon>
         <Input.Input data-testid="input" />
-      </Input.Root>
+      </Input.Root>,
     )
     const element = screen.getByTestId('element')
 
@@ -63,7 +63,7 @@ describe('Input Root tests', () => {
           <Envelope />
         </Input.Icon>
         <Input.Input data-testid="input" />
-      </Input.Root>
+      </Input.Root>,
     )
     const element = screen.getByTestId('element')
 

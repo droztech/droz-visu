@@ -24,7 +24,7 @@ describe('Input Icon tests', () => {
           <Envelope />
         </Input.Icon>
         <Input.Input data-testid="input" />
-      </Input.Root>
+      </Input.Root>,
     )
     const iconElement = screen.getByTestId('icon')
 
@@ -37,7 +37,7 @@ describe('Input Icon tests', () => {
     render(
       <Input.Icon data-testid="icon" onClick={clickFunction}>
         <Envelope />
-      </Input.Icon>
+      </Input.Icon>,
     )
 
     const iconElement = screen.getByTestId('icon')
@@ -51,7 +51,7 @@ describe('Input Icon tests', () => {
     render(
       <Input.Icon data-testid="icon" onClick={clickFunction} disabled>
         <Envelope />
-      </Input.Icon>
+      </Input.Icon>,
     )
 
     const iconElement = screen.getByTestId('icon')

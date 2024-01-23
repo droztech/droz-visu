@@ -24,25 +24,17 @@ export interface LinkProps extends HTMLAttributes<HTMLDivElement> {
   size?: keyof typeof rootSizes
 }
 
-const Link: FC<LinkProps> = ({
-  asChild,
-  color = 'primary',
-  size,
-  underline,
-  children,
-  className,
-  ...rest
-}) => {
+const Link: FC<LinkProps> = ({ asChild, color = 'primary', size, underline, children, className, ...rest }) => {
   const Component = asChild ? Slot : 'span'
 
   return (
     <Component
       className={clsx(
-        'cursor-pointer transition-colors children:text-inherit-size children:inline [&_svg]:align-middle tex',
+        'tex cursor-pointer transition-colors children:inline children:text-inherit-size [&_svg]:align-middle',
         underline && 'underline underline-offset-2',
         rootColorVariants[color],
         size && rootSizes[size],
-        className
+        className,
       )}
       {...rest}
     >

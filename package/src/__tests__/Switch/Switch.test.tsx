@@ -74,9 +74,7 @@ describe('Switch tests', () => {
   it('Should call "onCheckedChange" method when clicked', () => {
     const onCheckedChangeMock = jest.fn()
 
-    render(
-      <Switch data-testid="element" onCheckedChange={onCheckedChangeMock} />,
-    )
+    render(<Switch data-testid="element" onCheckedChange={onCheckedChangeMock} />)
     const element = screen.getByTestId('element')
 
     fireEvent.click(element)

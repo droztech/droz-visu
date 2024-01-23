@@ -25,7 +25,7 @@ type StoryMenuHeaderProps = StoryObj<MenuHeaderProps>
 export const Comum: StoryMenuHeaderProps = {
   render: (args) => {
     return (
-      <Menu.Header {...args} className="flex justify-between items-center w-96">
+      <Menu.Header {...args} className="flex w-96 items-center justify-between">
         <h1>Nexo</h1>
       </Menu.Header>
     )

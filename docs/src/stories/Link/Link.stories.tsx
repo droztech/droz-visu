@@ -24,14 +24,11 @@ const meta: Meta<LinkProps> = {
     },
     color: {
       control: { type: 'select' },
-      description:
-        'Aplica um estilo de hover para a cor desejada e cursor pointer',
+      description: 'Aplica um estilo de hover para a cor desejada e cursor pointer',
       options: ['primary', 'secondary', 'success', 'error', 'alert'],
       table: {
         type: {
-          summary: ['primary', 'secondary', 'success', 'error', 'alert'].join(
-            ' | '
-          ),
+          summary: ['primary', 'secondary', 'success', 'error', 'alert'].join(' | '),
         },
       },
       type: { name: 'string', required: false },

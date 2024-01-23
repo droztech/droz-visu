@@ -32,8 +32,7 @@ const meta: Meta<SwitchProps> = {
     },
     required: {
       control: { type: 'boolean' },
-      description:
-        'Define se é obrigatório verificar antes de submeter em um formulário.',
+      description: 'Define se é obrigatório verificar antes de submeter em um formulário.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -72,8 +71,7 @@ const meta: Meta<SwitchProps> = {
       control: 'none',
       action: 'change',
       name: 'onCheckedChange (deprecated)',
-      description:
-        '<s>Evento de mudança de valor.</s> <br> (deprecated) - Use o método `onChange`.',
+      description: '<s>Evento de mudança de valor.</s> <br> (deprecated) - Use o método `onChange`.',
       table: { type: { summary: 'function' } },
     },
   },

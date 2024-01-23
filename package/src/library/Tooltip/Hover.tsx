@@ -1,7 +1,7 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
 import { Position } from '@types'
 import { clsx } from 'clsx'
-import { FC, HTMLAttributes, ReactNode, useCallback, useEffect, useState } from 'react'
+import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react'
 
 export interface TooltipHoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   // Optional because we can't remove `text` until the next major release
@@ -45,7 +45,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
         if (onOpenChange) onOpenChange(isOpen)
       }
     },
-    [onOpenChange],
+    [closeTime, onOpenChange],
   )
 
   return (

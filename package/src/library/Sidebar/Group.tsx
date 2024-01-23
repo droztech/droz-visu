@@ -3,11 +3,7 @@ import { FC, HTMLAttributes } from 'react'
 
 export interface SidebarGroupProps extends HTMLAttributes<HTMLDivElement> {}
 
-const SidebarGroup: FC<SidebarGroupProps> = ({
-  children,
-  className,
-  ...rest
-}) => {
+const SidebarGroup: FC<SidebarGroupProps> = ({ children, className, ...rest }) => {
   return (
     <div className={clsx([className, 'flex flex-col gap-2'])} {...rest}>
       {children}

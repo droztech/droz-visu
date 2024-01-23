@@ -21,7 +21,7 @@ describe('SidebarGroup tests', () => {
       <Sidebar.Group data-testid="element">
         <div></div>
         <div></div>
-      </Sidebar.Group>
+      </Sidebar.Group>,
     )
     const element = screen.getByTestId('element')
 

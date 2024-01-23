@@ -6,19 +6,11 @@ export interface DialogContentProps extends Dialog.DialogContentProps {
   overlay?: boolean
 }
 
-const DialogContent: FC<DialogContentProps> = ({
-  children,
-  className,
-  overlay = true,
-  ...rest
-}) => {
+const DialogContent: FC<DialogContentProps> = ({ children, className, overlay = true, ...rest }) => {
   return (
     <Dialog.Portal>
       {overlay && (
-        <Dialog.Overlay
-          data-testid="visu-dialog-overlay"
-          className="fixed inset-0 z-40 bg-gray-800 opacity-25"
-        />
+        <Dialog.Overlay data-testid="visu-dialog-overlay" className="fixed inset-0 z-40 bg-gray-800 opacity-25" />
       )}
       <Dialog.Content
         className={twMerge(
@@ -29,7 +21,7 @@ const DialogContent: FC<DialogContentProps> = ({
       >
         <div
           className={twMerge(
-            'flex h-full min-h-34 w-[90vw] min-w-0 flex-col rounded-xl bg-gray-100',
+            'min-w-0 flex h-full min-h-34 w-[90vw] flex-col rounded-xl bg-gray-100',
             'md:w-auto md:min-w-156',
             className,
           )}

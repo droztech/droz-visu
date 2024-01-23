@@ -24,12 +24,7 @@ describe('SidebarRoot tests', () => {
   })
 
   it('Should render a SidebarRoot element with expand button', () => {
-    render(
-      <Sidebar.Root
-        data-testid="element"
-        setExpanded={jest.fn()}
-      ></Sidebar.Root>
-    )
+    render(<Sidebar.Root data-testid="element" setExpanded={jest.fn()}></Sidebar.Root>)
     const element = screen.getByTestId('element')
 
     expect(element.children[0].tagName).toBe('DIV')
@@ -41,7 +36,7 @@ describe('SidebarRoot tests', () => {
       <Sidebar.Root data-testid="element">
         <div></div>
         <div></div>
-      </Sidebar.Root>
+      </Sidebar.Root>,
     )
     const element = screen.getByTestId('element')
 

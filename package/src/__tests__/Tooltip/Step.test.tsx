@@ -52,9 +52,7 @@ describe('TooltipStep tests', () => {
     fireEvent.click(element)
 
     await waitFor(() => {
-      expect(screen.getByRole('dialog')).toContainHTML(
-        '<span data-testid="content">Step1</span>',
-      )
+      expect(screen.getByRole('dialog')).toContainHTML('<span data-testid="content">Step1</span>')
     })
   })
 
