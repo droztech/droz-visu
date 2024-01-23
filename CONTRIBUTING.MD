@@ -107,7 +107,7 @@ npm install
 npm run dev:visu
 
 # optional
-npm run dev:docs ## this will start the documentation storybook.js server. The components are based on the packages/visu build
+npm run dev:docs ## this will start the documentation storybook.js server. The components are based on the package build
 npm run dev ## this will start all the environments
 ```
 
@@ -141,8 +141,8 @@ git checkout -b fix-something
 # Run all component tests
 npm run test
 
-# To test isolated component code you must access the packages/visu folder and run the tests
-npm run test packages/visu/src/__tests__/Button 
+# To test isolated component code you must access the package folder and run the tests
+npm run test package/src/__tests__/Button 
 
 ```
 
@@ -153,8 +153,8 @@ npm run test packages/visu/src/__tests__/Button
 npm run build
 
 # Build isolated packages
-npm run build:docs ## build apps/docs
-npm run build:visu ## build packages/visu
+npm run build:docs ## build docs
+npm run build:visu ## build package
 ```
 
 > <span style="color: #FFA624">Note: ensure your version of Node is 16 or higher to run scripts</span>
@@ -167,11 +167,11 @@ npm run build:visu ## build packages/visu
 
 ## Styling Guidelines
 
-The stylization of the components is done using [TailwindCSS](https://tailwindcss.com/). The library has its own Design System located in the directory `packages/visu/src/theme`. The Design System is a TailwindCSS plugin. All the theme configuration is defined in the plugin, and the plugin is used in `tailwind.config.ts` file.
+The stylization of the components is done using [TailwindCSS](https://tailwindcss.com/). The library has its own Design System located in the directory `package/src/theme`. The Design System is a TailwindCSS plugin. All the theme configuration is defined in the plugin, and the plugin is used in `tailwind.config.ts` file.
 
 ### Classes
 
-Use only TailwindCSS classes to stylize the components. If you need to create a new config, add it to the plugin in `packages/visu/src/theme/theme-plugin.js` file.
+Use only TailwindCSS classes to stylize the components. If you need to create a new config, add it to the plugin in `package/src/theme/theme-plugin.js` file.
 
 ```js
 className="flex flex-row"
@@ -191,7 +191,7 @@ const sizeClassVariants: SizeClass = {
 className={clsx(sizeClassVariants[size], 'flex flex-row')}
 ```
 
-> <span style="color: #FFA624">Note: In this case, we are using the type SizeClass to define the type of the object. The type must be defined in</span> `packages/visu/src/library/types`.
+> <span style="color: #FFA624">Note: In this case, we are using the type SizeClass to define the type of the object. The type must be defined in</span> `package/src/library/types`.
 
 ### clsx
 
@@ -218,13 +218,13 @@ desired change easier.
 
 Please update the docs, the code and docs should always be in sync.
 
-The main documentation lives in the `apps/docs` folder, the project uses Storybook and `Visu` is used as dependency.
+The main documentation lives in the `docs` folder, the project uses Storybook and `Visu` is used as dependency.
 
 ## Tests
 
 Please update the tests, the code and tests should always be in sync.
 
-The tests are in the `packages/visu/src/__tests__` folder, the project uses [Testing Library](https://testing-library.com/) for testing components.
+The tests are in the `package/src/__tests__` folder, the project uses [Testing Library](https://testing-library.com/) for testing components.
 
 ## Breaking changes
 

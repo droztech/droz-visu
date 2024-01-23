@@ -28,5 +28,5 @@ jobs:
         run: npm run build
 
       - name: Tests
-        working-directory: packages/visu
+        working-directory: package
         run: npm run test

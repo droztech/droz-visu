@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <img alt="Visu" src="./packages/visu/public/droz-visu.svg" height="64px" />
+    <img alt="Visu" src="./package/public/droz-visu.svg" height="64px" />
   </picture>
 </p>
 
@@ -44,13 +44,13 @@ npm run dev
 
 ### Teste
 
-Para executar os testes da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
+Para executar os testes da biblioteca, acesse o diretório `package` e utilize o comando abaixo:
 
 ```
 npm run test
 ```
 
-Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
+Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `package` e utilize o comando abaixo:
 
 ```
 npm run test -- [pasta/arquivo]

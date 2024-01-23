@@ -98,7 +98,7 @@ npm run test -- [pasta/arquivo]
 
 ### Instalação de pacotes
 
-Para instalar pacotes no Visu `packages/visu` acesse a raiz do projeto no terminal `/` e utilize o comando:
+Para instalar pacotes no Visu `package` acesse a raiz do projeto no terminal `/` e utilize o comando:
 
 ```bash
 npm install -D [pacote] --workspace=@droz-js/visu

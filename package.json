@@ -18,8 +18,8 @@
     "prepare": "husky install",
     "test": "turbo run test",
     "test:watch": "turbo run test -- --watch",
-    "lint:docs": "eslint --fix --ext .tsx --ext .ts docs/",
-    "lint:visu": "eslint --fix --ext .tsx --ext .ts package/"
+    "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
+    "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
