@@ -4,7 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "tailwindCSS.experimental.configFile": "./packages/visu/tailwind.config.ts",
+  "tailwindCSS.experimental.configFile": "./package/tailwind.config.ts",
   "tailwindCSS.classAttributes": [
     "class",
     "className",
