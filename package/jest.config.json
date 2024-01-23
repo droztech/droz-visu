@@ -1,0 +1,24 @@
+{
+  "testEnvironment": "jsdom",
+  "verbose": true,
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "rootDir": ".",
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/$1",
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+    "^@library(.*)$": "<rootDir>/src/library$1",
+    "^@types(.*)$": "<rootDir>/src/library/types$1"
+  },
+  "setupFilesAfterEnv": [
+    "<rootDir>/jest.setup.ts"
+  ],
+  "collectCoverageFrom": [
+    "src/library /**/**"
+  ],
+  "coveragePathIgnorePatterns": [
+    "src/library/index.ts",
+    "src/library/styles"
+  ]
+}
