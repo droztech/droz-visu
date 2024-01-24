@@ -74,8 +74,7 @@ const TooltipStep: FC<TooltipStepProps> = ({
               <RadixPopover.Close
                 onClick={() => setCurrentStep(1)}
                 className={cn(
-                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all',
-                  'hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
+                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
                 )}
               >
                 {closeText}
@@ -85,8 +84,7 @@ const TooltipStep: FC<TooltipStepProps> = ({
               <button
                 onClick={() => setCurrentStep(currentStep + 1)}
                 className={cn(
-                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all',
-                  'hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
+                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
                 )}
               >
                 {nextText}

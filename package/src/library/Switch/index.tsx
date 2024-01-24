@@ -50,8 +50,7 @@ const Switch: FC<SwitchProps> = ({
       {label && parsedValue && (
         <span
           className={cn(
-            'absolute left-0 px-1.5 text-xs font-semibold text-gray-100',
-            'group-disabled/switch:text-gray-300',
+            'absolute left-0 px-1.5 text-xs font-semibold text-gray-100 group-disabled/switch:text-gray-300',
           )}
         >
           On
@@ -59,15 +58,13 @@ const Switch: FC<SwitchProps> = ({
       )}
       <RadixSwitch.Thumb
         className={cn(
-          'block h-5 w-5 rounded-full bg-gray-100 transition-all',
-          'group-hover/switch:h-4 group-hover/switch:w-4 group-active/switch:h-4 group-active/switch:w-4 group-disabled/switch:bg-gray-300 data-[state=checked]:translate-x-6 data-[state=unchecked]:translate-x-0',
+          'block h-5 w-5 rounded-full bg-gray-100 transition-all group-hover/switch:h-4 group-hover/switch:w-4 group-active/switch:h-4 group-active/switch:w-4 group-disabled/switch:bg-gray-300 data-[state=checked]:translate-x-6 data-[state=unchecked]:translate-x-0',
         )}
       />
       {label && !parsedValue && (
         <span
           className={cn(
-            'absolute right-0 px-1.5 text-xs font-semibold text-gray-100',
-            'group-disabled/switch:text-gray-300',
+            'absolute right-0 px-1.5 text-xs font-semibold text-gray-100 group-disabled/switch:text-gray-300',
           )}
         >
           Off
