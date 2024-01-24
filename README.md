@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <img alt="Visu" src="./packages/visu/public/droz-visu.svg" height="64px" />
+    <img alt="Visu" src="./package/public/droz-visu.svg" height="64px" />
   </picture>
 </p>
 
@@ -19,8 +19,6 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 ### Apps
 
 - `docs`: Um projeto para a documentação dos componentes criados na biblioteca Visu realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
-
-- `web`: Projeto para validação manual dos componentes e design system criados na biblioteca Visu. Esse projeto possui a biblioteca instalada e utiliza ela para validar o comportamento da biblioteca, dos componentes e do design system em um projeto externo.
 
 ### Packages
 
@@ -46,13 +44,13 @@ npm run dev
 
 ### Teste
 
-Para executar os testes da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
+Para executar os testes da biblioteca, acesse o diretório `package` e utilize o comando abaixo:
 
 ```
 npm run test
 ```
 
-Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `packages/visu` e utilize o comando abaixo:
+Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `package` e utilize o comando abaixo:
 
 ```
 npm run test -- [pasta/arquivo]

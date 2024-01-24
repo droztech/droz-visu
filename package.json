@@ -3,58 +3,62 @@
   "version": "2.6.1",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "package",
+    "docs"
   ],
   "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "turbo run build --no-cache",
-    "build:docs": "turbo run build --no-cache --filter=@droz-js/visu-docs",
-    "build:visu": "turbo run build --no-cache --filter=@droz-js/visu",
-    "build:web": "turbo run build --no-cache --filter=@droz-js/visu-web",
-    "dev": "turbo run dev --parallel --no-cache",
-    "dev:docs": "turbo run dev --parallel --no-cache --filter=@droz-js/visu-docs",
-    "dev:visu": "turbo run dev --parallel --no-cache --filter=@droz-js/visu",
-    "dev:web": "turbo run dev --parallel --no-cache --filter=@droz-js/visu-web",
+    "build": "turbo run build",
+    "build:docs": "turbo run build --filter=@droz-js/visu-docs",
+    "build:visu": "turbo run build --filter=@droz-js/visu",
+    "dev": "turbo run dev --parallel",
+    "dev:docs": "turbo run dev --parallel --filter=@droz-js/visu-docs",
+    "dev:visu": "turbo run dev --parallel --filter=@droz-js/visu",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo run lint",
+    "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
+    "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky install",
+    "prepublishOnly": "npm run build",
     "test": "turbo run test",
-    "test:watch": "turbo run test -- --watch"
+    "test:watch": "turbo run test:watch"
   },
-  "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.4.1",
-    "@typescript-eslint/parser": "^6.4.1",
-    "eslint": "^8.33.0",
-    "eslint-config-next": "^13.4.19",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-unused-imports": "^3.0.0",
-    "glob": "^7.2.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.4",
-    "phosphor-react": "latest",
-    "prettier": "2.8.8",
-    "prettier-plugin-tailwindcss": "^0.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "turbo": "latest",
-    "typescript": "^5.2.2"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "packageManager": "npm@8.19.2",
   "lint-staged": {
     "**/*.{js, jsx, ts, tsx}": [
       "eslint --fix"
     ]
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "glob": "^10.3.10",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "phosphor-react": "latest",
+    "prettier": "3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsconfig": "*",
+    "turbo": "latest",
+    "typescript": "^5.3.3",
+    "vite": "^4.5.2"
+  },
+  "packageManager": "npm@10.2.3",
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
