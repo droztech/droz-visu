@@ -1,6 +1,6 @@
 import * as RadixAvatar from '@radix-ui/react-avatar'
-import { clsx } from 'clsx'
 import { FC, ReactNode } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface AvatarFallbackProps extends Omit<RadixAvatar.AvatarFallbackProps, 'children'> {
   fallback: ReactNode
@@ -9,7 +9,7 @@ export interface AvatarFallbackProps extends Omit<RadixAvatar.AvatarFallbackProp
 const AvatarFallback: FC<AvatarFallbackProps> = ({ className, fallback, delayMs = 600, ...rest }) => {
   return (
     <RadixAvatar.Fallback
-      className={clsx([className, 'p-1', 'overflow-hidden', 'text-ellipsis', 'whitespace-nowrap'])}
+      className={cn(className, 'overflow-hidden text-ellipsis whitespace-nowrap p-1')}
       delayMs={delayMs}
       {...rest}
     >

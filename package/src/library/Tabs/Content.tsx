@@ -1,6 +1,6 @@
 import { TabsContent as RadixTabsContent, TabsContentProps as RadixTabsContentProps } from '@radix-ui/react-tabs'
-import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export type TabsContentProps = RadixTabsContentProps
 
@@ -11,7 +11,7 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
     useImperativeHandle(ref, () => contentRef.current)
 
     return (
-      <RadixTabsContent className={clsx(className, 'outline-none')} ref={contentRef} {...rest}>
+      <RadixTabsContent className={cn(className, 'outline-none')} ref={contentRef} {...rest}>
         {children}
       </RadixTabsContent>
     )

@@ -1,11 +1,11 @@
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface ButtonIconProps extends HTMLAttributes<HTMLDivElement> {}
 
 const ButtonIcon: FC<ButtonIconProps> = ({ children, className, ...rest }) => {
   return (
-    <div className={clsx([className, 'w-6', 'h-6', '[&_svg]:h-full', '[&_svg]:w-full'])} {...rest}>
+    <div className={cn(className, 'h-6 w-6 [&_svg]:h-full [&_svg]:w-full')} {...rest}>
       {children}
     </div>
   )

@@ -1,8 +1,8 @@
 import LoadingDots from '../Loading'
 import { Slot } from '@radix-ui/react-slot'
 import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
-import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, Ref, forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface ButtonRootProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
@@ -77,13 +77,13 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
 
     return (
       <RootComponent
-        className={clsx([
+        className={cn(
           'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all [&_svg]:w-6',
           className,
           fullClass,
           rootClass,
           sizeClass,
-        ])}
+        )}
         disabled={isDisabled}
         ref={buttonRef}
         {...rest}

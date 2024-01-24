@@ -48,7 +48,7 @@ const SelectRoot: FC<SelectRootProps> = ({
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
           <RadixSelect.Value placeholder={placeholder} />
         </span>
-        <RadixSelect.Icon className={cn('text-inherit transition-all', 'group-data-[state=open]:text-primary')}>
+        <RadixSelect.Icon className={cn('text-inherit transition-all group-data-[state=open]:text-primary')}>
           <CaretDown />
         </RadixSelect.Icon>
       </RadixSelect.Trigger>

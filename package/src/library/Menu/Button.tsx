@@ -1,5 +1,5 @@
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface MenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon?: JSX.Element
@@ -9,22 +9,10 @@ export interface MenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
 const MenuButton: FC<MenuButtonProps> = ({ className, icon, text, ...rest }) => {
   return (
     <button
-      className={clsx([
+      className={cn(
         className,
-        'rounded-lg',
-        'flex',
-        'items-center',
-        'flex-row',
-        'px-2',
-        'py-2',
-        'transition-colors',
-        'gap-2',
-        'w-full',
-        'hover:bg-primary',
-        'hover:text-gray-100',
-        '[&_svg]:text-primary',
-        '[&:hover_svg]:text-gray-100',
-      ])}
+        'flex w-full flex-row items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:bg-primary hover:text-gray-100 [&:hover_svg]:text-gray-100 [&_svg]:text-primary',
+      )}
       {...rest}
     >
       {icon && <div className="mx-auto [&>svg]:h-6 [&>svg]:w-6">{icon}</div>}

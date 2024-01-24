@@ -1,6 +1,6 @@
-import { clsx } from 'clsx'
 import { Minus, Plus } from 'phosphor-react'
 import { FC, HTMLAttributes } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface SidebarRootProps extends HTMLAttributes<HTMLDivElement> {
   expanded?: boolean
@@ -10,11 +10,11 @@ export interface SidebarRootProps extends HTMLAttributes<HTMLDivElement> {
 const SidebarRoot: FC<SidebarRootProps> = ({ children, className, expanded, setExpanded, ...rest }) => {
   return (
     <aside
-      className={clsx([
+      className={cn(
         className,
         'sticky top-0 flex h-screen flex-col justify-between border-r border-gray-300 transition-all duration-300 [&_*]:overflow-hidden [&_*]:text-ellipsis [&_*]:whitespace-nowrap',
         expanded ? 'w-56 px-4' : 'w-14 px-2 [&_span]:hidden',
-      ])}
+      )}
       {...rest}
     >
       {setExpanded && (

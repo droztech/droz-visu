@@ -1,4 +1,3 @@
-import { clsx } from 'clsx'
 import {
   ChangeEvent,
   ClipboardEvent,
@@ -11,6 +10,7 @@ import {
   useRef,
   useState,
 } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface OTPInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   count: number
@@ -68,12 +68,12 @@ const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
     }, [count, value])
 
     return (
-      <div className={clsx('flex justify-center gap-4 max-sm:gap-2', className)} ref={forwardedRef} {...rest}>
+      <div className={cn('flex justify-center gap-4 max-sm:gap-2', className)} ref={forwardedRef} {...rest}>
         {otp.map((item, index) => (
           <input
             key={index}
             ref={(ref) => (refs.current[index] = ref)}
-            className={clsx(
+            className={cn(
               'h-14 w-full max-w-[3.5rem] flex-1 rounded border bg-inherit text-center text-lg font-semibold transition-colors',
               inputColorClass,
             )}

@@ -1,6 +1,6 @@
 import * as RadixSwitch from '@radix-ui/react-switch'
-import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface SwitchProps extends Omit<RadixSwitch.SwitchProps, 'value' | 'onChange'> {
   label?: boolean
@@ -37,12 +37,11 @@ const Switch: FC<SwitchProps> = ({
 
   return (
     <RadixSwitch.Root
-      className={clsx([
-        'group/switch relative flex h-6 w-12 items-center rounded-3xl px-0.5 transition-all',
-        'hover:px-1 active:px-1',
+      className={cn(
+        'group/switch relative flex h-6 w-12 items-center rounded-3xl px-0.5 transition-all hover:px-1 active:px-1',
         colorClass,
         className,
-      ])}
+      )}
       disabled={disabled}
       checked={parsedValue}
       onCheckedChange={onChange ?? onCheckedChange}
@@ -50,7 +49,7 @@ const Switch: FC<SwitchProps> = ({
     >
       {label && parsedValue && (
         <span
-          className={clsx(
+          className={cn(
             'absolute left-0 px-1.5 text-xs font-semibold text-gray-100',
             'group-disabled/switch:text-gray-300',
           )}
@@ -59,14 +58,14 @@ const Switch: FC<SwitchProps> = ({
         </span>
       )}
       <RadixSwitch.Thumb
-        className={clsx(
+        className={cn(
           'block h-5 w-5 rounded-full bg-gray-100 transition-all',
           'group-hover/switch:h-4 group-hover/switch:w-4 group-active/switch:h-4 group-active/switch:w-4 group-disabled/switch:bg-gray-300 data-[state=checked]:translate-x-6 data-[state=unchecked]:translate-x-0',
         )}
       />
       {label && !parsedValue && (
         <span
-          className={clsx(
+          className={cn(
             'absolute right-0 px-1.5 text-xs font-semibold text-gray-100',
             'group-disabled/switch:text-gray-300',
           )}

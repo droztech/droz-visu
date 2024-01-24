@@ -1,6 +1,6 @@
 import { Align } from '../types'
 import { FC, HTMLAttributes, useMemo } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface DialogFooterProps extends HTMLAttributes<HTMLDivElement> {
   align?: Align
@@ -25,11 +25,7 @@ const DialogFooter: FC<DialogFooterProps> = ({ align = 'center', children, class
 
   return (
     <div
-      className={twMerge(
-        'mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4',
-        className,
-        variantClass,
-      )}
+      className={cn('mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4', className, variantClass)}
       {...rest}
     >
       {children}

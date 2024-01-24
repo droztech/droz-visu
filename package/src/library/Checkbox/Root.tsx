@@ -1,7 +1,7 @@
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Color, ColorClass } from '@types'
-import { clsx } from 'clsx'
 import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface CheckboxRootProps extends Omit<RadixCheckbox.CheckboxProps, 'value' | 'onChange' | 'onCheckedChange'> {
   color?: Color
@@ -31,9 +31,7 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
     }, [color])
 
     const disabledClass = useMemo(() => {
-      return disabled
-        ? 'data-[state=checked]:!bg-gray-400 data-[state=checked]:!border-gray !bg-gray-300 !border-gray'
-        : ''
+      return disabled && 'data-[state=checked]:!bg-gray-400 data-[state=checked]:!border-gray !bg-gray-300 !border-gray'
     }, [disabled])
 
     const handleCheck = (ev: RadixCheckbox.CheckedState) => {
@@ -48,21 +46,12 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
 
     return (
       <RadixCheckbox.Root
-        className={clsx([
+        className={cn(
           className,
-          'border-2',
-          'text-gray-100',
-          'w-4',
-          'h-4',
-          'transition-all',
-          'flex',
-          'items-center',
-          'justify-center',
-          'rounded-sm',
-          'overflow-hidden',
+          'flex h-4 w-4 items-center justify-center overflow-hidden rounded-sm border-2 text-gray-100 transition-all',
           colorClass,
           disabledClass,
-        ])}
+        )}
         disabled={disabled}
         ref={checkboxRef}
         checked={value ?? checked}

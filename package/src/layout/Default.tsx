@@ -1,7 +1,7 @@
 import { Slot } from '@radix-ui/react-slot'
-import { clsx } from 'clsx'
 import { ArrowClockwise, Moon, Sun, Terminal } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useState } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface LayoutDefaultProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
@@ -61,7 +61,7 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({ asChild, terminal, children, cl
           </div>
         </div>
         <Comp
-          className={clsx(
+          className={cn(
             'relative flex min-h-[50vh] w-screen max-w-5xl flex-col items-center justify-center gap-4 overflow-auto rounded p-4 shadow-sm',
             className,
             theme === 'light' ? 'bg-gray-100 text-gray-900' : 'dark bg-gray-800 text-gray-100',

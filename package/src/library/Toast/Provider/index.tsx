@@ -1,8 +1,7 @@
 import * as RadixToast from '@radix-ui/react-toast'
 import { PosX, PosXClass, PosY, PosYClass } from '@types'
-import { clsx } from 'clsx'
 import { FC, ReactNode, createContext, useCallback, useState } from 'react'
-
+import { cn } from '@/src/utils/class-merge.helper'
 import ToastRoot, { ToastRootProps } from '../Root'
 
 export interface ToastProviderContextProps extends RadixToast.ToastProviderProps {
@@ -71,7 +70,7 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
           <ToastRoot key={index} variant={item.variant} title={item.title} desc={item.desc} />
         ))}
         <RadixToast.Viewport
-          className={clsx(
+          className={cn(
             'scrollbar-hide fixed z-50 flex max-h-44 flex-col-reverse gap-2 overflow-auto p-2',
             posXClassVariants[posX],
             posYClassVariants[posY],

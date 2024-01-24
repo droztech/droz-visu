@@ -1,8 +1,8 @@
 import * as RadixPopover from '@radix-ui/react-popover'
 import { Position } from '@types'
-import { clsx } from 'clsx'
 import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface TooltipCloseProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   // Optional because we can't remove `text` until the next major release
@@ -58,7 +58,7 @@ const TooltipClose: FC<TooltipCloseProps> = ({
           sideOffset={16}
           className="flex max-w-xs items-center gap-x-3 rounded-md bg-gray-100 p-3 shadow-sm focus:outline-none"
         >
-          <span className={clsx([className, 'flex-1 text-sm'])} {...rest}>
+          <span className={cn(className, 'flex-1 text-sm')} {...rest}>
             {content || text}
           </span>
           {closeButton && (

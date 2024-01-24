@@ -1,6 +1,6 @@
 import { Side, SideClass } from '@types'
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes, useMemo } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface MenuRootProps extends HTMLAttributes<HTMLDivElement> {
   expanded: boolean
@@ -14,16 +14,16 @@ const sideClassVariants: SideClass = {
 
 const MenuRoot: FC<MenuRootProps> = ({ children, className, expanded, side = 'left', ...rest }) => {
   const sideClass = useMemo<string>(() => {
-    return sideClassVariants[side]
-  }, [side])
+    return expanded ? 'translate-x-0' : sideClassVariants[side]
+  }, [expanded, side])
 
   return (
     <div
-      className={clsx([
+      className={cn(
         className,
         'fixed z-50 flex h-full w-full flex-col overflow-hidden bg-gray-100 px-4 transition-all',
-        expanded ? 'translate-x-0' : sideClass,
-      ])}
+        sideClass,
+      )}
       {...rest}
     >
       {children}
