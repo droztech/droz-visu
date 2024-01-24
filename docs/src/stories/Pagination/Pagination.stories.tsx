@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Pagination, PaginationProps } from '@droz-js/visu'
+import { Pagination, PaginationProps } from '@droz-js/visu'
 
 const meta: Meta<PaginationProps> = {
   title: 'Pagination/Pagination',
@@ -91,13 +91,13 @@ type PaginationStory = StoryObj<PaginationProps>
 export const Comum: PaginationStory = {
   render: (args) => {
     return (
-      <Flex.Col center>
+      <div className="flex flex-col items-center justify-center">
         <span>
           O componente foi criado utilizando react-paginate. Para ver todas as propriedades acesse a documentação do
           react-paginate.
         </span>
         <Pagination {...args} />
-      </Flex.Col>
+      </div>
     )
   },
 }
@@ -111,13 +111,13 @@ export const MaisPaginas: PaginationStory = {
   name: 'Com mais páginas',
   render: (args) => {
     return (
-      <Flex.Col center>
+      <div className="flex flex-col items-center justify-center">
         <span>
           O componente foi criado utilizando react-paginate. Para ver todas as propriedades acesse a documentação do
           react-paginate.
         </span>
         <Pagination {...args} />
-      </Flex.Col>
+      </div>
     )
   },
 }

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Radio, RadioRootProps } from '@droz-js/visu'
+import { Radio, RadioRootProps } from '@droz-js/visu'
 
 const meta: Meta<RadioRootProps> = {
   title: 'Radio/Root',
@@ -116,14 +116,14 @@ export const Comum: RadioRootStory = {
   render: (args) => {
     return (
       <Radio.Root {...args}>
-        <Flex.Row center>
+        <div className="flex">
           <Radio.Item id="item1" value="1" />
           <span>Item 1</span>
-        </Flex.Row>
-        <Flex.Row center>
+        </div>
+        <div className="flex">
           <Radio.Item id="item2" value="2" />
           <span>Item 2</span>
-        </Flex.Row>
+        </div>
       </Radio.Root>
     )
   },

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Sidebar, SidebarGroupProps } from '@droz-js/visu'
+import { Sidebar, SidebarGroupProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarGroupProps> = {
   title: 'Sidebar/Group',
@@ -33,7 +33,7 @@ type SidebarGroupStory = StoryObj<SidebarGroupProps>
 export const Comum: SidebarGroupStory = {
   render: (args) => {
     return (
-      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+      <div className="flex w-96 border border-dashed border-primary">
         <Sidebar.Root expanded style={{ border: '1px dashed red' }}>
           <Sidebar.Group
             {...args}
@@ -63,7 +63,7 @@ export const Comum: SidebarGroupStory = {
             Grupo 3
           </Sidebar.Group>
         </Sidebar.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }

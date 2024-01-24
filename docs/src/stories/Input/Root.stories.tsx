@@ -1,4 +1,4 @@
-import { Flex, Input, InputRootProps } from '@droz-js/visu'
+import { Input, InputRootProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
 
@@ -65,11 +65,11 @@ type InputRootStory = StoryObj<InputRootProps>
 export const Comum: InputRootStory = {
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
           <Input.Input type="text" placeholder="Escreva seu nome aqui" />
         </Input.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -77,14 +77,14 @@ export const Comum: InputRootStory = {
 export const ComIcone: InputRootStory = {
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
           <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
           <Input.Icon key="icon">
             <Envelope />
           </Input.Icon>
         </Input.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -92,14 +92,14 @@ export const ComIcone: InputRootStory = {
 export const ComIconeClicavel: InputRootStory = {
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
           <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
           <Input.Icon key="icon" onClick={() => console.log('clicou')}>
             <Envelope />
           </Input.Icon>
         </Input.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -107,14 +107,14 @@ export const ComIconeClicavel: InputRootStory = {
 export const ComIconeNaEsquerda: InputRootStory = {
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
           <Input.Icon key="icon">
             <Envelope />
           </Input.Icon>
           <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
         </Input.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -122,7 +122,7 @@ export const ComIconeNaEsquerda: InputRootStory = {
 export const ComMaisDeUmIcone: InputRootStory = {
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
           <Input.Icon key="icon1">
             <Envelope />
@@ -135,7 +135,7 @@ export const ComMaisDeUmIcone: InputRootStory = {
             <Envelope />
           </Input.Icon>
         </Input.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }

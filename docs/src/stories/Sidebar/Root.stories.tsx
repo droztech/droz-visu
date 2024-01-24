@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Sidebar, SidebarRootProps } from '@droz-js/visu'
+import { Sidebar, SidebarRootProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarRootProps> = {
   title: 'Sidebar/Root',
@@ -49,11 +49,11 @@ type SidebarRoot = StoryObj<SidebarRootProps>
 export const Comum: SidebarRoot = {
   render: (args) => {
     return (
-      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+      <div className="flex w-96 border border-dashed border-primary">
         <Sidebar.Root {...args} style={{ border: '1px dashed red' }}>
           Menu
         </Sidebar.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -64,11 +64,11 @@ export const Comprimido: SidebarRoot = {
   },
   render: (args) => {
     return (
-      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+      <div className="flex w-96 border border-dashed border-primary">
         <Sidebar.Root {...args} style={{ border: '1px dashed red' }}>
           Menu
         </Sidebar.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -79,11 +79,11 @@ export const SemSetExpanded: SidebarRoot = {
     delete args.setExpanded
 
     return (
-      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+      <div className="flex w-96 border border-dashed border-primary">
         <Sidebar.Root {...args} style={{ border: '1px dashed red' }}>
           Menu
         </Sidebar.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }

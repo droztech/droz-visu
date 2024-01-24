@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { House } from 'phosphor-react'
 
-import { Flex, Sidebar, SidebarButtonProps } from '@droz-js/visu'
+import { Sidebar, SidebarButtonProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarButtonProps> = {
   title: 'Sidebar/Button',
@@ -46,11 +46,11 @@ export const Comum: SidebarButtonStory = {
   },
   render: (args) => {
     return (
-      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+      <div className="flex w-96 border border-dashed border-primary">
         <Sidebar.Root expanded style={{ border: '1px dashed red' }}>
           <Sidebar.Button {...args}></Sidebar.Button>
         </Sidebar.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -63,11 +63,16 @@ export const Comprimido: SidebarButtonStory = {
   },
   render: (args) => {
     return (
-      <Flex.Root style={{ width: '500px', border: '1px dashed blue' }}>
+      <div
+        className="flex w-96
+        border
+        border-dashed
+        border-primary"
+      >
         <Sidebar.Root expanded={false} style={{ border: '1px dashed red' }}>
           <Sidebar.Button {...args}></Sidebar.Button>
         </Sidebar.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { Flex, Select, SelectRootProps } from '@droz-js/visu'
+import { Select, SelectRootProps } from '@droz-js/visu'
 
 const meta: Meta<SelectRootProps> = {
   title: 'Select/Root',
@@ -109,12 +109,12 @@ type SelectRootStory = StoryObj<SelectRootProps>
 export const Comum: SelectRootStory = {
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Select.Root {...args}>
           <Select.Item value="item1">Item 1</Select.Item>
           <Select.Item value="item2">Item 2</Select.Item>
         </Select.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
