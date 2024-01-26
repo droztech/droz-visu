@@ -1,7 +1,7 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
 import { Position } from '@types'
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface TooltipHoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   // Optional because we can't remove `text` until the next major release
@@ -63,7 +63,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
           <RadixTooltip.Content side={side} sideOffset={5}>
             <RadixTooltip.Arrow className="h-2 w-5 fill-background" />
             <div className="max-w-xs rounded-md bg-background p-3 shadow-sm">
-              <span className={clsx(className, 'text-sm')} {...rest}>
+              <span className={cn(className, 'text-sm')} {...rest}>
                 {content || text}
               </span>
             </div>

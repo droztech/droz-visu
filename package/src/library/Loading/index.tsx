@@ -1,6 +1,6 @@
 import { ExtendedColor, ExtendedColorClass, LargerSizes, LargerSizesClass } from '@types'
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes, useMemo } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
   color?: ExtendedColor
@@ -35,10 +35,10 @@ const LoadingDots: FC<LoadingProps> = ({ className, color = 'current', size = 'm
   }, [size])
 
   return (
-    <div className={clsx('flex gap-2', className)} {...rest}>
-      <div className={clsx(dotClass, sizeClass, colorClass)} style={{ animationDelay: '0ms' }} />
-      <div className={clsx(dotClass, sizeClass, colorClass)} style={{ animationDelay: '500ms' }} />
-      <div className={clsx(dotClass, sizeClass, colorClass)} style={{ animationDelay: '1000ms' }} />
+    <div className={cn('flex gap-2', className)} {...rest}>
+      <div className={cn(dotClass, sizeClass, colorClass)} style={{ animationDelay: '0ms' }} />
+      <div className={cn(dotClass, sizeClass, colorClass)} style={{ animationDelay: '500ms' }} />
+      <div className={cn(dotClass, sizeClass, colorClass)} style={{ animationDelay: '1000ms' }} />
     </div>
   )
 }

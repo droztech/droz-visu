@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Tooltip } from './library'
+import { Select } from './library'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
 import { useState } from 'react'
@@ -32,9 +32,10 @@ function App() {
     <LayoutDefault asChild terminal={[watch(), test]} buttons={[{ icon: <Eraser />, onClick: clearState }]}>
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Tooltip.Hover content="Copiado!" side="top" closeTime={1000}>
-          <span>Time</span>
-        </Tooltip.Hover>
+        <Select.Root placeholder="Selecione">
+          <Select.Item value="abc">abc</Select.Item>
+          <Select.Item value="xyz">xyz</Select.Item>
+        </Select.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

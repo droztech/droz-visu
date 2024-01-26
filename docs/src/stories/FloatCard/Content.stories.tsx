@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { MouseSimple } from 'phosphor-react'
 
-import { Avatar, Flex, FloatCard, FloatCardContentProps } from '@droz-js/visu'
+import { Avatar, FloatCard, FloatCardContentProps } from '@droz-js/visu'
 
 const meta: Meta<FloatCardContentProps> = {
   title: 'FloatCard/Content',
@@ -44,13 +44,13 @@ export const Comum: FloatCardContentStory = {
           <MouseSimple size={32} />
         </FloatCard.Trigger>
         <FloatCard.Content {...args}>
-          <Flex.Root direction={'col'}>
+          <div className="flex flex-col">
             <Avatar.Root>
               <Avatar.Fallback fallback="FC" />
             </Avatar.Root>
             <span>O FloatCard é utilizado para estruturas mais complexas do que um Tooltip.</span>
             <span>O Root é apenas o container do componente. Verifique o código na docs.</span>
-          </Flex.Root>
+          </div>
         </FloatCard.Content>
       </FloatCard.Root>
     )

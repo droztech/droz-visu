@@ -1,7 +1,7 @@
 import * as RadixRadio from '@radix-ui/react-radio-group'
 import { Color, ColorClass } from '@types'
-import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface RadioItemProps extends RadixRadio.RadioGroupItemProps {
   color?: Color
@@ -32,22 +32,15 @@ const RadioItem: FC<RadioItemProps> = ({ className, color = 'primary', disabled,
 
   return (
     <RadixRadio.Item
-      className={clsx([
+      className={cn(
         className,
-        'border-2',
-        'transition-all',
-        'w-4',
-        'h-4',
-        'rounded-full',
-        'flex',
-        'items-center',
-        'justify-center',
+        'flex h-4 w-4 items-center justify-center rounded-full border-2 transition-all',
         colorClass,
-      ])}
+      )}
       disabled={disabled}
       {...rest}
     >
-      <RadixRadio.Indicator className={clsx(['w-2', 'h-2', 'rounded-full', dotColorClass])} />
+      <RadixRadio.Indicator className={cn('h-2 w-2 rounded-full', dotColorClass)} />
     </RadixRadio.Item>
   )
 }

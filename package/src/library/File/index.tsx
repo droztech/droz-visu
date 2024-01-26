@@ -1,6 +1,6 @@
-import { clsx } from 'clsx'
 import { X } from 'phosphor-react'
 import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface FileProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   formats?: string[] | string
@@ -35,7 +35,7 @@ const File: FC<FileProps> = ({ className, formats, onChange, value, ...rest }) =
   return (
     <div className="relative flex items-center">
       <input
-        className={clsx(
+        className={cn(
           'cursor-pointer rounded-lg border border-dashed pl-4 pr-10 transition-all hover:bg-gray-300 active:border-primary',
           dragOver ? 'bg-gray-300 py-8' : 'py-2',
           value ? 'border-primary' : 'border-gray',

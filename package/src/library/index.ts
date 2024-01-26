@@ -20,9 +20,6 @@ export type * from './Divider'
 export { default as File } from './File'
 export type * from './File'
 
-export { default as Flex } from './Flex'
-export type * from './Flex'
-
 export { default as FloatCard } from './FloatCard'
 export type * from './FloatCard'
 

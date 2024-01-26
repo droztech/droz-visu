@@ -1,7 +1,7 @@
 import { SmallerSizes } from '@types'
-import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface PaginationProps extends Omit<ReactPaginateProps, 'onPageChange'> {
   current: number
@@ -17,23 +17,23 @@ const Pagination: FC<PaginationProps> = ({ current, onPageChange, disabled, size
 
   return (
     <ReactPaginate
-      className={clsx('flex items-center gap-1', className)}
+      className={cn('flex items-center gap-1', className)}
       nextLabel="›"
       previousLabel="‹"
-      activeClassName={clsx('pointer-events-none !text-gray-100', disabled ? 'bg-gray-400' : 'bg-primary-400')}
-      pageClassName={clsx(
+      activeClassName={cn('pointer-events-none !text-gray-100', disabled ? 'bg-gray-400' : 'bg-primary-400')}
+      pageClassName={cn(
         'w-8 h-8 flex items-center justify-center rounded-full',
         disabled ? 'text-gray-400 pointer-events-none' : 'text-gray-600',
       )}
-      nextClassName={clsx(
+      nextClassName={cn(
         'flex items-center justify-center [&>*]:text-lg [&>*]:px-1',
         disabled ? 'text-gray-400 pointer-events-none' : 'text-gray-600',
       )}
-      previousClassName={clsx(
+      previousClassName={cn(
         'flex items-center justify-center [&>*]:text-lg [&>*]:px-1',
         disabled ? 'text-gray-400 pointer-events-none' : 'text-gray-600',
       )}
-      breakClassName={clsx(
+      breakClassName={cn(
         'flex items-center justify-center',
         disabled ? 'text-gray-400 pointer-events-none' : 'text-gray-600',
       )}

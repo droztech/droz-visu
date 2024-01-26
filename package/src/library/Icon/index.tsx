@@ -1,7 +1,7 @@
 import { Slot } from '@radix-ui/react-slot'
 import { IconColor, IconColorClass } from '@types'
-import { clsx } from 'clsx'
 import { ButtonHTMLAttributes, Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 const sizeClassVariants = {
   sm: 'w-8 h-8 min-w-8 min-h-8 [&_svg]:h-4 [&_svg]:w-4',
@@ -44,7 +44,7 @@ const Icon = forwardRef<HTMLButtonElement, IconProps>(
 
     return (
       <RootComponent
-        className={clsx(
+        className={cn(
           className,
           'flex items-center justify-center rounded-full transition-all active:opacity-50',
           colorClass,

@@ -1,4 +1,4 @@
-import { Button, ButtonRootProps, Flex } from '@droz-js/visu'
+import { Button, ButtonRootProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
 
@@ -130,9 +130,9 @@ export const Comum: ButtonRootStory = {
   },
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Button.Root {...args}>Clique aqui</Button.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -148,14 +148,14 @@ export const ComIcone: ButtonRootStory = {
   },
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Button.Root {...args}>
           Clique aqui
           <Button.Icon key="icon">
             <CheckCircle />
           </Button.Icon>
         </Button.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -171,14 +171,14 @@ export const ComIconeNaEsquerda: ButtonRootStory = {
   },
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Button.Root {...args}>
           <Button.Icon key="icon">
             <CheckCircle />
           </Button.Icon>
           Clique aqui
         </Button.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }
@@ -194,11 +194,11 @@ export const ComoTagAnchor: ButtonRootStory = {
   },
   render: (args) => {
     return (
-      <Flex.Root center style={{ width: '80vw' }}>
+      <div className="flex w-[80vw] items-center justify-center">
         <Button.Root {...args}>
           <a href="/">Link</a>
         </Button.Root>
-      </Flex.Root>
+      </div>
     )
   },
 }

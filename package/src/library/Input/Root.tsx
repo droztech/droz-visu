@@ -1,6 +1,6 @@
 import { Status } from '@types'
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes, useCallback, useEffect, useMemo, useRef } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
@@ -46,26 +46,12 @@ const InputRoot: FC<InputRootProps> = ({ children, className, disabled, full, st
   return (
     <div
       ref={RootComponent}
-      className={clsx([
+      className={cn(
         className,
-        'flex',
-        'items-center',
-        'gap-3',
-        'py-0',
-        'px-4',
-        'rounded-lg',
-        'cursor-text',
-        'border',
-        'border-solid',
-        'focus-within:border-primary',
-        'focus-within:has-[input:invalid]:!border-error',
-        'focus-within:has-[input:invalid]:placeholder-shown:outline',
-        'focus-within:has-[input:invalid]:placeholder-shown:outline-2',
-        'focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
-        'focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2',
+        'flex cursor-text items-center gap-3 rounded-lg border border-solid px-4 py-0 focus-within:border-primary focus-within:has-[input:invalid]:!border-error focus-within:has-[input:invalid]:placeholder-shown:outline focus-within:has-[input:invalid]:placeholder-shown:outline-2 focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2 focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
         fullClass,
         rootClass,
-      ])}
+      )}
       onClick={focusInput}
       {...rest}
     >

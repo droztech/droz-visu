@@ -1,7 +1,7 @@
 import * as RadixAvatar from '@radix-ui/react-avatar'
 import { Color, ColorClass, Size, SizeClass, Status, StatusClass } from '@types'
-import { clsx } from 'clsx'
 import { FC, useMemo } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface AvatarRootProps extends RadixAvatar.AvatarProps {
   color?: Color
@@ -45,7 +45,7 @@ export const statusSizeVariants: SizeClass = {
 
 const AvatarRoot: FC<AvatarRootProps> = ({ children, className, color = 'primary', size = 'md', status, ...rest }) => {
   const rootClass = useMemo<string>(() => {
-    return clsx(rootColorVariants[color], rootSizeVariants[size])
+    return cn(rootColorVariants[color], rootSizeVariants[size])
   }, [color, size])
 
   const bgClass = useMemo<string>(() => {
@@ -53,27 +53,20 @@ const AvatarRoot: FC<AvatarRootProps> = ({ children, className, color = 'primary
   }, [color])
 
   const statusClass = useMemo<string>(() => {
-    return clsx(status ? statusStatusVariants[status] : '', statusSizeVariants[size], statusColorVariants[color])
+    return cn(status && statusStatusVariants[status], statusSizeVariants[size], statusColorVariants[color])
   }, [color, status, size])
 
   return (
     <RadixAvatar.Root
-      className={clsx([
+      className={cn(
         className,
-        'uppercase',
-        'select-none',
-        'cursor-pointer',
-        'relative',
-        'rounded-full',
-        'border-2',
-        'transition-all',
-        'p-[2px]',
+        'relative cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
         rootClass,
-      ])}
+      )}
       {...rest}
     >
-      {status && <div className={clsx(['absolute', 'top-0', 'right-0', 'rounded-full', 'border-2', statusClass])} />}
-      <div className={clsx('flex aspect-square h-full w-full items-center justify-center rounded-full', bgClass)}>
+      {status && <div className={cn('absolute right-0 top-0 rounded-full border-2', statusClass)} />}
+      <div className={cn('flex aspect-square h-full w-full items-center justify-center rounded-full', bgClass)}>
         {children}
       </div>
     </RadixAvatar.Root>

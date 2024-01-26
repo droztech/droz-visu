@@ -1,6 +1,6 @@
 import Tooltip from '../Tooltip'
-import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
+import { cn } from '@/src/utils/class-merge.helper'
 
 export interface SidebarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon: JSX.Element
@@ -10,10 +10,10 @@ export interface SidebarButtonProps extends HTMLAttributes<HTMLButtonElement> {
 const SidebarButton: FC<SidebarButtonProps> = ({ className, icon, text, ...rest }) => {
   return (
     <button
-      className={clsx([
+      className={cn(
         className,
         'flex w-full flex-row items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:bg-primary hover:text-gray-100 [&:hover_svg]:text-gray-100 [&_svg]:text-primary',
-      ])}
+      )}
       {...rest}
     >
       <Tooltip.Hover text={text} side="right">

@@ -1,22 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
     "outDir": "dist",
-    "composite": true,
-    "module": "ESNext",
-    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["*"],
@@ -24,5 +8,6 @@
       "@types": ["src/library/types"],
     },
   },
+  "extends": ["../tsconfig.base.json"],
   "include": ["src", "tailwind.config.ts", "vite.config.ts"],
 }
