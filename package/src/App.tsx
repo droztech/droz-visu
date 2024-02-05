@@ -33,8 +33,11 @@ function App() {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
         <Select.Root placeholder="Selecione">
-          <Select.Item value="abc">abc</Select.Item>
-          <Select.Item value="xyz">xyz</Select.Item>
+          {[...Array(50)].map((item, index) => (
+            <Select.Item key={index} value={index.toString()}>
+              {index}
+            </Select.Item>
+          ))}
         </Select.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
