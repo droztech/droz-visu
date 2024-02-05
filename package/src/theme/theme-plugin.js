@@ -135,6 +135,10 @@ module.exports = plugin(
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        wave: {
+          from: { backgroundPosition: '300% 0' },
+          to: { backgroundPosition: '-300% 0' },
+        },
       },
 
       animation: {
@@ -145,6 +149,7 @@ module.exports = plugin(
         swipeOut: 'swipeOut 100ms ease-out',
         slideDown: 'slideDown 200ms ease-in',
         slideUp: 'slideUp 200ms ease-out',
+        wave: 'wave 10000ms infinite linear',
       },
 
       minHeight: {
