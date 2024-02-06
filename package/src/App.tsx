@@ -1,10 +1,11 @@
 import LayoutDefault from './layout/Default'
+import { Skeleton } from './library'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { Skeleton } from './library'
 
 const formSchema = z.object({
   data: z.string().nonempty('required'),
@@ -28,7 +29,11 @@ function App() {
     setTest('')
   }
   return (
-    <LayoutDefault asChild terminal={[watch(), test]} buttons={[{ icon: <Eraser />, onClick: clearState }]}>
+    <LayoutDefault
+      asChild
+      terminal={[watch(), test]}
+      buttons={[{ icon: <Eraser />, onClick: clearState }]}
+    >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
         <Skeleton className="h-8 w-full" />

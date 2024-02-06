@@ -1,6 +1,7 @@
 import { Button } from '@library'
+
 import { fireEvent, render, screen } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
   return {

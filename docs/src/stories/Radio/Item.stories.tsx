@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Radio, RadioItemProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<RadioItemProps> = {
   title: 'Radio/Item',
@@ -38,7 +37,8 @@ const meta: Meta<RadioItemProps> = {
     },
     required: {
       control: { type: 'boolean' },
-      description: 'Define se é obrigatório marcar o item antes de submeter em um formulário.',
+      description:
+        'Define se é obrigatório marcar o item antes de submeter em um formulário.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },

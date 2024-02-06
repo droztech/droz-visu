@@ -1,10 +1,12 @@
-import * as RadixPopover from '@radix-ui/react-popover'
+import { cn } from '@/src/utils/class-merge.helper'
 import { Position } from '@types'
+
+import * as RadixPopover from '@radix-ui/react-popover'
 import { ArrowRight, X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useMemo, useState } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
-export interface TooltipStepProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
+export interface TooltipStepProps
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   closeText?: string
   // Optional because we can't remove `text` until the next major release
   content?: ReactNode[]

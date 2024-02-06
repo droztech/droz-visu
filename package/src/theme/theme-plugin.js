@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { animation, boxShadow, keyframes, minHeight, minWidth, spacing, zIndex } = require('tailwindcss/defaultTheme')
+const {
+  animation,
+  boxShadow,
+  keyframes,
+  minHeight,
+  minWidth,
+  spacing,
+  zIndex,
+} = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
 module.exports = plugin(

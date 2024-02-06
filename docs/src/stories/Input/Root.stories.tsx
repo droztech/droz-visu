@@ -25,7 +25,8 @@ const meta: Meta<InputRootProps> = {
     },
     full: {
       control: { type: 'boolean' },
-      description: 'Faz com que o componente preencha todo o espaço disponível.',
+      description:
+        'Faz com que o componente preencha todo o espaço disponível.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -79,7 +80,11 @@ export const ComIcone: InputRootStory = {
     return (
       <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
-          <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
           <Input.Icon key="icon">
             <Envelope />
           </Input.Icon>
@@ -94,7 +99,11 @@ export const ComIconeClicavel: InputRootStory = {
     return (
       <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
-          <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
           <Input.Icon key="icon" onClick={() => console.log('clicou')}>
             <Envelope />
           </Input.Icon>
@@ -112,7 +121,11 @@ export const ComIconeNaEsquerda: InputRootStory = {
           <Input.Icon key="icon">
             <Envelope />
           </Input.Icon>
-          <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
         </Input.Root>
       </div>
     )
@@ -127,7 +140,11 @@ export const ComMaisDeUmIcone: InputRootStory = {
           <Input.Icon key="icon1">
             <Envelope />
           </Input.Icon>
-          <Input.Input key="input" type="email" placeholder="Escreva seu email aqui" />
+          <Input.Input
+            key="input"
+            type="email"
+            placeholder="Escreva seu email aqui"
+          />
           <Input.Icon key="icon2">
             <Envelope />
           </Input.Icon>

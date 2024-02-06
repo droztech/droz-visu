@@ -1,3 +1,5 @@
+import { cn } from '@/src/utils/class-merge.helper'
+
 import {
   ChangeEvent,
   ClipboardEvent,
@@ -10,9 +12,9 @@ import {
   useRef,
   useState,
 } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
-export interface OTPInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
+export interface OTPInputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   count: number
   error?: boolean
   onChange?: (data: string) => void
@@ -20,20 +22,35 @@ export interface OTPInputProps extends Omit<InputHTMLAttributes<HTMLInputElement
 }
 
 const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
-  ({ count, error, onChange, value, className, ...rest }, forwardedRef: LegacyRef<HTMLDivElement> | undefined) => {
+  (
+    { count, error, onChange, value, className, ...rest },
+    forwardedRef: LegacyRef<HTMLDivElement> | undefined,
+  ) => {
     const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
     const refs = useRef<(HTMLInputElement | null)[]>(Array(count).fill(null))
 
     const inputColorClass = useMemo(() => {
-      return error ? 'border-error hover:border-error-600' : 'border-gray hover:border-gray-700 active:border-primary'
+      return error
+        ? 'border-error hover:border-error-600'
+        : 'border-gray hover:border-gray-700 active:border-primary'
     }, [error])
 
-    const handleChange = ({ target }: ChangeEvent<HTMLInputElement>, index: number) => {
-      setOtp((prevOtp) => prevOtp.map((value, i) => (i === index ? target.value : value)))
-      if (onChange) onChange(otp.map((value, i) => (i === index ? target.value : value)).join(''))
+    const handleChange = (
+      { target }: ChangeEvent<HTMLInputElement>,
+      index: number,
+    ) => {
+      setOtp((prevOtp) =>
+        prevOtp.map((value, i) => (i === index ? target.value : value)),
+      )
+      if (onChange)
+        onChange(
+          otp.map((value, i) => (i === index ? target.value : value)).join(''),
+        )
     }
 
-    const handlePaste = ({ clipboardData }: ClipboardEvent<HTMLInputElement>) => {
+    const handlePaste = ({
+      clipboardData,
+    }: ClipboardEvent<HTMLInputElement>) => {
       const paste = clipboardData.getData('text/plain').replace(' ', '')
       const pasteArray = paste.split('').slice(0, otp.length)
       setOtp(pasteArray)
@@ -68,7 +85,11 @@ const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
     }, [count, value])
 
     return (
-      <div className={cn('flex justify-center gap-4 max-sm:gap-2', className)} ref={forwardedRef} {...rest}>
+      <div
+        className={cn('flex justify-center gap-4 max-sm:gap-2', className)}
+        ref={forwardedRef}
+        {...rest}
+      >
         {otp.map((item, index) => (
           <input
             key={index}

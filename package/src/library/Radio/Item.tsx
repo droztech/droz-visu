@@ -1,15 +1,18 @@
-import * as RadixRadio from '@radix-ui/react-radio-group'
-import { Color, ColorClass } from '@types'
-import { FC, useMemo } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import { Color, ColorClass } from '@types'
+
+import * as RadixRadio from '@radix-ui/react-radio-group'
+import { FC, useMemo } from 'react'
 
 export interface RadioItemProps extends RadixRadio.RadioGroupItemProps {
   color?: Color
 }
 
 export const colorClassVariants: ColorClass = {
-  primary: 'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
-  secondary: 'data-[state=checked]:border-secondary border-gray hover:border-secondary [&:active>*]:bg-secondary',
+  primary:
+    'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
+  secondary:
+    'data-[state=checked]:border-secondary border-gray hover:border-secondary [&:active>*]:bg-secondary',
 }
 
 export const dotColorClassVariants: ColorClass = {
@@ -17,7 +20,12 @@ export const dotColorClassVariants: ColorClass = {
   secondary: 'data-[state=checked]:bg-secondary',
 }
 
-const RadioItem: FC<RadioItemProps> = ({ className, color = 'primary', disabled, ...rest }) => {
+const RadioItem: FC<RadioItemProps> = ({
+  className,
+  color = 'primary',
+  disabled,
+  ...rest
+}) => {
   const colorClass = useMemo(() => {
     if (disabled) return 'border-gray'
 
@@ -40,7 +48,9 @@ const RadioItem: FC<RadioItemProps> = ({ className, color = 'primary', disabled,
       disabled={disabled}
       {...rest}
     >
-      <RadixRadio.Indicator className={cn('h-2 w-2 rounded-full', dotColorClass)} />
+      <RadixRadio.Indicator
+        className={cn('h-2 w-2 rounded-full', dotColorClass)}
+      />
     </RadixRadio.Item>
   )
 }

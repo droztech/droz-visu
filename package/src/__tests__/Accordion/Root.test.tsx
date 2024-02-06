@@ -1,4 +1,5 @@
 import { Accordion } from '@library'
+
 import { render, screen } from '@testing-library/react'
 
 describe('Root tests', () => {

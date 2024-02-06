@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Link, LinkProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<LinkProps> = {
   title: 'Link/Link',
@@ -24,11 +23,14 @@ const meta: Meta<LinkProps> = {
     },
     color: {
       control: { type: 'select' },
-      description: 'Aplica um estilo de hover para a cor desejada e cursor pointer',
+      description:
+        'Aplica um estilo de hover para a cor desejada e cursor pointer',
       options: ['primary', 'secondary', 'success', 'error', 'alert'],
       table: {
         type: {
-          summary: ['primary', 'secondary', 'success', 'error', 'alert'].join(' | '),
+          summary: ['primary', 'secondary', 'success', 'error', 'alert'].join(
+            ' | ',
+          ),
         },
       },
       type: { name: 'string', required: false },
@@ -70,7 +72,7 @@ export const ComoAnchor: LinkStory = {
   render: (args) => {
     return (
       <Link asChild {...args}>
-        <a href="" target="_blank">
+        <a href="google.com" target="_blank">
           Hello World
         </a>
       </Link>

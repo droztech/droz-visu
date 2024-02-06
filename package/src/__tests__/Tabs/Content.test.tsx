@@ -1,6 +1,7 @@
 import { Tabs } from '@library'
+
 import { render, screen, renderHook } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { useRef } from 'react'
 
 jest.mock('clsx', () => {

@@ -1,8 +1,10 @@
-import * as RadixSwitch from '@radix-ui/react-switch'
-import { FC, useMemo } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
 
-export interface SwitchProps extends Omit<RadixSwitch.SwitchProps, 'value' | 'onChange'> {
+import * as RadixSwitch from '@radix-ui/react-switch'
+import { FC, useMemo } from 'react'
+
+export interface SwitchProps
+  extends Omit<RadixSwitch.SwitchProps, 'value' | 'onChange'> {
   label?: boolean
   value?: boolean
   onChange?: (ev: boolean) => void

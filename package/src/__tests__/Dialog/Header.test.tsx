@@ -1,4 +1,5 @@
 import { Dialog } from '@library'
+
 import { render, screen } from '@testing-library/react'
 import { SquaresFour } from 'phosphor-react'
 
@@ -99,7 +100,11 @@ describe('DialogHeader tests', () => {
         </Dialog.Trigger>
 
         <Dialog.Content>
-          <Dialog.Header data-testid={dialogTestId} title={title} withClose={false} />
+          <Dialog.Header
+            data-testid={dialogTestId}
+            title={title}
+            withClose={false}
+          />
         </Dialog.Content>
       </Dialog.Root>,
     )

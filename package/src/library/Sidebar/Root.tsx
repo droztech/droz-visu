@@ -1,13 +1,20 @@
+import { cn } from '@/src/utils/class-merge.helper'
+
 import { Minus, Plus } from 'phosphor-react'
 import { FC, HTMLAttributes } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
 export interface SidebarRootProps extends HTMLAttributes<HTMLDivElement> {
   expanded?: boolean
   setExpanded?: () => void
 }
 
-const SidebarRoot: FC<SidebarRootProps> = ({ children, className, expanded, setExpanded, ...rest }) => {
+const SidebarRoot: FC<SidebarRootProps> = ({
+  children,
+  className,
+  expanded,
+  setExpanded,
+  ...rest
+}) => {
   return (
     <aside
       className={cn(
@@ -18,12 +25,12 @@ const SidebarRoot: FC<SidebarRootProps> = ({ children, className, expanded, setE
       {...rest}
     >
       {setExpanded && (
-        <div
+        <button
           className="transition-colors7 absolute -right-2.5 top-4 flex h-5 w-5 cursor-pointer items-center justify-center rounded border-2 border-gray-400 bg-gray-100 text-gray-500 hover:border-primary hover:bg-primary-100 hover:text-primary"
           onClick={setExpanded}
         >
           {expanded ? <Minus /> : <Plus />}
-        </div>
+        </button>
       )}
       {children}
     </aside>

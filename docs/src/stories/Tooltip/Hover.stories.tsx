@@ -34,7 +34,8 @@ const meta: Meta<TooltipHoverProps> = {
     },
     closeTime: {
       control: 'number',
-      description: 'Define o tempo em milissegundos para fechar o conteúdo do Tooltip.',
+      description:
+        'Define o tempo em milissegundos para fechar o conteúdo do Tooltip.',
       table: {
         type: { summary: 'number' },
       },
@@ -42,7 +43,8 @@ const meta: Meta<TooltipHoverProps> = {
     },
     delayDuration: {
       control: 'number',
-      description: 'Define o tempo de delay em milissegundos para exibir o conteúdo do Tooltip.',
+      description:
+        'Define o tempo de delay em milissegundos para exibir o conteúdo do Tooltip.',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: '300' },
@@ -60,7 +62,8 @@ const meta: Meta<TooltipHoverProps> = {
     },
     side: {
       control: { type: 'inline-radio' },
-      description: 'Define o local em que o componente irá aparecer, relativo ao trigger.',
+      description:
+        'Define o local em que o componente irá aparecer, relativo ao trigger.',
       options: ['bottom', 'left', 'right', 'top'],
       table: {
         type: {
@@ -84,7 +87,8 @@ const meta: Meta<TooltipHoverProps> = {
     text: {
       control: 'none',
       name: 'text (deprecated)',
-      description: '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
+      description:
+        '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
       table: {
         type: { summary: 'text' },
       },

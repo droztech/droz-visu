@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const mainPackageJson = require('../package.json')
+
 const glob = require('glob')
+
 const fs = require('fs')
 
 const versioning = mainPackageJson.version

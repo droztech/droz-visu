@@ -1,4 +1,9 @@
-import { animation, boxShadow, minHeight, keyframes } from 'tailwindcss/defaultTheme'
+import {
+  animation,
+  boxShadow,
+  minHeight,
+  keyframes,
+} from 'tailwindcss/defaultTheme'
 import { ThemeConfig } from 'tailwindcss/types/config'
 
 export const theme = {

@@ -1,16 +1,25 @@
+import { cn } from '@/src/utils/class-merge.helper'
+
 import * as Dialog from '@radix-ui/react-dialog'
 import { FC } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
 export interface DialogContentProps extends Dialog.DialogContentProps {
   overlay?: boolean
 }
 
-const DialogContent: FC<DialogContentProps> = ({ children, className, overlay = true, ...rest }) => {
+const DialogContent: FC<DialogContentProps> = ({
+  children,
+  className,
+  overlay = true,
+  ...rest
+}) => {
   return (
     <Dialog.Portal>
       {overlay && (
-        <Dialog.Overlay data-testid="visu-dialog-overlay" className="fixed inset-0 z-40 bg-gray-800 opacity-25" />
+        <Dialog.Overlay
+          data-testid="visu-dialog-overlay"
+          className="fixed inset-0 z-40 bg-gray-800 opacity-25"
+        />
       )}
       <Dialog.Content
         className={cn(

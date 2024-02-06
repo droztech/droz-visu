@@ -1,6 +1,7 @@
-import { Side, SideClass } from '@types'
-import { FC, HTMLAttributes, useMemo } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import { Side, SideClass } from '@types'
+
+import { FC, HTMLAttributes, useMemo } from 'react'
 
 export interface MenuRootProps extends HTMLAttributes<HTMLDivElement> {
   expanded: boolean
@@ -12,7 +13,13 @@ const sideClassVariants: SideClass = {
   right: 'translate-x-full',
 }
 
-const MenuRoot: FC<MenuRootProps> = ({ children, className, expanded, side = 'left', ...rest }) => {
+const MenuRoot: FC<MenuRootProps> = ({
+  children,
+  className,
+  expanded,
+  side = 'left',
+  ...rest
+}) => {
   const sideClass = useMemo<string>(() => {
     return expanded ? 'translate-x-0' : sideClassVariants[side]
   }, [expanded, side])

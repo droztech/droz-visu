@@ -1,6 +1,7 @@
 import { Tabs, TabsRootProps } from '@droz-js/visu'
-import type { Meta, StoryObj } from '@storybook/react'
 import { Airplane, Alarm, Alien } from 'phosphor-react'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<TabsRootProps> = {
   title: 'Tabs/Root',
@@ -56,7 +57,8 @@ const meta: Meta<TabsRootProps> = {
     },
     value: {
       control: 'text',
-      description: 'Valor da aba que será exibida. Utilize quando precisar controlar o estado do componente.',
+      description:
+        'Valor da aba que será exibida. Utilize quando precisar controlar o estado do componente.',
       table: {
         type: {
           summary: 'string',
@@ -101,11 +103,26 @@ export const Comum: TabsRootStory = {
     children: (
       <>
         <Tabs.List>
-          <Tabs.Trigger icon={<Airplane />} key="tab1" title="Avião" value="tab1" />
+          <Tabs.Trigger
+            icon={<Airplane />}
+            key="tab1"
+            title="Avião"
+            value="tab1"
+          />
 
-          <Tabs.Trigger icon={<Alarm />} key="tab2" title="Alarme" value="tab2" />
+          <Tabs.Trigger
+            icon={<Alarm />}
+            key="tab2"
+            title="Alarme"
+            value="tab2"
+          />
 
-          <Tabs.Trigger icon={<Alien />} key="tab3" title="Alien" value="tab3" />
+          <Tabs.Trigger
+            icon={<Alien />}
+            key="tab3"
+            title="Alien"
+            value="tab3"
+          />
         </Tabs.List>
         <Tabs.Content value="tab1">
           <div>

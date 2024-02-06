@@ -1,4 +1,5 @@
 import { Avatar, AvatarImageProps } from '@droz-js/visu'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarImageProps> = {

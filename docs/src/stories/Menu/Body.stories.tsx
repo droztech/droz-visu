@@ -1,7 +1,6 @@
+import { Menu, MenuBodyProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { House } from 'phosphor-react'
-
-import { Menu, MenuBodyProps } from '@droz-js/visu'
 
 const meta: Meta<MenuBodyProps> = {
   title: 'Menu/Body',

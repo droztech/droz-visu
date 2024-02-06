@@ -1,7 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import {
+  Button,
+  ToastProvider,
+  ToastProviderProps,
+  useToast,
+} from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { Button, ToastProvider, ToastProviderProps, useToast } from '@droz-js/visu'
 
 const meta: Meta<ToastProviderProps> = {
   title: 'Toast/Provider',

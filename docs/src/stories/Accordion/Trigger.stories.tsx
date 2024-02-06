@@ -35,9 +35,10 @@ export const Comum: AccordionTriggerStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>
@@ -60,9 +61,10 @@ export const OutroIcone: AccordionTriggerStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>

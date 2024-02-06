@@ -1,14 +1,22 @@
-import { X } from 'phosphor-react'
-import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
 
-export interface FileProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
+import { X } from 'phosphor-react'
+import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react'
+
+export interface FileProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   formats?: string[] | string
   onChange?: (data: File | undefined) => void
   value?: File
 }
 
-const File: FC<FileProps> = ({ className, formats, onChange, value, ...rest }) => {
+const File: FC<FileProps> = ({
+  className,
+  formats,
+  onChange,
+  value,
+  ...rest
+}) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [dragOver, setDragOver] = useState(false)
 
@@ -50,7 +58,10 @@ const File: FC<FileProps> = ({ className, formats, onChange, value, ...rest }) =
         {...rest}
       />
       {value && (
-        <button className="absolute right-4 rounded transition-colors hover:text-error" onClick={handleClearFile}>
+        <button
+          className="absolute right-4 rounded transition-colors hover:text-error"
+          onClick={handleClearFile}
+        >
           <X />
         </button>
       )}

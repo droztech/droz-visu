@@ -1,7 +1,15 @@
-import { InputHTMLAttributes, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
 
-export interface InputInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+import {
+  InputHTMLAttributes,
+  Ref,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+} from 'react'
+
+export interface InputInputProps
+  extends InputHTMLAttributes<HTMLInputElement> {}
 
 const InputInput = forwardRef<HTMLInputElement, InputInputProps>(
   ({ className, ...rest }, ref: Ref<HTMLInputElement | null>) => {

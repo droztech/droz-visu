@@ -1,7 +1,8 @@
 import { ToastProvider, ToastProviderProps, useToast } from '@library'
+
 import { RenderOptions, act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { FC } from 'react'
 
 jest.mock('clsx', () => {
@@ -14,8 +15,14 @@ interface CustomRenderProps extends RenderOptions {
   providerProps: ToastProviderProps
 }
 
-const customRender = (ui: JSX.Element, { providerProps, ...renderOptions }: CustomRenderProps) => {
-  return render(<ToastProvider {...providerProps}>{ui}</ToastProvider>, renderOptions)
+const customRender = (
+  ui: JSX.Element,
+  { providerProps, ...renderOptions }: CustomRenderProps,
+) => {
+  return render(
+    <ToastProvider {...providerProps}>{ui}</ToastProvider>,
+    renderOptions,
+  )
 }
 
 describe('ToastToast tests', () => {
@@ -29,7 +36,12 @@ describe('ToastToast tests', () => {
 
       return (
         <div>
-          <button data-testid="element" onClick={() => toast.success({ desc: toastDescription, title: toastTitle })}>
+          <button
+            data-testid="element"
+            onClick={() =>
+              toast.success({ desc: toastDescription, title: toastTitle })
+            }
+          >
             Exec Toast
           </button>
         </div>

@@ -1,6 +1,7 @@
 import { Button } from '@library'
+
 import { render, screen } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { CheckCircle } from 'phosphor-react'
 
 jest.mock('clsx', () => {

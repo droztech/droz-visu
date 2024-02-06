@@ -59,9 +59,10 @@ export const Single: AccordionRootStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>
@@ -72,9 +73,10 @@ export const Single: AccordionRootStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>
@@ -85,9 +87,10 @@ export const Single: AccordionRootStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>
@@ -110,9 +113,10 @@ export const Multiple: AccordionRootStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>
@@ -123,9 +127,10 @@ export const Multiple: AccordionRootStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>
@@ -136,9 +141,10 @@ export const Multiple: AccordionRootStory = {
           </Accordion.Header>
           <Accordion.Content>
             <span>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod dicta voluptas laudantium culpa, pariatur,
-              excepturi modi animi amet eius voluptatibus nostrum aspernatur, nesciunt eos reprehenderit id magni
-              officiis. Autem, placeat?
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
+              dicta voluptas laudantium culpa, pariatur, excepturi modi animi
+              amet eius voluptatibus nostrum aspernatur, nesciunt eos
+              reprehenderit id magni officiis. Autem, placeat?
             </span>
           </Accordion.Content>
         </Accordion.Item>

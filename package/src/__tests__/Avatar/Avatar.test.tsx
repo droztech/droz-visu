@@ -1,6 +1,7 @@
 import { Avatar } from '@library'
+
 import { render, screen } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
   return {
@@ -40,7 +41,11 @@ describe('Avatar tests', () => {
     render(
       <Avatar.Root data-testid="element">
         <Avatar.Image src="" />
-        <Avatar.Fallback fallback={fallbackTextContent} data-testid="fallback" delayMs={0} />
+        <Avatar.Fallback
+          fallback={fallbackTextContent}
+          data-testid="fallback"
+          delayMs={0}
+        />
       </Avatar.Root>,
     )
     const element = await screen.findByTestId('fallback')

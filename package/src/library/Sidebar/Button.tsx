@@ -1,13 +1,20 @@
 import Tooltip from '../Tooltip'
-import { FC, HTMLAttributes } from 'react'
+
 import { cn } from '@/src/utils/class-merge.helper'
+
+import { FC, HTMLAttributes } from 'react'
 
 export interface SidebarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon: JSX.Element
   text: string
 }
 
-const SidebarButton: FC<SidebarButtonProps> = ({ className, icon, text, ...rest }) => {
+const SidebarButton: FC<SidebarButtonProps> = ({
+  className,
+  icon,
+  text,
+  ...rest
+}) => {
   return (
     <button
       className={cn(

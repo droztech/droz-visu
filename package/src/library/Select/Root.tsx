@@ -1,4 +1,5 @@
 import { cn } from '@/src/utils/class-merge.helper'
+
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC } from 'react'
@@ -34,7 +35,11 @@ const SelectRoot: FC<SelectRootProps> = ({
   ...rest
 }) => {
   return (
-    <RadixSelect.Root value={value} onValueChange={onChange ?? onValueChange} {...rest}>
+    <RadixSelect.Root
+      value={value}
+      onValueChange={onChange ?? onValueChange}
+      {...rest}
+    >
       <RadixSelect.Trigger
         className={cn(
           'group flex min-h-10 items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-inherit transition-colors hover:border-gray-700 active:border-primary disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray data-[state=open]:border-primary data-[placeholder]:text-gray [&[data-state=open]>div]:rotate-180 [&[data-state=open]_span:last-child]:rotate-180',
@@ -46,7 +51,11 @@ const SelectRoot: FC<SelectRootProps> = ({
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
           <RadixSelect.Value placeholder={placeholder} />
         </span>
-        <RadixSelect.Icon className={cn('text-inherit transition-all group-data-[state=open]:text-primary')}>
+        <RadixSelect.Icon
+          className={cn(
+            'text-inherit transition-all group-data-[state=open]:text-primary',
+          )}
+        >
           <CaretDown />
         </RadixSelect.Icon>
       </RadixSelect.Trigger>
@@ -65,7 +74,11 @@ const SelectRoot: FC<SelectRootProps> = ({
           </RadixSelect.ScrollUpButton>
           <RadixSelect.Viewport className="p-4">
             {placeholder && (
-              <RadixSelect.Item value="placeholder" className="pointer-events-none px-3 py-2 text-gray" disabled>
+              <RadixSelect.Item
+                value="placeholder"
+                className="pointer-events-none px-3 py-2 text-gray"
+                disabled
+              >
                 <RadixSelect.ItemText>{placeholder}</RadixSelect.ItemText>
               </RadixSelect.Item>
             )}

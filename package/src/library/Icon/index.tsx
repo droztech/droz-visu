@@ -1,7 +1,15 @@
-import { Slot } from '@radix-ui/react-slot'
-import { IconColor, IconColorClass } from '@types'
-import { ButtonHTMLAttributes, Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import { IconColor, IconColorClass } from '@types'
+
+import { Slot } from '@radix-ui/react-slot'
+import {
+  ButtonHTMLAttributes,
+  Ref,
+  forwardRef,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react'
 
 const sizeClassVariants = {
   sm: 'w-8 h-8 min-w-8 min-h-8 [&_svg]:h-4 [&_svg]:w-4',
@@ -16,12 +24,21 @@ export interface IconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const colorClassVariants: IconColorClass = {
   error: 'bg-error-100 text-error hover:bg-error-200 active:bg-error-200',
-  primary: 'bg-primary-100 text-primary hover:bg-primary-200 active:bg-primary-200',
+  primary:
+    'bg-primary-100 text-primary hover:bg-primary-200 active:bg-primary-200',
 }
 
 const Icon = forwardRef<HTMLButtonElement, IconProps>(
   (
-    { asChild, children, className, color = 'primary', disabled, size = 'md', ...rest },
+    {
+      asChild,
+      children,
+      className,
+      color = 'primary',
+      disabled,
+      size = 'md',
+      ...rest
+    },
     ref: Ref<HTMLButtonElement | null>,
   ) => {
     const iconRef = useRef<HTMLButtonElement>(null)

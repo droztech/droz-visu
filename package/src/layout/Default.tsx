@@ -1,7 +1,8 @@
+import { cn } from '@/src/utils/class-merge.helper'
+
 import { Slot } from '@radix-ui/react-slot'
 import { ArrowClockwise, Moon, Sun, Terminal } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useState } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
 export interface LayoutDefaultProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
@@ -12,7 +13,14 @@ export interface LayoutDefaultProps extends HTMLAttributes<HTMLDivElement> {
   }[]
 }
 
-const LayoutDefault: FC<LayoutDefaultProps> = ({ asChild, terminal, children, className, buttons, ...rest }) => {
+const LayoutDefault: FC<LayoutDefaultProps> = ({
+  asChild,
+  terminal,
+  children,
+  className,
+  buttons,
+  ...rest
+}) => {
   const Comp = asChild ? Slot : 'div'
   const [theme, setTheme] = useState<'light' | 'dark'>(
     (localStorage.getItem('visuDevTheme') as 'light' | 'dark') ?? 'light',
@@ -64,7 +72,9 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({ asChild, terminal, children, cl
           className={cn(
             'relative flex min-h-[50vh] w-screen max-w-5xl flex-col items-center justify-center gap-4 overflow-auto rounded p-4 shadow-sm',
             className,
-            theme === 'light' ? 'bg-gray-100 text-gray-900' : 'dark bg-gray-800 text-gray-100',
+            theme === 'light'
+              ? 'bg-gray-100 text-gray-900'
+              : 'dark bg-gray-800 text-gray-100',
           )}
           {...rest}
         >
@@ -73,7 +83,10 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({ asChild, terminal, children, cl
         {terminal && (
           <div className="flex w-full flex-col gap-2">
             {terminal.map((item, index) => (
-              <pre key={index} className="relative min-h-12 w-full rounded bg-gray-800 p-4 text-xs text-gray">
+              <pre
+                key={index}
+                className="relative min-h-12 w-full rounded bg-gray-800 p-4 text-xs text-gray"
+              >
                 {JSON.stringify(item, null, 2)}
                 <button
                   className="absolute right-2 top-2 rounded border border-gray-700 bg-gray-800 p-2 transition-colors hover:bg-gray-700"

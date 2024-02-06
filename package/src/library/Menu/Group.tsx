@@ -1,5 +1,6 @@
-import { FC, HTMLAttributes } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+
+import { FC, HTMLAttributes } from 'react'
 
 export interface MenuGroupProps extends HTMLAttributes<HTMLDivElement> {}
 
