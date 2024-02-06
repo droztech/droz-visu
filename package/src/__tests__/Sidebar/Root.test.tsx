@@ -33,7 +33,7 @@ describe('SidebarRoot tests', () => {
     )
     const element = screen.getByTestId('element')
 
-    expect(element.children[0].tagName).toBe('DIV')
+    expect(element.children[0].tagName).toBe('BUTTON')
     expect(element.children[0].children[0].tagName).toBe('svg')
   })
 
