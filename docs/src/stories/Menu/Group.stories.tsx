@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Menu, MenuGroupProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<MenuGroupProps> = {
   title: 'Menu/Group',

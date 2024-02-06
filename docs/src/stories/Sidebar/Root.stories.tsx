@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Sidebar, SidebarRootProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<SidebarRootProps> = {
   title: 'Sidebar/Root',
@@ -16,7 +15,8 @@ const meta: Meta<SidebarRootProps> = {
     },
     expanded: {
       control: { type: 'boolean' },
-      description: 'Propriedade que define se o componente está expandido ou comprimido.',
+      description:
+        'Propriedade que define se o componente está expandido ou comprimido.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },

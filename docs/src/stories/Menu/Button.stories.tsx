@@ -1,7 +1,6 @@
+import { Menu, MenuButtonProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { House } from 'phosphor-react'
-
-import { Menu, MenuButtonProps } from '@droz-js/visu'
 
 const meta: Meta<MenuButtonProps> = {
   title: 'Menu/Button',
@@ -16,7 +15,8 @@ const meta: Meta<MenuButtonProps> = {
       },
     },
     icon: {
-      description: 'Propriedade que recebe o ícone a ser exibido no componente.',
+      description:
+        'Propriedade que recebe o ícone a ser exibido no componente.',
       table: {
         type: {
           summary: 'React.ReactNode',
@@ -26,7 +26,8 @@ const meta: Meta<MenuButtonProps> = {
     },
     text: {
       control: 'text',
-      description: 'Propriedade que recebe o texto a ser exibido no componente.',
+      description:
+        'Propriedade que recebe o texto a ser exibido no componente.',
       table: {
         type: { summary: 'text' },
       },

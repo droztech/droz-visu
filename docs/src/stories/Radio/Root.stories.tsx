@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Radio, RadioRootProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<RadioRootProps> = {
   title: 'Radio/Root',
@@ -45,7 +44,8 @@ const meta: Meta<RadioRootProps> = {
     },
     loop: {
       control: { type: 'boolean' },
-      description: 'Define se a navegação pelo teclado voltará ao primeiro elemento após passar pelo último.',
+      description:
+        'Define se a navegação pelo teclado voltará ao primeiro elemento após passar pelo último.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },
@@ -66,7 +66,8 @@ const meta: Meta<RadioRootProps> = {
     },
     required: {
       control: { type: 'boolean' },
-      description: 'Define se é obrigatório escolher um valor antes de submeter em um formulário.',
+      description:
+        'Define se é obrigatório escolher um valor antes de submeter em um formulário.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },

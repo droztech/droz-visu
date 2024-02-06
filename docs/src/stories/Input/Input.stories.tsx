@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Input, InputInputProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<InputInputProps> = {
   title: 'Input/Input',
@@ -61,7 +60,8 @@ export const Password: InputInputStory = {
   render: (args) => {
     return (
       <>
-        Input comum com todas as propriedades de um input comum. Com um type password aplicado.
+        Input comum com todas as propriedades de um input comum. Com um type
+        password aplicado.
         <br />
         <Input.Input type="password" {...args} />
       </>

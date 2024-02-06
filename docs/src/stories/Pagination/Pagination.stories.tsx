@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Pagination, PaginationProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<PaginationProps> = {
   title: 'Pagination/Pagination',
@@ -26,7 +25,8 @@ const meta: Meta<PaginationProps> = {
     },
     initialPage: {
       control: 'number',
-      description: 'Define o número da página inicial. Iniciando em 0 para a primeira página.',
+      description:
+        'Define o número da página inicial. Iniciando em 0 para a primeira página.',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: 1 },
@@ -55,17 +55,20 @@ const meta: Meta<PaginationProps> = {
     },
     onClick: {
       action: 'click',
-      description: 'Evento de clique do componente. Emite informações de qualquer parte clicada do componente.',
+      description:
+        'Evento de clique do componente. Emite informações de qualquer parte clicada do componente.',
       table: { type: { summary: 'function' } },
     },
     onPageActive: {
       action: 'pageActive',
-      description: 'Evento que dispara quando uma página ativa é clicada. Emite informações da página ativa.',
+      description:
+        'Evento que dispara quando uma página ativa é clicada. Emite informações da página ativa.',
       table: { type: { summary: 'function' } },
     },
     onPageChange: {
       action: 'pageChange',
-      description: 'Evento de troca de página do componente. Emite informações da página atual.',
+      description:
+        'Evento de troca de página do componente. Emite informações da página atual.',
       table: { type: { summary: 'function' } },
     },
   },
@@ -93,8 +96,8 @@ export const Comum: PaginationStory = {
     return (
       <div className="flex flex-col items-center justify-center">
         <span>
-          O componente foi criado utilizando react-paginate. Para ver todas as propriedades acesse a documentação do
-          react-paginate.
+          O componente foi criado utilizando react-paginate. Para ver todas as
+          propriedades acesse a documentação do react-paginate.
         </span>
         <Pagination {...args} />
       </div>
@@ -113,8 +116,8 @@ export const MaisPaginas: PaginationStory = {
     return (
       <div className="flex flex-col items-center justify-center">
         <span>
-          O componente foi criado utilizando react-paginate. Para ver todas as propriedades acesse a documentação do
-          react-paginate.
+          O componente foi criado utilizando react-paginate. Para ver todas as
+          propriedades acesse a documentação do react-paginate.
         </span>
         <Pagination {...args} />
       </div>

@@ -1,7 +1,6 @@
+import { Button, Sidebar, SidebarHeaderProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { X } from 'phosphor-react'
-
-import { Button, Sidebar, SidebarHeaderProps } from '@droz-js/visu'
 
 const meta: Meta<SidebarHeaderProps> = {
   title: 'Sidebar/Header',
@@ -26,7 +25,10 @@ type StorySidebarHeaderProps = StoryObj<SidebarHeaderProps>
 export const Comum: StorySidebarHeaderProps = {
   render: (args) => {
     return (
-      <Sidebar.Header {...args} className="flex w-96 items-center justify-between">
+      <Sidebar.Header
+        {...args}
+        className="flex w-96 items-center justify-between"
+      >
         <h1>Nexo</h1>
         <Button.Root light>
           <Button.Icon>

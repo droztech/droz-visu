@@ -28,7 +28,8 @@ const meta: Meta<DialogHeaderProps> = {
     },
     titleIcon: {
       control: 'none',
-      description: 'Ícone para o título. É exibido a esquerda do texto do título.',
+      description:
+        'Ícone para o título. É exibido a esquerda do texto do título.',
       table: {
         type: {
           summary: 'React.ReactNode',

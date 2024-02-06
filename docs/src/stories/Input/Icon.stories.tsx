@@ -1,7 +1,6 @@
+import { Input, InputIconProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { Envelope } from 'phosphor-react'
-
-import { Input, InputIconProps } from '@droz-js/visu'
 
 const meta: Meta<InputIconProps> = {
   title: 'Input/Icon',

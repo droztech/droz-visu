@@ -1,4 +1,5 @@
 import { Avatar, AvatarRootProps } from '@droz-js/visu'
+
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<AvatarRootProps> = {
@@ -53,7 +54,7 @@ const meta: Meta<AvatarRootProps> = {
     children: '',
     color: 'primary',
     size: 'md',
-    status: '',
+    status: undefined,
   },
   parameters: {
     design: {

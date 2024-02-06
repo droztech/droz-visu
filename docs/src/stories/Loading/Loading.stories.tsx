@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Loading, LoadingProps } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<LoadingProps> = {
   title: 'Loading/Loading',
@@ -21,7 +20,16 @@ const meta: Meta<LoadingProps> = {
       ] as LoadingProps['color'][],
       table: {
         type: {
-          summary: ['alert', 'current', 'error', 'gray', 'primary', 'secondary', 'success', 'white'].join('|'),
+          summary: [
+            'alert',
+            'current',
+            'error',
+            'gray',
+            'primary',
+            'secondary',
+            'success',
+            'white',
+          ].join('|'),
         },
       },
       type: { name: 'string', required: false },

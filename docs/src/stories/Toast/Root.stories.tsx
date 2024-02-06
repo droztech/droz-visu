@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Meta, StoryObj } from '@storybook/react'
-
 import { Button, ToastProvider, ToastRootProps, useToast } from '@droz-js/visu'
+import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<ToastRootProps> = {
   title: 'Toast/useToast',
@@ -51,7 +50,9 @@ export const Alert: ToastStory = {
   render: (args) => {
     const { toast } = useToast()
 
-    return <Button.Root onClick={() => toast.alert(args)}>Abrir toast</Button.Root>
+    return (
+      <Button.Root onClick={() => toast.alert(args)}>Abrir toast</Button.Root>
+    )
   },
 }
 
@@ -60,7 +61,9 @@ export const Error: ToastStory = {
   render: (args) => {
     const { toast } = useToast()
 
-    return <Button.Root onClick={() => toast.error(args)}>Abrir toast</Button.Root>
+    return (
+      <Button.Root onClick={() => toast.error(args)}>Abrir toast</Button.Root>
+    )
   },
 }
 
@@ -69,6 +72,8 @@ export const Success: ToastStory = {
   render: (args) => {
     const { toast } = useToast()
 
-    return <Button.Root onClick={() => toast.success(args)}>Abrir toast</Button.Root>
+    return (
+      <Button.Root onClick={() => toast.success(args)}>Abrir toast</Button.Root>
+    )
   },
 }

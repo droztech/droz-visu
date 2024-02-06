@@ -34,7 +34,8 @@ const meta: Meta<ButtonRootProps> = {
     },
     full: {
       control: { type: 'boolean' },
-      description: 'Faz com que o componente preencha todo o espaço disponível.',
+      description:
+        'Faz com que o componente preencha todo o espaço disponível.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -61,7 +62,8 @@ const meta: Meta<ButtonRootProps> = {
     },
     loading: {
       control: { type: 'boolean' },
-      description: 'Ativa o loading do componente, desabilitando completamente as ações.',
+      description:
+        'Ativa o loading do componente, desabilitando completamente as ações.',
       table: {
         type: { summary: 'booolean' },
         defaultValue: { summary: false },
