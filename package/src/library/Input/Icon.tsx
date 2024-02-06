@@ -1,9 +1,17 @@
-import { ButtonHTMLAttributes, FC, useCallback, useMemo, useRef } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
 
-export interface InputIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+import { ButtonHTMLAttributes, FC, useCallback, useMemo, useRef } from 'react'
 
-const InputIcon: FC<InputIconProps> = ({ children, className, onClick, type, ...rest }) => {
+export interface InputIconProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+const InputIcon: FC<InputIconProps> = ({
+  children,
+  className,
+  onClick,
+  type,
+  ...rest
+}) => {
   const IconComponent = useRef<HTMLButtonElement | null>(null)
 
   const focusInput = useCallback(() => {

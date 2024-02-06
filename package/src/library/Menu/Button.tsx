@@ -1,12 +1,18 @@
-import { FC, HTMLAttributes } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+
+import { FC, HTMLAttributes } from 'react'
 
 export interface MenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon?: JSX.Element
   text: string
 }
 
-const MenuButton: FC<MenuButtonProps> = ({ className, icon, text, ...rest }) => {
+const MenuButton: FC<MenuButtonProps> = ({
+  className,
+  icon,
+  text,
+  ...rest
+}) => {
   return (
     <button
       className={cn(

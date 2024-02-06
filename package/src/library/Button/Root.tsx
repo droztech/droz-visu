@@ -1,10 +1,22 @@
 import LoadingDots from '../Loading'
-import { Slot } from '@radix-ui/react-slot'
-import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
-import { ButtonHTMLAttributes, Ref, forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
-export interface ButtonRootProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+import { cn } from '@/src/utils/class-merge.helper'
+import { ButtonVariant, ButtonVariantClass, Size, SizeClass } from '@types'
+
+import { Slot } from '@radix-ui/react-slot'
+import {
+  ButtonHTMLAttributes,
+  Ref,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
+
+export interface ButtonRootProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
   full?: boolean
   ghost?: boolean
@@ -17,7 +29,8 @@ export interface ButtonRootProps extends ButtonHTMLAttributes<HTMLButtonElement>
 const ghostClassVariants: ButtonVariantClass = {
   neutral: 'border border-solid bg-transparent border-gray-600 text-gray-900',
   primary: 'border border-solid bg-transparent border-primary text-primary',
-  secondary: 'border border-solid bg-transparent border-secondary text-secondary',
+  secondary:
+    'border border-solid bg-transparent border-secondary text-secondary',
 }
 
 const lightClassVariants: ButtonVariantClass = {
@@ -33,14 +46,29 @@ const sizeClassVariants: SizeClass = {
 }
 
 const variantClassVariants: ButtonVariantClass = {
-  neutral: 'bg-gray-100 border-none text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-400',
-  primary: 'bg-primary border-none text-gray-100 hover:bg-primary-500 active:bg-primary-600',
-  secondary: 'bg-secondary border-none text-gray-100 hover:bg-secondary-500 active:bg-secondary-600',
+  neutral:
+    'bg-gray-100 border-none text-gray-900 shadow-sm hover:bg-gray-200 active:bg-gray-400',
+  primary:
+    'bg-primary border-none text-gray-100 hover:bg-primary-500 active:bg-primary-600',
+  secondary:
+    'bg-secondary border-none text-gray-100 hover:bg-secondary-500 active:bg-secondary-600',
 }
 
 const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
   (
-    { asChild, children, className, disabled, full, ghost, light, loading, size = 'md', variant = 'primary', ...rest },
+    {
+      asChild,
+      children,
+      className,
+      disabled,
+      full,
+      ghost,
+      light,
+      loading,
+      size = 'md',
+      variant = 'primary',
+      ...rest
+    },
     ref: Ref<HTMLButtonElement | null>,
   ) => {
     const buttonRef = useRef<HTMLButtonElement>(null)
@@ -58,7 +86,8 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
 
     const rootClass = useMemo(() => {
       if (isDisabled) {
-        if (ghost) return 'pointer-events-none border border-gray text-gray-500 bg-transparent'
+        if (ghost)
+          return 'pointer-events-none border border-gray text-gray-500 bg-transparent'
         if (light) return 'pointer-events-none text-gray bg-transparent'
         return 'pointer-events-none bg-gray text-gray-500'
       }
@@ -92,7 +121,9 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonRootProps>(
           children
         ) : (
           <>
-            <span className="flex flex-row items-center justify-center gap-2.5 opacity-0">{children}</span>
+            <span className="flex flex-row items-center justify-center gap-2.5 opacity-0">
+              {children}
+            </span>
             <LoadingDots className="absolute" />
           </>
         )}

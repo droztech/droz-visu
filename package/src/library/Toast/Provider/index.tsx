@@ -1,12 +1,17 @@
-import * as RadixToast from '@radix-ui/react-toast'
-import { PosX, PosXClass, PosY, PosYClass } from '@types'
-import { FC, ReactNode, createContext, useCallback, useState } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 import ToastRoot, { ToastRootProps } from '../Root'
 
-export interface ToastProviderContextProps extends RadixToast.ToastProviderProps {
+import { cn } from '@/src/utils/class-merge.helper'
+import { PosX, PosXClass, PosY, PosYClass } from '@types'
+
+import * as RadixToast from '@radix-ui/react-toast'
+import { FC, ReactNode, createContext, useCallback, useState } from 'react'
+
+export interface ToastProviderContextProps
+  extends RadixToast.ToastProviderProps {
   toast: {
-    [key in ToastRootProps['variant']]: (data: Omit<ToastRootProps, 'variant'>) => void
+    [key in ToastRootProps['variant']]: (
+      data: Omit<ToastRootProps, 'variant'>,
+    ) => void
   }
 }
 
@@ -26,7 +31,9 @@ export const posYClassVariants: PosYClass = {
   top: 'top-0',
 }
 
-export const ToastProviderContext = createContext<ToastProviderContextProps>({} as ToastProviderContextProps)
+export const ToastProviderContext = createContext<ToastProviderContextProps>(
+  {} as ToastProviderContextProps,
+)
 
 const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
   const [messages, setMessages] = useState<ToastRootProps[]>([])
@@ -67,7 +74,12 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
       <RadixToast.Provider swipeDirection={posX}>
         {children}
         {messages.map((item, index) => (
-          <ToastRoot key={index} variant={item.variant} title={item.title} desc={item.desc} />
+          <ToastRoot
+            key={index}
+            variant={item.variant}
+            title={item.title}
+            desc={item.desc}
+          />
         ))}
         <RadixToast.Viewport
           className={cn(

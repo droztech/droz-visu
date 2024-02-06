@@ -1,4 +1,5 @@
 import { cn } from '@/src/utils/class-merge.helper'
+
 import { FC, HTMLAttributes } from 'react'
 
 export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {

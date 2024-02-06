@@ -1,6 +1,7 @@
+import { cn } from '@/src/utils/class-merge.helper'
+
 import { Slot } from '@radix-ui/react-slot'
 import { FC, HTMLAttributes } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
 const rootColorVariants = {
   alert: 'hover:text-alert-500 active:text-alert-600',
@@ -24,7 +25,15 @@ export interface LinkProps extends HTMLAttributes<HTMLDivElement> {
   size?: keyof typeof rootSizes
 }
 
-const Link: FC<LinkProps> = ({ asChild, color = 'primary', size, underline, children, className, ...rest }) => {
+const Link: FC<LinkProps> = ({
+  asChild,
+  color = 'primary',
+  size,
+  underline,
+  children,
+  className,
+  ...rest
+}) => {
   const Component = asChild ? Slot : 'span'
 
   return (

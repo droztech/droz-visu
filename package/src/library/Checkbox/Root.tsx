@@ -1,9 +1,14 @@
-import * as RadixCheckbox from '@radix-ui/react-checkbox'
-import { Color, ColorClass } from '@types'
-import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import { Color, ColorClass } from '@types'
 
-export interface CheckboxRootProps extends Omit<RadixCheckbox.CheckboxProps, 'value' | 'onChange' | 'onCheckedChange'> {
+import * as RadixCheckbox from '@radix-ui/react-checkbox'
+import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
+
+export interface CheckboxRootProps
+  extends Omit<
+    RadixCheckbox.CheckboxProps,
+    'value' | 'onChange' | 'onCheckedChange'
+  > {
   color?: Color
   value?: boolean
   onChange?: (data: boolean) => void
@@ -19,7 +24,17 @@ export const rootColorVariants: ColorClass = {
 
 const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
   (
-    { children, className, color = 'primary', disabled, onCheckedChange, onChange, checked, value, ...rest },
+    {
+      children,
+      className,
+      color = 'primary',
+      disabled,
+      onCheckedChange,
+      onChange,
+      checked,
+      value,
+      ...rest
+    },
     ref: Ref<HTMLButtonElement | null>,
   ) => {
     const checkboxRef = useRef<HTMLButtonElement>(null)
@@ -31,7 +46,10 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
     }, [color])
 
     const disabledClass = useMemo(() => {
-      return disabled && 'data-[state=checked]:!bg-gray-400 data-[state=checked]:!border-gray !bg-gray-300 !border-gray'
+      return (
+        disabled &&
+        'data-[state=checked]:!bg-gray-400 data-[state=checked]:!border-gray !bg-gray-300 !border-gray'
+      )
     }, [disabled])
 
     const handleCheck = (ev: RadixCheckbox.CheckedState) => {

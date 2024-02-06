@@ -4,6 +4,7 @@ import DialogFooter from './Footer'
 import DialogHeader from './Header'
 import DialogRoot from './Root'
 import DialogTrigger from './Trigger'
+
 import { Close } from '@radix-ui/react-dialog'
 
 export type { DialogBodyProps } from './Body'

@@ -1,10 +1,13 @@
 import { Icon } from '../index'
+
+import { cn } from '@/src/utils/class-merge.helper'
+
 import { Close } from '@radix-ui/react-dialog'
 import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
-export interface DialogHeaderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
+export interface DialogHeaderProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
   closeIcon?: ReactNode
   title: string
   titleIcon?: ReactNode
@@ -21,11 +24,16 @@ const DialogHeader: FC<DialogHeaderProps> = ({
 }) => {
   return (
     <div
-      className={cn('flex min-h-16 items-center justify-between gap-6 border-b border-gray-300 px-6 py-4', className)}
+      className={cn(
+        'flex min-h-16 items-center justify-between gap-6 border-b border-gray-300 px-6 py-4',
+        className,
+      )}
       {...rest}
     >
       <div className="flex items-center gap-2">
-        {titleIcon && <span className="[&_*]:text-lg [&_*]:text-primary">{titleIcon}</span>}
+        {titleIcon && (
+          <span className="[&_*]:text-lg [&_*]:text-primary">{titleIcon}</span>
+        )}
         <span className="text-md font-normal text-gray-900">{title}</span>
       </div>
       {withClose && (

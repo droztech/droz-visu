@@ -1,4 +1,5 @@
 import { theme } from './config'
+
 import plugin from 'tailwindcss/plugin'
 
 const VisuTailwindcssPlugin = plugin(

@@ -1,8 +1,13 @@
-import { TabsTrigger as RadixTabsTrigger, TabsTriggerProps as RadixTabsTriggerProps } from '@radix-ui/react-tabs'
-import { ReactNode, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
 
-export interface TabsTriggerProps extends Omit<RadixTabsTriggerProps, 'children'> {
+import {
+  TabsTrigger as RadixTabsTrigger,
+  TabsTriggerProps as RadixTabsTriggerProps,
+} from '@radix-ui/react-tabs'
+import { ReactNode, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+
+export interface TabsTriggerProps
+  extends Omit<RadixTabsTriggerProps, 'children'> {
   icon: ReactNode
   title: string
 }

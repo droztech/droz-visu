@@ -1,6 +1,14 @@
-import { Status } from '@types'
-import { FC, HTMLAttributes, useCallback, useEffect, useMemo, useRef } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import { Status } from '@types'
+
+import {
+  FC,
+  HTMLAttributes,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react'
 
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
@@ -13,7 +21,14 @@ const statusClassVariants = {
   success: 'border-success',
 }
 
-const InputRoot: FC<InputRootProps> = ({ children, className, disabled, full, status, ...rest }) => {
+const InputRoot: FC<InputRootProps> = ({
+  children,
+  className,
+  disabled,
+  full,
+  status,
+  ...rest
+}) => {
   const RootComponent = useRef<HTMLDivElement | null>(null)
 
   const fullClass = useMemo(() => {
@@ -44,6 +59,7 @@ const InputRoot: FC<InputRootProps> = ({ children, className, disabled, full, st
   }, [RootComponent])
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       ref={RootComponent}
       className={cn(

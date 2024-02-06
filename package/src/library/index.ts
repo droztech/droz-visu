@@ -63,7 +63,7 @@ export { default as Tooltip } from './Tooltip'
 export type * from './Tooltip'
 
 export { default as ToastProvider, useToast } from './Toast'
-export type * from './Toast'
+export type { ToastProviderProps, ToastRootProps } from './Toast'
 
 export { default as Accordion } from './Accordion'
 export type * from './Accordion'

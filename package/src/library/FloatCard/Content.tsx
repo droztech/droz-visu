@@ -1,13 +1,19 @@
-import * as HoverCard from '@radix-ui/react-hover-card'
-import { FloatCardContentSide } from '@types'
-import { FC } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import { FloatCardContentSide } from '@types'
+
+import * as HoverCard from '@radix-ui/react-hover-card'
+import { FC } from 'react'
 
 export interface FloatCardContentProps extends HoverCard.HoverCardContentProps {
   side?: FloatCardContentSide
 }
 
-const FloatCardContent: FC<FloatCardContentProps> = ({ children, side, className, ...rest }) => {
+const FloatCardContent: FC<FloatCardContentProps> = ({
+  children,
+  side,
+  className,
+  ...rest
+}) => {
   return (
     <HoverCard.Portal>
       <HoverCard.Content

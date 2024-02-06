@@ -1,6 +1,12 @@
-import { ExtendedColor, ExtendedColorClass, LargerSizes, LargerSizesClass } from '@types'
-import { FC, HTMLAttributes, useMemo } from 'react'
 import { cn } from '@/src/utils/class-merge.helper'
+import {
+  ExtendedColor,
+  ExtendedColorClass,
+  LargerSizes,
+  LargerSizesClass,
+} from '@types'
+
+import { FC, HTMLAttributes, useMemo } from 'react'
 
 export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
   color?: ExtendedColor
@@ -23,7 +29,12 @@ const sizeClassVariants: LargerSizesClass = {
   lg: 'w-3 h-3',
 }
 
-const LoadingDots: FC<LoadingProps> = ({ className, color = 'current', size = 'md', ...rest }) => {
+const LoadingDots: FC<LoadingProps> = ({
+  className,
+  color = 'current',
+  size = 'md',
+  ...rest
+}) => {
   const colorClass = useMemo<string>(() => {
     return colorClassVariants[color]
   }, [color])
@@ -36,9 +47,18 @@ const LoadingDots: FC<LoadingProps> = ({ className, color = 'current', size = 'm
 
   return (
     <div className={cn('flex gap-2', className)} {...rest}>
-      <div className={cn(dotClass, sizeClass, colorClass)} style={{ animationDelay: '0ms' }} />
-      <div className={cn(dotClass, sizeClass, colorClass)} style={{ animationDelay: '500ms' }} />
-      <div className={cn(dotClass, sizeClass, colorClass)} style={{ animationDelay: '1000ms' }} />
+      <div
+        className={cn(dotClass, sizeClass, colorClass)}
+        style={{ animationDelay: '0ms' }}
+      />
+      <div
+        className={cn(dotClass, sizeClass, colorClass)}
+        style={{ animationDelay: '500ms' }}
+      />
+      <div
+        className={cn(dotClass, sizeClass, colorClass)}
+        style={{ animationDelay: '1000ms' }}
+      />
     </div>
   )
 }

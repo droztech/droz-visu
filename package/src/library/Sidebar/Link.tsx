@@ -1,13 +1,21 @@
 import Tooltip from '../Tooltip'
-import { AnchorHTMLAttributes, FC } from 'react'
+
 import { cn } from '@/src/utils/class-merge.helper'
 
-export interface SidebarLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+import { AnchorHTMLAttributes, FC } from 'react'
+
+export interface SidebarLinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement> {
   icon: JSX.Element
   text: string
 }
 
-const SidebarLink: FC<SidebarLinkProps> = ({ className, icon, text, ...rest }) => {
+const SidebarLink: FC<SidebarLinkProps> = ({
+  className,
+  icon,
+  text,
+  ...rest
+}) => {
   return (
     <a
       className={cn(

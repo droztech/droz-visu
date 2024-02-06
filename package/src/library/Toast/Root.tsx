@@ -1,8 +1,9 @@
-import * as RadixToast from '@radix-ui/react-toast'
+import { cn } from '@/src/utils/class-merge.helper'
 import { ExtendedStatus, ExtendedStatusClass } from '@types'
+
+import * as RadixToast from '@radix-ui/react-toast'
 import { CheckCircle, Warning, WarningCircle, X } from 'phosphor-react'
 import { FC, useMemo } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
 export interface ToastRootProps extends RadixToast.ToastProps {
   desc: string
@@ -28,7 +29,13 @@ const variantIcon = {
   success: <CheckCircle />,
 }
 
-const ToastRoot: FC<ToastRootProps> = ({ className, desc, title, variant, ...rest }) => {
+const ToastRoot: FC<ToastRootProps> = ({
+  className,
+  desc,
+  title,
+  variant,
+  ...rest
+}) => {
   const variantIconElement = useMemo(() => {
     return variantIcon[variant]
   }, [variant])
@@ -47,7 +54,9 @@ const ToastRoot: FC<ToastRootProps> = ({ className, desc, title, variant, ...res
           {variantIconElement}
           {title}
         </RadixToast.Title>
-        <RadixToast.Description className="text-sm">{desc}</RadixToast.Description>
+        <RadixToast.Description className="text-sm">
+          {desc}
+        </RadixToast.Description>
       </div>
       <RadixToast.Action
         altText="close"

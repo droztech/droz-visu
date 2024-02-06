@@ -1,10 +1,12 @@
-import * as RadixPopover from '@radix-ui/react-popover'
+import { cn } from '@/src/utils/class-merge.helper'
 import { Position } from '@types'
+
+import * as RadixPopover from '@radix-ui/react-popover'
 import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react'
-import { cn } from '@/src/utils/class-merge.helper'
 
-export interface TooltipCloseProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
+export interface TooltipCloseProps
+  extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   // Optional because we can't remove `text` until the next major release
   content?: ReactNode
   defaultOpen?: boolean
@@ -50,7 +52,11 @@ const TooltipClose: FC<TooltipCloseProps> = ({
   )
 
   return (
-    <RadixPopover.Root onOpenChange={handleOpenChange} defaultOpen={defaultOpen} open={tooltipOpen}>
+    <RadixPopover.Root
+      onOpenChange={handleOpenChange}
+      defaultOpen={defaultOpen}
+      open={tooltipOpen}
+    >
       <RadixPopover.Trigger asChild>{children}</RadixPopover.Trigger>
       <RadixPopover.Portal>
         <RadixPopover.Content
@@ -59,7 +65,10 @@ const TooltipClose: FC<TooltipCloseProps> = ({
           className="z-100 flex max-h-[--radix-tooltip-content-available-height] max-w-[--radix-tooltip-content-available-width] focus:outline-none"
         >
           <div
-            className={cn('flex max-w-xs gap-2 rounded-md bg-background p-3 text-sm shadow-sm', className)}
+            className={cn(
+              'flex max-w-xs gap-2 rounded-md bg-background p-3 text-sm shadow-sm',
+              className,
+            )}
             {...rest}
           >
             <div>{content || text}</div>
