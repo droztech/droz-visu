@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),

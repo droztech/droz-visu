@@ -1,7 +1,8 @@
 import { Checkbox } from '@library'
+
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
   return {
@@ -37,7 +38,11 @@ describe('Checkbox tests', () => {
     const user = userEvent.setup()
 
     render(
-      <Checkbox.Root checked={checked} onCheckedChange={(check) => (checked = check)} data-testid="element">
+      <Checkbox.Root
+        checked={checked}
+        onCheckedChange={(check) => (checked = check)}
+        data-testid="element"
+      >
         <Checkbox.Indicator />
       </Checkbox.Root>,
     )

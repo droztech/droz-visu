@@ -1,6 +1,7 @@
 import { Input } from '@library'
+
 import { fireEvent, render, screen } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { Envelope } from 'phosphor-react'
 
 jest.mock('clsx', () => {

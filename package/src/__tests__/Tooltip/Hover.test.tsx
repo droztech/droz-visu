@@ -1,6 +1,7 @@
 import { Tooltip } from '@library'
+
 import { fireEvent, render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 
 // Testes limitados por conta do Radix
 describe('TooltipHover tests', () => {
@@ -52,7 +53,11 @@ describe('TooltipHover tests', () => {
   it('Should execute "onOpenChange" when "open" value changes', async () => {
     const onOpenChange = jest.fn()
     render(
-      <Tooltip.Hover role="tooltip" content={<span data-testid="content">Text1</span>} onOpenChange={onOpenChange}>
+      <Tooltip.Hover
+        role="tooltip"
+        content={<span data-testid="content">Text1</span>}
+        onOpenChange={onOpenChange}
+      >
         <div data-testid="element">Hello</div>
       </Tooltip.Hover>,
     )
@@ -80,7 +85,11 @@ describe('TooltipHover tests', () => {
     const delayDuration = 700
 
     render(
-      <Tooltip.Hover content="Text" closeTime={closeTime} delayDuration={delayDuration}>
+      <Tooltip.Hover
+        content="Text"
+        closeTime={closeTime}
+        delayDuration={delayDuration}
+      >
         <div data-testid="element">Hello</div>
       </Tooltip.Hover>,
     )

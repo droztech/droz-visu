@@ -1,7 +1,8 @@
 import { Input } from '@library'
+
 import { render, screen } from '@testing-library/react'
 import UserEvent from '@testing-library/user-event'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
   return {

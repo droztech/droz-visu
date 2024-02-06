@@ -1,6 +1,7 @@
 import { Sidebar } from '@library'
+
 import { render, screen } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
   return {
@@ -24,7 +25,12 @@ describe('SidebarRoot tests', () => {
   })
 
   it('Should render a SidebarRoot element with expand button', () => {
-    render(<Sidebar.Root data-testid="element" setExpanded={jest.fn()}></Sidebar.Root>)
+    render(
+      <Sidebar.Root
+        data-testid="element"
+        setExpanded={jest.fn()}
+      ></Sidebar.Root>,
+    )
     const element = screen.getByTestId('element')
 
     expect(element.children[0].tagName).toBe('DIV')

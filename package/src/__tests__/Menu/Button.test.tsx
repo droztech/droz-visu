@@ -1,6 +1,7 @@
 import { Menu } from '@library'
+
 import { render, screen } from '@testing-library/react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { House } from 'phosphor-react'
 
 jest.mock('clsx', () => {

@@ -1,4 +1,5 @@
 import { Icon } from '@library'
+
 import { render, screen } from '@testing-library/react'
 import { X } from 'phosphor-react'
 
@@ -19,7 +20,7 @@ describe('Icon tests', () => {
   it('Should render a Icon element as Anchor', () => {
     render(
       <Icon data-testid="element" asChild>
-        <a href="">
+        <a href="google.com">
           <X />
         </a>
       </Icon>,

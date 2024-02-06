@@ -1,4 +1,5 @@
 import { Tooltip } from '@library'
+
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 // Testes limitados por conta do Radix
@@ -38,7 +39,9 @@ describe('TooltipClose tests', () => {
     fireEvent.click(element)
 
     await waitFor(() => {
-      expect(screen.getByRole('dialog')).toContainHTML('<span data-testid="content">Text1</span>')
+      expect(screen.getByRole('dialog')).toContainHTML(
+        '<span data-testid="content">Text1</span>',
+      )
     })
   })
 

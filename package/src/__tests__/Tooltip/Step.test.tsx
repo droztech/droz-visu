@@ -1,4 +1,5 @@
 import { Tooltip } from '@library'
+
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { clsx } from 'clsx'
 
@@ -52,7 +53,9 @@ describe('TooltipStep tests', () => {
     fireEvent.click(element)
 
     await waitFor(() => {
-      expect(screen.getByRole('dialog')).toContainHTML('<span data-testid="content">Step1</span>')
+      expect(screen.getByRole('dialog')).toContainHTML(
+        '<span data-testid="content">Step1</span>',
+      )
     })
   })
 
