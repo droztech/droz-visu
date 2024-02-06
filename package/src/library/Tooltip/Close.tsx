@@ -56,16 +56,21 @@ const TooltipClose: FC<TooltipCloseProps> = ({
         <RadixPopover.Content
           side={side}
           sideOffset={16}
-          className="flex max-w-xs items-center gap-x-3 rounded-md bg-gray-100 p-3 shadow-sm focus:outline-none"
+          className="z-100 flex max-h-[--radix-tooltip-content-available-height] max-w-[--radix-tooltip-content-available-width] focus:outline-none"
         >
-          <span className={cn(className, 'flex-1 text-sm')} {...rest}>
-            {content || text}
-          </span>
-          {closeButton && (
-            <RadixPopover.Close className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100">
-              <X size={16} />
-            </RadixPopover.Close>
-          )}
+          <div
+            className={cn('flex max-w-xs gap-2 rounded-md bg-background p-3 text-sm shadow-sm', className)}
+            {...rest}
+          >
+            <div>{content || text}</div>
+            {closeButton && (
+              <div className="flex-1">
+                <RadixPopover.Close className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100">
+                  <X size={16} />
+                </RadixPopover.Close>
+              </div>
+            )}
+          </div>
           <RadixPopover.Arrow className="h-2 w-5 fill-gray-100" />
         </RadixPopover.Content>
       </RadixPopover.Portal>

@@ -56,16 +56,16 @@ const TooltipHover: FC<TooltipHoverProps> = ({
         open={tooltipOpen}
         onOpenChange={(value) => handleOpenChange(value)}
       >
-        <RadixTooltip.Trigger className="z-10" asChild>
-          {children}
-        </RadixTooltip.Trigger>
+        <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
         <RadixTooltip.Portal>
-          <RadixTooltip.Content side={side} sideOffset={5}>
+          <RadixTooltip.Content
+            side={side}
+            sideOffset={5}
+            className="z-100 max-h-[--radix-tooltip-content-available-height] max-w-[--radix-tooltip-content-available-width]"
+          >
             <RadixTooltip.Arrow className="h-2 w-5 fill-background" />
-            <div className="max-w-xs rounded-md bg-background p-3 shadow-sm">
-              <span className={cn(className, 'text-sm')} {...rest}>
-                {content || text}
-              </span>
+            <div className={cn('max-w-xs rounded-md bg-background p-3 text-sm shadow-sm', className)} {...rest}>
+              {content || text}
             </div>
           </RadixTooltip.Content>
         </RadixTooltip.Portal>

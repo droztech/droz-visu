@@ -21,7 +21,7 @@ const MenuRoot: FC<MenuRootProps> = ({ children, className, expanded, side = 'le
     <div
       className={cn(
         className,
-        'fixed z-50 flex h-full w-full flex-col overflow-hidden bg-gray-100 px-4 transition-all',
+        'fixed z-30 flex h-full w-full flex-col overflow-hidden bg-gray-100 px-4 transition-all',
         sideClass,
       )}
       {...rest}
