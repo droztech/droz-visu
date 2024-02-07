@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Button } from './library'
+import { Checkbox } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, User } from 'phosphor-react'
+import { Eraser } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -36,10 +36,7 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Button>
-          <User />
-          User
-        </Button>
+        <Checkbox />
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

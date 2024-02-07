@@ -130,6 +130,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 )
 
-Button.displayName = 'Button.Root'
+Button.displayName = 'Button'
 
 export default Button
