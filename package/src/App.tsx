@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Checkbox } from './library'
+import { Divider } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
@@ -36,7 +36,9 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Checkbox />
+        <div className="flex h-64 w-64 items-center justify-center">
+          <Divider orientation="vertical">xxx</Divider>
+        </div>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
