@@ -4,7 +4,7 @@ import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixToast from '@radix-ui/react-toast'
 import { CheckCircle, Warning, WarningCircle, X } from 'phosphor-react'
-import { FC, useMemo } from 'react'
+import { FC } from 'react'
 
 export const rootColorClassVariants: StatusClass = {
   alert: 'bg-alert-300 w-96 text-alert-700',
@@ -37,10 +37,6 @@ const ToastRoot: FC<ToastRootProps> = ({
   variant,
   ...rest
 }) => {
-  const variantIconElement = useMemo(() => {
-    return variantIcon[variant]
-  }, [variant])
-
   return (
     <RadixToast.Root
       className={cn(
@@ -52,7 +48,7 @@ const ToastRoot: FC<ToastRootProps> = ({
     >
       <div className="flex-1">
         <RadixToast.Title className="flex items-center gap-2 font-semibold">
-          {variantIconElement}
+          {variantIcon[variant]}
           {title}
         </RadixToast.Title>
         <RadixToast.Description className="text-sm">

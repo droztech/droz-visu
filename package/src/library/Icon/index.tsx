@@ -6,7 +6,6 @@ import {
   Ref,
   forwardRef,
   useImperativeHandle,
-  useMemo,
   useRef,
 } from 'react'
 
@@ -45,26 +44,13 @@ const Icon = forwardRef<HTMLButtonElement, IconProps>(
     useImperativeHandle(ref, () => iconRef.current)
     const RootComponent = asChild ? Slot : 'button'
 
-    const colorClass = useMemo(() => {
-      return colorClassVariants[color]
-    }, [color])
-
-    const rootClass = useMemo(() => {
-      if (disabled) return 'bg-gray-200 text-gray pointer-events-none'
-      return ''
-    }, [disabled])
-
-    const sizeClass = useMemo(() => {
-      return sizeClassVariants[size]
-    }, [size])
-
     return (
       <RootComponent
         className={cn(
           'flex items-center justify-center rounded-full transition-all active:opacity-50',
-          colorClass,
-          rootClass,
-          sizeClass,
+          colorClassVariants[color],
+          sizeClassVariants[size],
+          disabled && 'pointer-events-none bg-gray-200 text-gray',
           className,
         )}
         disabled={disabled}

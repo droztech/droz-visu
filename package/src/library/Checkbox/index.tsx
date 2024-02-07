@@ -2,7 +2,7 @@ import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Check } from 'phosphor-react'
-import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
+import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
 export const rootColorVariants = {
   primary:
@@ -41,17 +41,6 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
 
     useImperativeHandle(ref, () => checkboxRef.current)
 
-    const colorClass = useMemo(() => {
-      return rootColorVariants[color]
-    }, [color])
-
-    const disabledClass = useMemo(() => {
-      return (
-        disabled &&
-        'data-[state=checked]:!bg-gray-400 data-[state=checked]:!border-gray !bg-gray-300 !border-gray'
-      )
-    }, [disabled])
-
     const handleCheck = (ev: RadixCheckbox.CheckedState) => {
       if (ev === 'indeterminate') ev = false
       if (onChange) {
@@ -66,8 +55,9 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
       <RadixCheckbox.Root
         className={cn(
           'flex h-4 w-4 items-center justify-center overflow-hidden rounded-sm border-2 text-gray-100 transition-all',
-          colorClass,
-          disabledClass,
+          rootColorVariants[color],
+          disabled &&
+            '!border-gray !bg-gray-300 data-[state=checked]:!border-gray data-[state=checked]:!bg-gray-400',
           className,
         )}
         disabled={disabled}

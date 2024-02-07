@@ -8,7 +8,6 @@ import {
   forwardRef,
   useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from 'react'
@@ -28,12 +27,6 @@ const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
   ) => {
     const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
     const refs = useRef<(HTMLInputElement | null)[]>(Array(count).fill(null))
-
-    const inputColorClass = useMemo(() => {
-      return error
-        ? 'border-error hover:border-error-600'
-        : 'border-gray hover:border-gray-700 active:border-primary'
-    }, [error])
 
     const handleChange = (
       { target }: ChangeEvent<HTMLInputElement>,
@@ -96,7 +89,9 @@ const OTPInput = forwardRef<HTMLInputElement, OTPInputProps>(
             ref={(ref) => (refs.current[index] = ref)}
             className={cn(
               'h-14 w-full max-w-[3.5rem] flex-1 rounded border bg-inherit text-center text-lg font-semibold transition-colors',
-              inputColorClass,
+              error
+                ? 'border-error hover:border-error-600'
+                : 'border-gray hover:border-gray-700 active:border-primary',
             )}
             onChange={(ev) => handleChange(ev, index)}
             onPaste={handlePaste}

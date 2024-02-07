@@ -27,13 +27,11 @@ const RadioItem: FC<RadioItemProps> = ({
 }) => {
   const colorClass = useMemo(() => {
     if (disabled) return 'border-gray'
-
     return colorClassVariants[color]
   }, [disabled, color])
 
   const dotColorClass = useMemo(() => {
     if (disabled) return 'bg-gray'
-
     return dotColorClassVariants[color]
   }, [disabled, color])
 

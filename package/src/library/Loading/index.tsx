@@ -1,6 +1,6 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
-import { FC, HTMLAttributes, useMemo } from 'react'
+import { FC, HTMLAttributes } from 'react'
 
 const colorClassVariants = {
   alert: 'bg-alert',
@@ -29,28 +29,30 @@ const LoadingDots: FC<LoadingProps> = ({
   size = 'md',
   ...rest
 }) => {
-  const colorClass = useMemo<string>(() => {
-    return colorClassVariants[color]
-  }, [color])
-
-  const dotClass = 'animate-flash opacity-20 rounded-full'
-
-  const sizeClass = useMemo<string>(() => {
-    return sizeClassVariants[size]
-  }, [size])
-
   return (
     <div className={cn('flex gap-2', className)} {...rest}>
       <div
-        className={cn(dotClass, sizeClass, colorClass)}
+        className={cn(
+          'animate-flash rounded-full opacity-20',
+          sizeClassVariants[size],
+          colorClassVariants[color],
+        )}
         style={{ animationDelay: '0ms' }}
       />
       <div
-        className={cn(dotClass, sizeClass, colorClass)}
+        className={cn(
+          'animate-flash rounded-full opacity-20',
+          sizeClassVariants[size],
+          colorClassVariants[color],
+        )}
         style={{ animationDelay: '500ms' }}
       />
       <div
-        className={cn(dotClass, sizeClass, colorClass)}
+        className={cn(
+          'animate-flash rounded-full opacity-20',
+          sizeClassVariants[size],
+          colorClassVariants[color],
+        )}
         style={{ animationDelay: '1000ms' }}
       />
     </div>

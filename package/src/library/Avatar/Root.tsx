@@ -1,7 +1,7 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixAvatar from '@radix-ui/react-avatar'
-import { FC, useMemo } from 'react'
+import { FC } from 'react'
 
 export const rootColorVariants = {
   primary:
@@ -51,27 +51,12 @@ const AvatarRoot: FC<AvatarRootProps> = ({
   status,
   ...rest
 }) => {
-  const rootClass = useMemo<string>(() => {
-    return cn(rootColorVariants[color], rootSizeVariants[size])
-  }, [color, size])
-
-  const bgClass = useMemo<string>(() => {
-    return bgColorVariants[color]
-  }, [color])
-
-  const statusClass = useMemo<string>(() => {
-    return cn(
-      status && statusStatusVariants[status],
-      statusSizeVariants[size],
-      statusColorVariants[color],
-    )
-  }, [color, status, size])
-
   return (
     <RadixAvatar.Root
       className={cn(
         'relative cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
-        rootClass,
+        rootColorVariants[color],
+        rootSizeVariants[size],
         className,
       )}
       {...rest}
@@ -80,14 +65,16 @@ const AvatarRoot: FC<AvatarRootProps> = ({
         <div
           className={cn(
             'absolute right-0 top-0 rounded-full border-2',
-            statusClass,
+            status && statusStatusVariants[status],
+            statusSizeVariants[size],
+            statusColorVariants[color],
           )}
         />
       )}
       <div
         className={cn(
           'flex aspect-square h-full w-full items-center justify-center rounded-full',
-          bgClass,
+          bgColorVariants[color],
         )}
       >
         {children}

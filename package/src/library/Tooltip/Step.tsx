@@ -41,7 +41,6 @@ const TooltipStep: FC<TooltipStepProps> = ({
     if (text?.length) {
       return text.length
     }
-
     return 0
   }, [content?.length, text?.length])
 
@@ -52,8 +51,6 @@ const TooltipStep: FC<TooltipStepProps> = ({
     if (text?.length) {
       return text[currentStep - 1]
     }
-
-    return ''
   }, [content, currentStep, text])
 
   return (

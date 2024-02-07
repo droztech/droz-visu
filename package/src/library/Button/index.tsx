@@ -94,21 +94,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       return variantClassVariants[variant]
     }, [ghost, isDisabled, light, variant])
 
-    const fullClass = useMemo<string>(() => {
-      return full ? '!w-full' : 'w-fit'
-    }, [full])
-
-    const sizeClass = useMemo<string>(() => {
-      return light ? 'p-2' : sizeClassVariants[size]
-    }, [light, size])
-
     return (
       <RootComponent
         className={cn(
           'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all [&_svg]:h-6 [&_svg]:w-6',
-          fullClass,
+          full ? '!w-full' : 'w-fit',
+          light ? 'p-2' : sizeClassVariants[size],
           rootClass,
-          sizeClass,
           className,
         )}
         disabled={isDisabled}
