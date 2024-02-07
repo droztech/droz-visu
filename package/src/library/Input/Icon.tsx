@@ -36,9 +36,9 @@ const InputIcon: FC<InputIconProps> = ({
     <button
       ref={IconComponent}
       className={cn(
-        className,
         'flex h-6 w-6 cursor-text items-center justify-center border-none bg-transparent p-0 text-gray-500 outline-none transition-all focus:outline-none disabled:pointer-events-none disabled:text-gray-400 [&_svg]:h-full [&_svg]:w-full',
         clickableClass,
+        className,
       )}
       onClick={handleClick}
       type="button"

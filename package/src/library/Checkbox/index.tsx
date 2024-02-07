@@ -65,10 +65,10 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
     return (
       <RadixCheckbox.Root
         className={cn(
-          className,
           'flex h-4 w-4 items-center justify-center overflow-hidden rounded-sm border-2 text-gray-100 transition-all',
           colorClass,
           disabledClass,
+          className,
         )}
         disabled={disabled}
         ref={checkboxRef}

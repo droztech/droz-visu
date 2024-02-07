@@ -70,9 +70,9 @@ const AvatarRoot: FC<AvatarRootProps> = ({
   return (
     <RadixAvatar.Root
       className={cn(
-        className,
         'relative cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
         rootClass,
+        className,
       )}
       {...rest}
     >

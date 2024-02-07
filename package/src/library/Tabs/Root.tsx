@@ -1,5 +1,3 @@
-import { cn } from '@/src/utils/class-merge.helper'
-
 import { Root, List, TabsProps } from '@radix-ui/react-tabs'
 import { ReactNode, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
 
@@ -11,16 +9,13 @@ export interface TabsRootProps extends Omit<TabsProps, 'orientation'> {
 }
 
 const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
-  (
-    { children, className, triggers, ...rest },
-    ref: Ref<HTMLDivElement | null>,
-  ) => {
+  ({ children, triggers, ...rest }, ref: Ref<HTMLDivElement | null>) => {
     const tabsRef = useRef<HTMLDivElement>(null)
 
     useImperativeHandle(ref, () => tabsRef.current)
 
     return (
-      <Root className={cn(className)} ref={tabsRef} {...rest}>
+      <Root ref={tabsRef} {...rest}>
         <List className="flex h-8 w-full flex-row">{triggers}</List>
         {children}
       </Root>

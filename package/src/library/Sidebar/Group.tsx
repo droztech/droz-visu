@@ -10,7 +10,7 @@ const SidebarGroup: FC<SidebarGroupProps> = ({
   ...rest
 }) => {
   return (
-    <div className={cn(className, 'flex flex-col gap-2')} {...rest}>
+    <div className={cn('flex flex-col gap-2', className)} {...rest}>
       {children}
     </div>
   )

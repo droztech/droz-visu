@@ -27,9 +27,9 @@ const MenuRoot: FC<MenuRootProps> = ({
   return (
     <div
       className={cn(
-        className,
         'fixed z-30 flex h-full w-full flex-col overflow-hidden bg-gray-100 px-4 transition-all',
         sideClass,
+        className,
       )}
       {...rest}
     >

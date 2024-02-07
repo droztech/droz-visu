@@ -106,10 +106,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <RootComponent
         className={cn(
           'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all [&_svg]:h-6 [&_svg]:w-6',
-          className,
           fullClass,
           rootClass,
           sizeClass,
+          className,
         )}
         disabled={isDisabled}
         ref={buttonRef}

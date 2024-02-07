@@ -65,7 +65,7 @@ const TooltipStep: FC<TooltipStepProps> = ({
           sideOffset={16}
           className="flex max-w-xs flex-col items-center gap-4 rounded-md bg-background p-6 shadow-sm"
         >
-          <span className={cn(className, 'w-full text-sm')} {...rest}>
+          <span className={cn('w-full text-sm', className)} {...rest}>
             {currentlyShownItem}
           </span>
           <div className="flex w-full items-center justify-between gap-6">
@@ -75,9 +75,7 @@ const TooltipStep: FC<TooltipStepProps> = ({
             {currentStep === currentLength ? (
               <RadixPopover.Close
                 onClick={() => setCurrentStep(1)}
-                className={cn(
-                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
-                )}
+                className="flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100"
               >
                 {closeText}
                 <X size={16} />

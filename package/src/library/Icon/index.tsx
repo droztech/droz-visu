@@ -61,11 +61,11 @@ const Icon = forwardRef<HTMLButtonElement, IconProps>(
     return (
       <RootComponent
         className={cn(
-          className,
           'flex items-center justify-center rounded-full transition-all active:opacity-50',
           colorClass,
           rootClass,
           sizeClass,
+          className,
         )}
         disabled={disabled}
         ref={iconRef}

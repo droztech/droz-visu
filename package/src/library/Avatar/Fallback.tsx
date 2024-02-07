@@ -17,8 +17,8 @@ const AvatarFallback: FC<AvatarFallbackProps> = ({
   return (
     <RadixAvatar.Fallback
       className={cn(
-        className,
         'overflow-hidden text-ellipsis whitespace-nowrap p-1',
+        className,
       )}
       delayMs={delayMs}
       {...rest}

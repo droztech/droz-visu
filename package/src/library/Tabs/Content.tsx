@@ -16,7 +16,7 @@ const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
 
     return (
       <RadixTabsContent
-        className={cn(className, 'outline-none')}
+        className={cn('outline-none', className)}
         ref={contentRef}
         {...rest}
       >

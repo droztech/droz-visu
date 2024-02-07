@@ -34,8 +34,8 @@ const DialogFooter: FC<DialogFooterProps> = ({
     <div
       className={cn(
         'mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4',
-        className,
         variantClass,
+        className,
       )}
       {...rest}
     >

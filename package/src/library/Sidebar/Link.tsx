@@ -19,8 +19,8 @@ const SidebarLink: FC<SidebarLinkProps> = ({
   return (
     <a
       className={cn(
-        className,
         'flex w-full flex-row items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:bg-primary hover:text-gray-100 [&:hover_svg]:text-gray-100 [&_svg]:text-primary',
+        className,
       )}
       {...rest}
     >

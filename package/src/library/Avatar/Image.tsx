@@ -9,7 +9,7 @@ export interface AvatarImageProps
 const AvatarImage: FC<AvatarImageProps> = ({ className, ...rest }) => {
   return (
     <RadixAvatar.Image
-      className={cn(className, 'h-full w-full rounded-full object-cover')}
+      className={cn('h-full w-full rounded-full object-cover', className)}
       {...rest}
     />
   )

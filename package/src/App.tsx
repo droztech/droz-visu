@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Divider } from './library'
+import { Radio } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
@@ -36,9 +36,11 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <div className="flex h-64 w-64 items-center justify-center">
-          <Divider orientation="vertical">xxx</Divider>
-        </div>
+        <div>xxx</div>
+        <Radio.Root value="xyz">
+          <Radio.Item value="abc">abc</Radio.Item>
+          <Radio.Item value="xyz">xyz</Radio.Item>
+        </Radio.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

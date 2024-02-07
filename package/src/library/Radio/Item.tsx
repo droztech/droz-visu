@@ -40,9 +40,9 @@ const RadioItem: FC<RadioItemProps> = ({
   return (
     <RadixRadio.Item
       className={cn(
-        className,
         'flex h-4 w-4 items-center justify-center rounded-full border-2 transition-all',
         colorClass,
+        className,
       )}
       disabled={disabled}
       {...rest}
