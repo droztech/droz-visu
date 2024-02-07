@@ -1,12 +1,15 @@
+import { Status, StatusClass } from '../types'
+
 import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC } from 'react'
 
-const statusClassVariants = {
+const statusClassVariants: StatusClass = {
   error: 'border-error',
   success: 'border-success',
+  alert: 'border-alert',
 }
 
 export interface SelectRootProps extends RadixSelect.SelectProps {
@@ -16,7 +19,7 @@ export interface SelectRootProps extends RadixSelect.SelectProps {
   placeholder?: string
   portalContainer?: HTMLElement | null
   position?: RadixSelect.SelectContentProps['position']
-  status?: keyof typeof statusClassVariants
+  status?: Status
   onChange?: (value: string) => void
 }
 

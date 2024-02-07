@@ -1,25 +1,24 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Color, ColorClass } from '@types'
 
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Ref, forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
+
+export const rootColorVariants = {
+  primary:
+    'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
+  secondary:
+    'data-[state=checked]:bg-secondary data-[state=checked]:border-secondary border-gray hover:border-secondary active:border-secondary active:bg-secondary',
+}
 
 export interface CheckboxRootProps
   extends Omit<
     RadixCheckbox.CheckboxProps,
     'value' | 'onChange' | 'onCheckedChange'
   > {
-  color?: Color
+  color?: keyof typeof rootColorVariants
   value?: boolean
   onChange?: (data: boolean) => void
   onCheckedChange?: (data: boolean) => void
-}
-
-export const rootColorVariants: ColorClass = {
-  primary:
-    'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
-  secondary:
-    'data-[state=checked]:bg-secondary data-[state=checked]:border-secondary border-gray hover:border-secondary active:border-secondary active:bg-secondary',
 }
 
 const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(

@@ -1,23 +1,22 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Color, ColorClass } from '@types'
 
 import * as RadixRadio from '@radix-ui/react-radio-group'
 import { FC, useMemo } from 'react'
 
-export interface RadioItemProps extends RadixRadio.RadioGroupItemProps {
-  color?: Color
-}
-
-export const colorClassVariants: ColorClass = {
+export const colorClassVariants = {
   primary:
     'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
   secondary:
     'data-[state=checked]:border-secondary border-gray hover:border-secondary [&:active>*]:bg-secondary',
 }
 
-export const dotColorClassVariants: ColorClass = {
+export const dotColorClassVariants = {
   primary: 'data-[state=checked]:bg-primary',
   secondary: 'data-[state=checked]:bg-secondary',
+}
+
+export interface RadioItemProps extends RadixRadio.RadioGroupItemProps {
+  color?: keyof typeof colorClassVariants
 }
 
 const RadioItem: FC<RadioItemProps> = ({

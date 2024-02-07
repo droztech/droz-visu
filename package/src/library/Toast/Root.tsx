@@ -1,26 +1,27 @@
+import { Status, StatusClass } from '../types'
+
 import { cn } from '@/src/utils/class-merge.helper'
-import { ExtendedStatus, ExtendedStatusClass } from '@types'
 
 import * as RadixToast from '@radix-ui/react-toast'
 import { CheckCircle, Warning, WarningCircle, X } from 'phosphor-react'
 import { FC, useMemo } from 'react'
 
-export interface ToastRootProps extends RadixToast.ToastProps {
-  desc: string
-  title: string
-  variant: ExtendedStatus
-}
-
-export const rootColorClassVariants: ExtendedStatusClass = {
+export const rootColorClassVariants: StatusClass = {
   alert: 'bg-alert-300 w-96 text-alert-700',
   error: 'bg-error-300 w-96 text-error-700',
   success: 'bg-success-300 w-96 text-success-700',
 }
 
-export const closeColorClassVariants: ExtendedStatusClass = {
+export const closeColorClassVariants: StatusClass = {
   alert: 'hover:bg-alert-500 active:bg-alert-600',
   error: 'hover:bg-error-500 active:bg-error-600',
   success: 'hover:bg-success-500 active:bg-success-600',
+}
+
+export interface ToastRootProps extends RadixToast.ToastProps {
+  desc: string
+  title: string
+  variant: Status
 }
 
 const variantIcon = {

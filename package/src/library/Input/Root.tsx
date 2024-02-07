@@ -1,5 +1,5 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Status } from '@types'
+import { Status, StatusClass } from '@types'
 
 import {
   FC,
@@ -16,9 +16,10 @@ export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   status?: Status
 }
 
-const statusClassVariants = {
+const statusClassVariants: StatusClass = {
   error: 'border-error',
   success: 'border-success',
+  alert: 'border-alert',
 }
 
 const InputRoot: FC<InputRootProps> = ({

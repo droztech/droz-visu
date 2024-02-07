@@ -1,47 +1,46 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Color, ColorClass, Size, SizeClass, Status, StatusClass } from '@types'
 
 import * as RadixAvatar from '@radix-ui/react-avatar'
 import { FC, useMemo } from 'react'
 
-export interface AvatarRootProps extends RadixAvatar.AvatarProps {
-  color?: Color
-  size?: Size
-  status?: Status
-}
-
-export const rootColorVariants: ColorClass = {
+export const rootColorVariants = {
   primary:
     'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
   secondary:
     'text-secondary border-secondary hover:border-secondary-300 active:border-secondary-200 hover:text-secondary-300 active:text-secondary-300',
 }
 
-export const bgColorVariants: ColorClass = {
+export const bgColorVariants = {
   primary: 'bg-primary-200',
   secondary: 'bg-secondary-200',
 }
 
-export const rootSizeVariants: SizeClass = {
+export const statusColorVariants = {
+  primary: 'border-primary-700',
+  secondary: 'border-secondary-700',
+}
+
+export const rootSizeVariants = {
   sm: 'w-6 h-6 text-xs',
   md: 'w-10 h-10 text-md',
   lg: 'w-12 h-12 text-lg',
 }
 
-export const statusColorVariants: ColorClass = {
-  primary: 'border-primary-700',
-  secondary: 'border-secondary-700',
+export const statusSizeVariants = {
+  sm: 'w-1 h-1',
+  md: 'w-2 h-2',
+  lg: 'w-3 h-3',
 }
 
-export const statusStatusVariants: StatusClass = {
+export const statusStatusVariants = {
   success: 'bg-success',
   error: 'bg-error',
 }
 
-export const statusSizeVariants: SizeClass = {
-  sm: 'w-1 h-1',
-  md: 'w-2 h-2',
-  lg: 'w-3 h-3',
+export interface AvatarRootProps extends RadixAvatar.AvatarProps {
+  color?: keyof typeof rootColorVariants
+  size?: keyof typeof rootSizeVariants
+  status?: keyof typeof statusStatusVariants
 }
 
 const AvatarRoot: FC<AvatarRootProps> = ({

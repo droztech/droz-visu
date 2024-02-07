@@ -1,19 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import {
-  ExtendedColor,
-  ExtendedColorClass,
-  LargerSizes,
-  LargerSizesClass,
-} from '@types'
 
 import { FC, HTMLAttributes, useMemo } from 'react'
 
-export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
-  color?: ExtendedColor
-  size?: LargerSizes
-}
-
-const colorClassVariants: ExtendedColorClass = {
+const colorClassVariants = {
   alert: 'bg-alert',
   current: 'bg-current',
   error: 'bg-error',
@@ -24,9 +13,14 @@ const colorClassVariants: ExtendedColorClass = {
   white: 'bg-gray-100',
 }
 
-const sizeClassVariants: LargerSizesClass = {
+const sizeClassVariants = {
   md: 'w-2 h-2',
   lg: 'w-3 h-3',
+}
+
+export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
+  color?: keyof typeof colorClassVariants
+  size?: keyof typeof sizeClassVariants
 }
 
 const LoadingDots: FC<LoadingProps> = ({

@@ -1,5 +1,4 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { IconColor, IconColorClass } from '@types'
 
 import { Slot } from '@radix-ui/react-slot'
 import {
@@ -16,16 +15,16 @@ const sizeClassVariants = {
   md: 'w-10 h-10 min-w-10 min-h-10 [&_svg]:h-6 [&_svg]:w-6',
 }
 
-export interface IconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  asChild?: boolean
-  color?: IconColor
-  size?: keyof typeof sizeClassVariants
-}
-
-const colorClassVariants: IconColorClass = {
+const colorClassVariants = {
   error: 'bg-error-100 text-error hover:bg-error-200 active:bg-error-200',
   primary:
     'bg-primary-100 text-primary hover:bg-primary-200 active:bg-primary-200',
+}
+
+export interface IconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean
+  color?: keyof typeof colorClassVariants
+  size?: keyof typeof sizeClassVariants
 }
 
 const Icon = forwardRef<HTMLButtonElement, IconProps>(
