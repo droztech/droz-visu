@@ -1,10 +1,11 @@
-import { Avatar, AvatarRootProps } from '@droz-js/visu'
+import { Avatar, AvatarProps } from '@droz-js/visu'
+import { User } from 'phosphor-react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<AvatarRootProps> = {
-  title: 'Avatar/Root',
-  component: Avatar.Root,
+const meta: Meta<AvatarProps> = {
+  title: 'Avatar/Avatar',
+  component: Avatar,
   argTypes: {
     children: {
       control: 'none',
@@ -17,7 +18,7 @@ const meta: Meta<AvatarRootProps> = {
     color: {
       control: 'inline-radio',
       description: 'Define a cor do Componente.',
-      options: ['primary', 'secondary'] as AvatarRootProps['color'][],
+      options: ['primary', 'secondary'] as AvatarProps['color'][],
       table: {
         type: {
           summary: ['primary', 'secondary'].join('|'),
@@ -29,7 +30,7 @@ const meta: Meta<AvatarRootProps> = {
     size: {
       control: 'inline-radio',
       description: 'Define o tamanho do componente.',
-      options: ['lg', 'md', 'sm'] as AvatarRootProps['size'][],
+      options: ['lg', 'md', 'sm'] as AvatarProps['size'][],
       table: {
         type: {
           summary: ['lg', 'md', 'sm'].join('|'),
@@ -38,10 +39,34 @@ const meta: Meta<AvatarRootProps> = {
       },
       type: { name: 'string', required: false },
     },
+    src: {
+      control: 'text',
+      description: 'Aplica o src em AvatarAvatar',
+      table: {
+        type: { summary: 'text' },
+      },
+      type: { name: 'string', required: true },
+    },
+    alt: {
+      control: 'text',
+      description: 'Aplica o alt em AvatarAvatar',
+      table: {
+        type: { summary: 'text' },
+      },
+      type: { name: 'string', required: true },
+    },
+    fallback: {
+      control: 'text',
+      description: 'Aplica o fallback em AvatarAvatar',
+      table: {
+        type: { summary: 'text' },
+      },
+      type: { name: 'string', required: false },
+    },
     status: {
       control: 'select',
       description: 'Define a badge de status do componente.',
-      options: ['', 'error', 'none', 'success'] as AvatarRootProps['status'][],
+      options: ['', 'error', 'none', 'success'] as AvatarProps['status'][],
       table: {
         type: {
           summary: ['error', 'none', 'success'].join('|'),
@@ -66,28 +91,26 @@ const meta: Meta<AvatarRootProps> = {
 }
 
 export default meta
-type AvatarRootStory = StoryObj<AvatarRootProps>
+type AvatarStory = StoryObj<AvatarProps>
 
-export const Comum: AvatarRootStory = {
-  render: (args) => <Avatar.Root {...args}></Avatar.Root>,
+export const Comum: AvatarStory = {
+  render: (args) => <Avatar {...args}></Avatar>,
 }
 
-export const ComImagem: AvatarRootStory = {
+export const ComImagem: AvatarStory = {
   render: (args) => {
-    return (
-      <Avatar.Root {...args}>
-        <Avatar.Image src="/vite.svg" />
-      </Avatar.Root>
-    )
+    return <Avatar {...args} src="/vite.svg" alt="" />
   },
 }
 
-export const ComFallback: AvatarRootStory = {
+export const ComFallback: AvatarStory = {
   render: (args) => {
-    return (
-      <Avatar.Root {...args}>
-        <Avatar.Fallback fallback="DZ" />
-      </Avatar.Root>
-    )
+    return <Avatar {...args} src="/vite.svg" alt="" fallback="DZ" />
+  },
+}
+
+export const ComFallbackIcon: AvatarStory = {
+  render: (args) => {
+    return <Avatar {...args} src="/vite.svg" alt="" fallback={<User />} />
   },
 }

@@ -1,10 +1,10 @@
-import { Checkbox, CheckboxRootProps } from '@droz-js/visu'
+import { Checkbox, CheckboxProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
-import { Check, Question } from 'phosphor-react'
+import { Question } from 'phosphor-react'
 
-const meta: Meta<CheckboxRootProps> = {
-  title: 'Checkbox/Root',
-  component: Checkbox.Root,
+const meta: Meta<CheckboxProps> = {
+  title: 'Checkbox/Checkbox',
+  component: Checkbox,
   argTypes: {
     children: {
       control: 'none',
@@ -14,7 +14,7 @@ const meta: Meta<CheckboxRootProps> = {
         },
       },
     },
-    checked: {
+    value: {
       control: { type: 'inline-radio' },
       description:
         'Propriedade que indica se o componente está marcado, não está marcado ou está indeterminado.',
@@ -28,7 +28,7 @@ const meta: Meta<CheckboxRootProps> = {
     color: {
       control: 'inline-radio',
       description: 'Define a cor do componente.',
-      options: ['primary', 'secondary'] as CheckboxRootProps['color'][],
+      options: ['primary', 'secondary'] as CheckboxProps['color'][],
       table: {
         type: {
           summary: ['primary', 'secondary'].join('|'),
@@ -46,15 +46,13 @@ const meta: Meta<CheckboxRootProps> = {
       },
       type: { name: 'boolean', required: false },
     },
-    onCheckedChange: {
+    onChange: {
       action: 'clicked',
       description: 'Evento de modificação do valor do componente.',
       table: { type: { summary: 'function' } },
     },
   },
   args: {
-    children: '',
-    checked: false,
     color: 'primary',
     disabled: false,
   },
@@ -68,22 +66,20 @@ const meta: Meta<CheckboxRootProps> = {
 }
 
 export default meta
-type CheckboxRootStory = StoryObj<CheckboxRootProps>
+type CheckboxStory = StoryObj<CheckboxProps>
 
-export const Comum: CheckboxRootStory = {
+export const Comum: CheckboxStory = {
   render: (args) => {
-    return <Checkbox.Root {...args} />
+    return <Checkbox {...args} />
   },
 }
 
-export const Indeterminado: CheckboxRootStory = {
+export const Indeterminado: CheckboxStory = {
   render: (args) => {
     return (
-      <Checkbox.Root {...args}>
-        <Checkbox.Indicator>
-          {args.checked === 'indeterminate' ? <Question /> : <Check />}
-        </Checkbox.Indicator>
-      </Checkbox.Root>
+      <Checkbox {...args}>
+        <Question />
+      </Checkbox>
     )
   },
 }
