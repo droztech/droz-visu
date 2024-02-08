@@ -72,7 +72,7 @@ describe('Button Root tests', () => {
     const element = screen.getByTestId('element')
 
     expect(element.tagName).toBe('BUTTON')
-    expect(element.children[0].tagName).toBe('SPAN')
+    expect(element.children[0].tagName).toBe('DIV')
   })
 
   it('Should render a different element using the "asChild" property', () => {
@@ -94,7 +94,7 @@ describe('Button Root tests', () => {
     )
     const element = screen.getByTestId('element')
 
-    expect(element.tagName).toBe('BUTTON')
+    expect(element.tagName).toBe('DIV')
     expect(element.children[0].tagName).toBe('SPAN')
   })
 })

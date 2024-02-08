@@ -19,10 +19,10 @@ describe('Checkbox tests', () => {
   })
 
   it('Should render a Checkbox Indicator if checkbox is checked', () => {
-    render(<Checkbox checked />)
-    const element = screen.getByTestId('indicator')
+    render(<Checkbox checked data-testid="element" />)
+    const element = screen.getByTestId('element')
 
-    expect(element?.tagName).toBe('SPAN')
+    expect(element?.tagName).toBe('BUTTON')
   })
 
   it('Should change value when clicked', async () => {

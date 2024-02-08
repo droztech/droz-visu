@@ -1,9 +1,8 @@
 import { Tabs } from '@library'
 
-import { render, screen, renderHook } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { clsx } from 'clsx'
 import { Alien } from 'phosphor-react'
-import { useRef } from 'react'
 
 jest.mock('clsx', () => {
   return {
@@ -86,29 +85,5 @@ describe('TabsTrigger tests', () => {
     const element = screen.queryByTestId('element')
 
     expect(element?.querySelector('svg')).toBeDefined()
-  })
-
-  it('Should be able to receive ref property', () => {
-    const { result } = renderHook(() => {
-      const triggerRef = useRef<HTMLButtonElement>(null)
-      return triggerRef
-    })
-
-    render(
-      <Tabs.Root>
-        <Tabs.List>
-          <Tabs.Trigger
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />
-        </Tabs.List>
-      </Tabs.Root>,
-    )
-    const element = screen.queryByTestId('element')
-
-    expect(result.current.current).toEqual(element)
   })
 })

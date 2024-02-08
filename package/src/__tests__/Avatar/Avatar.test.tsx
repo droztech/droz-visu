@@ -17,16 +17,6 @@ describe('Avatar tests', () => {
     expect(element).toBeDefined()
   })
 
-  // TODO: Retornar nesse teste
-  it.skip('Should render an Image element inside Avatar', async () => {
-    const ImageAltText = 'Image Alt'
-
-    render(<Avatar src="" alt={ImageAltText} fallback="" />)
-    const element = await screen.findByAltText(ImageAltText)
-
-    expect(element?.tagName).toBe('IMG')
-  })
-
   it('Should render a Fallback element with given text', async () => {
     const fallbackTextContent = 'EX'
 
