@@ -12,7 +12,6 @@ import {
 
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
-  full?: boolean
   status?: Status
 }
 
@@ -26,7 +25,6 @@ const InputRoot: FC<InputRootProps> = ({
   children,
   className,
   disabled,
-  full,
   status,
   ...rest
 }) => {
@@ -61,7 +59,6 @@ const InputRoot: FC<InputRootProps> = ({
       ref={RootComponent}
       className={cn(
         'flex cursor-text items-center gap-3 rounded-lg border border-solid px-4 py-0 focus-within:border-primary focus-within:has-[input:invalid]:!border-error focus-within:has-[input:invalid]:placeholder-shown:outline focus-within:has-[input:invalid]:placeholder-shown:outline-2 focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2 focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
-        full ? 'w-full' : 'w-fit',
         rootClass,
         className,
       )}

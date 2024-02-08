@@ -44,7 +44,6 @@ const sizeClassVariants = {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
-  full?: boolean
   ghost?: boolean
   light?: boolean
   loading?: boolean
@@ -59,7 +58,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       className,
       disabled,
-      full,
       ghost,
       light,
       loading,
@@ -98,7 +96,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <RootComponent
         className={cn(
           'relative flex cursor-pointer flex-row items-center justify-center gap-2.5 rounded-lg transition-all [&_svg]:h-6 [&_svg]:w-6',
-          full ? '!w-full' : 'w-fit',
           light ? 'p-2' : sizeClassVariants[size],
           rootClass,
           className,
