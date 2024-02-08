@@ -4,7 +4,7 @@ import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Check } from 'phosphor-react'
 import { forwardRef } from 'react'
 
-export const rootColorVariants = {
+const rootColorVariants = {
   primary:
     'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
   secondary:

@@ -3,14 +3,14 @@ import { cn } from '@/src/utils/class-merge.helper'
 import * as RadixRadio from '@radix-ui/react-radio-group'
 import { FC, useMemo } from 'react'
 
-export const colorClassVariants = {
+const colorClassVariants = {
   primary:
     'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
   secondary:
     'data-[state=checked]:border-secondary border-gray hover:border-secondary [&:active>*]:bg-secondary',
 }
 
-export const dotColorClassVariants = {
+const dotColorClassVariants = {
   primary: 'data-[state=checked]:bg-primary',
   secondary: 'data-[state=checked]:bg-secondary',
 }

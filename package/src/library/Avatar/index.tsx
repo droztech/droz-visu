@@ -3,36 +3,36 @@ import { cn } from '@/src/utils/class-merge.helper'
 import * as RadixAvatar from '@radix-ui/react-avatar'
 import { FC, ReactNode } from 'react'
 
-export const rootColorVariants = {
+const rootColorVariants = {
   primary:
     'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
   secondary:
     'text-secondary border-secondary hover:border-secondary-300 active:border-secondary-200 hover:text-secondary-300 active:text-secondary-300',
 }
 
-export const bgColorVariants = {
+const bgColorVariants = {
   primary: 'bg-primary-200',
   secondary: 'bg-secondary-200',
 }
 
-export const statusColorVariants = {
+const statusColorVariants = {
   primary: 'border-primary-700',
   secondary: 'border-secondary-700',
 }
 
-export const rootSizeVariants = {
+const rootSizeVariants = {
   sm: 'w-6 h-6 text-xs',
   md: 'w-10 h-10 text-md',
   lg: 'w-12 h-12 text-lg',
 }
 
-export const statusSizeVariants = {
+const statusSizeVariants = {
   sm: 'w-1 h-1',
   md: 'w-2 h-2',
   lg: 'w-3 h-3',
 }
 
-export const statusStatusVariants = {
+const statusStatusVariants = {
   success: 'bg-success',
   error: 'bg-error',
 }
