@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Avatar } from './library'
+import { Input } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser, User } from 'phosphor-react'
@@ -36,7 +36,10 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Avatar src="https://picsum.photos/80" alt="abc" fallback={<User />} />
+        <Input.Root>
+          <Input.Icon icon={<User />} onClick={() => console.log('oi')} />
+          <Input.Input />
+        </Input.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
