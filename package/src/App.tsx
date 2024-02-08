@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Input } from './library'
+import { Button } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser, User } from 'phosphor-react'
@@ -36,10 +36,22 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Input.Root>
-          <Input.Icon icon={<User />} onClick={() => console.log('oi')} />
-          <Input.Input />
-        </Input.Root>
+        <Button>
+          <User />
+          User
+        </Button>
+        <Button loading>
+          <User />
+          User
+        </Button>
+        <Button ghost>
+          <User />
+          User
+        </Button>
+        <Button ghost loading>
+          <User />
+          User
+        </Button>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

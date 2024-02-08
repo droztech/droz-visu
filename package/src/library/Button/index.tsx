@@ -58,7 +58,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
-    const RootComponent = asChild && !loading ? Slot : 'button'
+    const RootComponent = asChild ? Slot : 'button'
     const isDisabled = disabled || loading
 
     const rootClass = useMemo(() => {
@@ -76,7 +76,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <RootComponent
         className={cn(
-          'relative flex cursor-pointer items-center justify-center rounded-lg transition-all [&_svg]:h-6 [&_svg]:w-6',
+          'flex cursor-pointer items-center justify-center gap-2.5 rounded-lg transition-all [&_svg]:w-6',
           light ? 'p-2' : sizeClassVariants[size],
           rootClass,
           className,
@@ -85,15 +85,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...rest}
       >
-        <div
-          className={cn(
-            'flex items-center justify-center gap-2.5',
-            loading && 'opacity-0',
-          )}
-        >
-          {children}
-        </div>
-        {loading && <LoadingDots className="absolute" />}
+        {!loading ? (
+          children
+        ) : (
+          <div className="relative flex items-center justify-center">
+            <span className="flex items-center justify-center gap-2.5 opacity-0">
+              {children}
+            </span>
+            <LoadingDots className="absolute" />
+          </div>
+        )}
       </RootComponent>
     )
   },
