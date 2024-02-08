@@ -18,11 +18,11 @@ const orientationChildrenClassVariants = {
   horizontal: 'mx-4',
 }
 
-export interface DividerVerticalProps extends HTMLAttributes<HTMLDivElement> {
+export interface DividerProps extends HTMLAttributes<HTMLDivElement> {
   orientation: keyof typeof orientationRootClassVariants
 }
 
-const DividerVertical: FC<DividerVerticalProps> = ({
+const DividerVertical: FC<DividerProps> = ({
   orientation,
   children,
   className,

@@ -37,7 +37,7 @@ const statusStatusVariants = {
   error: 'bg-error',
 }
 
-export interface AvatarRootProps extends RadixAvatar.AvatarProps {
+export interface AvatarProps extends RadixAvatar.AvatarProps {
   color?: keyof typeof rootColorVariants
   size?: keyof typeof rootSizeVariants
   status?: keyof typeof statusStatusVariants
@@ -46,7 +46,7 @@ export interface AvatarRootProps extends RadixAvatar.AvatarProps {
   alt: string
 }
 
-const AvatarRoot: FC<AvatarRootProps> = ({
+const Avatar: FC<AvatarProps> = ({
   fallback,
   className,
   src,
@@ -98,6 +98,6 @@ const AvatarRoot: FC<AvatarRootProps> = ({
   )
 }
 
-AvatarRoot.displayName = 'Avatar.Root'
+Avatar.displayName = 'Avatar.Root'
 
-export default AvatarRoot
+export default Avatar

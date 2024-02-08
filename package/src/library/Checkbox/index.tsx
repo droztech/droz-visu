@@ -11,7 +11,7 @@ const rootColorVariants = {
     'data-[state=checked]:bg-secondary data-[state=checked]:border-secondary border-gray hover:border-secondary active:border-secondary active:bg-secondary',
 }
 
-export interface CheckboxRootProps
+export interface CheckboxProps
   extends Omit<
     RadixCheckbox.CheckboxProps,
     'value' | 'onChange' | 'onCheckedChange'
@@ -22,7 +22,7 @@ export interface CheckboxRootProps
   onCheckedChange?: (data: boolean) => void
 }
 
-const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
+const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   (
     {
       children,
@@ -70,6 +70,6 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
   },
 )
 
-CheckboxRoot.displayName = 'Checkbox'
+Checkbox.displayName = 'Checkbox'
 
-export default CheckboxRoot
+export default Checkbox
