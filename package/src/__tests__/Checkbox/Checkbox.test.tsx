@@ -1,7 +1,7 @@
 import { Checkbox } from '@library'
 
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
@@ -12,22 +12,14 @@ jest.mock('clsx', () => {
 
 describe('Checkbox tests', () => {
   it('Should render a Checkbox element', () => {
-    render(
-      <Checkbox.Root data-testid="element">
-        <Checkbox.Indicator />
-      </Checkbox.Root>,
-    )
+    render(<Checkbox data-testid="element" />)
     const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()
   })
 
   it('Should render a Checkbox Indicator if checkbox is checked', () => {
-    render(
-      <Checkbox.Root checked>
-        <Checkbox.Indicator data-testid="indicator" />
-      </Checkbox.Root>,
-    )
+    render(<Checkbox checked />)
     const element = screen.getByTestId('indicator')
 
     expect(element?.tagName).toBe('SPAN')
@@ -38,13 +30,11 @@ describe('Checkbox tests', () => {
     const user = userEvent.setup()
 
     render(
-      <Checkbox.Root
+      <Checkbox
         checked={checked}
         onCheckedChange={(check) => (checked = check)}
         data-testid="element"
-      >
-        <Checkbox.Indicator />
-      </Checkbox.Root>,
+      />,
     )
     const element = screen.getByTestId('element')
 

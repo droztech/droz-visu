@@ -17,8 +17,9 @@
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
-    "test": "turbo run test",
-    "test:watch": "turbo run test:watch"
+    "test": "jest package/src/__tests__",
+    "test:watch": "jest --watch package/src/__tests__",
+    "test:coverage": "jest --watch --collectCoverage package/src/__tests__"
   },
   "lint-staged": {
     "**/*.{js, jsx, ts, tsx}": [

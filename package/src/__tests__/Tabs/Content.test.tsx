@@ -13,7 +13,7 @@ jest.mock('clsx', () => {
 describe('TabsContent tests', () => {
   it('Should render a Tabs.Content element', () => {
     render(
-      <Tabs.Root triggers={[]}>
+      <Tabs.Root>
         <Tabs.Content data-testid="element" value="tab1">
           E ai
         </Tabs.Content>
@@ -26,7 +26,7 @@ describe('TabsContent tests', () => {
 
   it('Should render a div element', () => {
     render(
-      <Tabs.Root triggers={[]}>
+      <Tabs.Root>
         <Tabs.Content data-testid="element" value="tab1">
           E ai
         </Tabs.Content>
@@ -39,7 +39,7 @@ describe('TabsContent tests', () => {
 
   it('Should render the children inside the div element', () => {
     render(
-      <Tabs.Root value="tab1" triggers={[]}>
+      <Tabs.Root value="tab1">
         <Tabs.Content data-testid="element" value="tab1">
           <span>Children</span>
         </Tabs.Content>
@@ -53,7 +53,7 @@ describe('TabsContent tests', () => {
 
   it('Should not render the children inside the div element if value is different', () => {
     render(
-      <Tabs.Root value="tab12" triggers={[]}>
+      <Tabs.Root value="tab12">
         <Tabs.Content data-testid="element" value="tab1">
           <span>Children</span>
         </Tabs.Content>
@@ -72,7 +72,7 @@ describe('TabsContent tests', () => {
     })
 
     render(
-      <Tabs.Root value="tab1" triggers={[]}>
+      <Tabs.Root value="tab1">
         <Tabs.Content ref={result.current} data-testid="element" value="tab1">
           <span>Children</span>
         </Tabs.Content>

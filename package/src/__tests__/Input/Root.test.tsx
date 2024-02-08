@@ -34,7 +34,7 @@ describe('Input Root tests', () => {
     render(
       <Input.Root data-testid="element">
         <Input.Input />
-        <Input.Icon id={IconContainerId} />
+        <Input.Icon id={IconContainerId} icon={<></>} />
       </Input.Root>,
     )
     const element = screen.getByTestId('element')
@@ -45,9 +45,7 @@ describe('Input Root tests', () => {
   it('Should focus the input element when clicking on the container element', () => {
     render(
       <Input.Root data-testid="element">
-        <Input.Icon>
-          <Envelope />
-        </Input.Icon>
+        <Input.Icon icon={<Envelope />} />
         <Input.Input data-testid="input" />
       </Input.Root>,
     )
@@ -60,9 +58,7 @@ describe('Input Root tests', () => {
   it('Should disable all the children when the container is disabled', () => {
     render(
       <Input.Root data-testid="element" disabled>
-        <Input.Icon>
-          <Envelope />
-        </Input.Icon>
+        <Input.Icon icon={<Envelope />} />
         <Input.Input data-testid="input" />
       </Input.Root>,
     )
