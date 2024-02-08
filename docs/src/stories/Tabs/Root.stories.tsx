@@ -41,20 +41,6 @@ const meta: Meta<TabsRootProps> = {
       },
       type: { name: 'string', required: false },
     },
-    /**
-     * @deprecated - Deprecated props will be removed in the next major version.
-     */
-    triggers: {
-      control: 'none',
-      description:
-        'Triggers de cada aba, `Tabs.Trigger`, devem conter a propriedade `value` para identificar o conteúdo a ser exibido.',
-      table: {
-        type: {
-          summary: 'React.ReactNode[]',
-        },
-      },
-      type: { name: 'string', required: true },
-    },
     value: {
       control: 'text',
       description:

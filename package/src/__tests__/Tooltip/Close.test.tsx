@@ -45,23 +45,6 @@ describe('TooltipClose tests', () => {
     })
   })
 
-  /**
-   * @deprecated - Teste para uma propriedade deprecated
-   */
-  it('Should render a text with the prop "text"', async () => {
-    render(
-      <Tooltip.Close text="Text1">
-        <div data-testid="element">Hello</div>
-      </Tooltip.Close>,
-    )
-    const element = screen.getByTestId('element')
-    fireEvent.click(element)
-
-    await waitFor(() => {
-      expect(screen.getByRole('dialog')).toHaveTextContent('Text1')
-    })
-  })
-
   it('Should close the tooltip after the specified closeTime', async () => {
     const closeTime = 2500
 

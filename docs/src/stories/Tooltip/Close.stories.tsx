@@ -82,20 +82,6 @@ const meta: Meta<TooltipCloseProps> = {
       },
       type: { name: 'string', required: false },
     },
-
-    /**
-     * @deprecated - Deprecated props will be removed in the next major version.
-     */
-    text: {
-      control: 'none',
-      name: 'text (deprecated)',
-      description:
-        '<s>Define o valor em texto do componente.</s> (deprecated) - Use a propriedade `content`.',
-      table: {
-        type: { summary: 'text' },
-      },
-      type: { name: 'string', required: false },
-    },
   },
   args: {
     children: '',

@@ -8,14 +8,6 @@ export interface SwitchProps
   label?: boolean
   value?: boolean
   onChange?: (ev: boolean) => void
-  /**
-   * @deprecated Use `value` instead
-   */
-  checked?: boolean
-  /**
-   * @deprecated Use `onChange` instead
-   */
-  onCheckedChange?: (checked: boolean) => void
 }
 
 const Switch: FC<SwitchProps> = ({
@@ -23,19 +15,13 @@ const Switch: FC<SwitchProps> = ({
   className,
   disabled,
   value,
-  checked,
   onChange,
-  onCheckedChange,
   ...rest
 }) => {
   const colorClass = useMemo<string>(() => {
     if (disabled) return 'bg-gray-400 pointer-events-none'
     return 'data-[state=unchecked]:bg-gray-400 hover:data-[state=unchecked]:bg-gray-500 active:data-[state=unchecked]:bg-gray-700 data-[state=checked]:bg-primary-400 hover:data-[state=checked]:bg-primary-500 active:data-[state=checked]:bg-primary-600'
   }, [disabled])
-
-  const parsedValue = useMemo(() => {
-    return value ?? checked
-  }, [checked, value])
 
   return (
     <RadixSwitch.Root
@@ -45,17 +31,17 @@ const Switch: FC<SwitchProps> = ({
         className,
       )}
       disabled={disabled}
-      checked={parsedValue}
-      onCheckedChange={onChange ?? onCheckedChange}
+      checked={value}
+      onCheckedChange={onChange}
       {...rest}
     >
-      {label && parsedValue && (
+      {label && value && (
         <span className="absolute left-0 px-1.5 text-xs font-semibold text-gray-100 group-disabled/switch:text-gray-300">
           On
         </span>
       )}
       <RadixSwitch.Thumb className="block h-5 w-5 rounded-full bg-gray-100 transition-all group-hover/switch:h-4 group-hover/switch:w-4 group-active/switch:h-4 group-active/switch:w-4 group-disabled/switch:bg-gray-300 data-[state=checked]:translate-x-6 data-[state=unchecked]:translate-x-0" />
-      {label && !parsedValue && (
+      {label && !value && (
         <span className="absolute right-0 px-1.5 text-xs font-semibold text-gray-100 group-disabled/switch:text-gray-300">
           Off
         </span>

@@ -65,21 +65,6 @@ describe('TooltipHover tests', () => {
     fireEvent.click(element)
   })
 
-  /**
-   * @deprecated - Teste para uma propriedade deprecated
-   */
-  it('Should render a text with the prop "text"', async () => {
-    const user = userEvent.setup()
-
-    render(
-      <Tooltip.Hover text="Text1">
-        <div data-testid="element">Hello</div>
-      </Tooltip.Hover>,
-    )
-    const element = screen.getByTestId('element')
-    await user.hover(element)
-  })
-
   it('Should close the tooltip after the specified closeTime', async () => {
     const closeTime = 2500
     const delayDuration = 700

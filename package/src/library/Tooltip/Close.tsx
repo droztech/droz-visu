@@ -7,16 +7,11 @@ import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react'
 
 export interface TooltipCloseProps
   extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
-  // Optional because we can't remove `text` until the next major release
   content?: ReactNode
   defaultOpen?: boolean
   open?: boolean
   onOpenChange?: (open: boolean) => void
   side?: Position
-  /**
-   * @deprecated Use `content` instead. Will be removed in the next major release
-   */
-  text?: string
   closeTime?: number
   closeButton?: boolean
 }
@@ -31,7 +26,6 @@ const TooltipClose: FC<TooltipCloseProps> = ({
   open,
   onOpenChange,
   closeButton = true,
-  text,
   ...rest
 }) => {
   const [tooltipOpen, setTooltipOpen] = useState(open)
@@ -71,7 +65,7 @@ const TooltipClose: FC<TooltipCloseProps> = ({
             )}
             {...rest}
           >
-            <div>{content || text}</div>
+            <div>{content}</div>
             {closeButton && (
               <div className="flex-1">
                 <RadixPopover.Close className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-300 text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100">
