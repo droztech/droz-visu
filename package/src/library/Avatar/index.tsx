@@ -1,7 +1,7 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixAvatar from '@radix-ui/react-avatar'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 export const rootColorVariants = {
   primary:
@@ -41,24 +41,32 @@ export interface AvatarRootProps extends RadixAvatar.AvatarProps {
   color?: keyof typeof rootColorVariants
   size?: keyof typeof rootSizeVariants
   status?: keyof typeof statusStatusVariants
+  fallback: ReactNode
+  src: string
+  alt: string
 }
 
 const AvatarRoot: FC<AvatarRootProps> = ({
-  children,
+  fallback,
   className,
+  src,
+  alt,
   color = 'primary',
   size = 'md',
   status,
+  onClick,
   ...rest
 }) => {
   return (
     <RadixAvatar.Root
       className={cn(
         'relative cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
+        !onClick && 'pointer-events-none',
         rootColorVariants[color],
         rootSizeVariants[size],
         className,
       )}
+      onClick={onClick}
       {...rest}
     >
       {status && (
@@ -77,7 +85,14 @@ const AvatarRoot: FC<AvatarRootProps> = ({
           bgColorVariants[color],
         )}
       >
-        {children}
+        <RadixAvatar.Image
+          className="h-full w-full rounded-full object-cover"
+          src={src}
+          alt={alt}
+        />
+        <RadixAvatar.Fallback className="overflow-hidden text-ellipsis whitespace-nowrap p-1">
+          {fallback}
+        </RadixAvatar.Fallback>
       </div>
     </RadixAvatar.Root>
   )

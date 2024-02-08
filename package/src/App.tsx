@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Radio } from './library'
+import { Avatar } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser } from 'phosphor-react'
+import { Eraser, User } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -36,11 +36,7 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <div>xxx</div>
-        <Radio.Root value="xyz">
-          <Radio.Item value="abc">abc</Radio.Item>
-          <Radio.Item value="xyz">xyz</Radio.Item>
-        </Radio.Root>
+        <Avatar src="https://picsum.photos/80" alt="abc" fallback={<User />} />
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
