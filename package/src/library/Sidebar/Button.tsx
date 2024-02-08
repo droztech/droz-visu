@@ -23,7 +23,7 @@ const SidebarButton: FC<SidebarButtonProps> = ({
       )}
       {...rest}
     >
-      <Tooltip.Hover text={text} side="right">
+      <Tooltip.Hover content={text} side="right">
         <div className="mx-auto [&>svg]:h-6 [&>svg]:w-6">{icon}</div>
       </Tooltip.Hover>
       <span className="flex-1 text-left text-sm">{text}</span>
