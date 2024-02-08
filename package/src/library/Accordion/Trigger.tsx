@@ -7,17 +7,14 @@ import {
   AccordionTriggerProps as TriggerProps,
 } from '@radix-ui/react-accordion'
 import { CaretDown } from 'phosphor-react'
-import { FC, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { FC, forwardRef } from 'react'
 
 export interface AccordionTriggerProps extends TriggerProps {}
 
 const AccordionTrigger: FC<AccordionTriggerProps> = forwardRef<
-  HTMLDivElement,
+  HTMLButtonElement,
   AccordionTriggerProps
->(({ children, className, ...rest }, ref: Ref<HTMLDivElement | null>) => {
-  const elementRef = useRef<HTMLDivElement>(null)
-  useImperativeHandle(ref, () => elementRef.current)
-
+>(({ children, className, ...rest }, ref) => {
   return (
     <Icon size="sm" asChild>
       <Trigger
@@ -25,6 +22,7 @@ const AccordionTrigger: FC<AccordionTriggerProps> = forwardRef<
           'transition-all duration-200 data-[state=open]:rotate-[180deg]',
           className,
         )}
+        ref={ref}
         {...rest}
       >
         {children ?? <CaretDown />}

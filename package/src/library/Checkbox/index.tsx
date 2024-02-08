@@ -2,7 +2,7 @@ import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Check } from 'phosphor-react'
-import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef } from 'react'
 
 export const rootColorVariants = {
   primary:
@@ -35,12 +35,8 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
       value,
       ...rest
     },
-    ref: Ref<HTMLButtonElement | null>,
+    ref,
   ) => {
-    const checkboxRef = useRef<HTMLButtonElement>(null)
-
-    useImperativeHandle(ref, () => checkboxRef.current)
-
     const handleCheck = (ev: RadixCheckbox.CheckedState) => {
       if (ev === 'indeterminate') ev = false
       if (onChange) {
@@ -61,7 +57,7 @@ const CheckboxRoot = forwardRef<HTMLButtonElement, CheckboxRootProps>(
           className,
         )}
         disabled={disabled}
-        ref={checkboxRef}
+        ref={ref}
         checked={value ?? checked}
         onCheckedChange={(ev) => handleCheck(ev)}
         {...rest}

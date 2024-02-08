@@ -1,16 +1,12 @@
 import { Root, TabsProps } from '@radix-ui/react-tabs'
-import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef } from 'react'
 
 export interface TabsRootProps extends Omit<TabsProps, 'orientation'> {}
 
 const TabsRoot = forwardRef<HTMLDivElement, TabsRootProps>(
-  ({ children, ...rest }, ref: Ref<HTMLDivElement | null>) => {
-    const tabsRef = useRef<HTMLDivElement>(null)
-
-    useImperativeHandle(ref, () => tabsRef.current)
-
+  ({ children, ...rest }, ref) => {
     return (
-      <Root ref={tabsRef} {...rest}>
+      <Root ref={ref} {...rest}>
         {children}
       </Root>
     )

@@ -3,14 +3,7 @@ import LoadingDots from '../Loading'
 import { cn } from '@/src/utils/class-merge.helper'
 
 import { Slot } from '@radix-ui/react-slot'
-import {
-  ButtonHTMLAttributes,
-  Ref,
-  forwardRef,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react'
+import { ButtonHTMLAttributes, forwardRef, useMemo } from 'react'
 
 const variantClassVariants = {
   neutral:
@@ -63,13 +56,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       ...rest
     },
-    ref: Ref<HTMLButtonElement | null>,
+    ref,
   ) => {
-    const buttonRef = useRef<HTMLButtonElement>(null)
     const RootComponent = asChild && !loading ? Slot : 'button'
     const isDisabled = disabled || loading
-
-    useImperativeHandle(ref, () => buttonRef.current)
 
     const rootClass = useMemo(() => {
       if (isDisabled) {
@@ -92,7 +82,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className,
         )}
         disabled={isDisabled}
-        ref={buttonRef}
+        ref={ref}
         {...rest}
       >
         <div

@@ -1,13 +1,7 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
 import { Slot } from '@radix-ui/react-slot'
-import {
-  ButtonHTMLAttributes,
-  Ref,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import { ButtonHTMLAttributes, forwardRef } from 'react'
 
 const sizeClassVariants = {
   sm: 'w-8 h-8 min-w-8 min-h-8 [&_svg]:h-4 [&_svg]:w-4',
@@ -37,11 +31,8 @@ const Icon = forwardRef<HTMLButtonElement, IconProps>(
       size = 'md',
       ...rest
     },
-    ref: Ref<HTMLButtonElement | null>,
+    ref,
   ) => {
-    const iconRef = useRef<HTMLButtonElement>(null)
-
-    useImperativeHandle(ref, () => iconRef.current)
     const RootComponent = asChild ? Slot : 'button'
 
     return (
@@ -54,7 +45,7 @@ const Icon = forwardRef<HTMLButtonElement, IconProps>(
           className,
         )}
         disabled={disabled}
-        ref={iconRef}
+        ref={ref}
         {...rest}
       >
         {children}
