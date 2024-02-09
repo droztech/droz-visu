@@ -11,7 +11,7 @@ jest.mock('clsx', () => {
 
 describe('Divider tests', () => {
   it('Should render a Divider element without element', () => {
-    render(<Divider data-testid="element" />)
+    render(<Divider orientation="horizontal" data-testid="element" />)
     const element = screen.queryByTestId('element')
 
     expect(element?.children.length).toBe(2)
@@ -20,7 +20,11 @@ describe('Divider tests', () => {
   })
 
   it('Should render a Divider element with middle element', () => {
-    render(<Divider data-testid="element">OU</Divider>)
+    render(
+      <Divider orientation="vertical" data-testid="element">
+        OU
+      </Divider>,
+    )
     const element = screen.queryByTestId('element')
 
     expect(element?.children.length).toBe(3)

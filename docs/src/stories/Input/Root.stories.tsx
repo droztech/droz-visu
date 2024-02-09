@@ -23,16 +23,6 @@ const meta: Meta<InputRootProps> = {
       },
       type: { name: 'boolean', required: false },
     },
-    full: {
-      control: { type: 'boolean' },
-      description:
-        'Faz com que o componente preencha todo o espaço disponível.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
     status: {
       control: { type: 'select' },
       description: 'Define o status do componente.',
@@ -48,7 +38,6 @@ const meta: Meta<InputRootProps> = {
   args: {
     children: '',
     disabled: false,
-    full: false,
     status: undefined,
   },
   parameters: {
@@ -85,9 +74,7 @@ export const ComIcone: InputRootStory = {
             type="email"
             placeholder="Escreva seu email aqui"
           />
-          <Input.Icon key="icon">
-            <Envelope />
-          </Input.Icon>
+          <Input.Icon key="icon" icon={<Envelope />} />
         </Input.Root>
       </div>
     )
@@ -104,9 +91,11 @@ export const ComIconeClicavel: InputRootStory = {
             type="email"
             placeholder="Escreva seu email aqui"
           />
-          <Input.Icon key="icon" onClick={() => console.log('clicou')}>
-            <Envelope />
-          </Input.Icon>
+          <Input.Icon
+            key="icon"
+            icon={<Envelope />}
+            onClick={() => console.log('Click')}
+          />
         </Input.Root>
       </div>
     )
@@ -118,9 +107,7 @@ export const ComIconeNaEsquerda: InputRootStory = {
     return (
       <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
-          <Input.Icon key="icon">
-            <Envelope />
-          </Input.Icon>
+          <Input.Icon key="icon" icon={<Envelope />} />
           <Input.Input
             key="input"
             type="email"
@@ -137,20 +124,13 @@ export const ComMaisDeUmIcone: InputRootStory = {
     return (
       <div className="flex w-[80vw] items-center justify-center">
         <Input.Root {...args}>
-          <Input.Icon key="icon1">
-            <Envelope />
-          </Input.Icon>
+          <Input.Icon key="icon" icon={<Envelope />} />
           <Input.Input
             key="input"
             type="email"
             placeholder="Escreva seu email aqui"
           />
-          <Input.Icon key="icon2">
-            <Envelope />
-          </Input.Icon>
-          <Input.Icon key="icon3">
-            <Envelope />
-          </Input.Icon>
+          <Input.Icon key="icon2" icon={<Envelope />} />
         </Input.Root>
       </div>
     )

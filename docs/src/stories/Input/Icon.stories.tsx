@@ -1,6 +1,6 @@
 import { Input, InputIconProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
-import { Envelope } from 'phosphor-react'
+import { Envelope, SquaresFour } from 'phosphor-react'
 
 const meta: Meta<InputIconProps> = {
   title: 'Input/Icon',
@@ -15,9 +15,18 @@ const meta: Meta<InputIconProps> = {
       },
       type: { name: 'boolean', required: false },
     },
+    icon: {
+      control: 'text',
+      description: 'Aplica o icon em InputIcon',
+      table: {
+        type: { summary: 'text' },
+      },
+      type: { name: 'string', required: true },
+    },
   },
   args: {
     disabled: false,
+    icon: <SquaresFour />,
   },
   parameters: {
     design: {

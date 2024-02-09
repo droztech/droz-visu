@@ -6,7 +6,6 @@ import { FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react'
 
 export interface TooltipHoverProps
   extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
-  // Optional because we can't remove `text` until the next major release
   content?: ReactNode
   defaultOpen?: boolean
   closeTime?: number
@@ -14,10 +13,6 @@ export interface TooltipHoverProps
   open?: boolean
   side?: Position
   onOpenChange?: (open: boolean) => void
-  /**
-   * @deprecated Use `content` instead. Will be removed in the next major release
-   */
-  text?: string
 }
 
 const TooltipHover: FC<TooltipHoverProps> = ({
@@ -30,7 +25,6 @@ const TooltipHover: FC<TooltipHoverProps> = ({
   open,
   onOpenChange,
   side,
-  text,
   ...rest
 }) => {
   const [tooltipOpen, setTooltipOpen] = useState(open)
@@ -73,7 +67,7 @@ const TooltipHover: FC<TooltipHoverProps> = ({
               )}
               {...rest}
             >
-              {content || text}
+              {content}
             </div>
           </RadixTooltip.Content>
         </RadixTooltip.Portal>

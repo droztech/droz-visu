@@ -2,7 +2,7 @@ import { Align } from '../types'
 
 import { cn } from '@/src/utils/class-merge.helper'
 
-import { FC, HTMLAttributes, useMemo } from 'react'
+import { FC, HTMLAttributes } from 'react'
 
 export interface DialogFooterProps extends HTMLAttributes<HTMLDivElement> {
   align?: Align
@@ -20,22 +20,12 @@ const DialogFooter: FC<DialogFooterProps> = ({
   className,
   ...rest
 }) => {
-  const variantClass = useMemo(() => {
-    const variants = []
-
-    if (align) {
-      variants.push(alignVariantClass[align])
-    }
-
-    return variants
-  }, [align])
-
   return (
     <div
       className={cn(
         'mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4',
+        alignVariantClass[align],
         className,
-        variantClass,
       )}
       {...rest}
     >

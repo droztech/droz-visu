@@ -71,10 +71,10 @@ const LayoutDefault: FC<LayoutDefaultProps> = ({
         <Comp
           className={cn(
             'relative flex min-h-[50vh] w-screen max-w-5xl flex-col items-center justify-center gap-4 overflow-auto rounded p-4 shadow-sm',
-            className,
             theme === 'light'
               ? 'bg-gray-100 text-gray-900'
               : 'dark bg-gray-800 text-gray-100',
+            className,
           )}
           {...rest}
         >

@@ -18,9 +18,9 @@ const SidebarRoot: FC<SidebarRootProps> = ({
   return (
     <aside
       className={cn(
-        className,
         'sticky top-0 flex h-screen flex-col justify-between border-r border-gray-300 transition-all duration-300 [&_*]:overflow-hidden [&_*]:text-ellipsis [&_*]:whitespace-nowrap',
         expanded ? 'w-56 px-4' : 'w-14 px-2 [&_span]:hidden',
+        className,
       )}
       {...rest}
     >

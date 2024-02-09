@@ -48,16 +48,6 @@ describe('Switch tests', () => {
     expect(element).toHaveAttribute('data-state', 'checked')
   })
 
-  /**
-   * @deprecated - Teste para uma propriedade deprecated
-   */
-  it('Should render a checked Switch element using the "checked" property', () => {
-    render(<Switch data-testid="element" checked={true} />)
-    const element = screen.queryByTestId('element')
-
-    expect(element).toHaveAttribute('data-state', 'checked')
-  })
-
   it('Should call "onChange" method when clicked', () => {
     const onChangeMock = jest.fn()
 
@@ -67,21 +57,5 @@ describe('Switch tests', () => {
     fireEvent.click(element)
 
     expect(onChangeMock).toHaveBeenCalledTimes(1)
-  })
-
-  /**
-   * @deprecated - Teste para um metodo deprecated
-   */
-  it('Should call "onCheckedChange" method when clicked', () => {
-    const onCheckedChangeMock = jest.fn()
-
-    render(
-      <Switch data-testid="element" onCheckedChange={onCheckedChangeMock} />,
-    )
-    const element = screen.getByTestId('element')
-
-    fireEvent.click(element)
-
-    expect(onCheckedChangeMock).toHaveBeenCalledTimes(1)
   })
 })

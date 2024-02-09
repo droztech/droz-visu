@@ -14,14 +14,14 @@ describe('Button Root tests', () => {
   const buttonClick = jest.fn()
 
   it('Should render a button element', () => {
-    render(<Button.Root data-testid="element">{buttonText}</Button.Root>)
+    render(<Button data-testid="element">{buttonText}</Button>)
     const element = screen.getByTestId('element')
 
     expect(element).toBeDefined()
   })
 
   it('Should render a button element with a child text', () => {
-    render(<Button.Root data-testid="element">{buttonText}</Button.Root>)
+    render(<Button data-testid="element">{buttonText}</Button>)
     const element = screen.getByTestId('element')
 
     expect(element).toHaveTextContent(buttonText)
@@ -29,9 +29,9 @@ describe('Button Root tests', () => {
 
   it('Should render a button element with a child JSX element', () => {
     render(
-      <Button.Root data-testid="element">
+      <Button data-testid="element">
         <span>{buttonText}</span>
-      </Button.Root>,
+      </Button>,
     )
     const element = screen.getByTestId('element')
 
@@ -41,9 +41,9 @@ describe('Button Root tests', () => {
 
   it('Should render a button element with disabled style and unable to click', () => {
     render(
-      <Button.Root data-testid="element" disabled>
+      <Button data-testid="element" disabled>
         {buttonText}
-      </Button.Root>,
+      </Button>,
     )
     const element = screen.getByTestId('element')
 
@@ -53,9 +53,9 @@ describe('Button Root tests', () => {
 
   it('Should render a button element with onClick', () => {
     render(
-      <Button.Root data-testid="element" onClick={buttonClick}>
+      <Button data-testid="element" onClick={buttonClick}>
         {buttonText}
-      </Button.Root>,
+      </Button>,
     )
     const element = screen.getByTestId('element')
 
@@ -65,21 +65,21 @@ describe('Button Root tests', () => {
 
   it('Should render a button element with loading', () => {
     render(
-      <Button.Root data-testid="element" loading>
+      <Button data-testid="element" loading>
         {buttonText}
-      </Button.Root>,
+      </Button>,
     )
     const element = screen.getByTestId('element')
 
     expect(element.tagName).toBe('BUTTON')
-    expect(element.children[0].tagName).toBe('SPAN')
+    expect(element.children[0].tagName).toBe('DIV')
   })
 
   it('Should render a different element using the "asChild" property', () => {
     render(
-      <Button.Root data-testid="element" asChild>
+      <Button data-testid="element" asChild>
         <h1>Hello World</h1>
-      </Button.Root>,
+      </Button>,
     )
     const element = screen.getByTestId('element')
 
@@ -88,13 +88,13 @@ describe('Button Root tests', () => {
 
   it('Should render loading over the children element using the "asChild" and loading property simultaneously', () => {
     render(
-      <Button.Root data-testid="element" asChild loading>
+      <Button data-testid="element" asChild loading>
         <h1>Hello World</h1>
-      </Button.Root>,
+      </Button>,
     )
     const element = screen.getByTestId('element')
 
-    expect(element.tagName).toBe('BUTTON')
+    expect(element.tagName).toBe('DIV')
     expect(element.children[0].tagName).toBe('SPAN')
   })
 })

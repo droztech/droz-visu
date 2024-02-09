@@ -1,10 +1,10 @@
-import { Button, ButtonRootProps } from '@droz-js/visu'
+import { Button, ButtonProps } from '@droz-js/visu'
 import { Meta, StoryObj } from '@storybook/react'
 import { CheckCircle } from 'phosphor-react'
 
-const meta: Meta<ButtonRootProps> = {
-  title: 'Button/Root',
-  component: Button.Root,
+const meta: Meta<ButtonProps> = {
+  title: 'Button/Button',
+  component: Button,
   argTypes: {
     children: {
       table: {
@@ -26,16 +26,6 @@ const meta: Meta<ButtonRootProps> = {
     disabled: {
       control: { type: 'boolean' },
       description: 'Desabilita o componente.',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-      type: { name: 'boolean', required: false },
-    },
-    full: {
-      control: { type: 'boolean' },
-      description:
-        'Faz com que o componente preencha todo o espaço disponível.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -69,7 +59,7 @@ const meta: Meta<ButtonRootProps> = {
         defaultValue: { summary: false },
       },
       type: { name: 'boolean', required: false },
-      defaultValue: false as ButtonRootProps['loading'],
+      defaultValue: false as ButtonProps['loading'],
     },
     size: {
       control: { type: 'inline-radio' },
@@ -105,7 +95,6 @@ const meta: Meta<ButtonRootProps> = {
     children: '',
     asChild: false,
     disabled: false,
-    full: false,
     ghost: false,
     light: false,
     loading: false,
@@ -122,9 +111,9 @@ const meta: Meta<ButtonRootProps> = {
 }
 
 export default meta
-type ButtonRootStory = StoryObj<ButtonRootProps>
+type ButtonStory = StoryObj<ButtonProps>
 
-export const Comum: ButtonRootStory = {
+export const Comum: ButtonStory = {
   argTypes: {
     asChild: {
       control: 'none',
@@ -133,36 +122,13 @@ export const Comum: ButtonRootStory = {
   render: (args) => {
     return (
       <div className="flex w-[80vw] items-center justify-center">
-        <Button.Root {...args}>Clique aqui</Button.Root>
+        <Button {...args}>Clique aqui</Button>
       </div>
     )
   },
 }
 
-export const ComIcone: ButtonRootStory = {
-  argTypes: {
-    children: {
-      control: 'none',
-    },
-    asChild: {
-      control: 'none',
-    },
-  },
-  render: (args) => {
-    return (
-      <div className="flex w-[80vw] items-center justify-center">
-        <Button.Root {...args}>
-          Clique aqui
-          <Button.Icon key="icon">
-            <CheckCircle />
-          </Button.Icon>
-        </Button.Root>
-      </div>
-    )
-  },
-}
-
-export const ComIconeNaEsquerda: ButtonRootStory = {
+export const ComIcone: ButtonStory = {
   argTypes: {
     children: {
       control: 'none',
@@ -174,18 +140,37 @@ export const ComIconeNaEsquerda: ButtonRootStory = {
   render: (args) => {
     return (
       <div className="flex w-[80vw] items-center justify-center">
-        <Button.Root {...args}>
-          <Button.Icon key="icon">
-            <CheckCircle />
-          </Button.Icon>
+        <Button {...args}>
           Clique aqui
-        </Button.Root>
+          <CheckCircle />
+        </Button>
       </div>
     )
   },
 }
 
-export const ComoTagAnchor: ButtonRootStory = {
+export const ComIconeNaEsquerda: ButtonStory = {
+  argTypes: {
+    children: {
+      control: 'none',
+    },
+    asChild: {
+      control: 'none',
+    },
+  },
+  render: (args) => {
+    return (
+      <div className="flex w-[80vw] items-center justify-center">
+        <Button {...args}>
+          <CheckCircle />
+          Clique aqui
+        </Button>
+      </div>
+    )
+  },
+}
+
+export const ComoTagAnchor: ButtonStory = {
   args: {
     asChild: true,
   },
@@ -197,9 +182,9 @@ export const ComoTagAnchor: ButtonRootStory = {
   render: (args) => {
     return (
       <div className="flex w-[80vw] items-center justify-center">
-        <Button.Root {...args}>
+        <Button {...args}>
           <a href="/">Link</a>
-        </Button.Root>
+        </Button>
       </div>
     )
   },

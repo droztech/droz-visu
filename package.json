@@ -17,8 +17,9 @@
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky install",
     "prepublishOnly": "npm run build",
-    "test": "turbo run test",
-    "test:watch": "turbo run test:watch"
+    "test": "jest package/src/__tests__",
+    "test:watch": "jest --watch package/src/__tests__",
+    "test:coverage": "jest --watch --collectCoverage package/src/__tests__"
   },
   "lint-staged": {
     "**/*.{js, jsx, ts, tsx}": [
@@ -26,16 +27,16 @@
     ]
   },
   "devDependencies": {
-    "@droz-js/eslint-config": "^1.0.0",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@droz-js/eslint-config": "^1.0.1",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.56.0",
     "glob": "^10.3.10",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.2",
     "phosphor-react": "latest",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

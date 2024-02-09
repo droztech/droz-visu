@@ -1,7 +1,7 @@
 import { ToastProvider, ToastProviderProps, useToast } from '@library'
 
 import { RenderOptions, act, render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import { clsx } from 'clsx'
 import { FC } from 'react'
 

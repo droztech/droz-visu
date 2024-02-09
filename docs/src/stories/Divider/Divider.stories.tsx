@@ -13,9 +13,20 @@ const meta: Meta<DividerProps> = {
         },
       },
     },
+    orientation: {
+      control: 'inline-radio',
+      description: 'Aplica o orientation em Divider',
+      options: ['horizontal', 'vertical'] as DividerProps['orientation'][],
+      table: {
+        type: {
+          summary: ['horizontal', 'vertical'].join('|'),
+        },
+      },
+      type: { name: 'string', required: true },
+    },
   },
   args: {
-    children: '',
+    orientation: 'horizontal',
   },
   parameters: {
     design: {
@@ -29,30 +40,51 @@ const meta: Meta<DividerProps> = {
 export default meta
 type DividerStory = StoryObj<DividerProps>
 
-export const Comum: DividerStory = {
-  render: (args) => {
+export const ComumHorizontal: DividerStory = {
+  render: (args: any) => {
     return (
-      <div style={{ width: '300px', height: '400px', display: 'flex' }}>
+      <div
+        style={{
+          width: '300px',
+          height: '400px',
+          display: 'flex',
+          flexDirection: args?.orientation === 'vertical' ? 'column' : 'row',
+        }}
+      >
         <Divider {...args} />
       </div>
     )
   },
 }
 
-export const ComTexto: DividerStory = {
-  render: (args) => {
+export const ComTextoHorizontal: DividerStory = {
+  render: (args: any) => {
     return (
-      <div style={{ width: '300px', height: '400px', display: 'flex' }}>
+      <div
+        style={{
+          width: '300px',
+          height: '400px',
+          display: 'flex',
+          flexDirection: args?.orientation === 'vertical' ? 'column' : 'row',
+        }}
+      >
         <Divider {...args}>OU</Divider>
       </div>
     )
   },
 }
 
-export const ComIcone: DividerStory = {
-  render: (args) => {
+export const ComIconeHorizontal: DividerStory = {
+  render: (args: any) => {
     return (
-      <div style={{ width: '300px', height: '400px', display: 'flex' }}>
+      <div
+        style={{
+          width: '300px',
+          height: '400px',
+          display: 'flex',
+          flexDirection: args?.orientation === 'vertical' ? 'column' : 'row',
+        }}
+      >
         <Divider {...args}>
           <SquaresFour />
         </Divider>

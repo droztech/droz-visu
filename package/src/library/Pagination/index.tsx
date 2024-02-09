@@ -1,7 +1,6 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { SmallerSizes } from '@types'
 
-import { FC, useMemo } from 'react'
+import { FC } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
 
 export interface PaginationProps
@@ -9,21 +8,17 @@ export interface PaginationProps
   current: number
   onPageChange: (data: number) => void
   disabled?: boolean
-  size?: SmallerSizes
+  size?: number
 }
 
 const Pagination: FC<PaginationProps> = ({
   current,
   onPageChange,
   disabled,
-  size = 'md',
+  size,
   className,
   ...rest
 }) => {
-  const paginateSize = useMemo<number>(() => {
-    return size === 'md' ? 3 : 1
-  }, [size])
-
   return (
     <ReactPaginate
       className={cn('flex items-center gap-1', className)}
@@ -51,7 +46,7 @@ const Pagination: FC<PaginationProps> = ({
       )}
       disabledClassName="pointer-events-none text-gray-400"
       forcePage={current - 1}
-      pageRangeDisplayed={paginateSize}
+      pageRangeDisplayed={size}
       marginPagesDisplayed={1}
       onPageChange={({ selected }) => onPageChange(selected + 1)}
       {...rest}

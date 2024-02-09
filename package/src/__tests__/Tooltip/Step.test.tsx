@@ -58,21 +58,4 @@ describe('TooltipStep tests', () => {
       )
     })
   })
-
-  /**
-   * @deprecated - Teste para uma propriedade deprecated
-   */
-  it('Should render a text with the prop "text" at each step, receiving a text array', async () => {
-    render(
-      <Tooltip.Step text={['Step1', 'Step2']}>
-        <div data-testid="element">Hello</div>
-      </Tooltip.Step>,
-    )
-    const element = screen.getByTestId('element')
-    fireEvent.click(element)
-
-    await waitFor(() => {
-      expect(screen.getByRole('dialog')).toHaveTextContent('Step1')
-    })
-  })
 })

@@ -1,5 +1,5 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Status } from '@types'
+import { Status, StatusClass } from '@types'
 
 import {
   FC,
@@ -12,28 +12,23 @@ import {
 
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
-  full?: boolean
   status?: Status
 }
 
-const statusClassVariants = {
+const statusClassVariants: StatusClass = {
   error: 'border-error',
   success: 'border-success',
+  alert: 'border-alert',
 }
 
 const InputRoot: FC<InputRootProps> = ({
   children,
   className,
   disabled,
-  full,
   status,
   ...rest
 }) => {
   const RootComponent = useRef<HTMLDivElement | null>(null)
-
-  const fullClass = useMemo(() => {
-    return full ? 'w-full' : 'w-fit'
-  }, [full])
 
   const rootClass = useMemo(() => {
     if (disabled) return 'bg-gray-200 cursor-not-allowed border-gray'
@@ -63,10 +58,9 @@ const InputRoot: FC<InputRootProps> = ({
     <div
       ref={RootComponent}
       className={cn(
-        className,
         'flex cursor-text items-center gap-3 rounded-lg border border-solid px-4 py-0 focus-within:border-primary focus-within:has-[input:invalid]:!border-error focus-within:has-[input:invalid]:placeholder-shown:outline focus-within:has-[input:invalid]:placeholder-shown:outline-2 focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2 focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
-        fullClass,
         rootClass,
+        className,
       )}
       onClick={focusInput}
       {...rest}

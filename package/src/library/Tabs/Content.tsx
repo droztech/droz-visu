@@ -4,20 +4,16 @@ import {
   TabsContent as RadixTabsContent,
   TabsContentProps as RadixTabsContentProps,
 } from '@radix-ui/react-tabs'
-import { Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { forwardRef } from 'react'
 
 export type TabsContentProps = RadixTabsContentProps
 
 const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
-  ({ children, className, ...rest }, ref: Ref<HTMLDivElement | null>) => {
-    const contentRef = useRef<HTMLDivElement>(null)
-
-    useImperativeHandle(ref, () => contentRef.current)
-
+  ({ children, className, ...rest }, ref) => {
     return (
       <RadixTabsContent
-        className={cn(className, 'outline-none')}
-        ref={contentRef}
+        className={cn('outline-none', className)}
+        ref={ref}
         {...rest}
       >
         {children}

@@ -3,19 +3,16 @@ import {
   AccordionSingleProps,
   Root,
 } from '@radix-ui/react-accordion'
-import { FC, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { FC, forwardRef } from 'react'
 
 export type AccordionRootProps = AccordionSingleProps | AccordionMultipleProps
 
 const AccordionRoot: FC<AccordionRootProps> = forwardRef<
   HTMLDivElement,
   AccordionRootProps
->(({ children, ...rest }, ref: Ref<HTMLDivElement | null>) => {
-  const elementRef = useRef<HTMLDivElement>(null)
-  useImperativeHandle(ref, () => elementRef.current)
-
+>(({ children, ...rest }, ref) => {
   return (
-    <Root {...rest} ref={elementRef}>
+    <Root {...rest} ref={ref}>
       {children}
     </Root>
   )

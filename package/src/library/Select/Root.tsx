@@ -1,22 +1,24 @@
+import { Status, StatusClass } from '../types'
+
 import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC } from 'react'
 
-const statusClassVariants = {
+const statusClassVariants: StatusClass = {
   error: 'border-error',
   success: 'border-success',
+  alert: 'border-alert',
 }
 
 export interface SelectRootProps extends RadixSelect.SelectProps {
   align?: RadixSelect.SelectContentProps['align']
   className?: string
-  full?: boolean
   placeholder?: string
   portalContainer?: HTMLElement | null
   position?: RadixSelect.SelectContentProps['position']
-  status?: keyof typeof statusClassVariants
+  status?: Status
   onChange?: (value: string) => void
 }
 
@@ -24,7 +26,6 @@ const SelectRoot: FC<SelectRootProps> = ({
   align = 'center',
   children,
   className,
-  full,
   placeholder,
   portalContainer,
   position = 'popper',
@@ -43,7 +44,6 @@ const SelectRoot: FC<SelectRootProps> = ({
       <RadixSelect.Trigger
         className={cn(
           'group flex min-h-10 items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-inherit transition-colors hover:border-gray-700 active:border-primary disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray data-[state=open]:border-primary data-[placeholder]:text-gray [&[data-state=open]>div]:rotate-180 [&[data-state=open]_span:last-child]:rotate-180',
-          full ? 'w-full' : 'w-fit',
           status ? statusClassVariants[status] : 'border-gray',
           className,
         )}

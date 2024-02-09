@@ -1,9 +1,8 @@
 import { Tabs } from '@library'
 
-import { render, screen, renderHook } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { clsx } from 'clsx'
 import { Alien } from 'phosphor-react'
-import { useRef } from 'react'
 
 jest.mock('clsx', () => {
   return {
@@ -14,17 +13,17 @@ jest.mock('clsx', () => {
 describe('TabsTrigger tests', () => {
   it('Should render a Tabs.Trigger element', () => {
     render(
-      <Tabs.Root
-        triggers={[
+      <Tabs.Root>
+        <Tabs.List>
           <Tabs.Trigger
             data-testid="element"
             value="tab1"
             key={'tab1'}
             title="Tab 1"
             icon={<Alien />}
-          />,
-        ]}
-      ></Tabs.Root>,
+          />
+        </Tabs.List>
+      </Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
 
@@ -33,17 +32,17 @@ describe('TabsTrigger tests', () => {
 
   it('Should render a button element', () => {
     render(
-      <Tabs.Root
-        triggers={[
+      <Tabs.Root>
+        <Tabs.List>
           <Tabs.Trigger
             data-testid="element"
             value="tab1"
             key={'tab1'}
             title="Tab 1"
             icon={<Alien />}
-          />,
-        ]}
-      ></Tabs.Root>,
+          />
+        </Tabs.List>
+      </Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
 
@@ -52,17 +51,17 @@ describe('TabsTrigger tests', () => {
 
   it('Should render the title inside the button element', () => {
     render(
-      <Tabs.Root
-        triggers={[
+      <Tabs.Root>
+        <Tabs.List>
           <Tabs.Trigger
             data-testid="element"
             value="tab1"
             key={'tab1'}
             title="Tab 1"
             icon={<Alien />}
-          />,
-        ]}
-      ></Tabs.Root>,
+          />
+        </Tabs.List>
+      </Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
 
@@ -71,45 +70,20 @@ describe('TabsTrigger tests', () => {
 
   it('Should render an icon inside the button element', () => {
     render(
-      <Tabs.Root
-        triggers={[
+      <Tabs.Root>
+        <Tabs.List>
           <Tabs.Trigger
             data-testid="element"
             value="tab1"
             key={'tab1'}
             title="Tab 1"
             icon={<Alien />}
-          />,
-        ]}
-      ></Tabs.Root>,
+          />
+        </Tabs.List>
+      </Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
 
     expect(element?.querySelector('svg')).toBeDefined()
-  })
-
-  it('Should be able to receive ref property', () => {
-    const { result } = renderHook(() => {
-      const triggerRef = useRef<HTMLButtonElement>(null)
-      return triggerRef
-    })
-
-    render(
-      <Tabs.Root
-        triggers={[
-          <Tabs.Trigger
-            ref={result.current}
-            data-testid="element"
-            value="tab1"
-            key={'tab1'}
-            title="Tab 1"
-            icon={<Alien />}
-          />,
-        ]}
-      ></Tabs.Root>,
-    )
-    const element = screen.queryByTestId('element')
-
-    expect(result.current.current).toEqual(element)
   })
 })

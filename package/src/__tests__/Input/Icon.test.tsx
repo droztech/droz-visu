@@ -12,7 +12,7 @@ jest.mock('clsx', () => {
 
 describe('Input Icon tests', () => {
   it('Should render a Icon element', () => {
-    render(<Input.Icon data-testid="element"></Input.Icon>)
+    render(<Input.Icon data-testid="element" icon={<></>} />)
     const element = screen.getByTestId('element')
 
     expect(element).toBeDefined()
@@ -21,9 +21,7 @@ describe('Input Icon tests', () => {
   it('Should focus the input element when clicking on the Icon element', () => {
     render(
       <Input.Root>
-        <Input.Icon data-testid="icon">
-          <Envelope />
-        </Input.Icon>
+        <Input.Icon data-testid="icon" icon={<Envelope />} />
         <Input.Input data-testid="input" />
       </Input.Root>,
     )
@@ -36,9 +34,11 @@ describe('Input Icon tests', () => {
   it('Should be able to execute a function when clicked', () => {
     const clickFunction = jest.fn()
     render(
-      <Input.Icon data-testid="icon" onClick={clickFunction}>
-        <Envelope />
-      </Input.Icon>,
+      <Input.Icon
+        data-testid="icon"
+        onClick={clickFunction}
+        icon={<Envelope />}
+      />,
     )
 
     const iconElement = screen.getByTestId('icon')
@@ -50,9 +50,12 @@ describe('Input Icon tests', () => {
   it('Should not be able to execute a click function when the icon element is disabled', () => {
     const clickFunction = jest.fn()
     render(
-      <Input.Icon data-testid="icon" onClick={clickFunction} disabled>
-        <Envelope />
-      </Input.Icon>,
+      <Input.Icon
+        data-testid="icon"
+        onClick={clickFunction}
+        disabled
+        icon={<Envelope />}
+      />,
     )
 
     const iconElement = screen.getByTestId('icon')

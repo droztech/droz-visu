@@ -11,42 +11,22 @@ jest.mock('clsx', () => {
 
 describe('Avatar tests', () => {
   it('Should render a Avatar element', () => {
-    render(
-      <Avatar.Root data-testid="element">
-        <Avatar.Image src="" alt="" />
-      </Avatar.Root>,
-    )
+    render(<Avatar data-testid="element" src="" alt="" fallback="" />)
     const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()
-  })
-
-  // TODO: Retornar nesse teste
-  it.skip('Should render an Image element inside Avatar', async () => {
-    const ImageAltText = 'Image Alt'
-
-    render(
-      <Avatar.Root>
-        <Avatar.Image src="" alt={ImageAltText} />
-      </Avatar.Root>,
-    )
-    const element = await screen.findByAltText(ImageAltText)
-
-    expect(element?.tagName).toBe('IMG')
   })
 
   it('Should render a Fallback element with given text', async () => {
     const fallbackTextContent = 'EX'
 
     render(
-      <Avatar.Root data-testid="element">
-        <Avatar.Image src="" />
-        <Avatar.Fallback
-          fallback={fallbackTextContent}
-          data-testid="fallback"
-          delayMs={0}
-        />
-      </Avatar.Root>,
+      <Avatar
+        src=""
+        fallback={fallbackTextContent}
+        alt=""
+        data-testid="fallback"
+      />,
     )
     const element = await screen.findByTestId('fallback')
 

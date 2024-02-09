@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Skeleton } from './library'
+import { Button } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser } from 'phosphor-react'
+import { Eraser, User } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -36,7 +36,22 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Skeleton className="h-8 w-full" />
+        <Button>
+          <User />
+          User
+        </Button>
+        <Button loading>
+          <User />
+          User
+        </Button>
+        <Button ghost>
+          <User />
+          User
+        </Button>
+        <Button ghost loading>
+          <User />
+          User
+        </Button>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

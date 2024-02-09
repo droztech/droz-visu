@@ -1,19 +1,63 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
+import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
-export interface DividerProps extends HTMLAttributes<HTMLDivElement> {}
+const orientationRootClassVariants = {
+  vertical: 'h-full flex-col',
+  horizontal: 'w-full flex-row',
+}
 
-const Divider: FC<DividerProps> = ({ children, className, ...rest }) => {
+const orientationBorderClassVariants = {
+  vertical: 'border-r',
+  horizontal: 'border-t',
+}
+
+const orientationChildrenClassVariants = {
+  vertical: 'my-4',
+  horizontal: 'mx-4',
+}
+
+export interface DividerProps extends HTMLAttributes<HTMLDivElement> {
+  orientation: keyof typeof orientationRootClassVariants
+}
+
+const DividerVertical: FC<DividerProps> = ({
+  orientation,
+  children,
+  className,
+  ...rest
+}) => {
   return (
-    <div className={cn('flex w-full items-center', className)} {...rest}>
-      <hr className="flex-1 border-gray-300" />
-      {children && <span className="mx-4">{children}</span>}
-      <hr className="flex-1 border-gray-300" />
+    <div
+      className={cn(
+        'flex items-center',
+        orientationRootClassVariants[orientation],
+        className,
+      )}
+      {...rest}
+    >
+      <hr
+        className={clsx(
+          'flex-1 border-gray-300',
+          orientationBorderClassVariants[orientation],
+        )}
+      />
+      {children && (
+        <span className={orientationChildrenClassVariants[orientation]}>
+          {children}
+        </span>
+      )}
+      <hr
+        className={clsx(
+          'flex-1 border-gray-300',
+          orientationBorderClassVariants[orientation],
+        )}
+      />
     </div>
   )
 }
 
-Divider.displayName = 'Divider'
+DividerVertical.displayName = 'Divider.Vertical'
 
-export default Divider
+export default DividerVertical

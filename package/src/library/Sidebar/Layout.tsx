@@ -12,8 +12,8 @@ const SidebarLayout: FC<SidebarLayoutProps> = ({
   return (
     <div
       className={cn(
-        className,
         'flex w-full flex-row [&>*:nth-child(2)]:w-full',
+        className,
       )}
       {...rest}
     >

@@ -13,14 +13,14 @@ jest.mock('clsx', () => {
 
 describe('TabsRoot tests', () => {
   it('Should render a Tabs.Root element', () => {
-    render(<Tabs.Root data-testid="element" triggers={[]}></Tabs.Root>)
+    render(<Tabs.Root data-testid="element"></Tabs.Root>)
     const element = screen.queryByTestId('element')
 
     expect(element).toBeDefined()
   })
 
   it('Should render a div element', () => {
-    render(<Tabs.Root data-testid="element" triggers={[]}></Tabs.Root>)
+    render(<Tabs.Root data-testid="element"></Tabs.Root>)
     const element = screen.queryByTestId('element')
 
     expect(element?.tagName).toBe('DIV')
@@ -28,17 +28,17 @@ describe('TabsRoot tests', () => {
 
   it('Should render Triggers inside a tablist', () => {
     render(
-      <Tabs.Root
-        triggers={[
+      <Tabs.Root>
+        <Tabs.List>
           <Tabs.Trigger
             data-testid="element"
             value="tab1"
             key={'tab1'}
             title="Tab 1"
             icon={<Alien />}
-          />,
-        ]}
-      ></Tabs.Root>,
+          />
+        </Tabs.List>
+      </Tabs.Root>,
     )
     const element = screen.queryByTestId('element')
     const tablist = element?.parentElement
@@ -48,17 +48,15 @@ describe('TabsRoot tests', () => {
 
   it('Should render Tabs.Content element inside Tabs.Root', () => {
     render(
-      <Tabs.Root
-        data-testid="rootElement"
-        triggers={[
+      <Tabs.Root data-testid="rootElement">
+        <Tabs.List>
           <Tabs.Trigger
             value="tab1"
             key={'tab1'}
             title="Tab 1"
             icon={<Alien />}
-          />,
-        ]}
-      >
+          />
+        </Tabs.List>
         <Tabs.Content data-testid="element" value="tab1">
           E ai
         </Tabs.Content>
@@ -76,13 +74,7 @@ describe('TabsRoot tests', () => {
       return rootRef
     })
 
-    render(
-      <Tabs.Root
-        data-testid="element"
-        triggers={[]}
-        ref={result.current}
-      ></Tabs.Root>,
-    )
+    render(<Tabs.Root data-testid="element" ref={result.current}></Tabs.Root>)
     const element = screen.queryByTestId('element')
 
     expect(result.current.current).toEqual(element)

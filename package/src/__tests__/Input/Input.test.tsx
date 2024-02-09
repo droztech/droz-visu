@@ -1,7 +1,7 @@
 import { Input } from '@library'
 
 import { render, screen } from '@testing-library/react'
-import UserEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import { clsx } from 'clsx'
 
 jest.mock('clsx', () => {
@@ -24,7 +24,7 @@ describe('Input Input tests', () => {
     render(<Input.Input data-testid="element" />)
     const element = screen.getByTestId('element')
 
-    await UserEvent.type(element, inputEmail)
+    await userEvent.type(element, inputEmail)
 
     expect(element).toHaveValue(inputEmail)
   })
@@ -33,7 +33,7 @@ describe('Input Input tests', () => {
     render(<Input.Input data-testid="element" disabled />)
     const element = screen.getByTestId('element')
 
-    await UserEvent.type(element, inputEmail)
+    await userEvent.type(element, inputEmail)
 
     expect(element).toHaveValue('')
   })

@@ -3,21 +3,16 @@ import { Position } from '@types'
 
 import * as RadixPopover from '@radix-ui/react-popover'
 import { ArrowRight, X } from 'phosphor-react'
-import { FC, HTMLAttributes, ReactNode, useMemo, useState } from 'react'
+import { FC, HTMLAttributes, ReactNode, useState } from 'react'
 
 export interface TooltipStepProps
   extends Omit<HTMLAttributes<HTMLSpanElement>, 'content'> {
   closeText?: string
-  // Optional because we can't remove `text` until the next major release
   content?: ReactNode[]
   defaultOpen?: boolean
   nextText?: string
   side?: Position
   stepText?: string
-  /**
-   * @deprecated Use `content` instead. Will be removed in the next major release
-   */
-  text?: string[]
 }
 
 const TooltipStep: FC<TooltipStepProps> = ({
@@ -29,32 +24,9 @@ const TooltipStep: FC<TooltipStepProps> = ({
   nextText,
   side,
   stepText,
-  text,
   ...rest
 }) => {
   const [currentStep, setCurrentStep] = useState(1)
-
-  const currentLength = useMemo(() => {
-    if (content?.length) {
-      return content.length
-    }
-    if (text?.length) {
-      return text.length
-    }
-
-    return 0
-  }, [content?.length, text?.length])
-
-  const currentlyShownItem = useMemo(() => {
-    if (content?.length) {
-      return content[currentStep - 1]
-    }
-    if (text?.length) {
-      return text[currentStep - 1]
-    }
-
-    return ''
-  }, [content, currentStep, text])
 
   return (
     <RadixPopover.Root defaultOpen={defaultOpen}>
@@ -65,19 +37,17 @@ const TooltipStep: FC<TooltipStepProps> = ({
           sideOffset={16}
           className="flex max-w-xs flex-col items-center gap-4 rounded-md bg-background p-6 shadow-sm"
         >
-          <span className={cn(className, 'w-full text-sm')} {...rest}>
-            {currentlyShownItem}
+          <span className={cn('w-full text-sm', className)} {...rest}>
+            {content?.length && content[currentStep - 1]}
           </span>
           <div className="flex w-full items-center justify-between gap-6">
             <span className="text-sm text-gray-500">
-              {stepText} {currentStep}/{currentLength}
+              {stepText} {currentStep}/{content?.length ?? 0}
             </span>
-            {currentStep === currentLength ? (
+            {currentStep === content?.length ?? 0 ? (
               <RadixPopover.Close
                 onClick={() => setCurrentStep(1)}
-                className={cn(
-                  'flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100',
-                )}
+                className="flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100"
               >
                 {closeText}
                 <X size={16} />

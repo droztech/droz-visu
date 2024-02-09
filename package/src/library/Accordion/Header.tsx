@@ -4,20 +4,18 @@ import {
   Header,
   AccordionHeaderProps as HeaderProps,
 } from '@radix-ui/react-accordion'
-import { FC, Ref, forwardRef, useImperativeHandle, useRef } from 'react'
+import { FC, forwardRef } from 'react'
 
 export interface AccordionHeaderProps extends HeaderProps {}
 
 const AccordionHeader: FC<AccordionHeaderProps> = forwardRef<
   HTMLDivElement,
   AccordionHeaderProps
->(({ children, className, ...rest }, ref: Ref<HTMLDivElement | null>) => {
-  const elementRef = useRef<HTMLDivElement>(null)
-  useImperativeHandle(ref, () => elementRef.current)
-
+>(({ children, className, ...rest }, ref) => {
   return (
     <Header
       className={cn('flex items-center justify-between gap-4', className)}
+      ref={ref}
       {...rest}
     >
       {children}

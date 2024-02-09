@@ -54,28 +54,6 @@ const meta: Meta<SwitchProps> = {
       },
       type: { name: 'boolean', required: false },
     },
-
-    /**
-     * @deprecated - Deprecated props will be removed in the next major version.
-     */
-    checked: {
-      control: 'boolean',
-      name: 'checked (deprecated)',
-      description:
-        '<s>Propriedade que define se o valor está verificado.</s> (deprecated) - Use a propriedade `value`.',
-      table: {
-        type: { summary: 'boolean' },
-      },
-      type: { name: 'boolean', required: false },
-    },
-    onCheckedChange: {
-      control: 'none',
-      action: 'change',
-      name: 'onCheckedChange (deprecated)',
-      description:
-        '<s>Evento de mudança de valor.</s> <br> (deprecated) - Use o método `onChange`.',
-      table: { type: { summary: 'function' } },
-    },
   },
   args: {
     defaultChecked: false,

@@ -1,11 +1,11 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { FloatCardContentSide } from '@types'
+import { Position } from '@types'
 
 import * as HoverCard from '@radix-ui/react-hover-card'
 import { FC } from 'react'
 
 export interface FloatCardContentProps extends HoverCard.HoverCardContentProps {
-  side?: FloatCardContentSide
+  side?: Position
 }
 
 const FloatCardContent: FC<FloatCardContentProps> = ({
