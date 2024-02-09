@@ -10,59 +10,70 @@
   </a>
 </p>
 
-Uma biblioteca de componentes e design system coaktion. Com testes e documentação para todos os componentes.
+Uma biblioteca de componentes e design system Droz. Com testes e documentação para todos os componentes.
 
 ## Como o projeto funciona?
 
-O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.build/repo), para saber mais acesse o [Monorepo Handbook](https://turbo.build/repo/docs/handbook). O projeto conta com dois workspaces `apps` e `packages`:
+O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.build/repo), para saber mais acesse o [Monorepo Handbook](https://turbo.build/repo/docs/handbook). O projeto conta com dois workspaces `docs` e `package`:
 
-### Apps
+### Docs
 
-- `docs`: Um projeto para a documentação dos componentes criados na biblioteca Visu realizados no [Storybook](https://storybook.js.org/) que foi configurado nesse projeto.
+Projeto onde são desenvolvidas as documentações dos components do Visu. Utilizando principalmente o [Storybook](https://storybook.js.org/). Os componentes documentados são baseados no último build feito na biblioteca, então é necessários que haja pelo menos um build antes de documentar os componentes.
 
-### Packages
+### Package
 
-- `tsconfig`: `tsconfig.json` utilizado no monorepo.
+Projeto onde são desenvolvidos os componentes e o design system da biblioteca Visu. O projeto utiliza principalmente [Vite](https://vitejs.dev), [React](https://react.dev/) e [Tailwindcss](https://tailwindcss.com/).
+O build é realizado na pasta `src/library` para os componentes e copiando os arquivos da pasta `src/theme` para o design system que consiste em um plugin do tailwindcss.
+O projeto testa os componentes utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
 
-- `visu`: Projeto onde são desenvolvidos os componentes e o design system da bilbioteca Visu. O projeto utiliza [Vite](https://vitejs.dev), [React](https://react.dev/) e [Tailwindcss](https://tailwindcss.com/). O build é realizado [Modo Lib](https://storybook.js.org) da pasta `src/library` para os componentes e copiando os arquivos da pasta `src/theme` para o design system que consiste em um plugin do tailwindcss. O projeto testa os componentes utilizando [Jest](https://jestjs.io) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro).
+## Script
+
+Abaixo a lista dos scrips principais para a utilização do projeto.
 
 ### Build
 
-Para executar o build em todos os `apps` e `packages` utilize o comando abaixo na raiz do projeto:
+Para executar o build em `docs` e `package` utilize o comando abaixo na raiz do projeto:
 
-```
+```javascript
 npm run build
+// npm run build:docs
+// npm run build:packages
 ```
 
 ### Desenvolvimento
 
-Para executar em paralelo e no modo de desenvolvimento todos os `apps` e `packages` utilize o comando abaixo na raiz do projeto:
+Para executar em paralelo e no modo de desenvolvimento todos os `docs` e `package` utilize o comando abaixo na raiz do projeto:
 
-```
+```javascript
 npm run dev
+// npm dev build:docs
+// npm dev build:packages
 ```
 
 ### Teste
 
 Para executar os testes da biblioteca, acesse o diretório `package` e utilize o comando abaixo:
 
-```
+```javascript
 npm run test
-```
-
-Para executar os testes em apenas um arquivo da biblioteca, acesse o diretório `package` e utilize o comando abaixo:
-
-```
-npm run test -- [pasta/arquivo]
+// npm run test:watch
+// npm run test:coverage
 ```
 
 ## Biblioteca
 
-Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir das pastas `src/library` e `src/theme`. Para realizar a publicação precisamos gerar um build da biblioteca que irá criar a pasta `dist` com essa pasta criada podemos então executar o comando `npm publish`. Já está tudo configurado no package.json para a publicação da biblioteca, caso tenha permissão para realizar a publicação. <b>Nesse primeiro momento a biblioteca está sendo publicada apenas no Github Packages.</b>
+Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir das pastas `src/library` e `src/theme`. Para realizar a publicação precisamos gerar um build da biblioteca que irá criar a pasta `dist` com essa pasta criada podemos então publicar o pacote.
 
-### Github Packages
+### Publicação NPM
 
-Para realizar a publicação no Github Packages, foi configurado o registry no `package.json` da bilbioteca apontando para `https://npm.pkg.github.com`. Nesse caso estamos modificando o registry padrão que tentaria publicar no NPM. É necessário estar com um token de acesso dando permissão para a publicação da bilbioteca em um arquivo `.npmrc` na raiz do usuário no Linux.
+Para realizar a publicação no Github Packages, após ter feito todas as atualizações necessárias em uma PR separada, siga os passos abaixo.
+
+1. Abra uma nova branch chamada "release-x.x.x"
+1. Na nova branch rode o script scripts/versioning [major | minor | patch]
+1. Dê o nome pro commit de "release: x.x.x"
+1. Faça merge dessa branch na main
+1. Abra a branch main atualizada
+1. Em um terminal autenticado com o NPM, execute `npm publish` dentro da pasta `packages/visu` (importante) e pronto
 
 ## Links úteis:
 
