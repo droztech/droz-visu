@@ -70,3 +70,6 @@ export type * from './Accordion'
 
 export { default as Skeleton } from './Skeleton'
 export type * from './Skeleton'
+
+export { default as Toggle } from './Toggle'
+export type * from './Toggle'
