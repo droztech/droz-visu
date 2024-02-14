@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Button } from './library'
+import { Toggle } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser, User } from 'phosphor-react'
@@ -36,22 +36,11 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Button>
-          <User />
-          User
-        </Button>
-        <Button loading>
-          <User />
-          User
-        </Button>
-        <Button ghost>
-          <User />
-          User
-        </Button>
-        <Button ghost loading>
-          <User />
-          User
-        </Button>
+        <Toggle.Root type="multiple" expanded={true}>
+          <Toggle.Item value="op1" text="op1" icon={<User />} />
+          <Toggle.Item value="op2" text="option2" icon={<User />} />
+          <Toggle.Item value="op3" text="op3" icon={<User />} />
+        </Toggle.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
