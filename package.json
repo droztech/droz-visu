@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "build:docs": "turbo run build --filter=@droz-js/visu-docs",
     "build:visu": "turbo run build --filter=@droz-js/visu",
-    "build-storybook": "storybook build -c /docs/.storybook",
+    "build-storybook": "storybook build -c ./docs/.storybook",
     "dev": "turbo run dev --parallel",
     "dev:docs": "turbo run dev --parallel --filter=@droz-js/visu-docs",
     "dev:visu": "turbo run dev --parallel --filter=@droz-js/visu",
