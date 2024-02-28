@@ -26,6 +26,12 @@ const rootSizeVariants = {
   lg: 'w-12 h-12 text-lg',
 }
 
+const fallbackSizeVariants = {
+  sm: 'text-xs p-0',
+  md: 'text-md p-1',
+  lg: 'text-lg p-1',
+}
+
 const statusSizeVariants = {
   sm: 'w-1 h-1',
   md: 'w-2 h-2',
@@ -42,8 +48,8 @@ export interface AvatarProps extends RadixAvatar.AvatarProps {
   size?: keyof typeof rootSizeVariants
   status?: keyof typeof statusStatusVariants
   fallback: ReactNode
-  src: string
-  alt: string
+  src?: string
+  alt?: string
 }
 
 const Avatar: FC<AvatarProps> = ({
@@ -60,7 +66,7 @@ const Avatar: FC<AvatarProps> = ({
   return (
     <RadixAvatar.Root
       className={cn(
-        'relative cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
+        'relative flex cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
         !onClick && 'pointer-events-none',
         rootColorVariants[color],
         rootSizeVariants[size],
@@ -90,7 +96,12 @@ const Avatar: FC<AvatarProps> = ({
           src={src}
           alt={alt}
         />
-        <RadixAvatar.Fallback className="overflow-hidden text-ellipsis whitespace-nowrap p-1">
+        <RadixAvatar.Fallback
+          className={cn(
+            'overflow-hidden text-ellipsis whitespace-nowrap text-center',
+            fallbackSizeVariants[size],
+          )}
+        >
           {fallback}
         </RadixAvatar.Fallback>
       </div>
