@@ -29,6 +29,6 @@ module.exports = {
     </style>
   `,
   docs: {
-    autodocs: true
+    autodocs: false
   }
 };
