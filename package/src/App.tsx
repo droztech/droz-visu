@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Avatar } from './library'
+import { Accordion } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
@@ -36,7 +36,29 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Avatar fallback="YC" size="md" />
+        <Accordion.Root type="single" collapsible>
+          {[...Array(3)].map((item, index) => (
+            <Accordion.Item
+              key={index}
+              value={index.toString()}
+              className="w-72"
+            >
+              <Accordion.Header>
+                <span>xxx</span>
+                <Accordion.Trigger />
+              </Accordion.Header>
+              <Accordion.Content>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Deleniti odio tempore magni error, illo placeat minus
+                  accusantium, veniam atque voluptate iusto rerum nemo
+                  aspernatur obcaecati repellendus, mollitia beatae eos
+                  assumenda.
+                </span>
+              </Accordion.Content>
+            </Accordion.Item>
+          ))}
+        </Accordion.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
