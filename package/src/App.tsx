@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Toggle } from './library'
+import { Accordion } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, User } from 'phosphor-react'
+import { Eraser } from 'phosphor-react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -36,11 +36,29 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Toggle.Root type="multiple" expanded={true}>
-          <Toggle.Item value="op1" text="op1" icon={<User />} />
-          <Toggle.Item value="op2" text="option2" icon={<User />} />
-          <Toggle.Item value="op3" text="op3" icon={<User />} />
-        </Toggle.Root>
+        <Accordion.Root type="single" collapsible>
+          {[...Array(3)].map((item, index) => (
+            <Accordion.Item
+              key={index}
+              value={index.toString()}
+              className="w-72"
+            >
+              <Accordion.Header>
+                <span>xxx</span>
+                <Accordion.Trigger />
+              </Accordion.Header>
+              <Accordion.Content>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Deleniti odio tempore magni error, illo placeat minus
+                  accusantium, veniam atque voluptate iusto rerum nemo
+                  aspernatur obcaecati repellendus, mollitia beatae eos
+                  assumenda.
+                </span>
+              </Accordion.Content>
+            </Accordion.Item>
+          ))}
+        </Accordion.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>

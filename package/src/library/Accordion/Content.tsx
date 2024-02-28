@@ -15,7 +15,7 @@ const AccordionContent: FC<AccordionContentProps> = forwardRef<
   return (
     <Content
       className={cn(
-        'data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown',
+        'data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown data-[state=closed]:opacity-0',
         className,
       )}
       ref={ref}

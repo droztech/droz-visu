@@ -30,12 +30,15 @@ export const theme = {
       to: { transform: 'translateX(calc(100% + 0.5rem))' },
     },
     slideDown: {
-      from: { height: '0' },
-      to: { height: 'var(--radix-accordion-content-height)' },
+      from: { height: '0', opacity: '0' },
+      to: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
     },
     slideUp: {
-      from: { height: 'var(--radix-accordion-content-height)' },
-      to: { height: '0' },
+      from: {
+        height: 'var(--radix-accordion-content-height)',
+        opacity: '1',
+      },
+      to: { height: '0', opacity: '0' },
     },
     wave: {
       from: { backgroundPosition: '300% 0' },
