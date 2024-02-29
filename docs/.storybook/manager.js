@@ -1,8 +1,8 @@
 import { addons } from '@storybook/addons'
-import theme from './theme.js'
+import { themes } from '@storybook/theming';
 
 addons.setConfig({
-  theme,
+  theme: themes.dark,
 
   sidebar: {
     showRoots: false,
