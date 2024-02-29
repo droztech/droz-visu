@@ -45,7 +45,7 @@ const meta: Meta<DialogFooterProps> = {
     (Story) => (
       <Dialog.Root>
         <Dialog.Trigger asChild>
-          <Button.Root>Dialog</Button.Root>
+          <Button>Dialog</Button>
         </Dialog.Trigger>
         <Dialog.Content>
           <Dialog.Body />
@@ -73,9 +73,9 @@ export const ComBotoesFinal: DialogFooterStory = {
   args: {
     align: 'right',
     children: [
-      <Button.Root key="confirmar">Confirmar</Button.Root>,
+      <Button key="confirmar">Confirmar</Button>,
       <Dialog.Close key="cancelar" asChild>
-        <Button.Root ghost>Cancelar</Button.Root>
+        <Button ghost>Cancelar</Button>
       </Dialog.Close>,
     ],
   },

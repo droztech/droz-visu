@@ -87,7 +87,7 @@ const meta: Meta<DialogContentProps> = {
     (Story) => (
       <Dialog.Root>
         <Dialog.Trigger asChild>
-          <Button.Root>Dialog</Button.Root>
+          <Button>Dialog</Button>
         </Dialog.Trigger>
         <Story />
       </Dialog.Root>

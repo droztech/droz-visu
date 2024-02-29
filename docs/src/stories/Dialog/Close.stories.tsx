@@ -42,7 +42,7 @@ const meta: Meta<DialogCloseProps> = {
     (Story) => (
       <Dialog.Root>
         <Dialog.Trigger asChild>
-          <Button.Root>Dialog</Button.Root>
+          <Button>Dialog</Button>
         </Dialog.Trigger>
         <Dialog.Content>
           <Dialog.Footer>
@@ -78,9 +78,9 @@ export const BotaoComoFilho: DialogCloseStory = {
   args: {
     asChild: true,
     children: (
-      <Button.Root variant="secondary" ghost>
+      <Button variant="secondary" ghost>
         Fechar
-      </Button.Root>
+      </Button>
     ),
   },
   render: (args) => {
