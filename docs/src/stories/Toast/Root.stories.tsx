@@ -50,9 +50,7 @@ export const Alert: ToastStory = {
   render: (args) => {
     const { toast } = useToast()
 
-    return (
-      <Button.Root onClick={() => toast.alert(args)}>Abrir toast</Button.Root>
-    )
+    return <Button onClick={() => toast.alert(args)}>Abrir toast</Button>
   },
 }
 
@@ -61,9 +59,7 @@ export const Error: ToastStory = {
   render: (args) => {
     const { toast } = useToast()
 
-    return (
-      <Button.Root onClick={() => toast.error(args)}>Abrir toast</Button.Root>
-    )
+    return <Button onClick={() => toast.error(args)}>Abrir toast</Button>
   },
 }
 
@@ -72,8 +68,6 @@ export const Success: ToastStory = {
   render: (args) => {
     const { toast } = useToast()
 
-    return (
-      <Button.Root onClick={() => toast.success(args)}>Abrir toast</Button.Root>
-    )
+    return <Button onClick={() => toast.success(args)}>Abrir toast</Button>
   },
 }
