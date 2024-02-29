@@ -30,8 +30,6 @@ jobs:
 
       - name: Publish
         working-directory: package
-        run: |
-          mv .npmrc.template .npmrc
-          npm publish --access public
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}
