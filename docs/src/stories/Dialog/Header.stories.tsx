@@ -64,7 +64,7 @@ const meta: Meta<DialogHeaderProps> = {
     (Story) => (
       <Dialog.Root>
         <Dialog.Trigger asChild>
-          <Button.Root>Dialog</Button.Root>
+          <Button>Dialog</Button>
         </Dialog.Trigger>
         <Dialog.Content>
           <Story />

@@ -52,7 +52,10 @@ export const Single: AccordionRootStory = {
   render: (args: AccordionRootProps) => {
     return (
       <Accordion.Root {...args}>
-        <Accordion.Item value="default1">
+        <Accordion.Item
+          value="default1"
+          style={{ width: '20rem', marginBlock: '0.5rem' }}
+        >
           <Accordion.Header>
             <span>Accordion</span>
             <Accordion.Trigger />
@@ -66,7 +69,10 @@ export const Single: AccordionRootStory = {
             </span>
           </Accordion.Content>
         </Accordion.Item>
-        <Accordion.Item value="default2">
+        <Accordion.Item
+          value="default2"
+          style={{ width: '20rem', marginBlock: '0.5rem' }}
+        >
           <Accordion.Header>
             <span>Accordion</span>
             <Accordion.Trigger />
@@ -80,7 +86,10 @@ export const Single: AccordionRootStory = {
             </span>
           </Accordion.Content>
         </Accordion.Item>
-        <Accordion.Item value="default3">
+        <Accordion.Item
+          value="default3"
+          style={{ width: '20rem', marginBlock: '0.5rem' }}
+        >
           <Accordion.Header>
             <span>Accordion</span>
             <Accordion.Trigger />
@@ -106,7 +115,10 @@ export const Multiple: AccordionRootStory = {
   render: (args: AccordionRootProps) => {
     return (
       <Accordion.Root {...args}>
-        <Accordion.Item value="default1">
+        <Accordion.Item
+          value="default1"
+          style={{ width: '20rem', marginBlock: '0.5rem' }}
+        >
           <Accordion.Header>
             <span>Accordion</span>
             <Accordion.Trigger />
@@ -120,7 +132,10 @@ export const Multiple: AccordionRootStory = {
             </span>
           </Accordion.Content>
         </Accordion.Item>
-        <Accordion.Item value="default2">
+        <Accordion.Item
+          value="default2"
+          style={{ width: '20rem', marginBlock: '0.5rem' }}
+        >
           <Accordion.Header>
             <span>Accordion</span>
             <Accordion.Trigger />
@@ -134,7 +149,10 @@ export const Multiple: AccordionRootStory = {
             </span>
           </Accordion.Content>
         </Accordion.Item>
-        <Accordion.Item value="default3">
+        <Accordion.Item
+          value="default3"
+          style={{ width: '20rem', marginBlock: '0.5rem' }}
+        >
           <Accordion.Header>
             <span>Accordion</span>
             <Accordion.Trigger />

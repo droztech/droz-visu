@@ -1,4 +1,4 @@
-import theme from './theme.js'
+import { themes } from '@storybook/theming';
 
 import '@droz-js/visu/styles'
 
@@ -13,7 +13,7 @@ export const parameters = {
     },
   },
   docs: {
-    theme,
+    theme: themes.dark,
   },
   backgrounds: {
     default: 'Light',

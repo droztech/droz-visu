@@ -66,7 +66,7 @@ export const Comum: ToastStory = {
     const { toast } = useToast()
 
     return (
-      <Button.Root
+      <Button
         onClick={() =>
           toast.success({
             desc: 'Descrição do toast',
@@ -76,7 +76,7 @@ export const Comum: ToastStory = {
         {...args}
       >
         Abrir toast
-      </Button.Root>
+      </Button>
     )
   },
 }

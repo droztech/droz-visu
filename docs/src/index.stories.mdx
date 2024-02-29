@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Início" />
+
+![Visu](./visu.svg)
+
+<br/><br/><br/>
+
+## Welcome!
+Visu is a component library and design system developed for Coaktion products.
+Use the browser sidebar to chose between Visu components and test them using the Storybook playground
+
+## Important
+Before create/modify a component story *ALWAYS* build Visu and run _npm install_ to update Storybook dependencies (specially Visu)
+ 
+## Installing
+Install the library in a React project with the command _npm i @droz-js/visu_
+
+## Configuration
+Visu is built using Tailwind CSS as a basis for styling components, making it work in different environments. Based on this, there are 2 ways to install Visu to your project
+
+- ### Project *WITH* Tailwindcss
+To use in projects **WITH** Tailwindcss it is necessary to import the styling of _@droz-js/visu/dist/theme-plugin_ as a **plugin** and _@droz-js/visu/dist/visu.es.js_ needs to be added to **content** in your _tailwind.config.js_ file.
+
+- ### Project *WITHOUT* Tailwindcss
+To use in projects **WITHOUT** Tailwindcss, you need to import the styling from _@droz-js/visu/styles_ into your global styles file.
+
+## Using
+Once the library is configured, simply import a component and add it to the project.

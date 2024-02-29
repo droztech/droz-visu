@@ -44,9 +44,7 @@ export const Comum: FloatCardContentStory = {
         </FloatCard.Trigger>
         <FloatCard.Content {...args}>
           <div className="flex flex-col">
-            <Avatar.Root>
-              <Avatar.Fallback fallback="FC" />
-            </Avatar.Root>
+            <Avatar fallback="FC" />
             <span>
               O FloatCard é utilizado para estruturas mais complexas do que um
               Tooltip.

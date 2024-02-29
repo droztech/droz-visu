@@ -20,6 +20,8 @@ O projeto é um monorepo, que foi criado utilizando o [Turborepo](https://turbo.
 
 Projeto onde são desenvolvidas as documentações dos components do Visu. Utilizando principalmente o [Storybook](https://storybook.js.org/). Os componentes documentados são baseados no último build feito na biblioteca, então é necessários que haja pelo menos um build antes de documentar os componentes.
 
+_**Importante:** Antes de criar/modificar uma story de qualquer componente **SEMPRE** construa o Visu e execute o comando `npm run install` para atualizar as dependências do Storybook (especialmente o Visu)_
+
 ### Package
 
 Projeto onde são desenvolvidos os componentes e o design system da biblioteca Visu. O projeto utiliza principalmente [Vite](https://vitejs.dev), [React](https://react.dev/) e [Tailwindcss](https://tailwindcss.com/).

@@ -78,7 +78,7 @@ export const Default: DialogRootStory = {
   args: {
     children: [
       <Dialog.Trigger key={''}>
-        <Button.Root>Dialog</Button.Root>
+        <Button>Dialog</Button>
       </Dialog.Trigger>,
 
       <Dialog.Content key={''}></Dialog.Content>,
@@ -101,7 +101,7 @@ export const Full: DialogRootStory = {
   args: {
     children: [
       <Dialog.Trigger key={''}>
-        <Button.Root>Dialog</Button.Root>
+        <Button>Dialog</Button>
       </Dialog.Trigger>,
 
       <Dialog.Content key={''}>
@@ -160,9 +160,9 @@ export const Full: DialogRootStory = {
         </Dialog.Body>
 
         <Dialog.Footer>
-          <Button.Root>Confirmar</Button.Root>
+          <Button>Confirmar</Button>
           <Dialog.Close asChild>
-            <Button.Root ghost>Cancelar</Button.Root>
+            <Button ghost>Cancelar</Button>
           </Dialog.Close>
         </Dialog.Footer>
       </Dialog.Content>,

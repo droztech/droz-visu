@@ -34,9 +34,7 @@ export const Comum: FloatCardRootStory = {
         </FloatCard.Trigger>
         <FloatCard.Content>
           <div className="flex flex-col">
-            <Avatar.Root>
-              <Avatar.Fallback fallback="FC" />
-            </Avatar.Root>
+            <Avatar fallback="FC" />
             <span>
               O FloatCard é utilizado para estruturas mais complexas do que um
               Tooltip.
@@ -61,16 +59,12 @@ export const ComComponente: FloatCardRootStory = {
         <FloatCard.Root>
           <FloatCard.Trigger {...args}>
             <div>
-              <Avatar.Root>
-                <Avatar.Fallback fallback="FC" />
-              </Avatar.Root>
+              <Avatar fallback="FC" />
             </div>
           </FloatCard.Trigger>
           <FloatCard.Content>
             <div className="flex flex-col">
-              <Avatar.Root>
-                <Avatar.Fallback fallback="FC" />
-              </Avatar.Root>
+              <Avatar fallback="FC" />
               <span>
                 O FloatCard é utilizado para estruturas mais complexas do que um
                 Tooltip.

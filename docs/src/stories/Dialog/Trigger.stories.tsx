@@ -53,7 +53,7 @@ type DialogTriggerStory = StoryObj<DialogTriggerProps>
 
 export const Comum: DialogTriggerStory = {
   args: {
-    children: <Button.Root>Dialog Trigger</Button.Root>,
+    children: <Button>Dialog Trigger</Button>,
   },
   render: (args) => {
     return <Dialog.Trigger {...args}></Dialog.Trigger>
