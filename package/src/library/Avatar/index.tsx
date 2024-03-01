@@ -36,10 +36,10 @@ const sizeVariants = {
 
 const statusVariants = {
   success: {
-    root: 'bg-success',
+    status: 'bg-success',
   },
   error: {
-    root: 'bg-error',
+    status: 'bg-error',
   },
 }
 
@@ -79,7 +79,7 @@ const Avatar: FC<AvatarProps> = ({
         <div
           className={cn(
             'absolute right-0 top-0 rounded-full border-2',
-            status && statusVariants[status].root,
+            status && statusVariants[status].status,
             sizeVariants[size].status,
             colorVariants[color].status,
           )}
