@@ -6,40 +6,40 @@ import { FC, ReactNode } from 'react'
 const colorVariants = {
   primary: {
     root: 'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
-    bg:'bg-primary-200',
-    status:'border-primary-700'
+    bg: 'bg-primary-200',
+    status: 'border-primary-700',
   },
   secondary: {
     root: 'text-secondary border-secondary hover:border-secondary-300 active:border-secondary-200 hover:text-secondary-300 active:text-secondary-300',
-    bg:'bg-secondary-200',
-    status:'border-secondary-700'
-  }
+    bg: 'bg-secondary-200',
+    status: 'border-secondary-700',
+  },
 }
 
 const sizeVariants = {
   sm: {
     root: 'w-6 h-6 text-xs',
     fallback: 'text-xs p-0',
-    status:'w-1 h-1'
+    status: 'w-1 h-1',
   },
   md: {
-    root:'w-10 h-10 text-md',
-    fallback:'text-md p-1',
-    status:'w-2 h-2'
+    root: 'w-10 h-10 text-md',
+    fallback: 'text-md p-1',
+    status: 'w-2 h-2',
   },
   lg: {
-    root:'w-12 h-12 text-lg',
-    fallback:'text-lg p-1',
-    status:'w-3 h-3'
+    root: 'w-12 h-12 text-lg',
+    fallback: 'text-lg p-1',
+    status: 'w-3 h-3',
   },
 }
 
 const statusVariants = {
   success: {
-    root:'bg-success'
+    root: 'bg-success',
   },
   error: {
-    root:'bg-error'
+    root: 'bg-error',
   },
 }
 
@@ -79,9 +79,9 @@ const Avatar: FC<AvatarProps> = ({
         <div
           className={cn(
             'absolute right-0 top-0 rounded-full border-2',
-            status &&statusVariants[status].root,
-           sizeVariants[size].status,
-           colorVariants[color].status,
+            status && statusVariants[status].root,
+            sizeVariants[size].status,
+            colorVariants[color].status,
           )}
         />
       )}
