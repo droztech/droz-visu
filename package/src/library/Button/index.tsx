@@ -1,6 +1,7 @@
 import LoadingDots from '../Loading'
 
 import { cn } from '@/src/utils/class-merge.helper'
+import { Size, SizeClass, VariantClass } from '@types'
 
 import { Slot } from '@radix-ui/react-slot'
 import { ButtonHTMLAttributes, forwardRef, useMemo } from 'react'
@@ -14,7 +15,7 @@ const disabledVariants = {
   },
 }
 
-const colorVariants = {
+const colorVariants: VariantClass<'neutral' | 'primary' | 'secondary'> = {
   neutral: {
     root: {
       variant:
@@ -42,7 +43,7 @@ const colorVariants = {
   },
 }
 
-const sizeVariants = {
+const sizeVariants: SizeClass = {
   sm: {
     root: 'py-2.5 px-6 text-sm min-h-10',
   },
@@ -59,7 +60,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   ghost?: boolean
   light?: boolean
   loading?: boolean
-  size?: keyof typeof sizeVariants
+  size?: Size
   variant?: keyof typeof colorVariants
 }
 

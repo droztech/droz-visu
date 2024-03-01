@@ -1,3 +1,5 @@
+import { Color, ColorClass } from '../types'
+
 import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixRadio from '@radix-ui/react-radio-group'
@@ -8,7 +10,7 @@ const disabledVariants = {
   dot: 'bg-gray',
 }
 
-const colorVariants = {
+const colorVariants: ColorClass = {
   primary: {
     root: 'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
     dot: 'data-[state=checked]:bg-primary',
@@ -20,7 +22,7 @@ const colorVariants = {
 }
 
 export interface RadioItemProps extends RadixRadio.RadioGroupItemProps {
-  color?: keyof typeof colorVariants
+  color?: Color
 }
 
 const RadioItem: FC<RadioItemProps> = ({

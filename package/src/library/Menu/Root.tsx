@@ -1,9 +1,9 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Side } from '@types'
+import { Side, SideClass } from '@types'
 
 import { FC, HTMLAttributes } from 'react'
 
-const sideVariants = {
+const sideVariants: SideClass = {
   left: { root: '-translate-x-full' },
   right: { root: 'translate-x-full' },
 }

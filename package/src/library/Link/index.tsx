@@ -1,17 +1,25 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import {
+  Color,
+  ColorClass,
+  SizeClass,
+  Status,
+  StatusClass,
+  VariantClass,
+} from '@types'
 
 import { Slot } from '@radix-ui/react-slot'
 import { FC, HTMLAttributes } from 'react'
 
-const colorVariants = {
-  alert: { root: 'hover:text-alert-500 active:text-alert-600' },
+const colorVariants: StatusClass & ColorClass = {
+  success: { root: 'hover:text-success-500 active:text-success-600' },
   error: { root: 'hover:text-error-500 active:text-error-600' },
+  alert: { root: 'hover:text-alert-500 active:text-alert-600' },
   primary: { root: 'hover:text-primary-500 active:text-primary-600' },
   secondary: { root: 'hover:text-secondary-500 active:text-secondary-600' },
-  success: { root: 'hover:text-success-500 active:text-success-600' },
 }
 
-const sizeVariants = {
+const sizeVariants: SizeClass & VariantClass<'xs'> = {
   xs: { root: 'text-xs' },
   sm: { root: 'text-sm' },
   md: { root: 'text-md' },
@@ -20,7 +28,7 @@ const sizeVariants = {
 
 export interface LinkProps extends HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
-  color?: keyof typeof colorVariants
+  color?: Status | Color
   underline?: boolean
   size?: keyof typeof sizeVariants
 }

@@ -1,10 +1,9 @@
-import { Align } from '../types'
-
 import { cn } from '@/src/utils/class-merge.helper'
+import { Align, AlignClass } from '@types'
 
 import { FC, HTMLAttributes } from 'react'
 
-const alignVariantClass = {
+const alignVariant: AlignClass = {
   center: { root: 'justify-center' },
   left: { root: 'justify-start' },
   right: { root: 'justify-end' },
@@ -24,7 +23,7 @@ const DialogFooter: FC<DialogFooterProps> = ({
     <div
       className={cn(
         'mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4',
-        alignVariantClass[align].root,
+        alignVariant[align].root,
         className,
       )}
       {...rest}

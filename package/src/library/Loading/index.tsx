@@ -1,15 +1,18 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { ColorClass, StatusClass, VariantClass } from '@types'
 
 import { FC, HTMLAttributes } from 'react'
 
-const colorVariants = {
-  alert: { root: 'bg-alert' },
-  current: { root: 'bg-current' },
+const colorVariants: StatusClass &
+  ColorClass &
+  VariantClass<'current' | 'gray' | 'white'> = {
+  success: { root: 'bg-success' },
   error: { root: 'bg-error' },
-  gray: { root: 'bg-gray' },
+  alert: { root: 'bg-alert' },
   primary: { root: 'bg-primary' },
   secondary: { root: 'bg-secondary' },
-  success: { root: 'bg-success' },
+  current: { root: 'bg-current' },
+  gray: { root: 'bg-gray' },
   white: { root: 'bg-gray-100' },
 }
 

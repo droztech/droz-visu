@@ -1,12 +1,11 @@
-import { Status } from '../types'
-
 import { cn } from '@/src/utils/class-merge.helper'
+import { Status, StatusClass } from '@types'
 
 import * as RadixToast from '@radix-ui/react-toast'
 import { CheckCircle, Warning, WarningCircle, X } from 'phosphor-react'
 import { FC } from 'react'
 
-export const colorVariants = {
+export const colorVariants: StatusClass = {
   alert: {
     root: 'bg-alert-300 w-96 text-alert-700',
     close: 'hover:bg-alert-500 active:bg-alert-600',

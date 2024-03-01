@@ -1,12 +1,11 @@
-import { Status } from '../types'
-
 import { cn } from '@/src/utils/class-merge.helper'
+import { Status, StatusClass } from '@types'
 
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC } from 'react'
 
-const statusVariants = {
+const statusVariants: StatusClass = {
   error: { root: 'border-error' },
   success: { root: 'border-success' },
   alert: { root: 'border-alert' },

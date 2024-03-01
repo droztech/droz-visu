@@ -1,10 +1,11 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { Color, ColorClass } from '@types'
 
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Check } from 'phosphor-react'
 import { forwardRef } from 'react'
 
-const colorVariants = {
+const colorVariants: ColorClass = {
   primary: {
     root: 'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
   },
@@ -18,7 +19,7 @@ export interface CheckboxProps
     RadixCheckbox.CheckboxProps,
     'value' | 'onChange' | 'onCheckedChange'
   > {
-  color?: keyof typeof colorVariants
+  color?: Color
   value?: boolean
   onChange?: (data: boolean) => void
   onCheckedChange?: (data: boolean) => void

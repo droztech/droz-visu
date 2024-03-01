@@ -1,5 +1,5 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Status } from '@types'
+import { Status, StatusClass } from '@types'
 
 import {
   FC,
@@ -10,7 +10,7 @@ import {
   useRef,
 } from 'react'
 
-const statusVariants = {
+const statusVariants: StatusClass = {
   error: { root: 'border-error' },
   success: { root: 'border-success pt' },
   alert: { root: 'border-alert' },

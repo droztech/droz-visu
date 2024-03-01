@@ -1,15 +1,16 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { Orientation, OrientationClass } from '@types'
 
 import { clsx } from 'clsx'
 import { FC, HTMLAttributes } from 'react'
 
-const orientationVariants = {
+const orientationVariants: OrientationClass = {
   vertical: { root: 'h-full flex-col', border: 'border-r', children: 'my-4' },
   horizontal: { root: 'w-full flex-row', border: 'border-t', children: 'mx-4' },
 }
 
 export interface DividerProps extends HTMLAttributes<HTMLDivElement> {
-  orientation: keyof typeof orientationVariants
+  orientation: Orientation
 }
 
 const DividerVertical: FC<DividerProps> = ({

@@ -1,11 +1,22 @@
-export interface VariantClass {
-  [key: string]: any
+export type VariantClass<T extends string> = {
+  [key in T]: any
+}
+
+export interface ColorClass {
+  primary: any
+  secondary: any
 }
 
 export interface AlignClass {
   center: any
   left: any
   right: any
+}
+
+export interface SizeClass {
+  sm: any
+  md: any
+  lg: any
 }
 
 export interface StatusClass {
@@ -31,15 +42,22 @@ export interface PosYClass {
   top: any
 }
 
+export interface OrientationClass {
+  horizontal: any
+  vertical: any
+}
+
 export interface SideClass {
   left: any
   right: any
 }
 
-export type Variant = keyof VariantClass
 export type Align = keyof AlignClass
+export type Color = keyof ColorClass
+export type Size = keyof SizeClass
 export type Position = keyof PositionClass
-export type Side = keyof SideClass
 export type Status = keyof StatusClass
 export type PosX = keyof PosXClass
 export type PosY = keyof PosYClass
+export type Orientation = keyof OrientationClass
+export type Side = keyof SideClass

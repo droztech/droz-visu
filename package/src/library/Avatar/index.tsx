@@ -1,9 +1,10 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { Color, ColorClass, Size, SizeClass, Status, StatusClass } from '@types'
 
 import * as RadixAvatar from '@radix-ui/react-avatar'
 import { FC, ReactNode } from 'react'
 
-const colorVariants = {
+const colorVariants: ColorClass = {
   primary: {
     root: 'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
     bg: 'bg-primary-200',
@@ -16,7 +17,7 @@ const colorVariants = {
   },
 }
 
-const sizeVariants = {
+const sizeVariants: SizeClass = {
   sm: {
     root: 'w-6 h-6 text-xs',
     fallback: 'text-xs p-0',
@@ -34,19 +35,22 @@ const sizeVariants = {
   },
 }
 
-const statusVariants = {
+const statusVariants: StatusClass = {
   success: {
     status: 'bg-success',
   },
   error: {
     status: 'bg-error',
   },
+  alert: {
+    status: 'bg-alert',
+  },
 }
 
 export interface AvatarProps extends RadixAvatar.AvatarProps {
-  color?: keyof typeof colorVariants
-  size?: keyof typeof sizeVariants
-  status?: keyof typeof statusVariants
+  color?: Color
+  size?: Size
+  status?: Status
   fallback: ReactNode
   src?: string
   alt?: string
