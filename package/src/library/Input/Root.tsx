@@ -1,5 +1,5 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Status, StatusClass } from '@types'
+import { Status } from '@types'
 
 import {
   FC,
@@ -10,15 +10,15 @@ import {
   useRef,
 } from 'react'
 
+const statusVariants = {
+  error: { root: 'border-error' },
+  success: { root: 'border-success pt' },
+  alert: { root: 'border-alert' },
+}
+
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
   status?: Status
-}
-
-const statusClassVariants: StatusClass = {
-  error: 'border-error',
-  success: 'border-success',
-  alert: 'border-alert',
 }
 
 const InputRoot: FC<InputRootProps> = ({
@@ -32,7 +32,7 @@ const InputRoot: FC<InputRootProps> = ({
 
   const rootClass = useMemo(() => {
     if (disabled) return 'bg-gray-200 cursor-not-allowed border-gray'
-    if (status) return statusClassVariants[status]
+    if (status) return statusVariants[status].root
     return 'border-gray'
   }, [disabled, status])
 

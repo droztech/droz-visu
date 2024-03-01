@@ -4,14 +4,14 @@ import { cn } from '@/src/utils/class-merge.helper'
 
 import { FC, HTMLAttributes } from 'react'
 
-export interface DialogFooterProps extends HTMLAttributes<HTMLDivElement> {
-  align?: Align
+const alignVariantClass = {
+  center: { root: 'justify-center' },
+  left: { root: 'justify-start' },
+  right: { root: 'justify-end' },
 }
 
-const alignVariantClass = {
-  center: 'justify-center',
-  left: 'justify-start',
-  right: 'justify-end',
+export interface DialogFooterProps extends HTMLAttributes<HTMLDivElement> {
+  align?: Align
 }
 
 const DialogFooter: FC<DialogFooterProps> = ({
@@ -24,7 +24,7 @@ const DialogFooter: FC<DialogFooterProps> = ({
     <div
       className={cn(
         'mt-auto flex flex-row items-center gap-2 border-t border-gray-300 p-4',
-        alignVariantClass[align],
+        alignVariantClass[align].root,
         className,
       )}
       {...rest}

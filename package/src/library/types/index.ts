@@ -1,37 +1,42 @@
+export interface VariantClass {
+  [key: string]: any
+}
+
 export interface AlignClass {
-  center: string
-  left: string
-  right: string
+  center: any
+  left: any
+  right: any
 }
 
 export interface StatusClass {
-  alert: string
-  error: string
-  success: string
+  alert: any
+  error: any
+  success: any
 }
 
 export interface PositionClass {
-  bottom: string
-  left: string
-  right: string
-  top: string
+  bottom: any
+  left: any
+  right: any
+  top: any
 }
 
 export interface PosXClass {
-  left: string
-  right: string
+  left: any
+  right: any
 }
 
 export interface PosYClass {
-  bottom: string
-  top: string
+  bottom: any
+  top: any
 }
 
 export interface SideClass {
-  left: string
-  right: string
+  left: any
+  right: any
 }
 
+export type Variant = keyof VariantClass
 export type Align = keyof AlignClass
 export type Position = keyof PositionClass
 export type Side = keyof SideClass

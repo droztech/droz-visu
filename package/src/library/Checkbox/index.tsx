@@ -4,11 +4,13 @@ import * as RadixCheckbox from '@radix-ui/react-checkbox'
 import { Check } from 'phosphor-react'
 import { forwardRef } from 'react'
 
-const rootColorVariants = {
-  primary:
-    'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
-  secondary:
-    'data-[state=checked]:bg-secondary data-[state=checked]:border-secondary border-gray hover:border-secondary active:border-secondary active:bg-secondary',
+const colorVariants = {
+  primary: {
+    root: 'data-[state=checked]:bg-primary data-[state=checked]:border-primary border-gray hover:border-primary active:border-primary active:bg-primary',
+  },
+  secondary: {
+    root: 'data-[state=checked]:bg-secondary data-[state=checked]:border-secondary border-gray hover:border-secondary active:border-secondary active:bg-secondary',
+  },
 }
 
 export interface CheckboxProps
@@ -16,7 +18,7 @@ export interface CheckboxProps
     RadixCheckbox.CheckboxProps,
     'value' | 'onChange' | 'onCheckedChange'
   > {
-  color?: keyof typeof rootColorVariants
+  color?: keyof typeof colorVariants
   value?: boolean
   onChange?: (data: boolean) => void
   onCheckedChange?: (data: boolean) => void
@@ -51,7 +53,7 @@ const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
       <RadixCheckbox.Root
         className={cn(
           'flex h-4 w-4 items-center justify-center overflow-hidden rounded-sm border-2 text-gray-100 transition-all',
-          rootColorVariants[color],
+          colorVariants[color].root,
           disabled &&
             '!border-gray !bg-gray-300 data-[state=checked]:!border-gray data-[state=checked]:!bg-gray-400',
           className,

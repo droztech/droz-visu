@@ -21,12 +21,12 @@ export interface ToastProviderProps {
   posY: PosY
 }
 
-export const posXClassVariants: PosXClass = {
+export const posXVariants: PosXClass = {
   left: 'left-0',
   right: 'right-0',
 }
 
-export const posYClassVariants: PosYClass = {
+export const posYVariants: PosYClass = {
   bottom: 'bottom-0',
   top: 'top-0',
 }
@@ -84,8 +84,8 @@ const ToastProvider: FC<ToastProviderProps> = ({ children, posX, posY }) => {
         <RadixToast.Viewport
           className={cn(
             'scrollbar-hide fixed z-50 flex max-h-44 flex-col-reverse gap-2 overflow-auto p-2',
-            posXClassVariants[posX],
-            posYClassVariants[posY],
+            posXVariants[posX],
+            posYVariants[posY],
           )}
         />
       </RadixToast.Provider>

@@ -1,4 +1,4 @@
-import { Status, StatusClass } from '../types'
+import { Status } from '../types'
 
 import { cn } from '@/src/utils/class-merge.helper'
 
@@ -6,16 +6,19 @@ import * as RadixToast from '@radix-ui/react-toast'
 import { CheckCircle, Warning, WarningCircle, X } from 'phosphor-react'
 import { FC } from 'react'
 
-export const rootColorClassVariants: StatusClass = {
-  alert: 'bg-alert-300 w-96 text-alert-700',
-  error: 'bg-error-300 w-96 text-error-700',
-  success: 'bg-success-300 w-96 text-success-700',
-}
-
-export const closeColorClassVariants: StatusClass = {
-  alert: 'hover:bg-alert-500 active:bg-alert-600',
-  error: 'hover:bg-error-500 active:bg-error-600',
-  success: 'hover:bg-success-500 active:bg-success-600',
+export const colorVariants = {
+  alert: {
+    root: 'bg-alert-300 w-96 text-alert-700',
+    close: 'hover:bg-alert-500 active:bg-alert-600',
+  },
+  error: {
+    root: 'bg-error-300 w-96 text-error-700',
+    close: 'hover:bg-error-500 active:bg-error-600',
+  },
+  success: {
+    root: 'bg-success-300 w-96 text-success-700',
+    close: 'hover:bg-success-500 active:bg-success-600',
+  },
 }
 
 export interface ToastRootProps extends RadixToast.ToastProps {
@@ -41,7 +44,7 @@ const ToastRoot: FC<ToastRootProps> = ({
     <RadixToast.Root
       className={cn(
         'flex max-w-sm items-center justify-between gap-4 rounded-lg px-6 py-4 transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-hide data-[state=open]:animate-swipeIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]',
-        rootColorClassVariants[variant],
+        colorVariants[variant].root,
         className,
       )}
       {...rest}
@@ -59,7 +62,7 @@ const ToastRoot: FC<ToastRootProps> = ({
         altText="close"
         className={cn(
           'flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-all hover:text-gray-100',
-          closeColorClassVariants[variant],
+          colorVariants[variant].close,
         )}
       >
         <X />
