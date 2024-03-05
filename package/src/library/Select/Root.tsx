@@ -1,15 +1,14 @@
-import { Status, StatusClass } from '../types'
-
 import { cn } from '@/src/utils/class-merge.helper'
+import { Status, StatusClass } from '@types'
 
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC } from 'react'
 
-const statusClassVariants: StatusClass = {
-  error: 'border-error',
-  success: 'border-success',
-  alert: 'border-alert',
+const statusVariants: StatusClass = {
+  error: { root: 'border-error' },
+  success: { root: 'border-success' },
+  alert: { root: 'border-alert' },
 }
 
 export interface SelectRootProps extends RadixSelect.SelectProps {
@@ -44,7 +43,7 @@ const SelectRoot: FC<SelectRootProps> = ({
       <RadixSelect.Trigger
         className={cn(
           'group flex min-h-10 items-center justify-between gap-4 rounded-lg border bg-transparent px-4 py-2 text-sm text-inherit transition-colors hover:border-gray-700 active:border-primary disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray data-[state=open]:border-primary data-[placeholder]:text-gray [&[data-state=open]>div]:rotate-180 [&[data-state=open]_span:last-child]:rotate-180',
-          status ? statusClassVariants[status] : 'border-gray',
+          status ? statusVariants[status].root : 'border-gray',
           className,
         )}
       >

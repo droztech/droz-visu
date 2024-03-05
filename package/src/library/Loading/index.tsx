@@ -1,26 +1,29 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { ColorClass, StatusClass, VariantClass } from '@types'
 
 import { FC, HTMLAttributes } from 'react'
 
-const colorClassVariants = {
-  alert: 'bg-alert',
-  current: 'bg-current',
-  error: 'bg-error',
-  gray: 'bg-gray',
-  primary: 'bg-primary',
-  secondary: 'bg-secondary',
-  success: 'bg-success',
-  white: 'bg-gray-100',
+const colorVariants: StatusClass &
+  ColorClass &
+  VariantClass<'current' | 'gray' | 'white'> = {
+  success: { root: 'bg-success' },
+  error: { root: 'bg-error' },
+  alert: { root: 'bg-alert' },
+  primary: { root: 'bg-primary' },
+  secondary: { root: 'bg-secondary' },
+  current: { root: 'bg-current' },
+  gray: { root: 'bg-gray' },
+  white: { root: 'bg-gray-100' },
 }
 
-const sizeClassVariants = {
-  md: 'w-2 h-2',
-  lg: 'w-3 h-3',
+const sizeVariants = {
+  md: { root: 'w-2 h-2' },
+  lg: { root: 'w-3 h-3' },
 }
 
 export interface LoadingProps extends HTMLAttributes<HTMLDivElement> {
-  color?: keyof typeof colorClassVariants
-  size?: keyof typeof sizeClassVariants
+  color?: keyof typeof colorVariants
+  size?: keyof typeof sizeVariants
 }
 
 const LoadingDots: FC<LoadingProps> = ({
@@ -34,24 +37,24 @@ const LoadingDots: FC<LoadingProps> = ({
       <div
         className={cn(
           'animate-flash rounded-full opacity-20',
-          sizeClassVariants[size],
-          colorClassVariants[color],
+          sizeVariants[size].root,
+          colorVariants[color].root,
         )}
         style={{ animationDelay: '0ms' }}
       />
       <div
         className={cn(
           'animate-flash rounded-full opacity-20',
-          sizeClassVariants[size],
-          colorClassVariants[color],
+          sizeVariants[size].root,
+          colorVariants[color].root,
         )}
         style={{ animationDelay: '500ms' }}
       />
       <div
         className={cn(
           'animate-flash rounded-full opacity-20',
-          sizeClassVariants[size],
-          colorClassVariants[color],
+          sizeVariants[size].root,
+          colorVariants[color].root,
         )}
         style={{ animationDelay: '1000ms' }}
       />

@@ -1,40 +1,63 @@
+export type VariantClass<T extends string> = {
+  [key in T]: any
+}
+
+export interface ColorClass {
+  primary: any
+  secondary: any
+}
+
 export interface AlignClass {
-  center: string
-  left: string
-  right: string
+  center: any
+  left: any
+  right: any
+}
+
+export interface SizeClass {
+  sm: any
+  md: any
+  lg: any
 }
 
 export interface StatusClass {
-  alert: string
-  error: string
-  success: string
+  alert: any
+  error: any
+  success: any
 }
 
 export interface PositionClass {
-  bottom: string
-  left: string
-  right: string
-  top: string
+  bottom: any
+  left: any
+  right: any
+  top: any
 }
 
 export interface PosXClass {
-  left: string
-  right: string
+  left: any
+  right: any
 }
 
 export interface PosYClass {
-  bottom: string
-  top: string
+  bottom: any
+  top: any
+}
+
+export interface OrientationClass {
+  horizontal: any
+  vertical: any
 }
 
 export interface SideClass {
-  left: string
-  right: string
+  left: any
+  right: any
 }
 
 export type Align = keyof AlignClass
+export type Color = keyof ColorClass
+export type Size = keyof SizeClass
 export type Position = keyof PositionClass
-export type Side = keyof SideClass
 export type Status = keyof StatusClass
 export type PosX = keyof PosXClass
 export type PosY = keyof PosYClass
+export type Orientation = keyof OrientationClass
+export type Side = keyof SideClass

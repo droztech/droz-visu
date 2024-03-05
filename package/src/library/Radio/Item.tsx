@@ -1,22 +1,28 @@
+import { Color, ColorClass } from '../types'
+
 import { cn } from '@/src/utils/class-merge.helper'
 
 import * as RadixRadio from '@radix-ui/react-radio-group'
 import { FC, useMemo } from 'react'
 
-const colorClassVariants = {
-  primary:
-    'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
-  secondary:
-    'data-[state=checked]:border-secondary border-gray hover:border-secondary [&:active>*]:bg-secondary',
+const disabledVariants = {
+  root: 'border-gray',
+  dot: 'bg-gray',
 }
 
-const dotColorClassVariants = {
-  primary: 'data-[state=checked]:bg-primary',
-  secondary: 'data-[state=checked]:bg-secondary',
+const colorVariants: ColorClass = {
+  primary: {
+    root: 'data-[state=checked]:border-primary border-gray hover:border-primary [&:active>*]:bg-primary',
+    dot: 'data-[state=checked]:bg-primary',
+  },
+  secondary: {
+    root: 'data-[state=checked]:border-secondary border-gray hover:border-secondary [&:active>*]:bg-secondary',
+    dot: 'data-[state=checked]:bg-primary',
+  },
 }
 
 export interface RadioItemProps extends RadixRadio.RadioGroupItemProps {
-  color?: keyof typeof colorClassVariants
+  color?: Color
 }
 
 const RadioItem: FC<RadioItemProps> = ({
@@ -26,13 +32,13 @@ const RadioItem: FC<RadioItemProps> = ({
   ...rest
 }) => {
   const colorClass = useMemo(() => {
-    if (disabled) return 'border-gray'
-    return colorClassVariants[color]
+    if (disabled) return disabledVariants.root
+    return colorVariants[color].root
   }, [disabled, color])
 
   const dotColorClass = useMemo(() => {
-    if (disabled) return 'bg-gray'
-    return dotColorClassVariants[color]
+    if (disabled) return disabledVariants.dot
+    return colorVariants[color].dot
   }, [disabled, color])
 
   return (

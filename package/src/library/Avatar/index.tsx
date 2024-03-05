@@ -1,52 +1,56 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { Color, ColorClass, Size, SizeClass, Status, StatusClass } from '@types'
 
 import * as RadixAvatar from '@radix-ui/react-avatar'
 import { FC, ReactNode } from 'react'
 
-const rootColorVariants = {
-  primary:
-    'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
-  secondary:
-    'text-secondary border-secondary hover:border-secondary-300 active:border-secondary-200 hover:text-secondary-300 active:text-secondary-300',
+const colorVariants: ColorClass = {
+  primary: {
+    root: 'text-primary border-primary hover:border-primary-300 active:border-primary-200 hover:text-primary-300 active:text-primary-300',
+    bg: 'bg-primary-200',
+    status: 'border-primary-700',
+  },
+  secondary: {
+    root: 'text-secondary border-secondary hover:border-secondary-300 active:border-secondary-200 hover:text-secondary-300 active:text-secondary-300',
+    bg: 'bg-secondary-200',
+    status: 'border-secondary-700',
+  },
 }
 
-const bgColorVariants = {
-  primary: 'bg-primary-200',
-  secondary: 'bg-secondary-200',
+const sizeVariants: SizeClass = {
+  sm: {
+    root: 'w-6 h-6 text-xs',
+    fallback: 'text-xs p-0',
+    status: 'w-1 h-1',
+  },
+  md: {
+    root: 'w-10 h-10 text-md',
+    fallback: 'text-md p-1',
+    status: 'w-2 h-2',
+  },
+  lg: {
+    root: 'w-12 h-12 text-lg',
+    fallback: 'text-lg p-1',
+    status: 'w-3 h-3',
+  },
 }
 
-const statusColorVariants = {
-  primary: 'border-primary-700',
-  secondary: 'border-secondary-700',
-}
-
-const rootSizeVariants = {
-  sm: 'w-6 h-6 text-xs',
-  md: 'w-10 h-10 text-md',
-  lg: 'w-12 h-12 text-lg',
-}
-
-const fallbackSizeVariants = {
-  sm: 'text-xs p-0',
-  md: 'text-md p-1',
-  lg: 'text-lg p-1',
-}
-
-const statusSizeVariants = {
-  sm: 'w-1 h-1',
-  md: 'w-2 h-2',
-  lg: 'w-3 h-3',
-}
-
-const statusStatusVariants = {
-  success: 'bg-success',
-  error: 'bg-error',
+const statusVariants: StatusClass = {
+  success: {
+    status: 'bg-success',
+  },
+  error: {
+    status: 'bg-error',
+  },
+  alert: {
+    status: 'bg-alert',
+  },
 }
 
 export interface AvatarProps extends RadixAvatar.AvatarProps {
-  color?: keyof typeof rootColorVariants
-  size?: keyof typeof rootSizeVariants
-  status?: keyof typeof statusStatusVariants
+  color?: Color
+  size?: Size
+  status?: Status
   fallback: ReactNode
   src?: string
   alt?: string
@@ -68,8 +72,8 @@ const Avatar: FC<AvatarProps> = ({
       className={cn(
         'relative flex cursor-pointer select-none rounded-full border-2 p-[2px] uppercase transition-all',
         !onClick && 'pointer-events-none',
-        rootColorVariants[color],
-        rootSizeVariants[size],
+        colorVariants[color].root,
+        sizeVariants[size].root,
         className,
       )}
       onClick={onClick}
@@ -79,16 +83,16 @@ const Avatar: FC<AvatarProps> = ({
         <div
           className={cn(
             'absolute right-0 top-0 rounded-full border-2',
-            status && statusStatusVariants[status],
-            statusSizeVariants[size],
-            statusColorVariants[color],
+            status && statusVariants[status].status,
+            sizeVariants[size].status,
+            colorVariants[color].status,
           )}
         />
       )}
       <div
         className={cn(
           'flex aspect-square h-full w-full items-center justify-center rounded-full',
-          bgColorVariants[color],
+          colorVariants[color].bg,
         )}
       >
         <RadixAvatar.Image
@@ -99,7 +103,7 @@ const Avatar: FC<AvatarProps> = ({
         <RadixAvatar.Fallback
           className={cn(
             'overflow-hidden text-ellipsis whitespace-nowrap text-center',
-            fallbackSizeVariants[size],
+            sizeVariants[size].fallback,
           )}
         >
           {fallback}
