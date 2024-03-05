@@ -2,8 +2,8 @@ import { Icon } from '../index'
 
 import { cn } from '@/src/utils/class-merge.helper'
 
+import { X } from '@phosphor-icons/react'
 import { Close } from '@radix-ui/react-dialog'
-import { X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode } from 'react'
 
 export interface DialogHeaderProps

@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from '@droz-js/visu'
+import { CheckCircle } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { CheckCircle } from 'phosphor-react'
 
 const meta: Meta<ButtonProps> = {
   title: 'Button/Button',

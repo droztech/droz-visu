@@ -1,7 +1,7 @@
 import { Dialog } from '@library'
 
+import { SquaresFour } from '@phosphor-icons/react'
 import { render, screen } from '@testing-library/react'
-import { SquaresFour } from 'phosphor-react'
 
 const dialogTestId = 'dialog-test-id'
 

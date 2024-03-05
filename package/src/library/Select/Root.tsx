@@ -1,8 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
 import { Status, StatusClass } from '@types'
 
+import { CaretDown, CaretUp } from '@phosphor-icons/react'
 import * as RadixSelect from '@radix-ui/react-select'
-import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC } from 'react'
 
 const statusVariants: StatusClass = {

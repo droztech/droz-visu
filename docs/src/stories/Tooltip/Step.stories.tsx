@@ -1,6 +1,6 @@
 import { Button, Tooltip, TooltipStepProps } from '@droz-js/visu'
+import { Question } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Question } from 'phosphor-react'
 
 const meta: Meta<TooltipStepProps> = {
   title: 'Tooltip/Step',
@@ -116,11 +116,11 @@ export const ComReactNode: TooltipStepStory = {
     content: [
       <>
         <p>Conteúdo da etapa 1</p>
-        <Button.Root>Button da etapa 1</Button.Root>
+        <Button>Button da etapa 1</Button>
       </>,
       <>
         <p>Conteúdo da etapa 2</p>
-        <Button.Root>Button da etapa 2</Button.Root>
+        <Button>Button da etapa 2</Button>
       </>,
     ],
   },

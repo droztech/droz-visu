@@ -1,8 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
 import { Position } from '@types'
 
+import { ArrowRight, X } from '@phosphor-icons/react'
 import * as RadixPopover from '@radix-ui/react-popover'
-import { ArrowRight, X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useState } from 'react'
 
 export interface TooltipStepProps

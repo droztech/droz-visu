@@ -2,11 +2,11 @@ import Icon from '../Icon'
 
 import { cn } from '@/src/utils/class-merge.helper'
 
+import { CaretDown } from '@phosphor-icons/react'
 import {
   Trigger,
   AccordionTriggerProps as TriggerProps,
 } from '@radix-ui/react-accordion'
-import { CaretDown } from 'phosphor-react'
 import { FC, forwardRef } from 'react'
 
 export interface AccordionTriggerProps extends TriggerProps {}
