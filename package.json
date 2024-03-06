@@ -8,7 +8,11 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:visu": "cd package && npm run build",
+    "build:docs": "cd docs && npm run build",
     "dev": "turbo run dev --parallel",
+    "dev:visu": "cd package && npm run dev",
+    "dev:docs": "cd docs && npm run dev",
     "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky",
