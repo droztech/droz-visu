@@ -16,7 +16,7 @@
     "dev:visu": "turbo run dev --parallel --filter=@droz-js/visu",
     "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "npm run build",
     "test": "jest package/src/__tests__",
     "test:watch": "jest --watch package/src/__tests__",
