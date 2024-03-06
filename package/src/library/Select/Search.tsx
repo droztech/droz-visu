@@ -2,7 +2,7 @@ import * as RadixSelect from '@radix-ui/react-select'
 import { MagnifyingGlass } from 'phosphor-react'
 import { FC, useState, ChangeEvent } from 'react'
 
-interface SearchInputProps {
+export interface SearchInputProps {
   onChange: (value: string) => void
   searchPlaceholder?: string
 }
