@@ -8,12 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:docs": "turbo run build --filter=@droz-js/visu-docs",
-    "build:visu": "turbo run build --filter=@droz-js/visu",
-    "build-storybook": "storybook build -c ./docs/.storybook",
     "dev": "turbo run dev --parallel",
-    "dev:docs": "turbo run dev --filter=@droz-js/visu-docs",
-    "dev:visu": "turbo run dev --filter=@droz-js/visu",
     "lint:docs": "eslint --fix --ext .tsx,.ts,.jsx,.js docs/",
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky",
