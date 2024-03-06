@@ -1,9 +1,9 @@
 import LayoutDefault from './layout/Default'
-import { Accordion } from './library'
+import { Select } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -28,6 +28,12 @@ function App() {
     reset()
     setTest('')
   }
+
+  const [selectedValue, setSelectedValue] = useState('')
+
+  const handleChange = (value: SetStateAction<string>) => {
+    setSelectedValue(value)
+  }
   return (
     <LayoutDefault
       asChild
@@ -36,29 +42,36 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Accordion.Root type="single" collapsible>
-          {[...Array(3)].map((item, index) => (
-            <Accordion.Item
-              key={index}
-              value={index.toString()}
-              className="w-72"
-            >
-              <Accordion.Header>
-                <span>xxx</span>
-                <Accordion.Trigger />
-              </Accordion.Header>
-              <Accordion.Content>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Deleniti odio tempore magni error, illo placeat minus
-                  accusantium, veniam atque voluptate iusto rerum nemo
-                  aspernatur obcaecati repellendus, mollitia beatae eos
-                  assumenda.
-                </span>
-              </Accordion.Content>
-            </Accordion.Item>
-          ))}
-        </Accordion.Root>
+
+        <Select.Root
+          value={selectedValue}
+          onChange={handleChange}
+          placeholder="Selecione uma opção"
+          enableSearch={true}
+          searchPlaceholder="Digite aqui sua busca"
+        >
+          <Select.Item value="option1">Alice</Select.Item>
+          <Select.Item value="option2">Bob</Select.Item>
+          <Select.Item value="option3">Charlie</Select.Item>
+          <Select.Item value="option4">David</Select.Item>
+          <Select.Item value="option5">Emma</Select.Item>
+          <Select.Item value="option6">Frank</Select.Item>
+          <Select.Item value="option7">Grace</Select.Item>
+          <Select.Item value="option8">Harry</Select.Item>
+          <Select.Item value="option9">Ivy</Select.Item>
+          <Select.Item value="option10">Jack</Select.Item>
+          <Select.Item value="option11">Kate</Select.Item>
+          <Select.Item value="option12">Liam</Select.Item>
+          <Select.Item value="option13">Mia</Select.Item>
+          <Select.Item value="option14">Noah</Select.Item>
+          <Select.Item value="option15">Olivia</Select.Item>
+          <Select.Item value="option16">Peter</Select.Item>
+          <Select.Item value="option17">Quinn</Select.Item>
+          <Select.Item value="option18">Ryan</Select.Item>
+          <Select.Item value="option19">Sophia</Select.Item>
+          <Select.Item value="option20">Thomas</Select.Item>
+        </Select.Root>
+
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
