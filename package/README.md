@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <img alt="Visu" src="./public/visu.svg" height="48px" />
+    <img alt="Visu" src="public/visu.svg" height="48px" />
   </picture>
 </p>
 

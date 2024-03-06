@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 import path from 'path'
 
@@ -8,14 +9,14 @@ export default defineConfig({
   plugins: [
     react(),
     dts({ entryRoot: './src/library', insertTypesEntry: true }),
-    // viteStaticCopy({
-    //   targets: [
-    //     {
-    //       src: ['src/theme/theme-plugin.js', 'src/theme/theme-plugin.d.ts'],
-    //       dest: 'dist',
-    //     },
-    //   ],
-    // }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: ['src/theme/theme-plugin.js', 'src/theme/theme-plugin.d.ts'],
+          dest: '.',
+        },
+      ],
+    }),
   ],
   build: {
     lib: {
