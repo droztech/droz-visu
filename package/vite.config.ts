@@ -1,28 +1,24 @@
 import react from '@vitejs/plugin-react-swc'
 import copy from 'rollup-plugin-copy'
-import { defineConfig } from 'vite'
+import { defineConfig, UserConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
 import path from 'path'
 
-function copyTheme() {
-  return copy({
-    verbose: true,
-    targets: [
-      {
-        src: ['src/theme/theme-plugin.js', 'src/theme/theme-plugin.d.ts'],
-        dest: 'dist',
-      },
-    ],
-    hook: 'writeBundle',
-  })
-}
-
 export default defineConfig({
   plugins: [
-    react(),
+    react() as UserConfig['plugins'],
     dts({ entryRoot: './src/library', insertTypesEntry: true }),
-    copyTheme(),
+    copy({
+      verbose: true,
+      targets: [
+        {
+          src: ['src/theme/theme-plugin.js', 'src/theme/theme-plugin.d.ts'],
+          dest: 'dist',
+        },
+      ],
+      hook: 'writeBundle',
+    }),
   ],
   build: {
     lib: {
