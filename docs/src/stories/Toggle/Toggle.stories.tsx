@@ -1,6 +1,6 @@
 import { Toggle, ToggleRootProps } from '@droz-js/visu'
+import { Alien, FlyingSaucer, Planet } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Alien, FlyingSaucer, Planet } from 'phosphor-react'
 
 const meta: Meta<ToggleRootProps> = {
   title: 'Toggle/Toggle',

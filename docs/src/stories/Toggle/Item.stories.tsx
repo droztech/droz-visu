@@ -1,6 +1,6 @@
 import { Toggle, ToggleItemProps } from '@droz-js/visu'
+import { Alien } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Alien } from 'phosphor-react'
 
 const meta: Meta<ToggleItemProps> = {
   title: 'Toggle/Item',

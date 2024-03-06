@@ -1,5 +1,5 @@
 import { Avatar, AvatarProps } from '@droz-js/visu'
-import { User } from 'phosphor-react'
+import { User } from '@phosphor-icons/react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

@@ -1,6 +1,6 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
-import { X } from 'phosphor-react'
+import { X } from '@phosphor-icons/react'
 import { ChangeEvent, FC, InputHTMLAttributes, useRef, useState } from 'react'
 
 export interface FileProps

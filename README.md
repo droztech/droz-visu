@@ -1,6 +1,6 @@
 <p align="center">
   <picture>
-    <img alt="Visu" src="./package/public/droz-visu.svg" height="64px" />
+    <img alt="Visu" src="visu.svg" height="64px" />
   </picture>
 </p>
 

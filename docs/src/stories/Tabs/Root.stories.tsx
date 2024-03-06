@@ -1,5 +1,5 @@
 import { Tabs, TabsRootProps } from '@droz-js/visu'
-import { Airplane, Alarm, Alien } from 'phosphor-react'
+import { Airplane, Alarm, Alien } from '@phosphor-icons/react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

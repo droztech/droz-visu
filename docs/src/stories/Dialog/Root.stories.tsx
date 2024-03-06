@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogRootProps } from '@droz-js/visu'
+import { SquaresFour } from '@phosphor-icons/react'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
-import { SquaresFour } from 'phosphor-react'
 
 const meta: Meta<DialogRootProps> = {
   title: 'Dialog/Root',

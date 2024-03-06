@@ -1,6 +1,6 @@
 import { Accordion, AccordionTriggerProps } from '@droz-js/visu'
+import { Plus } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Plus } from 'phosphor-react'
 
 const meta: Meta<AccordionTriggerProps> = {
   title: 'Accordion/Trigger',

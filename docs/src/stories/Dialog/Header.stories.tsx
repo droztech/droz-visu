@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogHeaderProps } from '@droz-js/visu'
+import { Alien, SquaresFour, X } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Alien, SquaresFour, X } from 'phosphor-react'
 
 const meta: Meta<DialogHeaderProps> = {
   title: 'Dialog/Header',

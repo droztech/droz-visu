@@ -1,8 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
 import { Position } from '@types'
 
+import { ArrowRight, X } from '@phosphor-icons/react'
 import * as RadixPopover from '@radix-ui/react-popover'
-import { ArrowRight, X } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useState } from 'react'
 
 export interface TooltipStepProps
@@ -44,7 +44,7 @@ const TooltipStep: FC<TooltipStepProps> = ({
             <span className="text-sm text-gray-500">
               {stepText} {currentStep}/{content?.length ?? 0}
             </span>
-            {currentStep === content?.length ?? 0 ? (
+            {currentStep === (content?.length ?? 0) ? (
               <RadixPopover.Close
                 onClick={() => setCurrentStep(1)}
                 className="flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-1 text-sm text-primary transition-all hover:bg-primary hover:text-gray-100 active:bg-primary-500 active:text-gray-100"

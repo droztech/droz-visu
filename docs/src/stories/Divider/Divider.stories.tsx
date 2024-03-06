@@ -1,6 +1,6 @@
 import { Divider, DividerProps } from '@droz-js/visu'
+import { SquaresFour } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { SquaresFour } from 'phosphor-react'
 
 const meta: Meta<DividerProps> = {
   title: 'Divider/Divider',
