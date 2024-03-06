@@ -49,7 +49,7 @@ const SelectRoot: FC<SelectRootProps> = ({
   ...rest
 }) => {
   const [searchText, setSearchText] = useState('')
-  const [isTyping, setIsTyping] = useState(false)
+  const [, setIsTyping] = useState(false)
 
   const filteredItems = Children.toArray(children).filter(
     (child) =>
