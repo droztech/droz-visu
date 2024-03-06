@@ -1,3 +1,4 @@
+import * as RadixSelect from '@radix-ui/react-select'
 import { MagnifyingGlass } from 'phosphor-react'
 import { FC, useState, ChangeEvent } from 'react'
 
@@ -20,7 +21,9 @@ const SearchInput: FC<SearchInputProps> = ({ onChange, searchPlaceholder }) => {
       <label htmlFor="search" className="sr-only">
         {searchPlaceholder}
       </label>
-      <MagnifyingGlass />
+      <RadixSelect.Icon>
+        <MagnifyingGlass />
+      </RadixSelect.Icon>
       <input
         id="search"
         type="text"
