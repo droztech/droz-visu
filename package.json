@@ -17,9 +17,9 @@
     "lint:visu": "eslint --fix --ext .tsx,.ts,.jsx,.js package/",
     "prepare": "husky",
     "prepublishOnly": "npm run build",
-    "test": "jest package/src/__tests__",
-    "test:watch": "jest --watch package/src/__tests__",
-    "test:coverage": "jest --watch --collectCoverage package/src/__tests__"
+    "test": "cd package && npm run test",
+    "test:watch": "cd package && npm run test:watch",
+    "test:coverage": "cd package && npm run test:coverage"
   },
   "lint-staged": {
     "**/*.{js, jsx, ts, tsx}": [
