@@ -1,7 +1,8 @@
 import LayoutDefault from './layout/Default'
+import { TagInput } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser } from '@phosphor-icons/react'
+import { Eraser, SquaresFour } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -44,7 +45,19 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <div>xxx</div>
+        <TagInput.Root
+          value={test}
+          onChange={(ev) => setTest(ev)}
+          className="w-96"
+        >
+          <TagInput.Icon icon={<SquaresFour />} />
+          <TagInput.Input
+            value={test}
+            onChange={(ev) => setTest(ev)}
+            placeholder="Digite vírgula ou espaço para criar tags"
+            keys={['Comma', 'Space']}
+          />
+        </TagInput.Root>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
