@@ -1,5 +1,4 @@
 import LayoutDefault from './layout/Default'
-import { Input } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
@@ -45,14 +44,7 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Input.Root className="w-96">
-          <Input.Icon icon={<Eraser />} />
-          <Input.Tags
-            placeholder="Exemplo: Tag1,Tag_2,Tag__3"
-            value={test}
-            onChange={(ev) => setTest(ev)}
-          />
-        </Input.Root>
+        <div>xxx</div>
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
