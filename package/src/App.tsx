@@ -67,29 +67,6 @@ function App() {
           <Select.Item value="option15">Olivia</Select.Item>
           <Select.Item value="option16">Peter</Select.Item>
           <Select.Item value="option17">Quinn</Select.Item>
-          <Select.Item value="option18">Ryan</Select.Item>
-          <Select.Item value="option19">Sophia</Select.Item>
-          <Select.Item value="option20">Thomas</Select.Item>
-          <Select.Item value="option21">Alexa</Select.Item>
-          <Select.Item value="option22">Benjamin</Select.Item>
-          <Select.Item value="option23">Catherine</Select.Item>
-          <Select.Item value="option24">Daniel</Select.Item>
-          <Select.Item value="option25">Ella</Select.Item>
-          <Select.Item value="option26">Fiona</Select.Item>
-          <Select.Item value="option27">Gavin</Select.Item>
-          <Select.Item value="option28">Hannah</Select.Item>
-          <Select.Item value="option29">Isaac</Select.Item>
-          <Select.Item value="option30">Jasmine</Select.Item>
-          <Select.Item value="option31">Kevin</Select.Item>
-          <Select.Item value="option32">Lily</Select.Item>
-          <Select.Item value="option33">Marcus</Select.Item>
-          <Select.Item value="option34">Natalie</Select.Item>
-          <Select.Item value="option35">Oscar</Select.Item>
-          <Select.Item value="option36">Penelope</Select.Item>
-          <Select.Item value="option37">Quentin</Select.Item>
-          <Select.Item value="option38">Rachel</Select.Item>
-          <Select.Item value="option39">Samuel</Select.Item>
-          <Select.Item value="option40">Tiffany</Select.Item>
         </Select.Root>
 
         {/* ================================= TEST AREA ================================= */}

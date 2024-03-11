@@ -52,6 +52,23 @@ const meta: Meta<SelectRootProps> = {
       },
       type: { name: 'string', required: false },
     },
+    enableSearch: {
+      control: 'boolean',
+      description: 'Habilkita o search dentro do select.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+      type: { name: 'boolean', required: false },
+    },
+    searchPlaceholder: {
+      control: 'text',
+      description: 'Define o placeholder do search dentro do componente.',
+      table: {
+        type: { summary: 'text' },
+      },
+      type: { name: 'string', required: false },
+    },
     position: {
       control: 'inline-radio',
       description:
