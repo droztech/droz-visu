@@ -73,3 +73,6 @@ export type * from './Skeleton'
 
 export { default as Toggle } from './Toggle'
 export type * from './Toggle'
+
+export { default as TagInput } from './TagInput'
+export type * from './TagInput'

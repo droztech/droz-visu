@@ -1,6 +1,6 @@
 import { Input, InputRootProps } from '@droz-js/visu'
+import { Envelope } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Envelope } from 'phosphor-react'
 
 const meta: Meta<InputRootProps> = {
   title: 'Input/Root',

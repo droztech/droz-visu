@@ -1,8 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
 import { Color, ColorClass } from '@types'
 
+import { Check } from '@phosphor-icons/react'
 import * as RadixCheckbox from '@radix-ui/react-checkbox'
-import { Check } from 'phosphor-react'
 import { forwardRef } from 'react'
 
 const colorVariants: ColorClass = {

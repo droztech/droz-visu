@@ -1,6 +1,6 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
-import { Minus, Plus } from 'phosphor-react'
+import { Minus, Plus } from '@phosphor-icons/react'
 import { FC, HTMLAttributes } from 'react'
 
 export interface SidebarRootProps extends HTMLAttributes<HTMLDivElement> {

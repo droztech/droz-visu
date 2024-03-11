@@ -1,8 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
 import { Status, StatusClass } from '@types'
 
+import { CheckCircle, Warning, WarningCircle, X } from '@phosphor-icons/react'
 import * as RadixToast from '@radix-ui/react-toast'
-import { CheckCircle, Warning, WarningCircle, X } from 'phosphor-react'
 import { FC } from 'react'
 
 export const colorVariants: StatusClass = {

@@ -1,5 +1,5 @@
 import { Tabs, TabsListProps } from '@droz-js/visu'
-import { Image } from 'phosphor-react'
+import { Image } from '@phosphor-icons/react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

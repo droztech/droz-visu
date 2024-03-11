@@ -1,6 +1,6 @@
 import { Avatar, FloatCard, FloatCardContentProps } from '@droz-js/visu'
+import { MouseSimple } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { MouseSimple } from 'phosphor-react'
 
 const meta: Meta<FloatCardContentProps> = {
   title: 'FloatCard/Content',

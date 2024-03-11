@@ -18,19 +18,19 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@storybook/addon-a11y": "^7.6.13",
-    "@storybook/addon-actions": "^7.6.13",
+    "@babel/core": "^7.24.0",
+    "@storybook/addon-a11y": "^7.6.17",
+    "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-designs": "^7.0.9",
-    "@storybook/addon-essentials": "^7.6.13",
-    "@storybook/addon-interactions": "^7.6.13",
-    "@storybook/addon-links": "^7.6.13",
-    "@storybook/addon-mdx-gfm": "^7.6.13",
-    "@storybook/preview-api": "^7.6.13",
-    "@storybook/react": "^7.6.13",
-    "@storybook/react-vite": "^7.6.13",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-mdx-gfm": "^7.6.17",
+    "@storybook/preview-api": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
     "@storybook/test-runner": "^0.16.0",
     "babel-loader": "^9.1.3",
-    "storybook": "^7.6.13"
+    "storybook": "^7.6.17"
   }
 }

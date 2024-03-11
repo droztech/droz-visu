@@ -1,6 +1,6 @@
 import { Checkbox, CheckboxProps } from '@droz-js/visu'
+import { Question } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Question } from 'phosphor-react'
 
 const meta: Meta<CheckboxProps> = {
   title: 'Checkbox/Checkbox',

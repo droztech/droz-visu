@@ -1,6 +1,6 @@
 import { Sidebar, SidebarButtonProps } from '@droz-js/visu'
+import { House } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { House } from 'phosphor-react'
 
 const meta: Meta<SidebarButtonProps> = {
   title: 'Sidebar/Button',

@@ -1,8 +1,8 @@
 import { Tabs } from '@library'
 
+import { Alien } from '@phosphor-icons/react'
 import { render, screen, renderHook } from '@testing-library/react'
 import { clsx } from 'clsx'
-import { Alien } from 'phosphor-react'
 import { useRef } from 'react'
 
 jest.mock('clsx', () => {

@@ -1,6 +1,6 @@
 import { Button, Tooltip, TooltipHoverProps } from '@droz-js/visu'
+import { Question } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Question } from 'phosphor-react'
 
 const meta: Meta<TooltipHoverProps> = {
   title: 'Tooltip/Hover',
@@ -119,7 +119,7 @@ export const ComReactNode: TooltipHoverStory = {
     content: (
       <>
         <p>Texto do tooltip</p>
-        <Button.Root>Button do tooltip</Button.Root>
+        <Button>Button do tooltip</Button>
       </>
     ),
   },

@@ -1,7 +1,7 @@
 import { Icon } from '@library'
 
+import { X } from '@phosphor-icons/react'
 import { render, screen } from '@testing-library/react'
-import { X } from 'phosphor-react'
 
 describe('Icon tests', () => {
   it('Should render a Icon element', () => {

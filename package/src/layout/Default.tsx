@@ -1,7 +1,7 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
+import { ArrowClockwise, Moon, Sun, Terminal } from '@phosphor-icons/react'
 import { Slot } from '@radix-ui/react-slot'
-import { ArrowClockwise, Moon, Sun, Terminal } from 'phosphor-react'
 import { FC, HTMLAttributes, ReactNode, useState } from 'react'
 
 export interface LayoutDefaultProps extends HTMLAttributes<HTMLDivElement> {

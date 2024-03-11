@@ -1,10 +1,10 @@
-import { Input, InputIconProps } from '@droz-js/visu'
+import { TagInput, TagInputIconProps } from '@droz-js/visu'
 import { Envelope, SquaresFour } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<InputIconProps> = {
-  title: 'Input/Icon',
-  component: Input.Icon,
+const meta: Meta<TagInputIconProps> = {
+  title: 'TagInput/Icon',
+  component: TagInput.Icon,
   argTypes: {
     disabled: {
       control: { type: 'boolean' },
@@ -17,7 +17,7 @@ const meta: Meta<InputIconProps> = {
     },
     icon: {
       control: 'text',
-      description: 'Aplica o icon em InputIcon',
+      description: 'Aplica o icon em TagInputIcon',
       table: {
         type: { summary: 'text' },
       },
@@ -38,19 +38,19 @@ const meta: Meta<InputIconProps> = {
 }
 
 export default meta
-type InputIconStory = StoryObj<InputIconProps>
+type TagInputIconStory = StoryObj<TagInputIconProps>
 
-export const Comum: InputIconStory = {
+export const Comum: TagInputIconStory = {
   render: (args) => {
     return (
-      <Input.Icon {...args}>
+      <TagInput.Icon {...args}>
         <Envelope />
-      </Input.Icon>
+      </TagInput.Icon>
     )
   },
 }
 
-export const ComAcaoDeClique: InputIconStory = {
+export const ComAcaoDeClique: TagInputIconStory = {
   argTypes: {
     onClick: {
       action: 'clicked',
@@ -60,9 +60,9 @@ export const ComAcaoDeClique: InputIconStory = {
   },
   render: (args) => {
     return (
-      <Input.Icon {...args} onClick={() => {}}>
+      <TagInput.Icon {...args} onClick={() => {}}>
         <Envelope />
-      </Input.Icon>
+      </TagInput.Icon>
     )
   },
 }

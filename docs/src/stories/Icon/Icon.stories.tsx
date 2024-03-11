@@ -1,6 +1,6 @@
 import { Icon, IconProps } from '@droz-js/visu'
+import { X } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
-import { X } from 'phosphor-react'
 
 const meta: Meta<IconProps> = {
   title: 'Icon/Icon',

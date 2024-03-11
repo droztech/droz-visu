@@ -1,20 +1,30 @@
 import LayoutDefault from './layout/Default'
+
 import { Select } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from 'phosphor-react'
 import { SetStateAction, useState } from 'react'
+
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const formSchema = z.object({
-  data: z.string().nonempty('required'),
+  data: z.string().min(1, 'required'),
 })
 
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const [test, setTest] = useState('')
+  const [test, setTest] = useState<string[]>([
+    'Tag1',
+    'Tag2',
+    'Tag3',
+    'TagNumero4BemGrandeParaTestes',
+    'Tag5',
+    'TagNumero6BemGrandeParaTestes',
+    'TagNumero7BemGrandeParaTestesTagNumero7BemGrandeParaTestesTagNumero7BemGrandeParaTestes',
+  ])
   const { handleSubmit, watch, reset } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues: { data: '' },
@@ -26,7 +36,7 @@ function App() {
 
   const clearState = () => {
     reset()
-    setTest('')
+    setTest([])
   }
 
   const [selectedValue, setSelectedValue] = useState('')
@@ -34,6 +44,7 @@ function App() {
   const handleChange = (value: SetStateAction<string>) => {
     setSelectedValue(value)
   }
+
   return (
     <LayoutDefault
       asChild
@@ -68,6 +79,7 @@ function App() {
           <Select.Item value="option16">Peter</Select.Item>
           <Select.Item value="option17">Quinn</Select.Item>
         </Select.Root>
+
 
         {/* ================================= TEST AREA ================================= */}
       </form>

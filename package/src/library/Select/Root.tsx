@@ -3,9 +3,12 @@ import SearchInput from './Search'
 import { cn } from '@/src/utils/class-merge.helper'
 import { Status, StatusClass } from '@types'
 
+import { CaretDown, CaretUp } from '@phosphor-icons/react'
 import * as RadixSelect from '@radix-ui/react-select'
+
 import { CaretDown, CaretUp } from 'phosphor-react'
 import { FC, useState, Children, isValidElement, SetStateAction } from 'react'
+
 
 const statusVariants: StatusClass = {
   error: { root: 'border-error' },
