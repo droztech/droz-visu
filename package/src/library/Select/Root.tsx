@@ -5,14 +5,7 @@ import { Status, StatusClass } from '@types'
 
 import * as RadixSelect from '@radix-ui/react-select'
 import { CaretDown, CaretUp } from 'phosphor-react'
-import {
-  FC,
-  useState,
-  ReactNode,
-  Children,
-  isValidElement,
-  SetStateAction,
-} from 'react'
+import { FC, useState, Children, isValidElement, SetStateAction } from 'react'
 
 const statusVariants: StatusClass = {
   error: { root: 'border-error' },
@@ -30,7 +23,6 @@ export interface SelectRootProps extends RadixSelect.SelectProps {
   status?: Status
   onChange?: (value: string) => void
   enableSearch?: boolean
-  children: ReactNode
 }
 
 const SelectRoot: FC<SelectRootProps> = ({
