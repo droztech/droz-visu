@@ -2,12 +2,12 @@ import { cn } from '@/src/utils/class-merge.helper'
 
 import { ButtonHTMLAttributes, FC, ReactNode, useCallback, useRef } from 'react'
 
-export interface InputIconProps
+export interface TagInputIconProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode
 }
 
-const InputIcon: FC<InputIconProps> = ({
+const TagInputIcon: FC<TagInputIconProps> = ({
   icon,
   className,
   onClick,
@@ -47,6 +47,6 @@ const InputIcon: FC<InputIconProps> = ({
   )
 }
 
-InputIcon.displayName = 'Input.Icon'
+TagInputIcon.displayName = 'Input.Icon'
 
-export default InputIcon
+export default TagInputIcon

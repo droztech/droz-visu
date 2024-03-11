@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    @apply box-border text-base focus:outline-gray-800 focus:outline-2 focus:outline focus:-outline-offset-1;
+    @apply box-border text-base focus:outline-gray-800 focus:outline-1 focus:outline focus:-outline-offset-1;
   }
 
   .scrollbar-hide::-webkit-scrollbar {
@@ -19,5 +19,9 @@
   input::-webkit-file-upload-button,
   input::file-selector-button {
     @apply hidden;
+  }
+
+  .ellipsis {
+    @apply max-w-full overflow-hidden text-ellipsis whitespace-nowrap;
   }
 }

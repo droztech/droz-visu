@@ -58,7 +58,7 @@ const InputRoot: FC<InputRootProps> = ({
     <div
       ref={RootComponent}
       className={cn(
-        'flex cursor-text items-center gap-3 rounded-lg border border-solid px-4 py-0 focus-within:border-primary focus-within:has-[input:invalid]:!border-error focus-within:has-[input:invalid]:placeholder-shown:outline focus-within:has-[input:invalid]:placeholder-shown:outline-2 focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2 focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
+        'flex cursor-text gap-3 rounded-lg border border-solid px-4 py-0 focus-within:border-primary focus-within:has-[input:invalid]:!border-error focus-within:has-[input:invalid]:placeholder-shown:outline focus-within:has-[input:invalid]:placeholder-shown:outline-2 focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2 focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
         rootClass,
         className,
       )}
