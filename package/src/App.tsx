@@ -1,9 +1,11 @@
 import LayoutDefault from './layout/Default'
-import { TagInput } from './library'
+
+import { Select } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, SquaresFour } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { Eraser } from 'phosphor-react'
+import { SetStateAction, useState } from 'react'
+
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -37,6 +39,12 @@ function App() {
     setTest([])
   }
 
+  const [selectedValue, setSelectedValue] = useState('')
+
+  const handleChange = (value: SetStateAction<string>) => {
+    setSelectedValue(value)
+  }
+
   return (
     <LayoutDefault
       asChild
@@ -45,19 +53,34 @@ function App() {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <TagInput.Root
-          value={test}
-          onChange={(ev) => setTest(ev)}
-          className="w-96"
+
+        <Select.Root
+          value={selectedValue}
+          onChange={handleChange}
+          placeholder="Selecione uma opção"
+          enableSearch={true}
+          searchPlaceholder="Digite aqui sua busca"
         >
-          <TagInput.Icon icon={<SquaresFour />} />
-          <TagInput.Input
-            value={test}
-            onChange={(ev) => setTest(ev)}
-            placeholder="Digite vírgula ou espaço para criar tags"
-            keys={['Comma', 'Space']}
-          />
-        </TagInput.Root>
+          <Select.Item value="option1">Alice</Select.Item>
+          <Select.Item value="option2">Bob</Select.Item>
+          <Select.Item value="option3">Charlie</Select.Item>
+          <Select.Item value="option4">David</Select.Item>
+          <Select.Item value="option5">Emma</Select.Item>
+          <Select.Item value="option6">Frank</Select.Item>
+          <Select.Item value="option7">Grace</Select.Item>
+          <Select.Item value="option8">Harry</Select.Item>
+          <Select.Item value="option9">Ivy</Select.Item>
+          <Select.Item value="option10">Jack</Select.Item>
+          <Select.Item value="option11">Kate</Select.Item>
+          <Select.Item value="option12">Liam</Select.Item>
+          <Select.Item value="option13">Mia</Select.Item>
+          <Select.Item value="option14">Noah</Select.Item>
+          <Select.Item value="option15">Olivia</Select.Item>
+          <Select.Item value="option16">Peter</Select.Item>
+          <Select.Item value="option17">Quinn</Select.Item>
+        </Select.Root>
+
+
         {/* ================================= TEST AREA ================================= */}
       </form>
     </LayoutDefault>
