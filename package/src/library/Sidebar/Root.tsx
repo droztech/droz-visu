@@ -19,7 +19,7 @@ const SidebarRoot: FC<SidebarRootProps> = ({
     <aside
       className={cn(
         'sticky top-0 flex h-screen flex-col justify-between border-r border-gray-300 transition-all duration-300 [&_*]:overflow-hidden [&_*]:text-ellipsis [&_*]:whitespace-nowrap',
-        expanded ? 'w-56 px-4' : 'w-14 px-2 [&_span]:hidden',
+        expanded ? 'w-56 px-4' : '[[&_span]:not(img)]:hidden w-14 pl-2',
         className,
       )}
       {...rest}

@@ -1,5 +1,5 @@
+import { MagnifyingGlass } from '@phosphor-icons/react'
 import * as RadixSelect from '@radix-ui/react-select'
-import { MagnifyingGlass } from 'phosphor-react'
 import { FC, useState, ChangeEvent } from 'react'
 
 export interface SearchInputProps {
