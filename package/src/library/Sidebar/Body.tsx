@@ -12,7 +12,7 @@ const SidebarBody: FC<SidebarBodyProps> = ({
   return (
     <div
       className={cn(
-        'flex h-full w-full flex-col justify-between gap-2 py-4',
+        'flex h-full w-full flex-col justify-between gap-2 px-2 py-4',
         className,
       )}
       {...rest}
