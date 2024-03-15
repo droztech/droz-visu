@@ -76,3 +76,6 @@ export type * from './Toggle'
 
 export { default as TagInput } from './TagInput'
 export type * from './TagInput'
+
+export { default as Form } from './Form'
+export type * from './Form'
