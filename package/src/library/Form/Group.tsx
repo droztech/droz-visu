@@ -1,13 +1,8 @@
 import { cn } from '@/src/utils/class-merge.helper'
 
-import { FC, HTMLAttributes, ReactNode } from 'react'
+import { FC, HTMLAttributes } from 'react'
 
-export interface FormGroupProps extends HTMLAttributes<HTMLLabelElement> {
-  label?: string
-  icon?: ReactNode
-  message?: string
-  status?: string | false
-}
+export interface FormGroupProps extends HTMLAttributes<HTMLLabelElement> {}
 
 const FormGroup: FC<FormGroupProps> = ({ className, children, ...rest }) => {
   return (

@@ -25,7 +25,11 @@ const FormMessage: FC<FormMessageProps> = ({
     !isHidden &&
     children && (
       <span
-        className={cn('text-xs', statusVariant[status], className)}
+        className={cn(
+          'flex items-end gap-2 text-xs',
+          statusVariant[status],
+          className,
+        )}
         {...rest}
       >
         {children}
