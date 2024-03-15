@@ -1,6 +1,7 @@
+import Tooltip, { TooltipHoverProps } from '../Tooltip'
+
 import { cn } from '@/src/utils/class-merge.helper'
 
-import { Tooltip, TooltipHoverProps } from '@droz-js/visu'
 import { Question } from '@phosphor-icons/react'
 import { FC, HTMLAttributes } from 'react'
 
