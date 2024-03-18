@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Form, Input } from './library'
+import { Form, Toggle } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Envelope, Eraser } from '@phosphor-icons/react'
+import { Alien, Eraser } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -44,18 +44,17 @@ function App() {
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
 
-        <Form.Group>
-          <Form.Label>
-            <Envelope />
-            Email
-          </Form.Label>
-          {/* === children === */}
-          <Input.Root>
-            <Input.Input />
-          </Input.Root>
-          {/* === children === */}
-          <Form.Message status="alert">{errors.data?.message}</Form.Message>
-        </Form.Group>
+        <div className="w-156">
+          <Toggle.Root type="multiple" expanded>
+            <Toggle.Item
+              icon={<Alien />}
+              value="a"
+              text="text a"
+              notification
+            />
+            <Toggle.Item value="b" text="text b" />
+          </Toggle.Root>
+        </div>
 
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
