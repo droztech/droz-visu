@@ -71,7 +71,7 @@ Na Biblioteca é publicado o conteúdo da pasta `dist` que é gerado a partir da
 Para realizar a publicação no Github Packages, após ter feito todas as atualizações necessárias em uma PR separada, siga os passos abaixo.
 
 1. Abra uma nova branch chamada "release-x.x.x"
-1. Na nova branch rode o script scripts/versioning [major | minor | patch]
+1. Na nova branch rode o script scripts/versioning [`major` | `minor` | `patch`]
 1. Dê o nome pro commit de "release: x.x.x"
 1. Faça merge dessa branch na main
 1. Abra a branch main atualizada
