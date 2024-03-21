@@ -28,11 +28,11 @@ type PopoverRootStory = StoryObj<PopoverTriggerProps>
 export const Comum: PopoverRootStory = {
   render: (args) => {
     return (
-      <Popover.Root>
+      <Popover.Root {...args}>
         <Popover.Trigger>
           <ShareFat size={32} />
         </Popover.Trigger>
-        <Popover.Content {...args}>
+        <Popover.Content>
           <div className="flex flex-col">
             <span>
               O Popover é utilizado para estruturas mais complexas do que um
