@@ -33,19 +33,27 @@ const Popover: FC<PopoverProps> = ({
           {icon}
         </button>
       </RadixPopover.Trigger>
-
-      <RadixPopover.Content
-        align={align}
-        side={side}
-        className="PopoverContent border-none p-2"
-        sideOffset={5}
-        {...rest}
-      >
-        <div className={cn('text-sm font-normal text-gray-500', className)}>
-          {placeholder}
-        </div>
-        {children}
-      </RadixPopover.Content>
+      <RadixPopover.Portal>
+        <RadixPopover.Content
+          align={align}
+          side={side}
+          className="rounded-lg border-none bg-primary-200 p-3"
+          sideOffset={5}
+          {...rest}
+        >
+          <div className="bg-background-200">
+            <div
+              className={cn(
+                'pb-4 pt-2 text-center text-sm font-normal text-gray-500',
+                className,
+              )}
+            >
+              {placeholder}
+            </div>
+            {children}
+          </div>
+        </RadixPopover.Content>
+      </RadixPopover.Portal>
     </RadixPopover.Root>
   )
 }

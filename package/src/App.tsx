@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Form } from './library'
+import { Button, Form } from './library'
 import Popover from './library/Popover'
 
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -13,6 +13,10 @@ const formSchema = z.object({
 })
 
 type FormSchemaProps = z.infer<typeof formSchema>
+
+const generateTestItems = () => {
+  return ['Item 1', 'Item 2', 'Item blabla', 'Item bloblo', 'Item blibli']
+}
 
 function App() {
   const [test, setTest] = useState('')
@@ -46,7 +50,20 @@ function App() {
         {/* ================================= TEST AREA ================================= */}
 
         <div className="flex w-156 justify-center">
-          <Popover placeholder="aqui o placeholder" icon={<ShareFat />} />{' '}
+          <Popover
+            placeholder="aqui o placeholder"
+            align="start"
+            icon={<ShareFat />}
+          >
+            {/* Lista de 5 itens como children */}
+            <div className="flex flex-col gap-2">
+              {generateTestItems().map((item, index) => (
+                <Button className="w-full gap-2 pt-2" key={index}>
+                  {item}
+                </Button>
+              ))}
+            </div>
+          </Popover>
         </div>
 
         {/* ================================= TEST AREA ================================= */}
