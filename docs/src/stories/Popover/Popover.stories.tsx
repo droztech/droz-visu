@@ -53,7 +53,6 @@ const meta: Meta<PopoverProps> = {
     },
   },
   args: {
-    placeholder: false,
     icon: true,
     align: false,
     side: false,
