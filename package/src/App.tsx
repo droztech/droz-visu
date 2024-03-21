@@ -50,13 +50,10 @@ function App() {
         {/* ================================= TEST AREA ================================= */}
 
         <div className="flex w-156 justify-center">
-          <Popover
-            placeholder="aqui o placeholder"
-            align="start"
-            icon={<ShareFat />}
-          >
+          <Popover align="start" icon={<ShareFat />}>
             {/* Lista de 5 itens como children */}
             <div className="flex flex-col gap-2">
+              <div>aqui placeholer</div>
               {generateTestItems().map((item, index) => (
                 <Button className="w-full gap-2 pt-2" key={index}>
                   {item}

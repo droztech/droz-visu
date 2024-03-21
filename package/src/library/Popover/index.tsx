@@ -6,7 +6,6 @@ import { FC, ReactNode } from 'react'
 
 export interface PopoverProps extends RadixPopover.PopoverProps {
   className?: string
-  placeholder?: string
   icon: ReactNode
   align?: 'start' | 'end' | 'center'
   side?: Position
@@ -16,7 +15,6 @@ const Popover: FC<PopoverProps> = ({
   icon,
   children,
   className,
-  placeholder,
   align,
   side,
   ...rest
@@ -47,9 +45,7 @@ const Popover: FC<PopoverProps> = ({
                 'pb-4 pt-2 text-center text-sm font-normal text-gray-500',
                 className,
               )}
-            >
-              {placeholder}
-            </div>
+            ></div>
             {children}
           </div>
         </RadixPopover.Content>

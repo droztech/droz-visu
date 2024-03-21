@@ -12,14 +12,6 @@ const meta: Meta<PopoverProps> = {
         },
       },
     },
-    placeholder: {
-      control: 'text',
-      description: 'Textp do placeholder a ser utilizado',
-      table: {
-        type: { summary: 'string' },
-      },
-      type: { name: 'string', required: false },
-    },
     icon: {
       control: 'none',
       description: 'Ícone do popover',

@@ -13,7 +13,7 @@ describe('Popover tests', () => {
 
   it('Should trigger popover when clicked on icon', async () => {
     render(
-      <Popover icon={<span>Icon</span>} placeholder="Placeholder">
+      <Popover icon={<span>Icon</span>}>
         <div>Children</div>
       </Popover>,
     )
