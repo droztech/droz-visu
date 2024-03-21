@@ -1,8 +1,9 @@
 import LayoutDefault from './layout/Default'
-import { Form, Toggle } from './library'
+import { Form } from './library'
+import Popover from './library/Popover'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Alien, Eraser } from '@phosphor-icons/react'
+import { Eraser, ShareFat } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -44,16 +45,8 @@ function App() {
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
 
-        <div className="w-156">
-          <Toggle.Root type="multiple" expanded>
-            <Toggle.Item
-              icon={<Alien />}
-              value="a"
-              text="text a"
-              notification
-            />
-            <Toggle.Item value="b" text="text b" />
-          </Toggle.Root>
+        <div className="flex w-156 justify-center">
+          <Popover placeholder="aqui o placeholder" icon={<ShareFat />} />{' '}
         </div>
 
         {/* ================================= TEST AREA ================================= */}

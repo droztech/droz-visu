@@ -1,48 +1,49 @@
+import { cn } from '@/src/utils/class-merge.helper'
+
 import * as RadixPopover from '@radix-ui/react-popover'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 export interface PopoverRootProps extends RadixPopover.PopoverProps {
-  // align?: Popover.SelectContentProps['align']
   className?: string
   placeholder?: string
-  searchPlaceholder?: string
-  portalContainer?: HTMLElement | null
-  // position?: Popover.SelectContentProps['position']
-
-  onChange?: (value: string) => void
-  enableSearch?: boolean
+  icon?: ReactNode
 }
 
-const PopoverRoot: FC<PopoverRootProps> = ({
-  // align = 'center',
+const Popover: FC<PopoverRootProps> = ({
+  icon,
   children,
   className,
   placeholder,
-  searchPlaceholder,
-  portalContainer,
-  // position = 'popper',
   ...rest
 }) => {
   return (
     <RadixPopover.Root>
       <RadixPopover.Trigger asChild>
-        <button className="IconButton" aria-label="Update dimensions">
-          <div>ICON</div>
+        <button
+          className={cn(
+            'flex h-8 w-8 items-center justify-center rounded-full bg-primary-200',
+            className,
+          )}
+        >
+          {icon}
         </button>
       </RadixPopover.Trigger>
       <RadixPopover.Portal>
-        <RadixPopover.Content className="PopoverContent" sideOffset={5}>
-          <div>botões de seleção</div>
-          <RadixPopover.Close className="PopoverClose" aria-label="Close">
-            <div>ICONE DE FECHAR</div>
-          </RadixPopover.Close>
-          <RadixPopover.Arrow className="PopoverArrow" />
+        <RadixPopover.Content
+          className="PopoverContent border-none p-2"
+          sideOffset={5}
+          {...rest}
+        >
+          <div className={cn('text-sm font-normal text-gray-500', className)}>
+            {placeholder}
+          </div>
+          {children}
         </RadixPopover.Content>
       </RadixPopover.Portal>
     </RadixPopover.Root>
   )
 }
 
-PopoverRoot.displayName = 'Popover.Root'
+Popover.displayName = 'Popover'
 
-export default PopoverRoot
+export default Popover
