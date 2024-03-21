@@ -39,15 +39,7 @@ const Popover: FC<PopoverProps> = ({
           sideOffset={5}
           {...rest}
         >
-          <div className="bg-background-200">
-            <div
-              className={cn(
-                'pb-4 pt-2 text-center text-sm font-normal text-gray-500',
-                className,
-              )}
-            ></div>
-            {children}
-          </div>
+          <div className="bg-background-200">{children}</div>
         </RadixPopover.Content>
       </RadixPopover.Portal>
     </RadixPopover.Root>
