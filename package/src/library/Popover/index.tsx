@@ -37,7 +37,7 @@ const Popover: FC<PopoverProps> = ({
         <RadixPopover.Content
           align={align}
           side={side}
-          className="rounded-lg border-none bg-primary-200 p-3"
+          className={cn('rounded-lg border-none bg-primary-200 p-3', className)}
           sideOffset={5}
           {...rest}
         >
