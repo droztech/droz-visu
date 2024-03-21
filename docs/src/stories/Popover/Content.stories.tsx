@@ -1,26 +1,19 @@
-import { Popover, PopoverProps } from '@droz-js/visu'
+import { Popover, PopoverContentProps } from '@droz-js/visu'
+import { ShareFat } from '@phosphor-icons/react'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<PopoverProps> = {
-  title: 'Popover/Popover',
-  component: Popover,
+const meta: Meta<PopoverContentProps> = {
+  title: 'Popover/Content',
+  component: Popover.Content,
   argTypes: {
     children: {
-      table: {
-        type: {
-          summary: 'React.ReactNode',
-        },
-      },
-    },
-    icon: {
       control: 'none',
-      description: 'Ícone do popover',
+      description: 'Conteúdo do popover.',
       table: {
         type: {
           summary: 'React.ReactNode',
         },
       },
-      type: { name: 'other', required: true, value: 'React.ReactNode' },
     },
     align: {
       control: 'none',
@@ -53,24 +46,29 @@ const meta: Meta<PopoverProps> = {
     },
   },
   args: {
-    icon: true,
-    align: false,
-    side: false,
+    children: '',
   },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: '',
-      allowFullscreen: true,
-    },
-  },
-} as Meta<PopoverProps>
+}
 
 export default meta
-type PopoverStory = StoryObj<PopoverProps>
+type PopoverContentStory = StoryObj<PopoverContentProps>
 
-export const Comum: PopoverStory = {
+export const Comum: PopoverContentStory = {
   render: (args) => {
-    return <Popover {...args}></Popover>
+    return (
+      <Popover.Root>
+        <Popover.Trigger>
+          <ShareFat size={32} />
+        </Popover.Trigger>
+        <Popover.Content {...args}>
+          <div className="flex flex-col">
+            <span>
+              O Root é apenas o container do componente. Verifique o código na
+              docs.
+            </span>
+          </div>
+        </Popover.Content>
+      </Popover.Root>
+    )
   },
 }
