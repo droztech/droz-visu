@@ -50,17 +50,24 @@ function App() {
         {/* ================================= TEST AREA ================================= */}
 
         <div className="flex w-156 justify-center">
-          <Popover align="start" icon={<ShareFat />}>
-            {/* Lista de 5 itens como children */}
-            <div className="flex flex-col gap-2">
-              <div>aqui placeholer</div>
-              {generateTestItems().map((item, index) => (
-                <Button className="w-full gap-2 pt-2" key={index}>
-                  {item}
-                </Button>
-              ))}
-            </div>
-          </Popover>
+          <Popover.Root>
+            <Popover.Trigger>
+              <button className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-200">
+                <ShareFat />
+              </button>
+            </Popover.Trigger>
+            <Popover.Content align="center" side="bottom">
+              {/* Lista de 5 itens como children */}
+              <div className="flex flex-col gap-2">
+                <div>aqui placeholer</div>
+                {generateTestItems().map((item, index) => (
+                  <Button className="w-full gap-2 pt-2" key={index}>
+                    {item}
+                  </Button>
+                ))}
+              </div>
+            </Popover.Content>
+          </Popover.Root>
         </div>
 
         {/* ================================= TEST AREA ================================= */}
