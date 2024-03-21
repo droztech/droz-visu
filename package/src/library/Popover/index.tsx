@@ -1,19 +1,24 @@
 import { cn } from '@/src/utils/class-merge.helper'
+import { Position } from '@types'
 
 import * as RadixPopover from '@radix-ui/react-popover'
 import { FC, ReactNode } from 'react'
 
-export interface PopoverRootProps extends RadixPopover.PopoverProps {
+export interface PopoverProps extends RadixPopover.PopoverProps {
   className?: string
   placeholder?: string
-  icon?: ReactNode
+  icon: ReactNode
+  align?: 'start' | 'end' | 'center'
+  side?: Position
 }
 
-const Popover: FC<PopoverRootProps> = ({
+const Popover: FC<PopoverProps> = ({
   icon,
   children,
   className,
   placeholder,
+  align,
+  side,
   ...rest
 }) => {
   return (
@@ -28,18 +33,19 @@ const Popover: FC<PopoverRootProps> = ({
           {icon}
         </button>
       </RadixPopover.Trigger>
-      <RadixPopover.Portal>
-        <RadixPopover.Content
-          className="PopoverContent border-none p-2"
-          sideOffset={5}
-          {...rest}
-        >
-          <div className={cn('text-sm font-normal text-gray-500', className)}>
-            {placeholder}
-          </div>
-          {children}
-        </RadixPopover.Content>
-      </RadixPopover.Portal>
+
+      <RadixPopover.Content
+        align={align}
+        side={side}
+        className="PopoverContent border-none p-2"
+        sideOffset={5}
+        {...rest}
+      >
+        <div className={cn('text-sm font-normal text-gray-500', className)}>
+          {placeholder}
+        </div>
+        {children}
+      </RadixPopover.Content>
     </RadixPopover.Root>
   )
 }
