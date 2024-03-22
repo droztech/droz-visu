@@ -8,15 +8,11 @@ export interface PopoverContentProps extends RadixPopover.PopoverContentProps {}
 const PopoverContent: FC<PopoverContentProps> = ({
   children,
   className,
-  align,
-  side,
   ...rest
 }) => {
   return (
     <RadixPopover.Portal>
       <RadixPopover.Content
-        align={align}
-        side={side}
         className={cn(
           'z-100 rounded-lg border-none bg-primary-200 p-3',
           className,
