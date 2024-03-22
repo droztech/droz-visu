@@ -1,8 +1,9 @@
 import LayoutDefault from './layout/Default'
-import { Form, Toggle } from './library'
+import { Button, Form } from './library'
+import Popover from './library/Popover'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Alien, Eraser } from '@phosphor-icons/react'
+import { Eraser, ShareFat } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -12,6 +13,10 @@ const formSchema = z.object({
 })
 
 type FormSchemaProps = z.infer<typeof formSchema>
+
+const generateTestItems = () => {
+  return ['Item 1', 'Item 2', 'Item blabla', 'Item bloblo', 'Item blibli']
+}
 
 function App() {
   const [test, setTest] = useState('')
@@ -44,16 +49,25 @@ function App() {
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
 
-        <div className="w-156">
-          <Toggle.Root type="multiple" expanded>
-            <Toggle.Item
-              icon={<Alien />}
-              value="a"
-              text="text a"
-              notification
-            />
-            <Toggle.Item value="b" text="text b" />
-          </Toggle.Root>
+        <div className="flex w-156 justify-center">
+          <Popover.Root>
+            <Popover.Trigger>
+              <button className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-200">
+                <ShareFat />
+              </button>
+            </Popover.Trigger>
+            <Popover.Content align="center" side="bottom">
+              {/* Lista de 5 itens como children */}
+              <div className="flex flex-col gap-2">
+                <div>aqui placeholer</div>
+                {generateTestItems().map((item, index) => (
+                  <Button className="w-full gap-2 pt-2" key={index}>
+                    {item}
+                  </Button>
+                ))}
+              </div>
+            </Popover.Content>
+          </Popover.Root>
         </div>
 
         {/* ================================= TEST AREA ================================= */}

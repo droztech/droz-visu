@@ -79,3 +79,6 @@ export type * from './TagInput'
 
 export { default as Form } from './Form'
 export type * from './Form'
+
+export { default as Popover } from './Popover'
+export type * from './Popover'
