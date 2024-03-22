@@ -3,9 +3,9 @@ import Tooltip, { TooltipHoverProps } from '../Tooltip'
 import { cn } from '@/src/utils/class-merge.helper'
 
 import { Question } from '@phosphor-icons/react'
-import { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes, LabelHTMLAttributes } from 'react'
 
-export interface FormLabelProps extends HTMLAttributes<HTMLDivElement> {
+export interface FormLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   tooltip?: TooltipHoverProps['content']
 }
 
