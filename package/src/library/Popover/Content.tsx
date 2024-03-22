@@ -1,14 +1,9 @@
 import { cn } from '@/src/utils/class-merge.helper'
-import { Position } from '@types'
 
 import * as RadixPopover from '@radix-ui/react-popover'
 import { FC } from 'react'
 
-export interface PopoverContentProps extends RadixPopover.PopoverContentProps {
-  className?: string
-  align?: 'start' | 'end' | 'center'
-  side?: Position
-}
+export interface PopoverContentProps extends RadixPopover.PopoverContentProps {}
 
 const PopoverContent: FC<PopoverContentProps> = ({
   children,
