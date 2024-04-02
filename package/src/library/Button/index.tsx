@@ -45,13 +45,13 @@ const colorVariants: VariantClass<'neutral' | 'primary' | 'secondary'> = {
 
 const sizeVariants: SizeClass = {
   sm: {
-    root: 'py-2.5 px-6 text-sm min-h-10',
+    root: 'py-2.5 px-6 text-sm min-h-10 [&_svg]:h-4 [&_svg]:w-4',
   },
   md: {
-    root: 'py-3 px-10 min-h-12',
+    root: 'py-3 px-10 text-md min-h-12 [&_svg]:h-4 [&_svg]:w-4',
   },
   lg: {
-    root: 'py-9 px-12 text-lg min-h-28 [&_div]:h-10 [&_div]:w-10',
+    root: 'py-9 px-12 text-lg min-h-28 [&_svg]:h-8 [&_svg]:w-8',
   },
 }
 
