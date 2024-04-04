@@ -7,15 +7,15 @@ import { FC } from 'react'
 
 export const colorVariants: StatusClass = {
   alert: {
-    root: 'bg-alert-300 w-96 text-alert-700',
+    root: 'bg-alert-100 w-96 text-alert-700',
     close: 'hover:bg-alert-500 active:bg-alert-600',
   },
   error: {
-    root: 'bg-error-300 w-96 text-error-700',
+    root: 'bg-error-100 w-96 text-error-700',
     close: 'hover:bg-error-500 active:bg-error-600',
   },
   success: {
-    root: 'bg-success-300 w-96 text-success-700',
+    root: 'bg-success-100 w-96 text-success-700',
     close: 'hover:bg-success-500 active:bg-success-600',
   },
 }
