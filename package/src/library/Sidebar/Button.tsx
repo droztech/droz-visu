@@ -23,7 +23,7 @@ const SidebarButton: FC<SidebarButtonProps> = ({
       )}
       {...rest}
     >
-      <Tooltip.Hover content={text} side="right">
+      <Tooltip.Hover content={text} side="right" delayDuration={0}>
         <div className="mx-auto inline-table [&>svg]:h-6 [&>svg]:w-6">
           {icon}
         </div>
