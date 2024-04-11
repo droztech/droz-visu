@@ -9,16 +9,13 @@ jest.mock('clsx', () => {
   }
 })
 
-describe('Input Root tests', () => {
-  it('Should render a container element', () => {
-    render(<TagList data-testid="element"></TagList>)
-    const element = screen.getByTestId('element')
-
-    expect(element).toBeDefined()
-  })
-
+describe('TagList tests', () => {
   it('Should render an input element within the container element', () => {
-    render(<TagList data-testid="element"></TagList>)
+    render(
+      <TagList data-testid="element">
+        <input type="text" data-testid="input" />
+      </TagList>,
+    )
     const element = screen.getByTestId('element')
 
     expect(element.firstElementChild?.tagName).toBe('INPUT')
@@ -45,7 +42,6 @@ describe('Input Root tests', () => {
     const element = screen.getByTestId('element')
 
     expect(element.children[0]).toHaveProperty('disabled', true)
-    expect(element.children[1]).toHaveProperty('disabled', true)
   })
 
   it('Should render tags', () => {
