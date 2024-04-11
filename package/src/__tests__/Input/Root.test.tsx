@@ -68,7 +68,7 @@ describe('Input Root tests', () => {
     expect(element.children[1]).toHaveProperty('disabled', true)
   })
 
-  it('Should add remove the border when the borderless prop is true', () => {
+  it('Should remove the border when the borderless prop is true', () => {
     render(
       <Input.Root data-testid="element" borderless>
         <Input.Icon icon={<Envelope />} />
@@ -77,7 +77,6 @@ describe('Input Root tests', () => {
     )
     const element = screen.getByTestId('element')
 
-    expect(element).toHaveClass('border-none')
-    expect(element).toHaveClass('outline-none')
+    expect(element).toHaveClass('border-none outline-none')
   })
 })
