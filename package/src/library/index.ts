@@ -74,11 +74,10 @@ export type * from './Skeleton'
 export { default as Toggle } from './Toggle'
 export type * from './Toggle'
 
-export { default as TagInput } from './TagInput'
-export type * from './TagInput'
-
 export { default as Form } from './Form'
 export type * from './Form'
 
 export { default as Popover } from './Popover'
 export type * from './Popover'
+
+export { default as TagList } from './TagList'

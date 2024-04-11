@@ -1,6 +1,5 @@
-import { TagInput } from '@library'
+import { TagList } from '@library'
 
-import { Envelope } from '@phosphor-icons/react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { clsx } from 'clsx'
 
@@ -12,42 +11,24 @@ jest.mock('clsx', () => {
 
 describe('Input Root tests', () => {
   it('Should render a container element', () => {
-    render(<TagInput.Root data-testid="element"></TagInput.Root>)
+    render(<TagList data-testid="element"></TagList>)
     const element = screen.getByTestId('element')
 
     expect(element).toBeDefined()
   })
 
   it('Should render an input element within the container element', () => {
-    render(
-      <TagInput.Root data-testid="element">
-        <TagInput.Input />
-      </TagInput.Root>,
-    )
+    render(<TagList data-testid="element"></TagList>)
     const element = screen.getByTestId('element')
 
     expect(element.firstElementChild?.tagName).toBe('INPUT')
   })
 
-  it('Should render an icon container within the container element', () => {
-    const IconContainerId = 'IconContainer'
-    render(
-      <TagInput.Root data-testid="element">
-        <TagInput.Input />
-        <TagInput.Icon id={IconContainerId} icon={<></>} />
-      </TagInput.Root>,
-    )
-    const element = screen.getByTestId('element')
-
-    expect(element.children[1].id).toBe(IconContainerId)
-  })
-
   it('Should focus the input element when clicking on the container element', () => {
     render(
-      <TagInput.Root data-testid="element">
-        <TagInput.Icon icon={<Envelope />} />
-        <TagInput.Input data-testid="input" />
-      </TagInput.Root>,
+      <TagList data-testid="element">
+        <input type="text" data-testid="input" />
+      </TagList>,
     )
     const element = screen.getByTestId('element')
 
@@ -57,10 +38,9 @@ describe('Input Root tests', () => {
 
   it('Should disable all the children when the container is disabled', () => {
     render(
-      <TagInput.Root data-testid="element" disabled>
-        <TagInput.Icon icon={<Envelope />} />
-        <TagInput.Input data-testid="input" />
-      </TagInput.Root>,
+      <TagList data-testid="element" disabled>
+        <input type="text" data-testid="input" />
+      </TagList>,
     )
     const element = screen.getByTestId('element')
 
@@ -73,9 +53,7 @@ describe('Input Root tests', () => {
 
     render(
       <div data-testid="element">
-        <TagInput.Root value={tags}>
-          <TagInput.Input data-testid="input" />
-        </TagInput.Root>
+        <TagList value={tags}></TagList>
       </div>,
     )
     const element = screen.getByTestId('element')
