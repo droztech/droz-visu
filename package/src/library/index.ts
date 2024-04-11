@@ -81,3 +81,4 @@ export { default as Popover } from './Popover'
 export type * from './Popover'
 
 export { default as TagList } from './TagList'
+export type * from './TagList'

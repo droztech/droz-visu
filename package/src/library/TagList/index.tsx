@@ -105,6 +105,6 @@ const TagListRoot: FC<TagListRootProps> = ({
   )
 }
 
-TagListRoot.displayName = 'TagList.Root'
+TagListRoot.displayName = 'TagList'
 
 export default TagListRoot

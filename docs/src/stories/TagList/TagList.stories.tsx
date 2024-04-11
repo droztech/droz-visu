@@ -1,4 +1,4 @@
-import { TagList, TagListRootProps } from '@droz-js/visu'
+import { TagList } from '@droz-js/visu'
 import { useArgs } from '@storybook/preview-api'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -81,15 +81,16 @@ export const Comum: TagListRootStory = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [_, updateArgs] = useArgs()
 
-    onChange = (ev) => updateArgs({ value: ev })
+    onChange = (ev) =>
+      updateArgs({ value: args.value.filter((item) => item !== ev) })
 
     return (
       <div className="flex w-[80vw] items-center justify-center">
-        <TagList.Root
+        <TagList
           onChange={onChange}
           value={['tag1', 'tag2', 'tag3']}
           {...args}
-        ></TagList.Root>
+        ></TagList>
       </div>
     )
   },
