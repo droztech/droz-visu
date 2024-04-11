@@ -21,4 +21,17 @@ describe('SelectRoot tests', () => {
 
     expect(element).toBeDefined()
   })
+
+  it('Should add remove the border when the borderless prop is true', () => {
+    render(
+      <Select.Root data-testid="element" borderless>
+        <Select.Item value="yes">Sim</Select.Item>
+        <Select.Item value="no">Não</Select.Item>
+      </Select.Root>,
+    )
+    const element = screen.getByTestId('element')
+
+    expect(element).toHaveClass('border-none')
+    expect(element).toHaveClass('outline-none')
+  })
 })

@@ -19,6 +19,7 @@ const statusVariants: StatusClass = {
 export interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean
   status?: Status
+  borderless?: boolean
 }
 
 const InputRoot: FC<InputRootProps> = ({
@@ -26,6 +27,7 @@ const InputRoot: FC<InputRootProps> = ({
   className,
   disabled,
   status,
+  borderless,
   ...rest
 }) => {
   const RootComponent = useRef<HTMLDivElement | null>(null)
@@ -59,6 +61,7 @@ const InputRoot: FC<InputRootProps> = ({
       ref={RootComponent}
       className={cn(
         'flex cursor-text gap-3 rounded-lg border border-solid px-4 py-0 focus-within:border-primary focus-within:has-[input:invalid]:!border-error focus-within:has-[input:invalid]:placeholder-shown:outline focus-within:has-[input:invalid]:placeholder-shown:outline-2 focus-within:has-[input:invalid]:placeholder-shown:outline-offset-2 focus-within:has-[input:invalid]:placeholder-shown:outline-gray-900',
+        borderless && 'border-none outline-none',
         rootClass,
         className,
       )}
