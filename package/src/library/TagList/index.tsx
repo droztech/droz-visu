@@ -17,15 +17,15 @@ const statusVariants: StatusClass = {
   alert: { root: 'border-alert' },
 }
 
-export interface TagInputRootProps
+export interface TagListRootProps
   extends Omit<HTMLAttributes<HTMLDivElement>, 'value' | 'onChange'> {
   disabled?: boolean
   status?: Status
   value?: string[]
-  onChange?: (ev: string[]) => void
+  onChange?: (ev: string) => void
 }
 
-const TagInputRoot: FC<TagInputRootProps> = ({
+const TagListRoot: FC<TagListRootProps> = ({
   value,
   onChange,
   children,
@@ -59,14 +59,6 @@ const TagInputRoot: FC<TagInputRootProps> = ({
     InputComponent?.focus()
   }, [RootComponent])
 
-  const handleRemoveTag = useCallback(
-    (tag: string) => {
-      const newValue = value?.filter((item) => item !== tag)
-      newValue && onChange?.(newValue)
-    },
-    [onChange, value],
-  )
-
   const tagsList = useMemo(
     () =>
       value?.map((item) => (
@@ -77,13 +69,13 @@ const TagInputRoot: FC<TagInputRootProps> = ({
           <span className="ellipsis text-xs">{item}</span>
           <button
             className="rounded-full p-0.5 transition-all hover:bg-primary-300"
-            onClick={() => handleRemoveTag(item)}
+            onClick={() => onChange?.(item)}
           >
             <X size={10} />
           </button>
         </div>
       )),
-    [handleRemoveTag, value],
+    [onChange, value],
   )
 
   return (
@@ -94,24 +86,25 @@ const TagInputRoot: FC<TagInputRootProps> = ({
         className,
       )}
     >
-      {value && value.length > 0 && (
-        <div className="flex max-h-32 max-w-full flex-wrap items-center gap-2 overflow-y-auto rounded-t-lg border-b border-gray bg-gray-200 p-2">
-          {tagsList}
+      <div className="flex max-h-32 min-h-8 max-w-full flex-wrap items-center gap-2 overflow-y-auto rounded-t-lg bg-gray-200 p-2">
+        {tagsList}
+      </div>
+
+      {children && (
+        /* eslint-disable-next-line */
+        <div
+          ref={RootComponent}
+          className="flex w-full cursor-text gap-3 border-t border-solid border-gray px-4 py-0"
+          onClick={focusInput}
+          {...rest}
+        >
+          {children}
         </div>
       )}
-      {/* eslint-disable-next-line */}
-    <div
-        ref={RootComponent}
-        className="flex cursor-text gap-3 px-4 py-0"
-        onClick={focusInput}
-        {...rest}
-      >
-        {children}
-      </div>
     </div>
   )
 }
 
-TagInputRoot.displayName = 'Input.Root'
+TagListRoot.displayName = 'TagList'
 
-export default TagInputRoot
+export default TagListRoot
