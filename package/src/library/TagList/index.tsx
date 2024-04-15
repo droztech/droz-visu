@@ -1,3 +1,5 @@
+import Chip from '../Chip'
+
 import { cn } from '@/src/utils/class-merge.helper'
 import { Status, StatusClass } from '@types'
 
@@ -62,18 +64,9 @@ const TagListRoot: FC<TagListRootProps> = ({
   const tagsList = useMemo(
     () =>
       value?.map((item) => (
-        <div
-          className="flex max-w-full items-center gap-1 rounded-3xl bg-primary-200 px-4 py-1"
-          key={item}
-        >
-          <span className="ellipsis text-xs">{item}</span>
-          <button
-            className="rounded-full p-0.5 transition-all hover:bg-primary-300"
-            onClick={() => onChange?.(item)}
-          >
-            <X size={10} />
-          </button>
-        </div>
+        <Chip.Root key={item} label={item}>
+          <Chip.Icon icon={<X size={10} />} onClick={() => onChange?.(item)} />
+        </Chip.Root>
       )),
     [onChange, value],
   )
