@@ -1,10 +1,9 @@
 import LayoutDefault from './layout/Default'
-import { Calendar, Form, Popover } from './library'
+import { Calendar, DateRange, Form, Popover } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
 import { useState } from 'react'
-import { DateRange } from 'react-day-picker'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 

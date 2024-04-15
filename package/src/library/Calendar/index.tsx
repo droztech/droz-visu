@@ -6,6 +6,11 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 import { ComponentProps } from 'react'
 import { DayPicker } from 'react-day-picker'
 
+export type DateRange = {
+  from: Date | undefined
+  to?: Date | undefined
+}
+
 export type CalendarProps = ComponentProps<typeof DayPicker>
 
 const Calendar = ({
