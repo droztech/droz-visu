@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Calendar, Form } from './library'
+import { Calendar, Form, Popover } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
@@ -44,8 +44,14 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Calendar mode="range" selected={test} onSelect={setTest} />
-        <button onClick={() => console.log(test)}>xxx</button>
+        <Popover.Root>
+          <Popover.Trigger>
+            <span>Click me</span>
+          </Popover.Trigger>
+          <Popover.Content className="shadow">
+            <Calendar mode="range" selected={test} onSelect={setTest} />
+          </Popover.Content>
+        </Popover.Root>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>

@@ -13,10 +13,7 @@ const PopoverContent: FC<PopoverContentProps> = ({
   return (
     <RadixPopover.Portal>
       <RadixPopover.Content
-        className={cn(
-          'z-100 rounded-lg border-none bg-primary-200 p-3',
-          className,
-        )}
+        className={cn('z-100', className)}
         sideOffset={5}
         {...rest}
       >

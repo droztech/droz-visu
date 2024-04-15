@@ -17,7 +17,7 @@ const Calendar = ({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      className={cn('rounded-md bg-gray-100 p-4 shadow', className)}
+      className={cn('rounded-md bg-gray-100 p-4', className)}
       classNames={{
         months: 'flex flex-col',
         month: 'space-y-4',
