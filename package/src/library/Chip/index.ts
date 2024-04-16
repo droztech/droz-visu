@@ -1,12 +1,12 @@
-import ChipIcon from './Icon'
+import ChipButton from './Button'
 import ChipRoot from './Root'
 
 export type { ChipProps } from './Root'
-export type { ChipIconProps } from './Icon'
+export type { ChipButtonProps } from './Button'
 
 const Chip = {
   Root: ChipRoot,
-  Icon: ChipIcon,
+  Button: ChipButton,
 }
 
 export default Chip

@@ -1,9 +1,9 @@
 import LayoutDefault from './layout/Default'
-import { Form, Input, Select } from './library'
+import { Form } from './library'
 import Chip from './library/Chip'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, MagnifyingGlass } from '@phosphor-icons/react'
+import { Eraser, X } from '@phosphor-icons/react'
 import { useMemo, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -65,25 +65,13 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Select.Root placeholder="Selecione uma opção">
-          <Input.Root className="mb-4">
-            <Input.Icon icon={<MagnifyingGlass />} />
-            <Input.Input
-              placeholder="Pesquise uma opção"
-              value={test}
-              onChange={(ev) => setTest(ev.target.value)}
-            />
-          </Input.Root>
-          {filteredList.map((item) => (
-            <Select.Item key={item.id} value={item.id}>
-              {item.value} - {item.label}
-            </Select.Item>
-          ))}
-        </Select.Root>
-        {/* ================================= TEST AREA ================================= */}
-        <Chip.Root label="Teste">
-          <Chip.Icon icon={<Eraser />} onClick={clearState} />
+        <Chip.Root>
+          Teste
+          <Chip.Button onClick={clearState}>
+            <X />
+          </Chip.Button>
         </Chip.Root>
+        {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>
   )
