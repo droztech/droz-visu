@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Calendar, DateRange, Form, Popover } from './library'
+import { Calendar, Chip, DateRange, Form, Popover } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
