@@ -1,5 +1,6 @@
 import LayoutDefault from './layout/Default'
 import { Form, Input, Select } from './library'
+import Chip from './library/Chip'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser, MagnifyingGlass } from '@phosphor-icons/react'
@@ -80,6 +81,9 @@ function App() {
           ))}
         </Select.Root>
         {/* ================================= TEST AREA ================================= */}
+        <Chip.Root label="Teste">
+          <Chip.Icon icon={<Eraser />} onClick={clearState} />
+        </Chip.Root>
       </Form.Root>
     </LayoutDefault>
   )
