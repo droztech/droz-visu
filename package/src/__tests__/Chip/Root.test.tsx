@@ -11,7 +11,7 @@ jest.mock('clsx', () => {
 
 describe('Chip Root', () => {
   it('should render chip component', () => {
-    render(<Chip.Root label="chip" data-testid="chip" />)
+    render(<Chip.Root data-testid="chip">chip</Chip.Root>)
 
     const chip = screen.getByTestId('chip')
 
@@ -19,7 +19,7 @@ describe('Chip Root', () => {
   })
 
   it('should have a label', () => {
-    render(<Chip.Root label="chip" data-testid="chip" />)
+    render(<Chip.Root data-testid="chip">chip</Chip.Root>)
 
     const chip = screen.getByTestId('chip')
 
