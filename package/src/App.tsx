@@ -1,9 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Form } from './library'
-import Chip from './library/Chip'
+import { Form, Input, TagList } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, X } from '@phosphor-icons/react'
+import { Eraser } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -15,7 +14,18 @@ const formSchema = z.object({
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const [test, setTest] = useState()
+  const [test, setTest] = useState<string[]>([
+    'test1',
+    'test2',
+    'test3',
+    'test4',
+    'test5',
+    'test6',
+    'test7',
+    'test8',
+    'test9',
+    'test10',
+  ])
   const {
     handleSubmit,
     watch,
@@ -33,7 +43,7 @@ function App() {
 
   const clearState = () => {
     reset()
-    setTest(undefined)
+    setTest([])
   }
 
   return (
@@ -44,12 +54,19 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Chip.Root>
-          Teste
-          <Chip.Button onClick={clearState}>
-            <X />
-          </Chip.Button>
-        </Chip.Root>
+        <label>
+          focus test
+          <TagList
+            value={test}
+            onRemove={(tagToRemove) =>
+              setTest((old) => old.filter((item) => item !== tagToRemove))
+            }
+          >
+            <Input.Root borderless>
+              <Input.Input />
+            </Input.Root>
+          </TagList>
+        </label>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>
