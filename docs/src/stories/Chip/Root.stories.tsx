@@ -15,14 +15,6 @@ const meta: Meta<ChipProps> = {
         },
       },
     },
-    label: {
-      control: 'text',
-      description: 'Define o label do Chip.',
-      table: {
-        type: { summary: 'text' },
-      },
-      type: { name: 'string', required: true },
-    },
   },
 }
 
@@ -31,13 +23,16 @@ export default meta
 type Story = StoryObj<ChipProps>
 
 export const Comun: Story = {
-  render: (args) => <Chip.Root {...args} label="Chip" />,
+  render: (args) => <Chip.Root {...args}>Chip</Chip.Root>,
 }
 
 export const ComIcon: Story = {
   render: (args) => (
-    <Chip.Root {...args} label="Chip">
-      <Chip.Icon icon={<X />} />
+    <Chip.Root {...args}>
+      Chip
+      <Chip.Button>
+        <X />
+      </Chip.Button>
     </Chip.Root>
   ),
 }
