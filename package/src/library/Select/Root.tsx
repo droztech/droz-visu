@@ -67,7 +67,7 @@ const SelectRoot: FC<SelectRootProps> = ({
           sideOffset={5}
           collisionPadding={32}
           avoidCollisions
-          className="z-100 flex max-h-[--radix-select-content-available-height] min-w-56 max-w-[--radix-select-content-available-width] flex-col gap-2 rounded-lg border border-gray bg-gray-100 shadow"
+          className="z-100 flex max-h-[--radix-select-content-height] w-[--radix-select-trigger-width] flex-col gap-2 rounded-lg border border-gray bg-gray-100 shadow"
         >
           <RadixSelect.ScrollUpButton className="flex items-center justify-center p-2">
             <CaretUp />
