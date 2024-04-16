@@ -64,8 +64,11 @@ const TagListRoot: FC<TagListRootProps> = ({
   const tagsList = useMemo(
     () =>
       value?.map((item) => (
-        <Chip.Root key={item} label={item}>
-          <Chip.Icon icon={<X size={10} />} onClick={() => onChange?.(item)} />
+        <Chip.Root key={item}>
+          {item}
+          <Chip.Button onClick={() => onChange?.(item)}>
+            <X />
+          </Chip.Button>
         </Chip.Root>
       )),
     [onChange, value],
