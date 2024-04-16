@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Calendar, DateRange, Form, Popover } from './library'
+import { Form, Input, TagList } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
@@ -14,7 +14,18 @@ const formSchema = z.object({
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const [test, setTest] = useState<DateRange>()
+  const [test, setTest] = useState<string[]>([
+    'test1',
+    'test2',
+    'test3',
+    'test4',
+    'test5',
+    'test6',
+    'test7',
+    'test8',
+    'test9',
+    'test10',
+  ])
   const {
     handleSubmit,
     watch,
@@ -32,7 +43,7 @@ function App() {
 
   const clearState = () => {
     reset()
-    setTest(undefined)
+    setTest([])
   }
 
   return (
@@ -43,14 +54,19 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <Popover.Root>
-          <Popover.Trigger>
-            <span>Click me</span>
-          </Popover.Trigger>
-          <Popover.Content className="shadow">
-            <Calendar mode="range" selected={test} onSelect={setTest} />
-          </Popover.Content>
-        </Popover.Root>
+        <label>
+          focus test
+          <TagList
+            value={test}
+            onRemove={(tagToRemove) =>
+              setTest((old) => old.filter((item) => item !== tagToRemove))
+            }
+          >
+            <Input.Root borderless>
+              <Input.Input />
+            </Input.Root>
+          </TagList>
+        </label>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>

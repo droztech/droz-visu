@@ -83,5 +83,8 @@ export type * from './Popover'
 export { default as TagList } from './TagList'
 export type * from './TagList'
 
+export { default as Chip } from './Chip'
+export type * from './Chip'
+
 export { default as Calendar } from './Calendar'
 export type * from './Calendar'
