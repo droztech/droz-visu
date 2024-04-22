@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Form, Input, TagList } from './library'
+import { DatePicker, Form } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
@@ -54,19 +54,13 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <label>
-          focus test
-          <TagList
-            value={test}
-            onRemove={(tagToRemove) =>
-              setTest((old) => old.filter((item) => item !== tagToRemove))
-            }
-          >
-            <Input.Root borderless>
-              <Input.Input />
-            </Input.Root>
-          </TagList>
-        </label>
+
+        <DatePicker
+          placeholder="Selecione uma data"
+          onSelect={(date) => console.log('Data selecionada:', date)}
+          selectionMode={'range'}
+        />
+
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>
