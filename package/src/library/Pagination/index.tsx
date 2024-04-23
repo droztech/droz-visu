@@ -4,9 +4,10 @@ import { FC } from 'react'
 import ReactPaginate, { ReactPaginateProps } from 'react-paginate'
 
 export interface PaginationProps
-  extends Omit<ReactPaginateProps, 'onPageChange'> {
+  extends Omit<ReactPaginateProps, 'onPageChange' | 'pageCount'> {
   current: number
   onPageChange: (data: number) => void
+  pageCount: number
   disabled?: boolean
   size?: number
 }
