@@ -2,7 +2,7 @@ import LayoutDefault from './layout/Default'
 import { DatePicker, Form } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser } from '@phosphor-icons/react'
+import { Calendar as CalendarIcon, Eraser } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -58,7 +58,8 @@ function App() {
         <DatePicker
           placeholder="Selecione uma data"
           onSelect={(date) => console.log('Data selecionada:', date)}
-          selectionMode={'range'}
+          selectionMode={'single'}
+          icon={<CalendarIcon />}
         />
 
         {/* ================================= TEST AREA ================================= */}
