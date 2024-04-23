@@ -7,12 +7,12 @@ export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
 }
 
 export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
-  ({ hasHover = true, className, ...rest }, ref) => (
+  ({ hasHover, className, ...rest }, ref) => (
     <tr
       ref={ref}
       className={cn(
-        'border-b border-gray-200 transition-colors data-[state=selected]:bg-gray-100 dark:border-gray-900 dark:data-[state=selected]:bg-gray-800',
-        hasHover && 'hover:bg-gray-100/50 dark:hover:bg-gray-800/50',
+        'border-b border-gray-300 transition-colors',
+        hasHover && 'hover:bg-gray-100/50',
         className,
       )}
       {...rest}

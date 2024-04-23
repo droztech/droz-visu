@@ -1,5 +1,3 @@
-import { cn } from '@/src/utils/class-merge.helper'
-
 import { HTMLAttributes, forwardRef } from 'react'
 
 export interface TableHeaderProps
@@ -8,7 +6,5 @@ export interface TableHeaderProps
 export const TableHeader = forwardRef<
   HTMLTableSectionElement,
   TableHeaderProps
->(({ className, ...rest }, ref) => (
-  <thead ref={ref} className={cn('[&_tr]:border-b', className)} {...rest} />
-))
+>(({ ...rest }, ref) => <thead ref={ref} {...rest} />)
 TableHeader.displayName = 'TableHeader'

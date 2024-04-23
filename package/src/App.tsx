@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Form, Input, TagList } from './library'
+import { Form, Table } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
@@ -54,19 +54,56 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <label>
-          focus test
-          <TagList
-            value={test}
-            onRemove={(tagToRemove) =>
-              setTest((old) => old.filter((item) => item !== tagToRemove))
-            }
-          >
-            <Input.Root borderless>
-              <Input.Input />
-            </Input.Root>
-          </TagList>
-        </label>
+        <div className="w-full border border-error">
+          <Table.Root isLoading>
+            <Table.Header>
+              <Table.Row>
+                <Table.Head>Name</Table.Head>
+                <Table.Head>Description</Table.Head>
+                <Table.Head className="text-right">Last Update</Table.Head>
+                <Table.Head className="w-[1%] text-right">Actions</Table.Head>
+              </Table.Row>
+            </Table.Header>
+            {/* <Table.Body>
+            <Table.Row>
+              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Description</Table.Cell>
+              <Table.Cell className="text-right">
+                {new Date().toISOString()}
+              </Table.Cell>
+              <Table.Cell className="text-right">
+                <Button>
+                  <Trash />
+                </Button>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Description</Table.Cell>
+              <Table.Cell className="text-right">
+                {new Date().toISOString()}
+              </Table.Cell>
+              <Table.Cell className="text-right">
+                <Button>
+                  <Trash />
+                </Button>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Description</Table.Cell>
+              <Table.Cell className="text-right">
+                {new Date().toISOString()}
+              </Table.Cell>
+              <Table.Cell className="text-right">
+                <Button>
+                  <Trash />
+                </Button>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body> */}
+          </Table.Root>
+        </div>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>
