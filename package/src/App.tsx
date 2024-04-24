@@ -13,6 +13,10 @@ const formSchema = z.object({
 
 type FormSchemaProps = z.infer<typeof formSchema>
 
+type DateRange = {
+  from: Date | undefined
+  to?: Date | undefined
+}
 const App = () => {
   const [test, setTest] = useState<string[]>([
     'test1',
@@ -36,9 +40,16 @@ const App = () => {
     setTest([])
   }
 
-  const [selectedDates, setSelectedDates] = useState<Date | Date[] | null>(null)
+  const [selectedDates, setSelectedDates] = useState<Date | Date[]>([])
+
+  const handleDateSelect = (date: Date | Date[]) => {
+    if (date !== undefined) {
+      setSelectedDates(date)
+    }
+  }
 
   console.log(selectedDates)
+
   return (
     <LayoutDefault
       asChild
@@ -51,9 +62,7 @@ const App = () => {
         <DatePicker
           placeholder="Selecione uma data"
           icon={<CalendarIcon />}
-          selected={selectedDates}
-          onSelect={(date) => setSelectedDates(date)}
-          mode="range"
+          mode="single"
         />
 
         {/* ================================= TEST AREA ================================= */}
