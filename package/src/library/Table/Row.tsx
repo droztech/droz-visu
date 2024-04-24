@@ -3,16 +3,16 @@ import { cn } from '@/src/utils/class-merge.helper'
 import { HTMLAttributes, forwardRef } from 'react'
 
 export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
-  hasHover?: boolean
+  selected?: boolean
 }
 
 export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
-  ({ hasHover, className, ...rest }, ref) => (
+  ({ selected, className, ...rest }, ref) => (
     <tr
       ref={ref}
       className={cn(
-        'border-b border-gray-300 transition-colors',
-        hasHover && 'hover:bg-gray-100/50',
+        'border-b border-gray-300 transition-colors hover:bg-gray-200',
+        selected && 'bg-primary-100',
         className,
       )}
       {...rest}

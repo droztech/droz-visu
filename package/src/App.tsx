@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Form, Table } from './library'
+import { Button, Form, Table } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser } from '@phosphor-icons/react'
+import { Eraser, Pencil } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -55,53 +55,41 @@ function App() {
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
         <div className="w-full border border-error">
-          <Table.Root isLoading>
+          <Table.Root fixed hide={[1, 3]}>
             <Table.Header>
               <Table.Row>
                 <Table.Head>Name</Table.Head>
                 <Table.Head>Description</Table.Head>
                 <Table.Head className="text-right">Last Update</Table.Head>
-                <Table.Head className="w-[1%] text-right">Actions</Table.Head>
+                <Table.Head className="text-right">Actions</Table.Head>
               </Table.Row>
             </Table.Header>
-            {/* <Table.Body>
-            <Table.Row>
-              <Table.Cell>Name</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell className="text-right">
-                {new Date().toISOString()}
-              </Table.Cell>
-              <Table.Cell className="text-right">
-                <Button>
-                  <Trash />
-                </Button>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Name</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell className="text-right">
-                {new Date().toISOString()}
-              </Table.Cell>
-              <Table.Cell className="text-right">
-                <Button>
-                  <Trash />
-                </Button>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Name</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell className="text-right">
-                {new Date().toISOString()}
-              </Table.Cell>
-              <Table.Cell className="text-right">
-                <Button>
-                  <Trash />
-                </Button>
-              </Table.Cell>
-            </Table.Row>
-          </Table.Body> */}
+            <Table.Body>
+              {test.map((item, index) => (
+                <Table.Row
+                  key={item}
+                  selected={['test5', 'test6'].includes(item)}
+                >
+                  <Table.Cell>{item}</Table.Cell>
+                  <Table.Cell>
+                    <span>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Quisquam, asperiores quis. Ex laboriosam quasi fugit
+                      obcaecati a quaerat sapiente culpa placeat dicta quisquam
+                      quibusdam deserunt sit, cum adipisci, labore iusto.
+                    </span>
+                  </Table.Cell>
+                  <Table.Cell className="justify-end">
+                    {new Date().toISOString()}
+                  </Table.Cell>
+                  <Table.Cell className="justify-end">
+                    <Button light size="sm">
+                      <Pencil />
+                    </Button>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
           </Table.Root>
         </div>
         {/* ================================= TEST AREA ================================= */}
