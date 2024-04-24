@@ -1,21 +1,11 @@
 'use client'
 
-import Calendar from '../Calendar'
+import Calendar, { DateRange } from '../Calendar'
 import Input, { InputIconProps, InputRootProps } from '../Input'
+import Popover from '../Popover'
 
-import { useState, ComponentProps, useEffect, useRef } from 'react'
+import { useState, ComponentProps } from 'react'
 import { DayPicker, DayModifiers } from 'react-day-picker'
-
-export enum DatePickerSelectionMode {
-  Single = 'single',
-  Range = 'range',
-  Multiple = 'multiple',
-}
-
-export interface DatePickerRange {
-  from: Date | undefined
-  to?: Date | undefined
-}
 
 export interface DatePickerAdditionalProps {
   placeholder?: string
@@ -37,44 +27,49 @@ const DatePicker = ({
   icon,
 }: DatePickerProps) => {
   const [selectedDates, setSelectedDates] = useState<
-    DatePickerRange | Date | Date[] | null
+    DateRange | Date | Date[] | null
   >(null)
-  const [calendarOpen, setCalendarOpen] = useState<boolean>(false)
-  const calendarRef = useRef<HTMLDivElement>(null)
 
   const handleDateSelect = (date: Date) => {
-    if (selectionMode === 'single') {
-      setSelectedDates(date)
-      onSelect(date)
-    } else if (selectionMode === 'range') {
-      if (!selectedDates || !('from' in selectedDates)) {
-        setSelectedDates({ from: date })
-      } else if (
-        selectedDates.from &&
-        !selectedDates.to &&
-        date > selectedDates.from
-      ) {
-        setSelectedDates({ ...selectedDates, to: date })
-        onSelect([selectedDates.from, date])
-      } else {
-        setSelectedDates({ from: date })
+    let updatedDates: Date[] | undefined
+    let dateIndex: number | undefined
+
+    switch (selectionMode) {
+      case 'single':
+        setSelectedDates(date)
         onSelect(date)
-      }
-    } else if (selectionMode === 'multiple') {
-      const updatedDates = Array.isArray(selectedDates)
-        ? [...selectedDates]
-        : []
-      const dateIndex = updatedDates.findIndex(
-        (selectedDate) => selectedDate.getTime() === date.getTime(),
-      )
-      if (dateIndex === -1) {
-        updatedDates.push(date)
-      } else {
-        updatedDates.splice(dateIndex, 1)
-      }
-      updatedDates.sort((a, b) => a.getTime() - b.getTime())
-      setSelectedDates(updatedDates)
-      onSelect(updatedDates)
+        break
+
+      case 'range':
+        if (!selectedDates || !('from' in selectedDates)) {
+          setSelectedDates({ from: date } as DateRange | null)
+        } else if (
+          selectedDates.from &&
+          !selectedDates.to &&
+          date > selectedDates.from
+        ) {
+          setSelectedDates({ ...selectedDates, to: date })
+          onSelect([selectedDates.from, date])
+        } else {
+          setSelectedDates({ from: date } as DateRange | null)
+          onSelect(date)
+        }
+        break
+
+      case 'multiple':
+        updatedDates = Array.isArray(selectedDates) ? [...selectedDates] : []
+        dateIndex = updatedDates.findIndex(
+          (selectedDate) => selectedDate.getTime() === date.getTime(),
+        )
+        if (dateIndex === -1) {
+          updatedDates.push(date)
+        } else {
+          updatedDates.splice(dateIndex, 1)
+        }
+        updatedDates.sort((a, b) => a.getTime() - b.getTime())
+        setSelectedDates(updatedDates)
+        onSelect(updatedDates)
+        break
     }
   }
 
@@ -99,76 +94,64 @@ const DatePicker = ({
       }),
   }
 
-  const getInputValue = (
-    selectionMode: DatePickerSelectionMode,
-    selectedDates: DatePickerRange | Date | Date[] | null,
-  ): string => {
-    if (
-      selectionMode === 'range' &&
-      typeof selectedDates === 'object' &&
-      selectedDates !== null &&
-      'from' in selectedDates &&
-      selectedDates.to
-    ) {
-      return `${selectedDates.from?.toLocaleDateString()} - ${selectedDates.to?.toLocaleDateString()}`
-    } else if (
-      selectionMode === 'range' &&
-      typeof selectedDates === 'object' &&
-      selectedDates !== null &&
-      'from' in selectedDates
-    ) {
-      return selectedDates.from?.toLocaleDateString() || ''
-    } else if (Array.isArray(selectedDates)) {
-      return selectedDates.length === 1
-        ? selectedDates[0]?.toLocaleDateString() || ''
-        : `${selectedDates[0]?.toLocaleDateString()} - ${selectedDates[selectedDates.length - 1]?.toLocaleDateString()}`
-    } else if (selectedDates instanceof Date) {
-      return selectedDates.toLocaleDateString()
+  const getInputValue = (): string => {
+    switch (selectionMode) {
+      case 'single':
+        if (selectedDates instanceof Date) {
+          return selectedDates.toLocaleDateString()
+        }
+        break
+
+      case 'range':
+        if (
+          typeof selectedDates === 'object' &&
+          selectedDates !== null &&
+          'from' in selectedDates &&
+          selectedDates.to
+        ) {
+          return `${selectedDates.from?.toLocaleDateString()} - ${selectedDates.to?.toLocaleDateString()}`
+        } else if (
+          typeof selectedDates === 'object' &&
+          selectedDates !== null &&
+          'from' in selectedDates
+        ) {
+          return selectedDates.from?.toLocaleDateString() || ''
+        }
+        break
+
+      case 'multiple':
+        if (Array.isArray(selectedDates)) {
+          return selectedDates.length === 1
+            ? selectedDates[0]?.toLocaleDateString() || ''
+            : `${selectedDates[0]?.toLocaleDateString()} - ${selectedDates[selectedDates.length - 1]?.toLocaleDateString()}`
+        }
+        break
     }
     return ''
   }
 
-  const handleDocumentClick = (event: MouseEvent) => {
-    if (
-      calendarRef.current &&
-      !calendarRef.current.contains(event.target as Node)
-    ) {
-      setCalendarOpen(false)
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('click', handleDocumentClick)
-    return () => {
-      document.removeEventListener('click', handleDocumentClick)
-    }
-  }, [])
-
   return (
-    <div className="relative" ref={calendarRef}>
-      <Input.Root className="mb-2">
-        <Input.Input
-          type="text"
-          placeholder={placeholder}
-          value={getInputValue(
-            selectionMode as DatePickerSelectionMode,
-            selectedDates,
-          )}
-          onClick={() => setCalendarOpen(true)}
-          readOnly
-        />
-        <Input.Icon icon={icon} />
-      </Input.Root>
-
-      {calendarOpen && (
-        <div className="absolute top-full z-50">
+    <div className="relative">
+      <Popover.Root>
+        <Popover.Trigger>
+          <Input.Root className="mb-2">
+            <Input.Input
+              type="text"
+              placeholder={placeholder}
+              value={getInputValue()}
+              readOnly
+            />
+            <Input.Icon icon={icon} />
+          </Input.Root>
+        </Popover.Trigger>
+        <Popover.Content>
           <Calendar
             className="shadow-lg"
             onDayClick={handleDateSelect}
             modifiers={modifiers}
           />
-        </div>
-      )}
+        </Popover.Content>
+      </Popover.Root>
     </div>
   )
 }

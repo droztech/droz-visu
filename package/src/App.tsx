@@ -26,12 +26,7 @@ function App() {
     'test9',
     'test10',
   ])
-  const {
-    handleSubmit,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm<FormSchemaProps>({
+  const { handleSubmit, watch, reset } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues: { data: '' },
   })
@@ -58,7 +53,7 @@ function App() {
         <DatePicker
           placeholder="Selecione uma data"
           onSelect={(date) => console.log('Data selecionada:', date)}
-          selectionMode={'single'}
+          selectionMode={'multiple'}
           icon={<CalendarIcon />}
         />
 

@@ -6,7 +6,14 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 import { ComponentProps } from 'react'
 import { DayPicker } from 'react-day-picker'
 
+export enum DateSelectionMode {
+  Single = 'single',
+  Range = 'range',
+  Multiple = 'multiple',
+}
+
 export type DateRange = {
+  toLocaleDateString: any
   from: Date | undefined
   to?: Date | undefined
 }
