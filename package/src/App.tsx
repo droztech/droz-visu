@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { DatePicker, Form } from './library'
+import { Form, DatePicker } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Calendar as CalendarIcon, Eraser } from '@phosphor-icons/react'
+import { Eraser, Calendar as CalendarIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -13,18 +13,13 @@ const formSchema = z.object({
 
 type FormSchemaProps = z.infer<typeof formSchema>
 
-function App() {
+const App = () => {
   const [test, setTest] = useState<string[]>([
     'test1',
     'test2',
     'test3',
     'test4',
     'test5',
-    'test6',
-    'test7',
-    'test8',
-    'test9',
-    'test10',
   ])
   const { handleSubmit, watch, reset } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
@@ -41,6 +36,9 @@ function App() {
     setTest([])
   }
 
+  const [selectedDates, setSelectedDates] = useState<Date | Date[] | null>(null)
+
+  console.log(selectedDates)
   return (
     <LayoutDefault
       asChild
@@ -52,9 +50,10 @@ function App() {
 
         <DatePicker
           placeholder="Selecione uma data"
-          onSelect={(date) => console.log('Data selecionada:', date)}
-          selectionMode={'multiple'}
           icon={<CalendarIcon />}
+          selected={selectedDates}
+          onSelect={(date) => setSelectedDates(date)}
+          mode="range"
         />
 
         {/* ================================= TEST AREA ================================= */}
