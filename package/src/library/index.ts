@@ -80,6 +80,9 @@ export type * from './Switch'
 export { default as Tabs } from './Tabs'
 export type * from './Tabs'
 
+export { default as Table } from './Table'
+export type * from './Table'
+
 export { default as TagList } from './TagList'
 export type * from './TagList'
 

@@ -8,7 +8,7 @@ const ChipRoot: FC<ChipProps> = ({ children, className, ...rest }) => {
   return (
     <div
       className={cn(
-        'ellipsis flex max-w-full items-center gap-1 rounded-3xl bg-primary-200 px-4 py-1 text-xs',
+        'ellipsis flex w-fit max-w-full items-center justify-center gap-1 rounded-3xl bg-primary-200 px-4 py-1 text-xs',
         className,
       )}
       {...rest}
