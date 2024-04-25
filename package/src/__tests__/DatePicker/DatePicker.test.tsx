@@ -26,7 +26,7 @@ describe('DatePicker component', () => {
   test('formatDate function formats date range correctly', () => {
     const fromDate = new Date('2024-04-25')
     const toDate = new Date('2024-04-30')
-    const formattedDateRange = `${(formatDate(fromDate), undefined, 'pt-BR')} - ${(formatDate(toDate), undefined, 'pt-BR')}`
+    const formattedDateRange = `${(formatDate(fromDate))} - ${(formatDate(toDate))}`
     expect(formattedDateRange).toBe('25/04/2024 - 30/04/2024')
   })
 })
