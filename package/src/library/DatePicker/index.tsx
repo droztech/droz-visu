@@ -7,7 +7,6 @@ import Popover from '../Popover'
 type DatePickerProps = CalendarProps & {
   placeholder?: string
   icon?: InputIconProps['icon']
-  value?: string
 }
 
 export const formatDate = (
