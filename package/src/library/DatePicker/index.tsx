@@ -8,6 +8,7 @@ type DatePickerProps = CalendarProps & {
   placeholder?: string
   icon?: InputIconProps['icon']
   options?: Intl.DateTimeFormatOptions
+  language?: Intl.LocalesArgument
 }
 
 export const formatDate = (
@@ -25,9 +26,10 @@ const DatePicker = ({
   placeholder,
   icon,
   options,
+  language,
   ...rest
 }: DatePickerProps) => {
-  const formatDates = (dates: Date[], language?: Intl.LocalesArgument) => {
+  const formatDates = (dates: Date[], language) => {
     dates.sort((a, b) => a.getTime() - b.getTime())
     if (dates.length === 1) {
       return formatDate(dates[0], options, language)
