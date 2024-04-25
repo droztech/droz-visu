@@ -26,10 +26,10 @@ const DatePicker = ({
   placeholder,
   icon,
   options,
-  language,
+
   ...rest
 }: DatePickerProps) => {
-  const formatDates = (dates: Date[], language) => {
+  const formatDates = (dates: Date[], language?: Intl.LocalesArgument) => {
     dates.sort((a, b) => a.getTime() - b.getTime())
     if (dates.length === 1) {
       return formatDate(dates[0], options, language)
