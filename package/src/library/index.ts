@@ -59,6 +59,9 @@ export type * from './Switch'
 export { default as Tabs } from './Tabs'
 export type * from './Tabs'
 
+export { default as Drawer } from './Drawer'
+export type * from './Drawer'
+
 export { default as Tooltip } from './Tooltip'
 export type * from './Tooltip'
 

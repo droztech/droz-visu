@@ -1,5 +1,5 @@
 import LayoutDefault from './layout/Default'
-import { Form, Input, TagList } from './library'
+import { Button, DateRange, Drawer, Form } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser } from '@phosphor-icons/react'
@@ -14,18 +14,7 @@ const formSchema = z.object({
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const [test, setTest] = useState<string[]>([
-    'test1',
-    'test2',
-    'test3',
-    'test4',
-    'test5',
-    'test6',
-    'test7',
-    'test8',
-    'test9',
-    'test10',
-  ])
+  const [test, setTest] = useState<DateRange>()
   const {
     handleSubmit,
     watch,
@@ -43,7 +32,7 @@ function App() {
 
   const clearState = () => {
     reset()
-    setTest([])
+    setTest(undefined)
   }
 
   return (
@@ -54,19 +43,30 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <label>
-          focus test
-          <TagList
-            value={test}
-            onRemove={(tagToRemove) =>
-              setTest((old) => old.filter((item) => item !== tagToRemove))
-            }
-          >
-            <Input.Root borderless>
-              <Input.Input />
-            </Input.Root>
-          </TagList>
-        </label>
+        <Drawer.Root>
+          <Drawer.Trigger asChild>
+            <Button>Open</Button>
+          </Drawer.Trigger>
+          <Drawer.Content>
+            <Drawer.Header>
+              <Drawer.Title>Title</Drawer.Title>
+              <Drawer.Description>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
+                deserunt voluptate velit voluptatibus ab doloribus ea assumenda
+                vitae? Assumenda, iste in et inventore laborum quo. Dicta
+                tenetur optio totam vitae!
+              </Drawer.Description>
+            </Drawer.Header>
+            <div className="w-full flex-1 overflow-auto bg-error">
+              <div className="h-[3000px]">Anything</div>
+            </div>
+            <Drawer.Footer>
+              <Drawer.Close asChild>
+                <Button>Save</Button>
+              </Drawer.Close>
+            </Drawer.Footer>
+          </Drawer.Content>
+        </Drawer.Root>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>
