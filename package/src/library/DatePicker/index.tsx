@@ -7,6 +7,7 @@ import Popover from '../Popover'
 type DatePickerProps = CalendarProps & {
   placeholder?: string
   icon?: InputIconProps['icon']
+  options?: Intl.DateTimeFormatOptions
 }
 
 export const formatDate = (
@@ -20,15 +21,20 @@ export const formatDate = (
   return date && new Date(date).toLocaleString(language, opt)
 }
 
-const DatePicker = ({ placeholder, icon, ...rest }: DatePickerProps) => {
+const DatePicker = ({
+  placeholder,
+  icon,
+  options,
+  ...rest
+}: DatePickerProps) => {
   const formatDates = (dates: Date[], language?: Intl.LocalesArgument) => {
     dates.sort((a, b) => a.getTime() - b.getTime())
     if (dates.length === 1) {
-      return formatDate(dates[0], undefined, language)
+      return formatDate(dates[0], options, language)
     }
     if (dates.length > 1) {
-      const startDate = formatDate(dates[0], undefined, language)
-      const endDate = formatDate(dates[dates.length - 1], undefined, language)
+      const startDate = formatDate(dates[0], options, language)
+      const endDate = formatDate(dates[dates.length - 1], options, language)
       return `${startDate} - ${endDate}`
     }
     return ''

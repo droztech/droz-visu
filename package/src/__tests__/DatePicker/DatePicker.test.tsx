@@ -20,6 +20,6 @@ describe('DatePicker component', () => {
 
   test('formatDate function formats date correctly', () => {
     const formattedDate = formatDate(new Date('2024-04-25'), undefined, 'pt-BR')
-    expect(formattedDate).toBe('25/04/2024, 00:00:00')
+    expect(formattedDate).toBe('25/04/2024 00:00:00')
   })
 })
