@@ -56,10 +56,7 @@ const meta: Meta<DatePickerProps> = {
       table: { type: { summary: 'function' } },
     },
   },
-  args: {
-    children: '',
-  },
-} as Meta<DatePickerProps>
+ } as Meta<DatePickerProps>
 
 export default meta
 type DatePickerStory = StoryObj<DatePickerProps>
@@ -82,7 +79,6 @@ export const Comum: DatePickerStory = {
         mode="range"
         icon={<CalendarIcon />}
         placeholder="Selecione uma data"
-        {...args}
       />
     )
   },
