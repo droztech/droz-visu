@@ -10,7 +10,7 @@ export type DatePickerProps = CalendarProps & {
   value?: string
 }
 
-const formatDate = (
+export const formatDate = (
   date?: Date | string,
   options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
