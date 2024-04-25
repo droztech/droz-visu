@@ -56,7 +56,8 @@ const meta: Meta<DatePickerProps> = {
       table: { type: { summary: 'function' } },
     },
   },
- } as Meta<DatePickerProps>
+  args: {},
+} as Meta<DatePickerProps>
 
 export default meta
 type DatePickerStory = StoryObj<DatePickerProps>

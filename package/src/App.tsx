@@ -65,7 +65,9 @@ const App = () => {
         <DatePicker
           placeholder="Selecione uma data"
           icon={<CalendarIcon />}
-          mode="single"
+          mode="multiple"
+          selected={selectedDates}
+          onSelect={handleDateSelect}
         />
 
 
