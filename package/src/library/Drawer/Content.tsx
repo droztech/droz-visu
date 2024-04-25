@@ -21,7 +21,7 @@ const DrawerContent = forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        'bg-white data-[state=open]:animate-in data-[state=closed]:animate-out dark:bg-gray-950 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right fixed inset-y-0 right-0 z-50 flex h-full w-3/4 flex-col gap-4 border-l p-6 shadow-lg transition  ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 sm:max-w-sm',
+        'data-[state=open]:animate-in data-[state=closed]:animate-out dark:bg-gray-950 data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right fixed inset-y-0 right-0 z-50 flex h-full w-3/4 flex-col gap-4 border-l bg-gray-100 p-6 shadow-lg transition  ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 sm:max-w-sm',
         className,
       )}
       {...rest}

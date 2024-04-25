@@ -57,9 +57,10 @@ function App() {
                 tenetur optio totam vitae!
               </Drawer.Description>
             </Drawer.Header>
-            <div className="w-full flex-1 overflow-auto bg-error">
-              <div className="h-[3000px]">Anything</div>
-            </div>
+            <Drawer.Body>
+              {/* <div className="h-[3000px] bg-error">Anything</div> */}
+              <div className="h-[100px] bg-error">Anything</div>
+            </Drawer.Body>
             <Drawer.Footer>
               <Drawer.Close asChild>
                 <Button>Save</Button>

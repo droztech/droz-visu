@@ -1,3 +1,4 @@
+import DrawerBody from './Body'
 import DrawerClose from './Close'
 import DrawerContent from './Content'
 import DrawerDescription from './Description'
@@ -19,6 +20,7 @@ export type * from './Portal'
 export type * from './Root'
 export type * from './Title'
 export type * from './Trigger'
+export type * from './Body'
 
 const Drawer = {
   Close: DrawerClose,
@@ -31,6 +33,7 @@ const Drawer = {
   Root: DrawerRoot,
   Title: DrawerTitle,
   Trigger: DrawerTrigger,
+  Body: DrawerBody,
 }
 
 export default Drawer
