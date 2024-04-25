@@ -1,10 +1,8 @@
 import LayoutDefault from './layout/Default'
-
 import { Form, DatePicker } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Eraser, Calendar as CalendarIcon } from '@phosphor-icons/react'
-
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -61,15 +59,11 @@ const App = () => {
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
 
-
         <DatePicker
           placeholder="Selecione uma data"
           icon={<CalendarIcon />}
           mode="multiple"
-          selected={selectedDates}
-          onSelect={handleDateSelect}
         />
-
 
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
