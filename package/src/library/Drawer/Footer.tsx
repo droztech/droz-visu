@@ -8,10 +8,7 @@ export interface DrawerFooterProps extends HTMLAttributes<HTMLDivElement> {}
 
 const DrawerFooter = ({ className, ...rest }: DrawerFooterProps) => (
   <div
-    className={cn(
-      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
-      className,
-    )}
+    className={cn('flex gap-4 border-t border-gray-300 p-4', className)}
     {...rest}
   />
 )

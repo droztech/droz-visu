@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Button, DateRange, Drawer, Form } from './library'
+import { Button, DateRange, Drawer, Form, Icon } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser } from '@phosphor-icons/react'
+import { Eraser, X } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -50,21 +50,22 @@ function App() {
           <Drawer.Content>
             <Drawer.Header>
               <Drawer.Title>Title</Drawer.Title>
-              <Drawer.Description>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                deserunt voluptate velit voluptatibus ab doloribus ea assumenda
-                vitae? Assumenda, iste in et inventore laborum quo. Dicta
-                tenetur optio totam vitae!
-              </Drawer.Description>
+              <Drawer.Close asChild>
+                <Icon size="sm" className="absolute right-8 top-8">
+                  <X />
+                </Icon>
+              </Drawer.Close>
             </Drawer.Header>
             <Drawer.Body>
-              {/* <div className="h-[3000px] bg-error">Anything</div> */}
-              <div className="h-[100px] bg-error">Anything</div>
+              <div className="h-[2500px] bg-error">Anything</div>
             </Drawer.Body>
             <Drawer.Footer>
               <Drawer.Close asChild>
-                <Button>Save</Button>
+                <Button ghost className="flex-1">
+                  Close
+                </Button>
               </Drawer.Close>
+              <Button className="flex-1">Save</Button>
             </Drawer.Footer>
           </Drawer.Content>
         </Drawer.Root>

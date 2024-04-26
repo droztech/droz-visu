@@ -25,7 +25,7 @@ export const theme = {
     },
     swipeOut: {
       from: {
-        transform: 'translateX(var(--radix-toast-swipe-end-x))',
+        transform: 'translateX(0)',
       },
       to: { transform: 'translateX(calc(100% + 0.5rem))' },
     },

@@ -8,10 +8,7 @@ export interface DrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 const DrawerHeader = ({ className, ...rest }: DrawerHeaderProps) => (
   <div
-    className={cn(
-      'flex flex-col space-y-2 text-center sm:text-left',
-      className,
-    )}
+    className={cn('flex border-b border-gray-300 p-4', className)}
     {...rest}
   />
 )

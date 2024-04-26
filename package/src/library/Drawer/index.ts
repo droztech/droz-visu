@@ -1,7 +1,6 @@
 import DrawerBody from './Body'
 import DrawerClose from './Close'
 import DrawerContent from './Content'
-import DrawerDescription from './Description'
 import DrawerFooter from './Footer'
 import DrawerHeader from './Header'
 import DrawerOverlay from './Overlay'
@@ -12,7 +11,6 @@ import DrawerTrigger from './Trigger'
 
 export type * from './Close'
 export type * from './Content'
-export type * from './Description'
 export type * from './Footer'
 export type * from './Header'
 export type * from './Overlay'
@@ -25,7 +23,6 @@ export type * from './Body'
 const Drawer = {
   Close: DrawerClose,
   Content: DrawerContent,
-  Description: DrawerDescription,
   Footer: DrawerFooter,
   Header: DrawerHeader,
   Overlay: DrawerOverlay,
