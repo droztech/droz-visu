@@ -1,8 +1,9 @@
 import LayoutDefault from './layout/Default'
-import { Button, Form, Table } from './library'
+import { Form, Select } from './library'
+import Combobox from './library/Combobox'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, Pencil } from '@phosphor-icons/react'
+import { Eraser } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -14,18 +15,7 @@ const formSchema = z.object({
 type FormSchemaProps = z.infer<typeof formSchema>
 
 function App() {
-  const [test, setTest] = useState<string[]>([
-    'test1',
-    'test2',
-    'test3',
-    'test4',
-    'test5',
-    'test6',
-    'test7',
-    'test8',
-    'test9',
-    'test10',
-  ])
+  const [test, setTest] = useState<string>()
   const {
     handleSubmit,
     watch,
@@ -43,7 +33,7 @@ function App() {
 
   const clearState = () => {
     reset()
-    setTest([])
+    setTest(undefined)
   }
 
   return (
@@ -54,43 +44,34 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-        <div className="w-full border border-error">
-          <Table.Root fixed hide={[1, 3]}>
-            <Table.Header>
-              <Table.Row>
-                <Table.Head>Name</Table.Head>
-                <Table.Head>Description</Table.Head>
-                <Table.Head className="text-right">Last Update</Table.Head>
-                <Table.Head className="text-right">Actions</Table.Head>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {test.map((item, index) => (
-                <Table.Row
+        <div className="flex gap-4">
+          <Select.Root placeholder="Selecione uma opção" className="w-64">
+            {[1, 2, 3, 4].map((item) => (
+              <Select.Item key={item} value={`t${item}`}>
+                Teste {item}
+              </Select.Item>
+            ))}
+          </Select.Root>
+          <Combobox.Root
+            placeholder="Selecione uma opção"
+            value={test}
+            className="w-64"
+          >
+            <Combobox.Input placeholder="Pesquise uma opção" />
+            <Combobox.List>
+              <Combobox.Empty>Vazio</Combobox.Empty>
+              {[1, 2, 3, 4].map((item) => (
+                <Combobox.Item
                   key={item}
-                  selected={['test5', 'test6'].includes(item)}
+                  value={`t${item}`}
+                  onSelect={(value) => setTest(value)}
+                  selected={test === `t${item}`}
                 >
-                  <Table.Cell>{item}</Table.Cell>
-                  <Table.Cell>
-                    <span>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Quisquam, asperiores quis. Ex laboriosam quasi fugit
-                      obcaecati a quaerat sapiente culpa placeat dicta quisquam
-                      quibusdam deserunt sit, cum adipisci, labore iusto.
-                    </span>
-                  </Table.Cell>
-                  <Table.Cell className="justify-end">
-                    {new Date().toISOString()}
-                  </Table.Cell>
-                  <Table.Cell className="justify-end">
-                    <Button light size="sm">
-                      <Pencil />
-                    </Button>
-                  </Table.Cell>
-                </Table.Row>
+                  Teste {item}
+                </Combobox.Item>
               ))}
-            </Table.Body>
-          </Table.Root>
+            </Combobox.List>
+          </Combobox.Root>
         </div>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>

@@ -10,7 +10,7 @@ const ComboboxList = ({ children, className, ...rest }: ComboboxListProps) => {
   return (
     <CommandList
       className={cn(
-        'z-100 flex flex-col gap-2 bg-gray-100 px-2 shadow',
+        'z-100 flex flex-col gap-2 rounded-lg bg-gray-100 p-4',
         className,
       )}
       {...rest}

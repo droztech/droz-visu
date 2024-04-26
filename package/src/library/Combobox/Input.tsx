@@ -8,10 +8,7 @@ export interface ComboboxInputProps
 
 const ComboboxInput = ({ className, ...rest }: ComboboxInputProps) => (
   <CommandInput
-    className={cn(
-      'flex min-h-10 items-center gap-4 border-b border-gray bg-transparent px-4 py-2 text-sm text-inherit transition-colors hover:border-gray-700 hover:outline-none focus:outline-none active:border-primary active:outline-none disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray',
-      className,
-    )}
+    className={cn('rounded-t-lg border-b px-6 py-2 outline-none', className)}
     {...rest}
   />
 )
