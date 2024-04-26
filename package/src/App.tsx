@@ -63,6 +63,12 @@ const App = () => {
           placeholder="Selecione uma data"
           icon={<CalendarIcon />}
           mode="multiple"
+          options={{
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }}
         />
 
         {/* ================================= TEST AREA ================================= */}

@@ -8,7 +8,6 @@ type DatePickerProps = CalendarProps & {
   placeholder?: string
   icon?: InputIconProps['icon']
   options?: Intl.DateTimeFormatOptions
-  language?: Intl.LocalesArgument
 }
 
 export const formatDate = (
@@ -29,14 +28,14 @@ const DatePicker = ({
 
   ...rest
 }: DatePickerProps) => {
-  const formatDates = (dates: Date[], language?: Intl.LocalesArgument) => {
+  const formatDates = (dates: Date[]) => {
     dates.sort((a, b) => a.getTime() - b.getTime())
     if (dates.length === 1) {
-      return formatDate(dates[0], options, language)
+      return formatDate(dates[0], options)
     }
     if (dates.length > 1) {
-      const startDate = formatDate(dates[0], options, language)
-      const endDate = formatDate(dates[dates.length - 1], options, language)
+      const startDate = formatDate(dates[0], options)
+      const endDate = formatDate(dates[dates.length - 1], options)
       return `${startDate} - ${endDate}`
     }
     return ''
