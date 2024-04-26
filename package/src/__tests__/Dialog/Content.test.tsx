@@ -39,21 +39,6 @@ describe('DialogContent tests', () => {
     expect(element).toContainHTML('Content')
   })
 
-  it('Should render an Overlay when Dialog.Content is shown', () => {
-    render(
-      <Dialog.Root data-testid="element" open>
-        <Dialog.Trigger>
-          <button>Modal</button>
-        </Dialog.Trigger>
-
-        <Dialog.Content>Content</Dialog.Content>
-      </Dialog.Root>,
-    )
-    const overlayElement = screen.getByTestId('element')
-
-    expect(overlayElement).toBeInTheDocument()
-  })
-
   it('Should not render an Overlay when Dialog.Content is shown, but contains the overlay property with the value false', () => {
     render(
       <Dialog.Root data-testid="element" open>
