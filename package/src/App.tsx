@@ -60,6 +60,7 @@ const App = () => {
         {/* ================================= TEST AREA ================================= */}
 
         <DatePicker
+          className="w-1/2"
           placeholder="Selecione uma data"
           icon={<CalendarIcon />}
           mode="multiple"
