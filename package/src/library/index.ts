@@ -29,6 +29,9 @@ export type * from './Dialog'
 export { default as Divider } from './Divider'
 export type * from './Divider'
 
+export { default as Drawer } from './Drawer'
+export type * from './Drawer'
+
 export { default as File } from './File'
 export type * from './File'
 

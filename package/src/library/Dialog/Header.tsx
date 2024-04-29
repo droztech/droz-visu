@@ -37,7 +37,7 @@ const DialogHeader: FC<DialogHeaderProps> = ({
         <span className="text-md font-normal text-gray-900">{title}</span>
       </div>
       {withClose && (
-        <Close asChild data-testid="visu-dialog-header-close">
+        <Close>
           <Icon size="sm">{closeIcon}</Icon>
         </Close>
       )}
