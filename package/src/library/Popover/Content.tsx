@@ -26,7 +26,5 @@ const PopoverContent: FC<PopoverContentProps> = ({
     </RadixPopover.Portal>
   )
 }
-
 PopoverContent.displayName = 'Popover.Content'
-
 export default PopoverContent
