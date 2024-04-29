@@ -57,6 +57,8 @@ function App() {
         {/* ================================= TEST AREA ================================= */}
         <div className="w-full">
           <DatePicker
+            className="w-full"
+            align="center"
             placeholder="Selecione uma data"
             icon={<CalendarIcon />}
             mode="multiple"
