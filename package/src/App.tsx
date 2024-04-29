@@ -14,6 +14,13 @@ const formSchema = z.object({
 
 type FormSchemaProps = z.infer<typeof formSchema>
 
+const list = [
+  { value: 't1', label: 'Teste 1' },
+  { value: 't2', label: 'Teste 2' },
+  { value: 't3', label: 'Teste 3' },
+  { value: 't4', label: 'Teste 4' },
+]
+
 function App() {
   const [test, setTest] = useState<string>()
   const {
@@ -45,29 +52,33 @@ function App() {
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
         <div className="flex gap-4">
-          <Select.Root placeholder="Selecione uma opção" className="w-64">
-            {[1, 2, 3, 4].map((item) => (
-              <Select.Item key={item} value={`t${item}`}>
-                Teste {item}
+          <Select.Root
+            placeholder="Selecione uma opção"
+            className="w-64"
+            value={test}
+            onChange={(ev) => setTest(ev)}
+          >
+            {list.map(({ label, value }) => (
+              <Select.Item key={value} value={value}>
+                {label}
               </Select.Item>
             ))}
           </Select.Root>
           <Combobox.Root
             placeholder="Selecione uma opção"
-            value={test}
+            value={list.find((item) => item.value === test)?.label}
             className="w-64"
           >
             <Combobox.Input placeholder="Pesquise uma opção" />
             <Combobox.List>
               <Combobox.Empty>Vazio</Combobox.Empty>
-              {[1, 2, 3, 4].map((item) => (
+              {list.map(({ label, value }) => (
                 <Combobox.Item
-                  key={item}
-                  value={`t${item}`}
-                  onSelect={(value) => setTest(value)}
-                  selected={test === `t${item}`}
+                  key={value}
+                  onSelect={() => setTest(value)}
+                  selected={test === value}
                 >
-                  Teste {item}
+                  {label}
                 </Combobox.Item>
               ))}
             </Combobox.List>
