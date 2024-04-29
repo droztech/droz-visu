@@ -8,7 +8,6 @@ type DatePickerProps = CalendarProps & {
   placeholder?: string
   icon?: InputIconProps['icon']
   options?: Intl.DateTimeFormatOptions
-  width?: '' | 'w-full'
 }
 
 export const formatDate = (
@@ -26,7 +25,6 @@ const DatePicker = ({
   placeholder,
   icon,
   options,
-  width = '',
   ...rest
 }: DatePickerProps) => {
   const formatDates = (dates: Date[]) => {
@@ -60,7 +58,7 @@ const DatePicker = ({
 
   return (
     <Popover.Root>
-      <Popover.Trigger className={width}>
+      <Popover.Trigger className="w-full">
         <Input.Root className="mb-2">
           <Input.Input
             type="text"
@@ -71,7 +69,7 @@ const DatePicker = ({
           <Input.Icon icon={icon} />
         </Input.Root>
       </Popover.Trigger>
-      <Popover.Content>
+      <Popover.Content autoSize={true}>
         <Calendar {...rest} className="shadow-lg" />
       </Popover.Content>
     </Popover.Root>

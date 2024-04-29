@@ -1,8 +1,8 @@
 import LayoutDefault from './layout/Default'
-import { Button, DateRange, Drawer, Form, Icon } from './library'
+import { Form, DatePicker } from './library'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eraser, X } from '@phosphor-icons/react'
+import { Eraser, Calendar as CalendarIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -13,6 +13,10 @@ const formSchema = z.object({
 
 type FormSchemaProps = z.infer<typeof formSchema>
 
+type DateRange = {
+  from: Date | undefined
+  to?: Date | undefined
+}
 function App() {
   const [test, setTest] = useState<DateRange>()
   const {
@@ -43,8 +47,6 @@ function App() {
     }
   }
 
-  console.log(selectedDates)
-
   return (
     <LayoutDefault
       asChild
@@ -53,21 +55,19 @@ function App() {
     >
       <Form.Root onSubmit={handleSubmit(onSubmit)}>
         {/* ================================= TEST AREA ================================= */}
-
-
-        <DatePicker
-          placeholder="Selecione uma data"
-          icon={<CalendarIcon />}
-          mode="multiple"
-          options={{
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          }}
-        />
-
-
+        <div className="w-full">
+          <DatePicker
+            placeholder="Selecione uma data"
+            icon={<CalendarIcon />}
+            mode="multiple"
+            options={{
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }}
+          />
+        </div>
         {/* ================================= TEST AREA ================================= */}
       </Form.Root>
     </LayoutDefault>
