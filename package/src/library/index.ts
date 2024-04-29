@@ -35,6 +35,9 @@ export type * from './Drawer'
 export { default as File } from './File'
 export type * from './File'
 
+export { default as Combobox } from './Combobox'
+export type * from './Combobox'
+
 export { default as FloatCard } from './FloatCard'
 export type * from './FloatCard'
 
