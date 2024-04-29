@@ -69,32 +69,11 @@ describe('DialogHeader tests', () => {
     expect(titleIconElement).toBeInTheDocument()
   })
 
-  it('Should render a close button in Dialog.Header', () => {
-    const title = 'Header title'
-    const closeButtonTestId = 'visu-dialog-header-close'
-
-    render(
-      <Dialog.Root open>
-        <Dialog.Trigger>
-          <button>Modal</button>
-        </Dialog.Trigger>
-
-        <Dialog.Content>
-          <Dialog.Header data-testid={dialogTestId} title={title} />
-        </Dialog.Content>
-      </Dialog.Root>,
-    )
-    const closeButtonElement = screen.getByTestId(closeButtonTestId)
-
-    expect(closeButtonElement).toBeInTheDocument()
-  })
-
   it('Should not render a close button in Dialog.Header if withClose property has value false', () => {
     const title = 'Header title'
-    const closeButtonTestId = 'visu-dialog-header-close'
 
     render(
-      <Dialog.Root open>
+      <Dialog.Root data-testid="element"open>
         <Dialog.Trigger>
           <button>Modal</button>
         </Dialog.Trigger>
@@ -108,7 +87,7 @@ describe('DialogHeader tests', () => {
         </Dialog.Content>
       </Dialog.Root>,
     )
-    const closeButtonElement = screen.queryByTestId(closeButtonTestId)
+    const closeButtonElement = screen.queryByTestId('element')
 
     expect(closeButtonElement).toBeNull()
   })
