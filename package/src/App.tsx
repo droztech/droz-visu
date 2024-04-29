@@ -43,6 +43,16 @@ function App() {
     setTest(undefined)
   }
 
+  const [selectedDates, setSelectedDates] = useState<Date | Date[]>([])
+
+  const handleDateSelect = (date: Date | Date[]) => {
+    if (date !== undefined) {
+      setSelectedDates(date)
+    }
+  }
+
+  console.log(selectedDates)
+
   return (
     <LayoutDefault
       asChild

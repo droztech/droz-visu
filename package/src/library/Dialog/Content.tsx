@@ -16,10 +16,7 @@ const DialogContent: FC<DialogContentProps> = ({
   return (
     <Dialog.Portal>
       {overlay && (
-        <Dialog.Overlay
-          data-testid="visu-dialog-overlay"
-          className="fixed inset-0 z-40 bg-gray-800 opacity-25"
-        />
+        <Dialog.Overlay className="fixed inset-0 z-40 bg-gray-800 opacity-25" />
       )}
       <Dialog.Content
         className={cn(
