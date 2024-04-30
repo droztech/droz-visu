@@ -74,7 +74,7 @@ const DatePicker = ({
         </Input.Root>
       </Popover.Trigger>
       <Popover.Content align={align}>
-        <Calendar className="shadow-lg" />
+        <Calendar className="shadow-lg" {...rest} />
       </Popover.Content>
     </Popover.Root>
   )
