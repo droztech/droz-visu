@@ -19,6 +19,7 @@ export interface SelectRootProps extends RadixSelect.SelectProps {
   status?: Status
   borderless?: boolean
   onChange?: (value: string) => void
+  scrollable?: boolean
 }
 
 const SelectRoot: FC<SelectRootProps> = ({
@@ -33,6 +34,7 @@ const SelectRoot: FC<SelectRootProps> = ({
   borderless,
   onChange,
   onValueChange,
+  scrollable,
   ...rest
 }) => {
   return (
@@ -72,9 +74,17 @@ const SelectRoot: FC<SelectRootProps> = ({
           <RadixSelect.ScrollUpButton className="flex items-center justify-center p-2">
             <CaretUp />
           </RadixSelect.ScrollUpButton>
-          <RadixSelect.Viewport className="p-4">
-            {children}
-          </RadixSelect.Viewport>
+          {scrollable ? (
+            <div className="max-h-80 overflow-y-auto">
+              <RadixSelect.Viewport className="p-4">
+                {children}
+              </RadixSelect.Viewport>
+            </div>
+          ) : (
+            <RadixSelect.Viewport className="p-4">
+              {children}
+            </RadixSelect.Viewport>
+          )}
           <RadixSelect.ScrollDownButton className="flex items-center justify-center p-2">
             <CaretDown />
           </RadixSelect.ScrollDownButton>
